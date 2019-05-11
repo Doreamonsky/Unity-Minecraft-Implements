@@ -21,6 +21,12 @@ namespace MC.Core
         public int verticeIndex;
     }
 
+    public class ColliderCache
+    {
+        public Vector3 pos;
+
+        public BoxCollider collider;
+    }
     //方块渲染数据储存【实时】
     public class RuntimeRendererData
     {
@@ -78,6 +84,8 @@ namespace MC.Core
         public RuntimeRendererData frontData = new RuntimeRendererData(), backData = new RuntimeRendererData(), topData = new RuntimeRendererData(), bottomData = new RuntimeRendererData(), leftData = new RuntimeRendererData(), rightData = new RuntimeRendererData();
 
         public List<RuntimeRendererData> runtimeRendererDataList = new List<RuntimeRendererData>();
+
+        public List<ColliderCache> colliderCacheList = new List<ColliderCache>();
 
         public void Initialize(GameObject parent)
         {
@@ -232,6 +240,8 @@ namespace MC.Core
 
                         if (blockID != 0)
                         {
+                            var isVisible = false;
+
                             //绘制顶部面片
                             if (heightIndex < max_height - 1)
                             {
@@ -239,6 +249,7 @@ namespace MC.Core
 
                                 if (topBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Top);
                                 }
                             }
@@ -250,6 +261,7 @@ namespace MC.Core
 
                                 if (bottomBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Bottom);
                                 }
                             }
@@ -261,6 +273,7 @@ namespace MC.Core
 
                                 if (rightBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Right);
                                 }
                             }
@@ -272,6 +285,7 @@ namespace MC.Core
 
                                 if (leftBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Left);
                                 }
                             }
@@ -283,6 +297,7 @@ namespace MC.Core
 
                                 if (frontBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Front);
                                 }
                             }
@@ -294,8 +309,24 @@ namespace MC.Core
 
                                 if (backBlockID == 0)
                                 {
+                                    isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Back);
                                 }
+                            }
+
+                            if (isVisible)
+                            {
+                                var blockMap = blockMaps[blockID];
+
+                                var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
+                                collider.center = new Vector3(0.5f, 0.5f, 0.5f);
+                                collider.transform.position = new Vector3(i, heightIndex, j);
+
+                                blockMap.colliderCacheList.Add(new ColliderCache()
+                                {
+                                    pos = new Vector3(i, heightIndex, j),
+                                    collider = collider
+                                });
                             }
                         }
                     }
