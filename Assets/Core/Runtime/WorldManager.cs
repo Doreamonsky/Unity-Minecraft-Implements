@@ -148,82 +148,67 @@ namespace MC.Core
 
     public class WorldManager : MonoBehaviour
     {
+        public static WorldManager Instance;
+
         //id 0 empty
         //id 1 dirt
         public List<BlockMap> blockMaps = new List<BlockMap>();
 
-        //Height Width Length
-        //Origin Point (0,0,0)
-        public int[,,] worldData;
+        public MapData mapData;
 
-        private const int max_width = 64, max_length = 64, max_height = 32;
+        private Transform colliderParent;
+
 
         private void Start()
         {
+            colliderParent = new GameObject("Collision").transform;
+
             foreach (var blockMap in blockMaps)
             {
                 blockMap.Initialize(gameObject);
             }
 
             GenerateWorld();
+
+            Instance = this;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                CreateBlock(14, 9, 9, 1);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                RemoveBlock(2, 5, 8);
-            }
-        }
+        //private void Update()
+        //{
+        //    if (Input.GetKeyDown(KeyCode.A))
+        //    {
+        //        CreateBlock(14, 9, 9, 1);
+        //    }
+        //    if (Input.GetKeyDown(KeyCode.D))
+        //    {
+        //        RemoveBlock(2, 5, 8);
+        //    }
+        //}
         private void GenerateWorld()
         {
-            worldData = new int[max_height, max_width, max_length];
-
-            for (var heightIndex = 0; heightIndex < max_height; heightIndex++)
-            {
-                for (var i = 0; i < max_width; i++)
-                {
-                    for (var j = 0; j < max_length; j++)
-                    {
-                        if (heightIndex == 1)
-                        {
-                            worldData[heightIndex, i, j] = 1;
-                        }
-                        else if (heightIndex == 14 && i == 8 && j == 8)
-                        {
-                            worldData[heightIndex, i, j] = 1;
-                        }
-                        else if (i == 5 && heightIndex == 2)
-                        {
-                            worldData[heightIndex, i, j] = 1;
-                        }
-                        else
-                        {
-                            worldData[heightIndex, i, j] = 0;
-                        }
-
-                    }
-                }
-            }
-
-            RenderBlocks(0, max_height - 1, 0, max_width - 1, 0, max_length - 1);
-
-
+            RenderBlocks(0, mapData.max_height - 1, 0, mapData.max_width - 1, 0, mapData.max_length - 1);
         }
 
-        private void CreateBlock(int height, int x, int y, int type)
+        public void CreateBlock(int height, int x, int y, int type)
         {
-            worldData[height, x, y] = type;
+            mapData.worldData[height, x, y] = type;
             RenderBlocks(height, height, x, x, y, y);
         }
 
-        private void RemoveBlock(int height, int x, int y)
+        public void RemoveBlock(int height, int x, int y)
         {
-            worldData[height, x, y] = 0;
+            //删除碰撞
+            var blockID = mapData.worldData[height, x, y];
+            var colliderCache = blockMaps[blockID].colliderCacheList.Find(val => val.pos == new Vector3(x, height, y));
+
+            if (colliderCache != null)
+            {
+                Destroy(colliderCache.collider.gameObject);
+                blockMaps[blockID].colliderCacheList.Remove(colliderCache);
+            }
+
+            mapData.worldData[height, x, y] = 0;
+
             RemoveRenderBlock(height, x, y);
         }
 
@@ -236,16 +221,16 @@ namespace MC.Core
                 {
                     for (var j = startLength; j <= endLength; j++)
                     {
-                        var blockID = worldData[heightIndex, i, j];
+                        var blockID = mapData.worldData[heightIndex, i, j];
 
                         if (blockID != 0)
                         {
                             var isVisible = false;
 
                             //绘制顶部面片
-                            if (heightIndex < max_height - 1)
+                            if (heightIndex < mapData.max_height - 1)
                             {
-                                var topBlockID = worldData[heightIndex + 1, i, j];
+                                var topBlockID = mapData.worldData[heightIndex + 1, i, j];
 
                                 if (topBlockID == 0)
                                 {
@@ -257,7 +242,7 @@ namespace MC.Core
                             //渲染底部面片
                             if (heightIndex >= 1)
                             {
-                                var bottomBlockID = worldData[heightIndex - 1, i, j];
+                                var bottomBlockID = mapData.worldData[heightIndex - 1, i, j];
 
                                 if (bottomBlockID == 0)
                                 {
@@ -267,9 +252,9 @@ namespace MC.Core
                             }
 
                             //渲染右侧面片
-                            if (i < max_width - 1)
+                            if (i < mapData.max_width - 1)
                             {
-                                var rightBlockID = worldData[heightIndex, i + 1, j];
+                                var rightBlockID = mapData.worldData[heightIndex, i + 1, j];
 
                                 if (rightBlockID == 0)
                                 {
@@ -281,7 +266,7 @@ namespace MC.Core
                             //渲染左侧面片
                             if (i > 0)
                             {
-                                var leftBlockID = worldData[heightIndex, i - 1, j];
+                                var leftBlockID = mapData.worldData[heightIndex, i - 1, j];
 
                                 if (leftBlockID == 0)
                                 {
@@ -291,9 +276,9 @@ namespace MC.Core
                             }
 
                             //渲染前侧面片
-                            if (j < max_length - 1)
+                            if (j < mapData.max_length - 1)
                             {
-                                var frontBlockID = worldData[heightIndex, i, j + 1];
+                                var frontBlockID = mapData.worldData[heightIndex, i, j + 1];
 
                                 if (frontBlockID == 0)
                                 {
@@ -305,7 +290,7 @@ namespace MC.Core
                             //渲染后侧面片
                             if (j > 0)
                             {
-                                var backBlockID = worldData[heightIndex, i, j - 1];
+                                var backBlockID = mapData.worldData[heightIndex, i, j - 1];
 
                                 if (backBlockID == 0)
                                 {
@@ -314,26 +299,33 @@ namespace MC.Core
                                 }
                             }
 
+                            //生成碰撞
                             if (isVisible)
                             {
                                 var blockMap = blockMaps[blockID];
 
-                                var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
-                                collider.center = new Vector3(0.5f, 0.5f, 0.5f);
-                                collider.transform.position = new Vector3(i, heightIndex, j);
-
-                                blockMap.colliderCacheList.Add(new ColliderCache()
+                                if (blockMap.colliderCacheList.Find(val => val.pos == new Vector3(i, heightIndex, j)) == null)
                                 {
-                                    pos = new Vector3(i, heightIndex, j),
-                                    collider = collider
-                                });
+                                    var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
+
+                                    collider.gameObject.layer = LayerMask.NameToLayer("Block");
+                                    collider.center = new Vector3(0.5f, 0.5f, 0.5f);
+                                    collider.transform.position = new Vector3(i, heightIndex, j);
+                                    collider.transform.SetParent(colliderParent);
+
+                                    blockMap.colliderCacheList.Add(new ColliderCache()
+                                    {
+                                        pos = new Vector3(i, heightIndex, j),
+                                        collider = collider
+                                    });
+                                }
                             }
                         }
                     }
                 }
             }
 
-            //执行碰撞 & 面片修改
+            //面片渲染修改
             foreach (var blockMap in blockMaps)
             {
                 blockMap.Apply();
@@ -371,7 +363,7 @@ namespace MC.Core
 
         private void DrawQuad(int height, int x, int y, QuadStatus quadStatus)
         {
-            var blockID = worldData[height, x, y];
+            var blockID = mapData.worldData[height, x, y];
             var blockMap = blockMaps[blockID];
 
             var pivot = new Vector3(x, height, y);
