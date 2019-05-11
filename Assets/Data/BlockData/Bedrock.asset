@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bfa52b63a061a42b26ba3233d44b1a, type: 3}
+  m_Script: {fileID: 11500000, guid: a3932e18237c36e488e913c9a9efad7e, type: 3}
   m_Name: Bedrock
   m_EditorClassIdentifier: 
   topTex: {fileID: 2100000, guid: 034323e39cf6af74dbc9985c105069de, type: 2}

@@ -17,6 +17,10 @@ namespace MC.Core
 
         public float gravity = -5f;
 
+        public int blockID = 2;
+
+        public bool isCreatorMode = false;
+
         private Vector3 moveDirection;
 
         private CharacterController m_CharacterContoller;
@@ -32,11 +36,14 @@ namespace MC.Core
 
             OnControllerInput += data =>
             {
-                if (m_CharacterContoller.isGrounded)
+                if (m_CharacterContoller.isGrounded || isCreatorMode)
                 {
                     var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
 
-                    delta = Vector3.ProjectOnPlane(delta, Vector3.up);
+                    if (!isCreatorMode)
+                    {
+                        delta = Vector3.ProjectOnPlane(delta, Vector3.up);
+                    }
 
                     m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
                 }
@@ -68,7 +75,10 @@ namespace MC.Core
                 RemoveBlock();
             }
 
-            m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
+            if (!isCreatorMode)
+            {
+                m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
+            }
         }
 
         private void Jump()
@@ -83,7 +93,7 @@ namespace MC.Core
         {
             var cameraTrans = m_CameraController.m_Camera.transform;
 
-            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 100, 1 <<LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 5, 1 << LayerMask.NameToLayer("Block"));
 
             if (isHit)
             {
@@ -91,7 +101,7 @@ namespace MC.Core
 
                 chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
 
-                WorldManager.Instance.CreateBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z, 2);
+                WorldManager.Instance.CreateBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z, blockID);
             }
         }
 
@@ -99,7 +109,7 @@ namespace MC.Core
         {
             var cameraTrans = m_CameraController.m_Camera.transform;
 
-            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 100);
+            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 5, 1 << LayerMask.NameToLayer("Block"));
 
             if (isHit)
             {
@@ -107,7 +117,7 @@ namespace MC.Core
 
                 chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
 
-                WorldManager.Instance.RemoveBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
             }
         }
     }

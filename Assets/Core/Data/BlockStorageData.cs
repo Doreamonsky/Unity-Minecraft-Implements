@@ -10,7 +10,6 @@ namespace MC.Core
         public BlockData blockData;
     }
 
-    [CreateAssetMenu(fileName = "BlockStorageData", menuName = "BlockStorageData")]
     public class BlockStorageData : ScriptableObject
     {
         public List<BlockStorageMapping> BlockMapping = new List<BlockStorageMapping>();

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8eeea02d8d6c014a845e5a2f811085d, type: 3}
+  m_Name: Tree
+  m_EditorClassIdentifier: 
+  topTex: {fileID: 2100000, guid: a8c5cf4ca126ee74c8990b460b7d7891, type: 2}
+  bottomTex: {fileID: 2100000, guid: a8c5cf4ca126ee74c8990b460b7d7891, type: 2}
+  rightTex: {fileID: 2100000, guid: 0e3d523588521cd438c6babaf6c55dbb, type: 2}
+  leftTex: {fileID: 2100000, guid: 0e3d523588521cd438c6babaf6c55dbb, type: 2}
+  frontTex: {fileID: 2100000, guid: 0e3d523588521cd438c6babaf6c55dbb, type: 2}
+  backTex: {fileID: 2100000, guid: 0e3d523588521cd438c6babaf6c55dbb, type: 2}

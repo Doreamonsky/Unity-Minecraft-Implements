@@ -198,6 +198,13 @@ namespace MC.Core
             RenderBlocks(height, height, x, x, y, y);
         }
 
+        public void InteractBlock(int height, int x, int y)
+        {
+            var blockID = runtimeWorldData[height, x, y];
+
+            blockMaps[blockID].blockData.Interact(height, x, y);
+        }
+
         public void RemoveBlock(int height, int x, int y)
         {
             //删除碰撞
