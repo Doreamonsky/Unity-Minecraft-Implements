@@ -7,10 +7,49 @@ namespace MC.Core
     {
         //id 0 empty
         //id 1 dirt
-        public struct BlockMap
+        [System.Serializable]
+        public class BlockMap
         {
-            public int id;
             public BlockData blockData;
+
+            [System.NonSerialized]
+            public List<Vector3> vertices = new List<Vector3>();
+
+            [System.NonSerialized]
+            public List<int> triangles = new List<int>(); //三角面要顺时针连线为法线方向
+
+            [System.NonSerialized]
+            public List<Vector2> uvs = new List<Vector2>();
+
+            private Mesh mesh;
+
+            private MeshRenderer m_MeshRenderer;
+            private MeshFilter m_MeshFilter;
+
+            public void Initialize(GameObject parent)
+            {
+                mesh = new Mesh();
+
+                var gameObject = new GameObject("_Temp");
+                gameObject.transform.SetParent(parent.transform);
+
+                m_MeshRenderer = gameObject.AddComponent<MeshRenderer>();
+                m_MeshFilter = gameObject.AddComponent<MeshFilter>();
+
+                m_MeshFilter.mesh = mesh;
+            }
+
+            public void Apply()
+            {
+                mesh.Clear();
+
+                mesh.vertices = vertices.ToArray();
+                mesh.triangles = triangles.ToArray();
+
+                mesh.uv = uvs.ToArray();
+
+                mesh.RecalculateNormals();
+            }
         }
 
         public List<BlockMap> blockMaps = new List<BlockMap>();
@@ -19,7 +58,11 @@ namespace MC.Core
         //Origin Point (0,0,0)
         public int[,,] worldData;
 
-        private const int width = 256, length = 256, height = 16;
+        private const int width = 32, length = 32, height = 16;
+
+
+
+        //private Mesh mesh;
 
         private enum QuadStatus
         {
@@ -33,7 +76,12 @@ namespace MC.Core
 
         private void Start()
         {
+            foreach (var blockMap in blockMaps)
+            {
+                blockMap.Initialize(gameObject);
+            }
 
+            GenerateWorld();
         }
 
         private void GenerateWorld()
@@ -46,20 +94,32 @@ namespace MC.Core
                 {
                     for (var j = 0; j < length; j++)
                     {
-                        if (heightIndex == 0)
+                        if (heightIndex == 1)
                         {
-                            worldData[heightIndex, width, length] = 1;
+                            worldData[heightIndex, i, j] = 1;
+                        }
+                        else if (heightIndex == 4 && i == 8 && j == 8)
+                        {
+                            worldData[heightIndex, i, j] = 1;
+                        }
+                        else if (i == 5 && heightIndex == 2)
+                        {
+                            worldData[heightIndex, i, j] = 1;
                         }
                         else
                         {
-                            worldData[heightIndex, width, length] = 0;
+                            worldData[heightIndex, i, j] = 0;
                         }
+
                     }
                 }
             }
+
+            RenderBlocks(0, height, 0, width, 0, length);
         }
 
-        private void RenderMesh(int startHeight, int endHeight, int startWidth, int endWidth, int startLength, int endLength)
+        //渲染规定区域内的Block
+        private void RenderBlocks(int startHeight, int endHeight, int startWidth, int endWidth, int startLength, int endLength)
         {
             for (var heightIndex = startHeight; heightIndex < endHeight; heightIndex++)
             {
@@ -81,18 +141,171 @@ namespace MC.Core
 
                             if (topBlockID == 0)
                             {
-                                DrawQuad()
+                                DrawQuad(heightIndex, i, j, QuadStatus.Top);
                             }
                         }
 
+                        //渲染底部面片
+                        if (heightIndex >= 1)
+                        {
+                            var bottomBlockID = worldData[heightIndex - 1, i, j];
+
+                            if (bottomBlockID == 0)
+                            {
+                                DrawQuad(heightIndex, i, j, QuadStatus.Bottom);
+                            }
+                        }
+
+                        //渲染右侧面片
+                        if (i < width - 1)
+                        {
+                            var rightBlockID = worldData[heightIndex, i + 1, j];
+
+                            if (rightBlockID == 0)
+                            {
+                                DrawQuad(heightIndex, i, j, QuadStatus.Right);
+                            }
+                        }
+
+                        //渲染左侧面片
+                        if (i > 0)
+                        {
+                            var leftBlockID = worldData[heightIndex, i - 1, j];
+
+                            if (leftBlockID == 0)
+                            {
+                                DrawQuad(heightIndex, i, j, QuadStatus.Left);
+                            }
+                        }
+
+                        //渲染前侧面片
+                        if (j < length - 1)
+                        {
+                            var frontBlockID = worldData[heightIndex, i, j + 1];
+
+                            if (frontBlockID == 0)
+                            {
+                                DrawQuad(heightIndex, i, j, QuadStatus.Front);
+                            }
+                        }
+
+                        //渲染后侧面片
+                        if (j > 0)
+                        {
+                            var backBlockID = worldData[heightIndex, j, j - 1];
+
+                            if (backBlockID == 0)
+                            {
+                                DrawQuad(heightIndex, i, j, QuadStatus.Back);
+                            }
+                        }
                     }
                 }
             }
+
+            foreach (var blockMap in blockMaps)
+            {
+                blockMap.Apply();
+            }
         }
 
-        private void DrawQuad(int x, int y,int z, QuadStatus quadStatus)
+        private void DrawQuad(int height, int x, int y, QuadStatus quadStatus)
         {
+            var blockID = worldData[height, x, y];
+            var blockMap = blockMaps[blockID];
 
+            var pivot = new Vector3(x, height, y);
+
+            var startIndex = blockMap.vertices.Count;
+
+            switch (quadStatus)
+            {
+                case QuadStatus.Top:
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 0));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 3);
+
+                    break;
+                case QuadStatus.Bottom:
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 0));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 3);
+                    break;
+
+                case QuadStatus.Right:
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 1));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 3);
+                    break;
+                case QuadStatus.Left:
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 1));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 3);
+                    break;
+                case QuadStatus.Front:
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 0));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 0));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 3);
+                    break;
+                case QuadStatus.Back:
+                    blockMap.vertices.Add(pivot + new Vector3(0, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 1, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(0, 0, 1));
+                    blockMap.vertices.Add(pivot + new Vector3(1, 0, 1));
+
+                    blockMap.triangles.Add(startIndex);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 1);
+                    blockMap.triangles.Add(startIndex + 2);
+                    blockMap.triangles.Add(startIndex + 3);
+                    break;
+            }
+
+            blockMap.uvs.Add(new Vector2(0, 1));
+            blockMap.uvs.Add(new Vector2(1, 1));
+            blockMap.uvs.Add(new Vector2(0, 0));
+            blockMap.uvs.Add(new Vector2(1, 0));
         }
     }
 
