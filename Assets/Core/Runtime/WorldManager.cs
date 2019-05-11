@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MC.Core
 {
+    //三角面的位置
     public enum QuadStatus
     {
         Front = 0,
@@ -12,59 +13,71 @@ namespace MC.Core
         Right = 4,
         Left = 5
     }
+    //用于移除渲染的面片
+    public class RendererCache
+    {
+        public Vector3 pos;
+
+        public int verticeIndex;
+    }
+
+    //方块渲染数据储存【实时】
+    public class RuntimeRendererData
+    {
+        public List<Vector3> vertices = new List<Vector3>();
+
+        public List<int> triangles = new List<int>(); //三角面要顺时针连线为法线方向
+
+        public List<Vector2> uvs = new List<Vector2>();
+
+        public List<RendererCache> rendererCaches = new List<RendererCache>();
+        private Mesh mesh;
+
+        private MeshRenderer m_MeshRenderer;
+        private MeshFilter m_MeshFilter;
+
+        public void Initialize(GameObject parent, Material material)
+        {
+            mesh = new Mesh();
+
+            var gameObject = new GameObject($"{material.name}_Temp");
+            gameObject.transform.SetParent(parent.transform);
+
+            m_MeshRenderer = gameObject.AddComponent<MeshRenderer>();
+            m_MeshFilter = gameObject.AddComponent<MeshFilter>();
+
+            m_MeshFilter.mesh = mesh;
+            m_MeshRenderer.material = material;
+        }
+
+        public void ApplyChanges()
+        {
+            if (mesh == null)
+            {
+                return;
+            }
+
+            mesh.Clear();
+
+            mesh.vertices = vertices.ToArray();
+            mesh.triangles = triangles.ToArray();
+
+            mesh.uv = uvs.ToArray();
+
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+        }
+
+    }
 
     [System.Serializable]
     public class BlockMap
     {
-        public class RuntimeRendererData
-        {
-            public List<Vector3> vertices = new List<Vector3>();
-
-            public List<int> triangles = new List<int>(); //三角面要顺时针连线为法线方向
-
-            public List<Vector2> uvs = new List<Vector2>();
-
-            private Mesh mesh;
-
-            private MeshRenderer m_MeshRenderer;
-            private MeshFilter m_MeshFilter;
-
-            public void Initialize(GameObject parent, Material material)
-            {
-                mesh = new Mesh();
-
-                var gameObject = new GameObject("_Temp");
-                gameObject.transform.SetParent(parent.transform);
-
-                m_MeshRenderer = gameObject.AddComponent<MeshRenderer>();
-                m_MeshFilter = gameObject.AddComponent<MeshFilter>();
-
-                m_MeshFilter.mesh = mesh;
-                m_MeshRenderer.material = material;
-            }
-
-            public void Apply()
-            {
-                if (mesh == null)
-                {
-                    return;
-                }
-
-                mesh.Clear();
-
-                mesh.vertices = vertices.ToArray();
-                mesh.triangles = triangles.ToArray();
-
-                mesh.uv = uvs.ToArray();
-
-                mesh.RecalculateNormals();
-            }
-
-        }
-
         public BlockData blockData;
 
         public RuntimeRendererData frontData = new RuntimeRendererData(), backData = new RuntimeRendererData(), topData = new RuntimeRendererData(), bottomData = new RuntimeRendererData(), leftData = new RuntimeRendererData(), rightData = new RuntimeRendererData();
+
+        public List<RuntimeRendererData> runtimeRendererDataList = new List<RuntimeRendererData>();
 
         public void Initialize(GameObject parent)
         {
@@ -81,18 +94,25 @@ namespace MC.Core
 
             leftData.Initialize(parent, blockData.leftTex);
             rightData.Initialize(parent, blockData.rightTex);
+
+            runtimeRendererDataList = new List<RuntimeRendererData>()
+            {
+                frontData,
+                backData,
+                topData,
+                bottomData,
+                leftData,
+                rightData
+            };
+
         }
 
         public void Apply()
         {
-            frontData.Apply();
-            backData.Apply();
-
-            topData.Apply();
-            bottomData.Apply();
-
-            leftData.Apply();
-            rightData.Apply();
+            foreach (var runtimeData in runtimeRendererDataList)
+            {
+                runtimeData.ApplyChanges();
+            }
         }
 
         public RuntimeRendererData GetRunTimeRendererData(QuadStatus quadStatus)
@@ -112,6 +132,7 @@ namespace MC.Core
                 case QuadStatus.Left:
                     return leftData;
                 default:
+                    Debug.LogError("Runtime-Error Excepiton Type");
                     return null;
             }
         }
@@ -127,7 +148,7 @@ namespace MC.Core
         //Origin Point (0,0,0)
         public int[,,] worldData;
 
-        private const int width = 32, length = 32, height = 16;
+        private const int max_width = 64, max_length = 64, max_height = 32;
 
         private void Start()
         {
@@ -139,21 +160,32 @@ namespace MC.Core
             GenerateWorld();
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                CreateBlock(14, 9, 9, 1);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                RemoveBlock(2, 5, 8);
+            }
+        }
         private void GenerateWorld()
         {
-            worldData = new int[height, width, length];
+            worldData = new int[max_height, max_width, max_length];
 
-            for (var heightIndex = 0; heightIndex < height; heightIndex++)
+            for (var heightIndex = 0; heightIndex < max_height; heightIndex++)
             {
-                for (var i = 0; i < width; i++)
+                for (var i = 0; i < max_width; i++)
                 {
-                    for (var j = 0; j < length; j++)
+                    for (var j = 0; j < max_length; j++)
                     {
                         if (heightIndex == 1)
                         {
                             worldData[heightIndex, i, j] = 1;
                         }
-                        else if (heightIndex == 4 && i == 8 && j == 8)
+                        else if (heightIndex == 14 && i == 8 && j == 8)
                         {
                             worldData[heightIndex, i, j] = 1;
                         }
@@ -170,98 +202,140 @@ namespace MC.Core
                 }
             }
 
-            RenderBlocks(0, height, 0, width, 0, length);
+            RenderBlocks(0, max_height - 1, 0, max_width - 1, 0, max_length - 1);
+
+
+        }
+
+        private void CreateBlock(int height, int x, int y, int type)
+        {
+            worldData[height, x, y] = type;
+            RenderBlocks(height, height, x, x, y, y);
+        }
+
+        private void RemoveBlock(int height, int x, int y)
+        {
+            worldData[height, x, y] = 0;
+            RemoveRenderBlock(height, x, y);
         }
 
         //渲染规定区域内的Block
         private void RenderBlocks(int startHeight, int endHeight, int startWidth, int endWidth, int startLength, int endLength)
         {
-            for (var heightIndex = startHeight; heightIndex < endHeight; heightIndex++)
+            for (var heightIndex = startHeight; heightIndex <= endHeight; heightIndex++)
             {
-                for (var i = startWidth; i < endWidth; i++)
+                for (var i = startWidth; i <= endWidth; i++)
                 {
-                    for (var j = startLength; j < endLength; j++)
+                    for (var j = startLength; j <= endLength; j++)
                     {
                         var blockID = worldData[heightIndex, i, j];
 
-                        if (blockID == 0)
+                        if (blockID != 0)
                         {
-                            continue;
-                        }
-
-                        //绘制顶部面片
-                        if (heightIndex < height - 1)
-                        {
-                            var topBlockID = worldData[heightIndex + 1, i, j];
-
-                            if (topBlockID == 0)
+                            //绘制顶部面片
+                            if (heightIndex < max_height - 1)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Top);
+                                var topBlockID = worldData[heightIndex + 1, i, j];
+
+                                if (topBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Top);
+                                }
                             }
-                        }
 
-                        //渲染底部面片
-                        if (heightIndex >= 1)
-                        {
-                            var bottomBlockID = worldData[heightIndex - 1, i, j];
-
-                            if (bottomBlockID == 0)
+                            //渲染底部面片
+                            if (heightIndex >= 1)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Bottom);
+                                var bottomBlockID = worldData[heightIndex - 1, i, j];
+
+                                if (bottomBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Bottom);
+                                }
                             }
-                        }
 
-                        //渲染右侧面片
-                        if (i < width - 1)
-                        {
-                            var rightBlockID = worldData[heightIndex, i + 1, j];
-
-                            if (rightBlockID == 0)
+                            //渲染右侧面片
+                            if (i < max_width - 1)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Right);
+                                var rightBlockID = worldData[heightIndex, i + 1, j];
+
+                                if (rightBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Right);
+                                }
                             }
-                        }
 
-                        //渲染左侧面片
-                        if (i > 0)
-                        {
-                            var leftBlockID = worldData[heightIndex, i - 1, j];
-
-                            if (leftBlockID == 0)
+                            //渲染左侧面片
+                            if (i > 0)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Left);
+                                var leftBlockID = worldData[heightIndex, i - 1, j];
+
+                                if (leftBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Left);
+                                }
                             }
-                        }
 
-                        //渲染前侧面片
-                        if (j < length - 1)
-                        {
-                            var frontBlockID = worldData[heightIndex, i, j + 1];
-
-                            if (frontBlockID == 0)
+                            //渲染前侧面片
+                            if (j < max_length - 1)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Front);
+                                var frontBlockID = worldData[heightIndex, i, j + 1];
+
+                                if (frontBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Front);
+                                }
                             }
-                        }
 
-                        //渲染后侧面片
-                        if (j > 0)
-                        {
-                            var backBlockID = worldData[heightIndex, i, j - 1];
-
-                            if (backBlockID == 0)
+                            //渲染后侧面片
+                            if (j > 0)
                             {
-                                DrawQuad(heightIndex, i, j, QuadStatus.Back);
+                                var backBlockID = worldData[heightIndex, i, j - 1];
+
+                                if (backBlockID == 0)
+                                {
+                                    DrawQuad(heightIndex, i, j, QuadStatus.Back);
+                                }
                             }
                         }
                     }
                 }
             }
 
+            //执行碰撞 & 面片修改
             foreach (var blockMap in blockMaps)
             {
                 blockMap.Apply();
             }
+        }
+
+
+        //清除渲染规定区域内的Block 
+        private void RemoveRenderBlock(int height, int x, int y)
+        {
+            foreach (var blockMap in blockMaps)
+            {
+                foreach (var runtimeData in blockMap.runtimeRendererDataList)
+                {
+                    var caches = runtimeData.rendererCaches.FindAll(val => val.pos == new Vector3(x, height, y));
+
+                    //不删除runtimeData的数据是防止Index变化
+                    for (int i = caches.Count - 1; i >= 0; i--)
+                    {
+                        RendererCache cache = caches[i];
+
+                        for (var j = cache.verticeIndex; j < cache.verticeIndex + 4; j++)
+                        {
+                            runtimeData.vertices[j] = Vector3.zero;
+                        }
+
+                        runtimeData.rendererCaches.Remove(cache);
+                    }
+                }
+
+            }
+
+            RenderBlocks(height - 1, height + 1, x - 1, x + 1, y - 1, y + 1);
         }
 
         private void DrawQuad(int height, int x, int y, QuadStatus quadStatus)
@@ -273,7 +347,13 @@ namespace MC.Core
 
             var runtimeData = blockMap.GetRunTimeRendererData(quadStatus);
 
-            var startIndex = runtimeData.vertices.Count;
+            var verIndex = runtimeData.vertices.Count;
+
+            runtimeData.rendererCaches.Add(new RendererCache()
+            {
+                pos = new Vector3(x, height, y),
+                verticeIndex = verIndex
+            });
 
             switch (quadStatus)
             {
@@ -283,12 +363,12 @@ namespace MC.Core
                     runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0));
                     runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0));
 
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 3);
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 3);
 
                     break;
                 case QuadStatus.Bottom:
@@ -297,12 +377,12 @@ namespace MC.Core
                     runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0));
                     runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0));
 
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 3);
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 3);
                     break;
 
                 case QuadStatus.Right:
@@ -311,12 +391,12 @@ namespace MC.Core
                     runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0));
                     runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1));
 
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 3);
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 3);
                     break;
                 case QuadStatus.Left:
                     runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0));
@@ -324,38 +404,39 @@ namespace MC.Core
                     runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0));
                     runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1));
 
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 3);
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 3);
                     break;
                 case QuadStatus.Front:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0));
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0));
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0));
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0));
-
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 3);
-                    break;
-                case QuadStatus.Back:
                     runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1));
                     runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1));
                     runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1));
                     runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1));
 
-                    runtimeData.triangles.Add(startIndex);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 1);
-                    runtimeData.triangles.Add(startIndex + 2);
-                    runtimeData.triangles.Add(startIndex + 3);
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 3);
+                    break;
+                case QuadStatus.Back:
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0));
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0));
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0));
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0));
+
+                    runtimeData.triangles.Add(verIndex);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 2);
+                    runtimeData.triangles.Add(verIndex + 1);
+                    runtimeData.triangles.Add(verIndex + 3);
+
                     break;
             }
 
