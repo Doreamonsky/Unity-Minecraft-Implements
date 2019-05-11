@@ -9,7 +9,7 @@ namespace MC.Core
         public string mapName = "Default";
         //Height Width Length
         //Origin Point (0,0,0)
-        public int max_width = 64, max_length = 64, max_height = 16;
+        public int max_width = 64, max_length = 64, max_height = 32;
 
         public string worldDataSeralized;
 

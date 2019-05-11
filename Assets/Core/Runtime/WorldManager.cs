@@ -150,11 +150,11 @@ namespace MC.Core
     {
         public static WorldManager Instance;
 
-        //id 0 empty
-        //id 1 dirt
-        public List<BlockMap> blockMaps = new List<BlockMap>();
-
         public MapData mapData;
+
+        public BlockStorageData blockStorageData;
+
+        private List<BlockMap> blockMaps = new List<BlockMap>();
 
         private Transform colliderParent;
 
@@ -166,6 +166,16 @@ namespace MC.Core
             colliderParent = new GameObject("Collision").transform;
 
             runtimeWorldData = mapData.WorldData;
+
+            for (int i = 0; i < blockStorageData.BlockMapping.Count; i++)
+            {
+                BlockStorageMapping mapping = blockStorageData.BlockMapping[i];
+
+                blockMaps.Add(new BlockMap()
+                {
+                    blockData = mapping.blockData
+                });
+            }
 
             foreach (var blockMap in blockMaps)
             {

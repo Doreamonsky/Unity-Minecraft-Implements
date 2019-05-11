@@ -29,23 +29,22 @@ namespace MC.CoreEditor
                     {
                         for (var j = 0; j < mapData.max_length; j++)
                         {
-                            if (heightIndex == 1)
+                            var blockID = 0;
+
+                            if (heightIndex == 0)
                             {
-                                data[heightIndex, i, j] = 1;
+                                blockID = 3;
                             }
-                            else if (heightIndex == 14 && i == 8 && j == 8)
+                            else if (heightIndex < 15)
                             {
-                                data[heightIndex, i, j] = 1;
+                                blockID = 1;
                             }
-                            else if (i == 5 && heightIndex == 2)
+                            else if (heightIndex < 16)
                             {
-                                data[heightIndex, i, j] = 1;
-                            }
-                            else
-                            {
-                                data[heightIndex, i, j] = 0;
+                                blockID = 2;
                             }
 
+                            data[heightIndex, i, j] = blockID;
                         }
                     }
                 }
