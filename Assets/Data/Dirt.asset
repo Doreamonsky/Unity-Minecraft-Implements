@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bfa52b63a061a42b26ba3233d44b1a, type: 3}
   m_Name: Dirt
   m_EditorClassIdentifier: 
-  topTex: {fileID: 0}
-  bottomTex: {fileID: 0}
-  rightTex: {fileID: 0}
-  leftTex: {fileID: 0}
-  frontTex: {fileID: 0}
-  backTex: {fileID: 0}
+  topTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
+  bottomTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
+  rightTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
+  leftTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
+  frontTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
+  backTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
