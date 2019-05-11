@@ -145,6 +145,7 @@ MonoBehaviour:
   blockMaps:
   - blockData: {fileID: 0}
   - blockData: {fileID: 11400000, guid: fdc625a3476748b469cb696ed8f35c37, type: 2}
+  mapData: {fileID: 11400000, guid: 3cd5b23ed0ec7e143be57d2a8946bf21, type: 2}
 --- !u!4 &138302376
 Transform:
   m_ObjectHideFlags: 0

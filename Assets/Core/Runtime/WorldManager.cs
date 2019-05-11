@@ -158,10 +158,14 @@ namespace MC.Core
 
         private Transform colliderParent;
 
+        //缓存在内存中，用于快速读取
+        private int[,,] runtimeWorldData;
 
         private void Start()
         {
             colliderParent = new GameObject("Collision").transform;
+
+            runtimeWorldData = mapData.WorldData;
 
             foreach (var blockMap in blockMaps)
             {
@@ -173,17 +177,6 @@ namespace MC.Core
             Instance = this;
         }
 
-        //private void Update()
-        //{
-        //    if (Input.GetKeyDown(KeyCode.A))
-        //    {
-        //        CreateBlock(14, 9, 9, 1);
-        //    }
-        //    if (Input.GetKeyDown(KeyCode.D))
-        //    {
-        //        RemoveBlock(2, 5, 8);
-        //    }
-        //}
         private void GenerateWorld()
         {
             RenderBlocks(0, mapData.max_height - 1, 0, mapData.max_width - 1, 0, mapData.max_length - 1);
@@ -191,14 +184,14 @@ namespace MC.Core
 
         public void CreateBlock(int height, int x, int y, int type)
         {
-            mapData.worldData[height, x, y] = type;
+            runtimeWorldData[height, x, y] = type;
             RenderBlocks(height, height, x, x, y, y);
         }
 
         public void RemoveBlock(int height, int x, int y)
         {
             //删除碰撞
-            var blockID = mapData.worldData[height, x, y];
+            var blockID = runtimeWorldData[height, x, y];
             var colliderCache = blockMaps[blockID].colliderCacheList.Find(val => val.pos == new Vector3(x, height, y));
 
             if (colliderCache != null)
@@ -207,7 +200,7 @@ namespace MC.Core
                 blockMaps[blockID].colliderCacheList.Remove(colliderCache);
             }
 
-            mapData.worldData[height, x, y] = 0;
+            runtimeWorldData[height, x, y] = 0;
 
             RemoveRenderBlock(height, x, y);
         }
@@ -221,7 +214,7 @@ namespace MC.Core
                 {
                     for (var j = startLength; j <= endLength; j++)
                     {
-                        var blockID = mapData.worldData[heightIndex, i, j];
+                        var blockID = runtimeWorldData[heightIndex, i, j];
 
                         if (blockID != 0)
                         {
@@ -230,7 +223,7 @@ namespace MC.Core
                             //绘制顶部面片
                             if (heightIndex < mapData.max_height - 1)
                             {
-                                var topBlockID = mapData.worldData[heightIndex + 1, i, j];
+                                var topBlockID = runtimeWorldData[heightIndex + 1, i, j];
 
                                 if (topBlockID == 0)
                                 {
@@ -242,7 +235,7 @@ namespace MC.Core
                             //渲染底部面片
                             if (heightIndex >= 1)
                             {
-                                var bottomBlockID = mapData.worldData[heightIndex - 1, i, j];
+                                var bottomBlockID = runtimeWorldData[heightIndex - 1, i, j];
 
                                 if (bottomBlockID == 0)
                                 {
@@ -254,7 +247,7 @@ namespace MC.Core
                             //渲染右侧面片
                             if (i < mapData.max_width - 1)
                             {
-                                var rightBlockID = mapData.worldData[heightIndex, i + 1, j];
+                                var rightBlockID = runtimeWorldData[heightIndex, i + 1, j];
 
                                 if (rightBlockID == 0)
                                 {
@@ -266,7 +259,7 @@ namespace MC.Core
                             //渲染左侧面片
                             if (i > 0)
                             {
-                                var leftBlockID = mapData.worldData[heightIndex, i - 1, j];
+                                var leftBlockID = runtimeWorldData[heightIndex, i - 1, j];
 
                                 if (leftBlockID == 0)
                                 {
@@ -278,7 +271,7 @@ namespace MC.Core
                             //渲染前侧面片
                             if (j < mapData.max_length - 1)
                             {
-                                var frontBlockID = mapData.worldData[heightIndex, i, j + 1];
+                                var frontBlockID = runtimeWorldData[heightIndex, i, j + 1];
 
                                 if (frontBlockID == 0)
                                 {
@@ -290,7 +283,7 @@ namespace MC.Core
                             //渲染后侧面片
                             if (j > 0)
                             {
-                                var backBlockID = mapData.worldData[heightIndex, i, j - 1];
+                                var backBlockID = runtimeWorldData[heightIndex, i, j - 1];
 
                                 if (backBlockID == 0)
                                 {
@@ -363,7 +356,7 @@ namespace MC.Core
 
         private void DrawQuad(int height, int x, int y, QuadStatus quadStatus)
         {
-            var blockID = mapData.worldData[height, x, y];
+            var blockID = runtimeWorldData[height, x, y];
             var blockMap = blockMaps[blockID];
 
             var pivot = new Vector3(x, height, y);
