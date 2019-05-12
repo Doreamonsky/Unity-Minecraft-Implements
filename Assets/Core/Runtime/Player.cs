@@ -38,8 +38,15 @@ namespace MC.Core
 
         private bool isCrafting = false;
 
+        private bool isMobile = false;
+
         private void Start()
         {
+            if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                isMobile = true;
+            }
+
             m_CharacterContoller = GetComponent<CharacterController>();
             m_CameraController = GetComponent<CameraController>();
 
@@ -92,36 +99,38 @@ namespace MC.Core
                 Jump();
             }
 
-            OnControllerInput?.Invoke(new InputData()
+            if (isMobile)
             {
-                x = Input.GetAxis("Horizontal"),
-                y = Input.GetAxis("Vertical")
-            });
+                OnControllerInput?.Invoke(new InputData()
+                {
+                    x = mobileX,
+                    y = mobileY
+                });
+            }
+            else
+            {
+                OnControllerInput?.Invoke(new InputData()
+                {
+                    x = Input.GetAxis("Horizontal"),
+                    y = Input.GetAxis("Vertical")
+                });
 
-            OnControllerInput?.Invoke(new InputData()
-            {
-                x = mobileX,
-                y = mobileY
-            });
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    RemoveBlock();
+                }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                RemoveBlock();
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    CreateBlock();
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                CreateBlock();
-            }
 
             if (!isCreatorMode)
             {
                 m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
             }
-            //if (jumpingTime > 0)
-            //{
-            //    jumpingTime -= Time.deltaTime;
-            //}
         }
 
         private void Jump()
