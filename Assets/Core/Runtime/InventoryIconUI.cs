@@ -9,29 +9,36 @@ namespace MC.Core
         InvToInv = 0,
         InvToCraft = 1,
         CraftToCraft = 2,
-        CraftToInv = 3
+        CraftToInv = 3,
+        CraftedToInv = 4 //生成物体
+    }
+
+    public enum InventoryIconType
+    {
+        Inv = 0, Craft = 1, Crafted = 2
     }
     public class InventoryIconUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public static System.Action<int, int, SwapType> OnSwapItem;
+        public static System.Action<int, SwapType> OnGenerateItem;
 
         //Slot ID 由InventorySystem/CraftSystem 设置
         private int m_slotID = 0;
 
-        private bool m_isInventory = true;
+        private InventoryIconType m_iconType = InventoryIconType.Inv;
 
         private Image m_icon;
         private Vector3 m_origin_pos = Vector3.zero;
         private Transform m_orign_parent;
 
-        public void Init(int slotID, Image icon, bool isInventory)
+        public void Init(int slotID, Image icon, InventoryIconType iconType)
         {
             m_slotID = slotID;
             m_icon = icon;
 
             m_origin_pos = m_icon.rectTransform.localPosition;
             m_orign_parent = m_icon.transform.parent;
-            m_isInventory = isInventory;
+            m_iconType = iconType;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -54,28 +61,34 @@ namespace MC.Core
 
             if (targetIconUI != null)
             {
+
                 var swapType = SwapType.InvToInv;
 
-                if (m_isInventory && targetIconUI.m_isInventory)
+                if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Inv)
                 {
                     swapType = SwapType.InvToInv;
                 }
-                else if (m_isInventory && !targetIconUI.m_isInventory)
+                else if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Craft)
                 {
                     swapType = SwapType.InvToCraft;
                 }
-                else if (!m_isInventory && targetIconUI.m_isInventory)
+                else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Inv)
                 {
                     swapType = SwapType.CraftToInv;
                 }
-                else if (!m_isInventory && !targetIconUI.m_isInventory)
+                else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Craft)
                 {
                     swapType = SwapType.CraftToCraft;
+                }
+                else if (m_iconType == InventoryIconType.Crafted && targetIconUI.m_iconType == InventoryIconType.Inv)
+                {
+                    swapType = SwapType.CraftedToInv;
                 }
 
                 OnSwapItem?.Invoke(m_slotID, targetIconUI.GetSlotID(), swapType);
 
                 Debug.Log($"Perform Swap {m_slotID} {targetIconUI.GetSlotID()} {swapType}");
+
             }
 
             m_icon.transform.parent = m_orign_parent;

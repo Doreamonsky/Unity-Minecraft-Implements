@@ -6,7 +6,7 @@ namespace MC.Core
 {
     public class InventorySystem : MonoBehaviour
     {
-        public static int max_inventory_count = 10;
+        public static int max_bottom_inventory_count = 10;
 
         //Inventory UI
         [System.Serializable]
@@ -25,7 +25,7 @@ namespace MC.Core
 
             public void Init()
             {
-                for (var i = 0; i < max_inventory_count; i++)
+                for (var i = 0; i < max_bottom_inventory_count; i++)
                 {
                     var instance = Object.Instantiate(ItemTemplate, ItemTemplate.transform.parent, true);
 
@@ -37,7 +37,7 @@ namespace MC.Core
                     itemInstance.Add(uiItem);
 
                     var iconUI = instance.AddComponent<InventoryIconUI>();
-                    iconUI.Init(i, uiItem.itemIcon, true);
+                    iconUI.Init(i, uiItem.itemIcon, InventoryIconType.Inv);
                 }
 
                 ItemTemplate.gameObject.SetActive(false);
@@ -54,9 +54,9 @@ namespace MC.Core
         {
             layout.Init();
 
-            //Inventory 中交换物品
             InventoryIconUI.OnSwapItem += (a, b, type) =>
             {
+                //Inventory 中交换物品
                 if (type == SwapType.InvToInv)
                 {
                     var itemA = inventoryStorageList.Find(val => val.slotID == a);
@@ -75,7 +75,7 @@ namespace MC.Core
                     UpdateInvetoryUI();
                 }
 
-
+                //Inventory Craft 交换物品
                 if (type == SwapType.InvToCraft)
                 {
                     var itemA = inventoryStorageList.Find(val => val.slotID == a);
@@ -102,6 +102,7 @@ namespace MC.Core
                     CraftSystem.Instance.UpdateInvetoryUI();
                 }
 
+                //Craft Inventory 交换物品
                 if (type == SwapType.CraftToInv)
                 {
                     var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
@@ -127,6 +128,7 @@ namespace MC.Core
                     CraftSystem.Instance.UpdateInvetoryUI();
                 }
 
+                //Craft 中交换物品
                 if (type == SwapType.CraftToCraft)
                 {
                     var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
@@ -144,15 +146,64 @@ namespace MC.Core
 
                     CraftSystem.Instance.UpdateInvetoryUI();
                 }
+                //Craft 生成物体
+                if (type == SwapType.CraftedToInv)
+                {
+                    var isTargetEmpty = inventoryStorageList.Find(val => val.slotID == b) == null;
+
+                    //目标插槽空
+                    if (isTargetEmpty)
+                    {
+                        foreach (var usedItem in CraftSystem.Instance.craftInventoryList)
+                        {
+                            usedItem.count -= 1;
+                        }
+
+                        //深复制防止多引用
+                        var craftedInventory = CraftSystem.Instance.craftedInventory.Clone();
+                        craftedInventory.slotID = b;
+
+                        inventoryStorageList.Add(craftedInventory);
+
+                        CleanUpInventory();
+
+                        UpdateInvetoryUI();
+                        CraftSystem.Instance.UpdateInvetoryUI();
+                    }
+                }
             };
 
             UpdateInvetoryUI();
         }
 
+        private void CleanUpInventory()
+        {
+            //清除无效的物品
+            for (int i = inventoryStorageList.Count - 1; i >= 0; i--)
+            {
+                var item = inventoryStorageList[i];
+
+                if (item.count <= 0)
+                {
+                    inventoryStorageList.Remove(item);
+                }
+            }
+
+            for (int i = CraftSystem.Instance.craftInventoryList.Count - 1; i >= 0; i--)
+            {
+                var item = CraftSystem.Instance.craftInventoryList[i];
+
+                if (item.count <= 0)
+                {
+                    CraftSystem.Instance.craftInventoryList.Remove(item);
+                }
+            }
+        }
+
         private void UpdateInvetoryUI()
         {
-            //更新底部插槽
-            for (var i = 0; i < max_inventory_count; i++)
+            //更新底部插槽UI
+            for (var i = 0; i < max_bottom_inventory_count; i++)
             {
                 var item = inventoryStorageList.Find(val => val?.slotID == i);
 

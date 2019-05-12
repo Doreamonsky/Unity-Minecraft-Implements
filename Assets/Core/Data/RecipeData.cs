@@ -8,5 +8,7 @@ namespace MC.Core
         public Inventory[] Recipe = new Inventory[9];
 
         public Inventory CraftedInventory;
+
+        public int CraftedCount = 1;
     }
 }

@@ -40,11 +40,14 @@ namespace MC.Core
                     itemInstance.Add(itemUI);
 
                     var iconUI = item.AddComponent<InventoryIconUI>();
-                    iconUI.Init(i, itemUI.itemIcon, false);
+                    iconUI.Init(i, itemUI.itemIcon, InventoryIconType.Craft);
                 }
 
                 craftedInstance.instance = craftedObject;
                 craftedInstance.itemIcon = craftedObject.transform.Find("ItemIcon").GetComponent<Image>();
+
+                var craftedIconUI = craftedObject.AddComponent<InventoryIconUI>();
+                craftedIconUI.Init(0, craftedInstance.itemIcon, InventoryIconType.Crafted);
             }
         }
 
@@ -53,6 +56,8 @@ namespace MC.Core
         public List<RecipeData> recipeList = new List<RecipeData>();
 
         public UILayout layout = new UILayout();
+
+        public InventoryStorage craftedInventory;
 
         public static CraftSystem Instance;
 
@@ -121,6 +126,13 @@ namespace MC.Core
                 Debug.Log(desireRecipeData);
 
                 layout.craftedInstance.itemIcon.sprite = desireRecipeData.CraftedInventory.inventoryIcon;
+
+                craftedInventory = new InventoryStorage()
+                {
+                    count = desireRecipeData.CraftedCount,
+                    slotID = 0,
+                    inventory = desireRecipeData.CraftedInventory
+                };
             }
             else
             {
