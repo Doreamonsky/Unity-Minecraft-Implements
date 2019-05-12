@@ -29,6 +29,8 @@ namespace MC.Core
 
         private CameraController m_CameraController;
 
+        private float mobileX, mobileY;
+
         private bool isControllable = true;
 
         private bool isCrafting = false;
@@ -83,6 +85,12 @@ namespace MC.Core
             {
                 x = Input.GetAxis("Horizontal"),
                 y = Input.GetAxis("Vertical")
+            });
+
+            OnControllerInput?.Invoke(new InputData()
+            {
+                x = mobileX,
+                y = mobileY
             });
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -172,6 +180,39 @@ namespace MC.Core
 
                 ToggleControl(true);
             }
+        }
+
+        public void StartForward()
+        {
+            mobileY = 1;
+        }
+        public void CancelForward()
+        {
+            mobileY = 0;
+        }
+        public void StartBack()
+        {
+            mobileY = -1;
+        }
+        public void CancelBack()
+        {
+            mobileY = 0;
+        }
+        public void StartRight()
+        {
+            mobileX = 1;
+        }
+        public void CancelRight()
+        {
+            mobileX = 0;
+        }
+        public void StartLeft()
+        {
+            mobileX = -1;
+        }
+        public void CancelLeft()
+        {
+            mobileX = 0;
         }
     }
 
