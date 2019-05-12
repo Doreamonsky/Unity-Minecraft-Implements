@@ -27,6 +27,7 @@ namespace MC.Core
 
         private InventoryIconType m_iconType = InventoryIconType.Inv;
 
+        private int m_childIndex = 0;
         private Image m_icon;
         private Vector3 m_origin_pos = Vector3.zero;
         private Transform m_orign_parent;
@@ -36,6 +37,7 @@ namespace MC.Core
             m_slotID = slotID;
             m_icon = icon;
 
+            m_childIndex = m_icon.transform.GetSiblingIndex();
             m_origin_pos = m_icon.rectTransform.localPosition;
             m_orign_parent = m_icon.transform.parent;
             m_iconType = iconType;
@@ -92,6 +94,8 @@ namespace MC.Core
             }
 
             m_icon.transform.parent = m_orign_parent;
+
+            m_icon.transform.SetSiblingIndex(m_childIndex);
             m_icon.rectTransform.localPosition = m_origin_pos;
             m_icon.raycastTarget = true;
         }

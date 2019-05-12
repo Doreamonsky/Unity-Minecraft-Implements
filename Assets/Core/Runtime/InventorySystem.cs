@@ -17,6 +17,8 @@ namespace MC.Core
                 public Image itemIcon;
 
                 public GameObject instance;
+
+                public Text itemCount;
             }
 
             public GameObject ItemTemplate;
@@ -32,7 +34,8 @@ namespace MC.Core
                     var uiItem = new ItemUI()
                     {
                         instance = instance,
-                        itemIcon = instance.transform.Find("ItemIcon").GetComponent<Image>()
+                        itemIcon = instance.transform.Find("ItemIcon").GetComponent<Image>(),
+                        itemCount = instance.transform.Find("Num").GetComponent<Text>()
                     };
                     itemInstance.Add(uiItem);
 
@@ -210,10 +213,12 @@ namespace MC.Core
                 if (item != null)
                 {
                     layout.itemInstance[i].itemIcon.sprite = item.inventory.inventoryIcon;
+                    layout.itemInstance[i].itemCount.text = item.count.ToString();
                 }
                 else
                 {
                     layout.itemInstance[i].itemIcon.sprite = null;
+                    layout.itemInstance[i].itemCount.text = "0";
                 }
             }
         }

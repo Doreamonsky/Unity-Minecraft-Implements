@@ -21,23 +21,34 @@ namespace MC.Core
 
         public bool isCreatorMode = false;
 
+        public GameObject craftingUI;
+
         private Vector3 moveDirection;
 
         private CharacterController m_CharacterContoller;
 
         private CameraController m_CameraController;
 
-        private readonly float jumpingTime = 0;
+        private bool isControllable = true;
+
+        private bool isCrafting = false;
 
         private void Start()
         {
             m_CharacterContoller = GetComponent<CharacterController>();
             m_CameraController = GetComponent<CameraController>();
 
+            craftingUI.SetActive(isCrafting);
+
             MouseLockModule.Instance.OnLock();
 
             OnControllerInput += data =>
             {
+                if (!isControllable)
+                {
+                    return;
+                }
+
                 var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
 
                 if (!isCreatorMode)
@@ -53,6 +64,16 @@ namespace MC.Core
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ToggleCrafting();
+            }
+
+            if (!isControllable)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -124,6 +145,32 @@ namespace MC.Core
                 chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
 
                 WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+            }
+        }
+
+        private void ToggleControl(bool state)
+        {
+            isControllable = state;
+            m_CameraController.enabled = state;
+        }
+
+        private void ToggleCrafting()
+        {
+            isCrafting = !isCrafting;
+
+            craftingUI.SetActive(isCrafting);
+
+            if (isCrafting)
+            {
+                MouseLockModule.Instance.OnUnlock();
+
+                ToggleControl(false);
+            }
+            else
+            {
+                MouseLockModule.Instance.OnLock();
+
+                ToggleControl(true);
             }
         }
     }

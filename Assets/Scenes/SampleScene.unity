@@ -368,7 +368,7 @@ PrefabInstance:
     - target: {fileID: 6895479985127806759, guid: 5a33b1da4a81a6347a60897f2781b403,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 31.399902
+      value: 31.399414
       objectReference: {fileID: 0}
     - target: {fileID: 6895479986152358854, guid: 5a33b1da4a81a6347a60897f2781b403,
         type: 3}
@@ -789,6 +789,11 @@ PrefabInstance:
     - target: {fileID: 763728171, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859909103790950860, guid: 5a33b1da4a81a6347a60897f2781b403,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
