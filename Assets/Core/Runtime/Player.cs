@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace MC.Core
 {
@@ -22,6 +23,8 @@ namespace MC.Core
         public bool isCreatorMode = false;
 
         public GameObject craftingUI;
+
+        public Button openCraftingBtn, closeCraftingBtn;
 
         private Vector3 moveDirection;
 
@@ -61,7 +64,15 @@ namespace MC.Core
                 m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
             };
 
+            openCraftingBtn.onClick.AddListener(() =>
+            {
+                ToggleCrafting();
+            });
 
+            closeCraftingBtn.onClick.AddListener(() =>
+            {
+                ToggleCrafting();
+            });
         }
 
         private void Update()
