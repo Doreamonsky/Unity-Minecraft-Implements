@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,11 @@ namespace MC.Core
                 public GameObject instance;
             }
 
+            public GameObject craftedObject;
+
             public List<GameObject> craftObject = new List<GameObject>();
+
+            public ItemUI craftedInstance = new ItemUI();
 
             public List<ItemUI> itemInstance = new List<ItemUI>();
 
@@ -37,6 +42,9 @@ namespace MC.Core
                     var iconUI = item.AddComponent<InventoryIconUI>();
                     iconUI.Init(i, itemUI.itemIcon, false);
                 }
+
+                craftedInstance.instance = craftedObject;
+                craftedInstance.itemIcon = craftedObject.transform.Find("ItemIcon").GetComponent<Image>();
             }
         }
 
@@ -71,13 +79,52 @@ namespace MC.Core
                     layout.itemInstance[i].itemIcon.sprite = null;
                 }
             }
+
+            GuessRecipe();
         }
 
         public void GuessRecipe()
         {
+            //匹配Recipe的字符组合
+            var currentRecipe = new string[9] { "", "", "", "", "", "", "", "", "" };
+
+            RecipeData desireRecipeData = null;
+
+            foreach (var craft in craftInventoryList)
+            {
+                currentRecipe[craft.slotID] = craft.inventory.inventoryName;
+            }
+
+
             foreach (var recipe in recipeList)
             {
+                var targetRecipe = new string[9] { "", "", "", "", "", "", "", "", "" };
 
+                for (int i = 0; i < recipe.Recipe.Length; i++)
+                {
+                    targetRecipe[i] = recipe.Recipe[i] == null ? "" : recipe.Recipe[i].inventoryName;
+                }
+
+                if (Enumerable.SequenceEqual(currentRecipe, targetRecipe))
+                {
+                    desireRecipeData = recipe;
+                    break;
+                }
+                else
+                {
+                    //Debug.Log($"current:{JsonConvert.SerializeObject(currentRecipe)} target:{JsonConvert.SerializeObject(targetRecipe)}");
+                }
+            }
+
+            if (desireRecipeData != null)
+            {
+                Debug.Log(desireRecipeData);
+
+                layout.craftedInstance.itemIcon.sprite = desireRecipeData.CraftedInventory.inventoryIcon;
+            }
+            else
+            {
+                layout.craftedInstance.itemIcon.sprite = null;
             }
         }
     }

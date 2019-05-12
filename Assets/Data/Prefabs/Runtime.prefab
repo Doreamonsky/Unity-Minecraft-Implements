@@ -1079,6 +1079,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d42e9eeeabbc1644a67aa9ec78b4e20, type: 2}
   - {fileID: 11400000, guid: 73d4399ccb211124288bb942479495ff, type: 2}
   layout:
+    craftedObject: {fileID: 6895479985930269094}
     craftObject:
     - {fileID: 4590308764440032272}
     - {fileID: 3957743452679518820}
@@ -1858,9 +1859,9 @@ RectTransform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 162, y: -33}
-  m_SizeDelta: {x: 284.5, y: 32.2}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3.499939, y: -33}
+  m_SizeDelta: {x: -32.400024, y: 32.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6895479986139062599
 CanvasRenderer:
@@ -1897,13 +1898,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Made By Wang by heart.
+  m_Text: "MC for you,coded by heart,produced by Wang,is a birthday present for your
+    19th birthday.\r\n"
 --- !u!1 &6895479986152358849
 GameObject:
   m_ObjectHideFlags: 0
