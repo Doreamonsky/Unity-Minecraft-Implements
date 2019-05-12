@@ -17,6 +17,8 @@ namespace MC.CoreEditor
         {
             //base.OnInspectorGUI();
 
+            EditorGUILayout.LabelField("Recipe:");
+
             for (int i = 0; i < 3; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -26,6 +28,8 @@ namespace MC.CoreEditor
                 }
                 EditorGUILayout.EndHorizontal();
             }
+
+            recipeData.CraftedInventory = (Inventory)EditorGUILayout.ObjectField("Crafted Inventory:", recipeData.CraftedInventory, typeof(Inventory));
 
             if (GUI.changed)
             {

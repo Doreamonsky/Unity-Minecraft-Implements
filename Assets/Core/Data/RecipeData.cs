@@ -6,5 +6,7 @@ namespace MC.Core
     public class RecipeData : ScriptableObject
     {
         public Inventory[] Recipe = new Inventory[9];
+
+        public Inventory CraftedInventory;
     }
 }
