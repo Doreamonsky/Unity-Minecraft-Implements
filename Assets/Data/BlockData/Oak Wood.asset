@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8eeea02d8d6c014a845e5a2f811085d, type: 3}
-  m_Name: Tree
+  m_Name: Oak Wood
   m_EditorClassIdentifier: 
   topTex: {fileID: 2100000, guid: a8c5cf4ca126ee74c8990b460b7d7891, type: 2}
   bottomTex: {fileID: 2100000, guid: a8c5cf4ca126ee74c8990b460b7d7891, type: 2}

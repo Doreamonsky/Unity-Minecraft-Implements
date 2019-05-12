@@ -66,12 +66,12 @@ namespace MC.Core
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                CreateBlock();
+                RemoveBlock();
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                RemoveBlock();
+                CreateBlock();
             }
 
             if (!isCreatorMode)
