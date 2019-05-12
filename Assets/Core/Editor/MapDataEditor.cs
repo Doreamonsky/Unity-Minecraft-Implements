@@ -9,6 +9,59 @@ namespace MC.CoreEditor
     {
         private MapData mapData;
 
+        private readonly int[,,] tree = new int[,,]
+        {
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {6,6,6,6,6},
+                {6,6,6,6,6},
+                {6,6,4,6,6},
+                {6,6,6,6,6},
+                {6,6,6,6,6},
+            },
+            {
+                {0,0,0,0,0},
+                {0,6,6,6,0},
+                {0,6,4,6,0},
+                {0,6,6,6,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,6,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+        };
+
         private readonly int[,] Xiao = new int[,]
         {
            {0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0, },
@@ -95,7 +148,7 @@ namespace MC.CoreEditor
             mapData = target as MapData;
         }
 
-        private void AddArrayToMap(int[,] anyArray, int arrayX, int arrayY, int x, int y, int height)
+        private void AddXZArrayToMap(int[,] anyArray, int arrayX, int arrayY, int x, int y, int height)
         {
             var worldData = mapData.WorldData;
 
@@ -104,6 +157,23 @@ namespace MC.CoreEditor
                 for (var j = 0; j < arrayY; j++)
                 {
                     worldData[height + i, x + j, y] = anyArray[arrayX - i - 1, j];
+                }
+            }
+            mapData.WorldData = worldData;
+        }
+
+        private void AddXYZArrayToMap(int[,,] anyArray, int arrayX, int arrayY, int arrayZ, int x, int y, int height)
+        {
+            var worldData = mapData.WorldData;
+
+            for (var i = 0; i < arrayX; i++)
+            {
+                for (var j = 0; j < arrayY; j++)
+                {
+                    for (var k = 0; k < arrayZ; k++)
+                    {
+                        worldData[height + i, x + j, y + k] = anyArray[i, j, k];
+                    }
                 }
             }
             mapData.WorldData = worldData;
@@ -152,10 +222,18 @@ namespace MC.CoreEditor
 
             if (GUILayout.Button("Add Happy Birthday"))
             {
-                AddArrayToMap(Xiao, 16, 16, 2, 58, 17);
-                AddArrayToMap(Yang, 16, 16, 16, 62, 17);
-                AddArrayToMap(Shen, 16, 16, 34, 58, 17);
-                AddArrayToMap(Kuai, 16, 16, 50, 62, 17);
+                AddXZArrayToMap(Xiao, 16, 16, 2, 58, 17);
+                AddXZArrayToMap(Yang, 16, 16, 16, 62, 17);
+                AddXZArrayToMap(Shen, 16, 16, 34, 58, 17);
+                AddXZArrayToMap(Kuai, 16, 16, 50, 62, 17);
+            }
+            if (GUILayout.Button("Add Trees"))
+            {
+                AddXYZArrayToMap(tree, 7, 5, 5, 2, 2, 16);
+                AddXYZArrayToMap(tree, 7, 5, 5, 12, 32, 16);
+                AddXYZArrayToMap(tree, 7, 5, 5, 18, 32, 16);
+                AddXYZArrayToMap(tree, 7, 5, 5, 19, 52, 16);
+                AddXYZArrayToMap(tree, 7, 5, 5, 35, 10, 16);
             }
 
             if (GUI.changed)

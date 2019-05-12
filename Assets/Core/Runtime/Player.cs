@@ -27,6 +27,8 @@ namespace MC.Core
 
         private CameraController m_CameraController;
 
+        private readonly float jumpingTime = 0;
+
         private void Start()
         {
             m_CharacterContoller = GetComponent<CharacterController>();
@@ -36,17 +38,14 @@ namespace MC.Core
 
             OnControllerInput += data =>
             {
-                if (m_CharacterContoller.isGrounded || isCreatorMode)
+                var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
+
+                if (!isCreatorMode)
                 {
-                    var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
-
-                    if (!isCreatorMode)
-                    {
-                        delta = Vector3.ProjectOnPlane(delta, Vector3.up);
-                    }
-
-                    m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
+                    delta = Vector3.ProjectOnPlane(delta, Vector3.up);
                 }
+
+                m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
             };
 
 
@@ -54,16 +53,16 @@ namespace MC.Core
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
+
             OnControllerInput?.Invoke(new InputData()
             {
                 x = Input.GetAxis("Horizontal"),
                 y = Input.GetAxis("Vertical")
             });
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -79,13 +78,20 @@ namespace MC.Core
             {
                 m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
             }
+            //if (jumpingTime > 0)
+            //{
+            //    jumpingTime -= Time.deltaTime;
+            //}
         }
 
         private void Jump()
         {
+            Debug.Log("Jump");
+
             if (m_CharacterContoller.isGrounded)
             {
                 m_CharacterContoller.Move(Vector3.up * jumpVelocity * Time.deltaTime);
+
             }
         }
 

@@ -149,9 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
-  jumpVelocity: 50
-  gravity: -5
+  jumpVelocity: 100
+  gravity: -10
   blockID: 2
+  isCreatorMode: 0
 --- !u!114 &7851429035399774655
 MonoBehaviour:
   m_ObjectHideFlags: 0
