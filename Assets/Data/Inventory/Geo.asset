@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Geo
   m_EditorClassIdentifier: 
   inventoryName: "\u89E3\u6790\u51E0\u4F55"
-  inventoryIcon: {fileID: 21300000, guid: e106ab08438ec984d938b467c3f16769, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 976b16458ee200f45939a7f8a9f38fef, type: 3}
   isBlockItem: 0
   blockData: {fileID: 0}

@@ -37,49 +37,113 @@ namespace MC.Core
                     itemInstance.Add(uiItem);
 
                     var iconUI = instance.AddComponent<InventoryIconUI>();
-                    iconUI.Init(i, uiItem.itemIcon);
+                    iconUI.Init(i, uiItem.itemIcon, true);
                 }
 
                 ItemTemplate.gameObject.SetActive(false);
             }
         }
 
+        public UILayout layout = new UILayout();
 
         //玩家拥有物品的储存
         //Slot ID 插槽  <= max_inventory_count 显示在底部
-        [System.Serializable]
-        public class InventoryStorage
-        {
-            public int count = 1;
-            public int slotID = -1;
-            public Inventory inventory;
-        }
-
-        public UILayout layout = new UILayout();
-
         public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
 
         private void Start()
         {
             layout.Init();
 
-            //交换物品
-            InventoryIconUI.OnSwapItem += (a, b) =>
+            //Inventory 中交换物品
+            InventoryIconUI.OnSwapItem += (a, b, type) =>
             {
-                var itemA = inventoryStorageList.Find(val => val.slotID == a);
-                var itemB = inventoryStorageList.Find(val => val.slotID == b);
-
-                if (itemA != null)
+                if (type == SwapType.InvToInv)
                 {
-                    itemA.slotID = b;
+                    var itemA = inventoryStorageList.Find(val => val.slotID == a);
+                    var itemB = inventoryStorageList.Find(val => val.slotID == b);
+
+                    if (itemA != null)
+                    {
+                        itemA.slotID = b;
+                    }
+
+                    if (itemB != null)
+                    {
+                        itemB.slotID = a;
+                    }
+
+                    UpdateInvetoryUI();
                 }
 
-                if (itemB != null)
+
+                if (type == SwapType.InvToCraft)
                 {
-                    itemB.slotID = a;
+                    var itemA = inventoryStorageList.Find(val => val.slotID == a);
+                    var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
+
+                    if (itemA != null)
+                    {
+                        itemA.slotID = b;
+
+                        inventoryStorageList.Remove(itemA);
+                        CraftSystem.Instance.craftInventoryList.Add(itemA);
+                    }
+
+                    if (itemB != null)
+                    {
+                        itemB.slotID = a;
+
+                        inventoryStorageList.Add(itemB);
+                        CraftSystem.Instance.craftInventoryList.Remove(itemB);
+
+                    }
+
+                    UpdateInvetoryUI();
+                    CraftSystem.Instance.UpdateInvetoryUI();
                 }
 
-                UpdateInvetoryUI();
+                if (type == SwapType.CraftToInv)
+                {
+                    var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
+                    var itemB = inventoryStorageList.Find(val => val.slotID == b);
+
+                    if (itemA != null)
+                    {
+                        itemA.slotID = b;
+
+                        inventoryStorageList.Add(itemA);
+                        CraftSystem.Instance.craftInventoryList.Remove(itemA);
+                    }
+
+                    if (itemB != null)
+                    {
+                        itemB.slotID = a;
+
+                        inventoryStorageList.Remove(itemB);
+                        CraftSystem.Instance.craftInventoryList.Add(itemB);
+                    }
+
+                    UpdateInvetoryUI();
+                    CraftSystem.Instance.UpdateInvetoryUI();
+                }
+
+                if (type == SwapType.CraftToCraft)
+                {
+                    var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
+                    var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
+
+                    if (itemA != null)
+                    {
+                        itemA.slotID = b;
+                    }
+
+                    if (itemB != null)
+                    {
+                        itemB.slotID = a;
+                    }
+
+                    CraftSystem.Instance.UpdateInvetoryUI();
+                }
             };
 
             UpdateInvetoryUI();
@@ -90,7 +154,7 @@ namespace MC.Core
             //更新底部插槽
             for (var i = 0; i < max_inventory_count; i++)
             {
-                var item = inventoryStorageList.Find(val => val.slotID == i);
+                var item = inventoryStorageList.Find(val => val?.slotID == i);
 
                 if (item != null)
                 {
