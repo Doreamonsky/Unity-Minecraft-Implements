@@ -236,6 +236,13 @@ namespace MC.CoreEditor
                 AddXYZArrayToMap(tree, 7, 5, 5, 35, 10, 16);
             }
 
+            if(GUILayout.Button("Update Map Size"))
+            {
+                if(EditorUtility.DisplayDialog("Warning","It will wipe all the map data","I Understand it!"))
+                {
+                    mapData.UpdateMapSize();
+                }
+            }
             if (GUI.changed)
             {
                 EditorUtility.SetDirty(target);
