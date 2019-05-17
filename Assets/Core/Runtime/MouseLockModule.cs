@@ -15,11 +15,7 @@ namespace MC.Core
         {
             instance = this;
 
-            //|| Application.platform == RuntimePlatform.WindowsEditor
-            if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.IPhonePlayer)
-            {
-                isMobile = true;
-            }
+            isMobile = Util.IsMobile();
         }
 
         public void OnLock()
@@ -54,6 +50,11 @@ namespace MC.Core
         }
         private void OnDestroy()
         {
+            if (isMobile)
+            {
+                return;
+            }
+
             OnUnlock();
             OnGUI();
         }

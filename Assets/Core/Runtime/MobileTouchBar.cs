@@ -42,7 +42,7 @@ namespace MC.Core
 
         public void OnPointerDown(PointerEventData eventData)
         {
-
+            ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
         }
 
         public void OnPointerUp(PointerEventData eventData)

@@ -77,6 +77,14 @@ namespace MC.Core
             {
                 ToggleCrafting();
             });
+
+            if (isMobile)
+            {
+                ControlEvents.OnClickScreen += pos =>
+                {
+                    CreateBlock(false, pos);
+                };
+            }
         }
 
         private void Update()
@@ -119,7 +127,7 @@ namespace MC.Core
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
-                    CreateBlock();
+                    CreateBlock(true, Vector2.zero);
                 }
             }
 
@@ -141,11 +149,15 @@ namespace MC.Core
             }
         }
 
-        private void CreateBlock()
+        private void CreateBlock(bool isScreenCenter, Vector2 screenPos)
         {
+            var rayScreen = isScreenCenter ? new Vector2(Screen.width, Screen.height) * 0.5f : screenPos;
+
             var cameraTrans = m_CameraController.m_Camera.transform;
 
-            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 5, 1 << LayerMask.NameToLayer("Block"));
+            var ray = m_CameraController.m_Camera.ScreenPointToRay(rayScreen);
+
+            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
 
             if (isHit)
             {
