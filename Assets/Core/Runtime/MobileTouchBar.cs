@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace MC.Core
 {
-    public class MobileTouchBar : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler,IPointerDownHandler,IPointerUpHandler
+    public class MobileTouchBar : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
     {
         private float m_XScale = 1, m_YScale = 1;
 
@@ -11,8 +11,8 @@ namespace MC.Core
 
         private void Start()
         {
-            m_XScale = 3000 / (float)Screen.width;
-            m_YScale = 3000 / (float)Screen.height;
+            m_XScale = 6000 / (float)Screen.width;
+            m_YScale = 6000 / (float)Screen.height;
         }
 
         public void OnDrag(PointerEventData eventData)

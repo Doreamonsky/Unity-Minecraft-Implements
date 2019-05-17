@@ -42,10 +42,7 @@ namespace MC.Core
 
         private void Start()
         {
-            if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.IPhonePlayer)
-            {
-                isMobile = true;
-            }
+            isMobile = Util.IsMobile();
 
             m_CharacterContoller = GetComponent<CharacterController>();
             m_CameraController = GetComponent<CameraController>();

@@ -10,8 +10,13 @@ namespace MC.Core
 
         private float x, y;
 
+        private bool isMobile = false;
+
         private void Start()
         {
+            isMobile = Util.IsMobile();
+
+
             OnControllerInput += data =>
             {
                 x += data.x * Time.deltaTime;
@@ -21,11 +26,14 @@ namespace MC.Core
 
         private void Update()
         {
-            OnControllerInput?.Invoke(new InputData()
+            if (!isMobile)
             {
-                x = Input.GetAxis("Mouse X") * 50,
-                y = Input.GetAxis("Mouse Y") * 50
-            });
+                OnControllerInput?.Invoke(new InputData()
+                {
+                    x = Input.GetAxis("Mouse X") * 50,
+                    y = Input.GetAxis("Mouse Y") * 50
+                });
+            }
 
             y = ClampAngle(y, -90, 90);
 
