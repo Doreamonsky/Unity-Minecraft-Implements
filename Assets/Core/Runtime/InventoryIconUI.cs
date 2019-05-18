@@ -17,9 +17,9 @@ namespace MC.Core
     {
         Inv = 0, Craft = 1, Crafted = 2
     }
-    public class InventoryIconUI : MonoBehaviour, IPointerClickHandler
+    public class InventoryIconUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public static System.Action<InventoryIconUI> OnPointerClicked;
+        public static System.Action<InventoryIconUI> OnPointerClicked, OnPointerEntered, OnPointerExited;
 
         //Slot ID 由InventorySystem/CraftSystem 设置
         public int m_slotID = 0;
@@ -43,6 +43,16 @@ namespace MC.Core
         public void OnPointerClick(PointerEventData eventData)
         {
             OnPointerClicked?.Invoke(this);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            OnPointerEntered?.Invoke(this);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            OnPointerExited?.Invoke(this);
         }
 
         public void ToggleSelectEffect(bool state)

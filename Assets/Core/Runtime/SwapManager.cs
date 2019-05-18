@@ -7,17 +7,37 @@ namespace MC.Core
     {
         public static System.Action<int, int, SwapType> OnSwapItem;
 
+        public static System.Action<int, int, SwapType> OnAllocateItem;
+
         private List<InventoryIconUI> inventoryIcons = new List<InventoryIconUI>();
 
         public static SwapManager Instance;
 
         private InventoryIconUI prevIconUI;
 
+        private InventoryIconUI horveredIconUI;
+
         public void AppendIconUI(InventoryIconUI iconUI)
         {
             inventoryIcons.Add(iconUI);
         }
 
+        private void Update()
+        {
+            if (!Util.isCrafting)
+            {
+                return;
+            }
+
+            if (!Util.IsMobile())
+            {
+                if (Input.GetKey(KeyCode.Mouse1))
+                {
+                    AllocateItem();
+                }
+            }
+
+        }
         private void Start()
         {
             Instance = this;
@@ -28,6 +48,13 @@ namespace MC.Core
                 if (!Util.isCrafting)
                 {
                     return;
+                }
+                if (!Util.IsMobile())
+                {
+                    if (!Input.GetKeyUp(KeyCode.Mouse0))
+                    {
+                        return;
+                    }
                 }
 
                 if (prevIconUI == null)
@@ -41,28 +68,7 @@ namespace MC.Core
                 }
                 else if (prevIconUI != target)
                 {
-                    var swapType = SwapType.InvToInv;
-
-                    if (prevIconUI.m_iconType == InventoryIconType.Inv && target.m_iconType == InventoryIconType.Inv)
-                    {
-                        swapType = SwapType.InvToInv;
-                    }
-                    else if (prevIconUI.m_iconType == InventoryIconType.Inv && target.m_iconType == InventoryIconType.Craft)
-                    {
-                        swapType = SwapType.InvToCraft;
-                    }
-                    else if (prevIconUI.m_iconType == InventoryIconType.Craft && target.m_iconType == InventoryIconType.Inv)
-                    {
-                        swapType = SwapType.CraftToInv;
-                    }
-                    else if (prevIconUI.m_iconType == InventoryIconType.Craft && target.m_iconType == InventoryIconType.Craft)
-                    {
-                        swapType = SwapType.CraftToCraft;
-                    }
-                    else if (prevIconUI.m_iconType == InventoryIconType.Crafted && target.m_iconType == InventoryIconType.Inv)
-                    {
-                        swapType = SwapType.CraftedToInv;
-                    }
+                    var swapType = GetSwapType(prevIconUI, target);
 
                     OnSwapItem?.Invoke(prevIconUI.m_slotID, target.m_slotID, swapType);
 
@@ -70,12 +76,86 @@ namespace MC.Core
 
                     prevIconUI = null;
 
-                    foreach (var t in inventoryIcons)
-                    {
-                        t.ToggleSelectEffect(false);
-                    }
+                    ToggleIconSelection(false);
                 }
             };
+
+            //创作中 分配Inventory 
+            InventoryIconUI.OnPointerEntered += (InventoryIconUI target) =>
+             {
+                 if (!Util.isCrafting)
+                 {
+                     return;
+                 }
+
+                 horveredIconUI = target;
+
+                 if (Util.IsMobile())
+                 {
+                     AllocateItem();
+                 }
+             };
+
+            InventoryIconUI.OnPointerExited += (InventoryIconUI target) =>
+            {
+                horveredIconUI = null;
+            };
+        }
+
+        private void ToggleIconSelection(bool state)
+        {
+            foreach (var t in inventoryIcons)
+            {
+                t.ToggleSelectEffect(state);
+            }
+        }
+
+        private void AllocateItem()
+        {
+            if (prevIconUI == null || horveredIconUI == null)
+            {
+                return;
+            }
+            var swapType = GetSwapType(prevIconUI, horveredIconUI);
+
+            if (swapType != SwapType.InvToCraft && swapType != SwapType.CraftToCraft)
+            {
+                return;
+            }
+
+            OnAllocateItem?.Invoke(prevIconUI.m_slotID, horveredIconUI.m_slotID, swapType);
+
+            Debug.Log($"Allocate Swap {prevIconUI.m_slotID} {horveredIconUI.m_slotID} {swapType}");
+
+            horveredIconUI = null;
+        }
+
+        private SwapType GetSwapType(InventoryIconUI a, InventoryIconUI b)
+        {
+            var swapType = SwapType.InvToInv;
+
+            if (a.m_iconType == InventoryIconType.Inv && b.m_iconType == InventoryIconType.Inv)
+            {
+                swapType = SwapType.InvToInv;
+            }
+            else if (a.m_iconType == InventoryIconType.Inv && b.m_iconType == InventoryIconType.Craft)
+            {
+                swapType = SwapType.InvToCraft;
+            }
+            else if (a.m_iconType == InventoryIconType.Craft && b.m_iconType == InventoryIconType.Inv)
+            {
+                swapType = SwapType.CraftToInv;
+            }
+            else if (a.m_iconType == InventoryIconType.Craft && b.m_iconType == InventoryIconType.Craft)
+            {
+                swapType = SwapType.CraftToCraft;
+            }
+            else if (a.m_iconType == InventoryIconType.Crafted && b.m_iconType == InventoryIconType.Inv)
+            {
+                swapType = SwapType.CraftedToInv;
+            }
+
+            return swapType;
         }
     }
 }

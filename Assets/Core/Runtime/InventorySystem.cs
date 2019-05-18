@@ -115,6 +115,66 @@ namespace MC.Core
                 layout.digProgressBar.SetActive(false);
             };
 
+            SwapManager.OnAllocateItem += (a, b, type) =>
+            {
+                if (type == SwapType.CraftToCraft)
+                {
+                    var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
+                    var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
+
+                    if (itemA == null)
+                    {
+                        return;
+                    }
+
+                    if (itemB != null)
+                    {
+                        return;
+                    }
+
+                    itemA.count -= 1;
+
+                    CraftSystem.Instance.craftInventoryList.Add(new InventoryStorage()
+                    {
+                        count = 1,
+                        inventory = itemA.inventory,
+                        slotID = b
+                    });
+
+
+                }
+
+                else if (type == SwapType.InvToCraft)
+                {
+                    var itemA = inventoryStorageList.Find(val => val.slotID == a);
+                    var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
+
+                    if (itemA == null)
+                    {
+                        return;
+                    }
+
+                    if (itemB != null)
+                    {
+                        return;
+                    }
+
+                    itemA.count -= 1;
+
+                    CraftSystem.Instance.craftInventoryList.Add(new InventoryStorage()
+                    {
+                        count = 1,
+                        inventory = itemA.inventory,
+                        slotID = b
+                    });
+                }
+
+                CleanUpInventory();
+                UpdateInvetoryUI();
+
+                CraftSystem.Instance.UpdateInvetoryUI();
+            };
+
             SwapManager.OnSwapItem += (a, b, type) =>
             {
                 //Inventory 中交换物品
@@ -137,7 +197,7 @@ namespace MC.Core
                 }
 
                 //Inventory Craft 交换物品
-                if (type == SwapType.InvToCraft)
+                else if (type == SwapType.InvToCraft)
                 {
                     var itemA = inventoryStorageList.Find(val => val.slotID == a);
                     var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
@@ -164,25 +224,62 @@ namespace MC.Core
                 }
 
                 //Craft Inventory 交换物品
-                if (type == SwapType.CraftToInv)
+                else if (type == SwapType.CraftToInv)
                 {
                     var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
                     var itemB = inventoryStorageList.Find(val => val.slotID == b);
 
-                    if (itemA != null)
-                    {
-                        itemA.slotID = b;
+                    var isAppendCount = false;
 
-                        inventoryStorageList.Add(itemA);
-                        CraftSystem.Instance.craftInventoryList.Remove(itemA);
+                    //数量叠加
+                    if (itemA != null && itemB != null)
+                    {
+                        if (itemA.inventory.inventoryName == itemB.inventory.inventoryName)
+                        {
+                            isAppendCount = true;
+                        }
+                    }
+                    //纯粹交换物品
+                    else
+                    {
+                        isAppendCount = false;
                     }
 
-                    if (itemB != null)
+                    if (isAppendCount)
                     {
-                        itemB.slotID = a;
+                        var sum = itemA.count + itemB.count;
 
-                        inventoryStorageList.Remove(itemB);
-                        CraftSystem.Instance.craftInventoryList.Add(itemB);
+                        if (sum > 64)
+                        {
+                            itemA.count = sum - 64;
+                            itemB.count = 64;
+                        }
+                        else
+                        {
+                            itemB.count = itemA.count + itemB.count;
+                            itemA.count = 0;
+                        }
+
+                        CleanUpInventory();
+
+                    }
+                    else
+                    {
+                        if (itemA != null)
+                        {
+                            itemA.slotID = b;
+
+                            inventoryStorageList.Add(itemA);
+                            CraftSystem.Instance.craftInventoryList.Remove(itemA);
+                        }
+
+                        if (itemB != null)
+                        {
+                            itemB.slotID = a;
+
+                            inventoryStorageList.Remove(itemB);
+                            CraftSystem.Instance.craftInventoryList.Add(itemB);
+                        }
                     }
 
                     UpdateInvetoryUI();
@@ -190,7 +287,7 @@ namespace MC.Core
                 }
 
                 //Craft 中交换物品
-                if (type == SwapType.CraftToCraft)
+                else if (type == SwapType.CraftToCraft)
                 {
                     var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
                     var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
@@ -208,7 +305,7 @@ namespace MC.Core
                     CraftSystem.Instance.UpdateInvetoryUI();
                 }
                 //Craft 生成物体
-                if (type == SwapType.CraftedToInv)
+                else if (type == SwapType.CraftedToInv)
                 {
                     var targetInv = inventoryStorageList.Find(val => val.slotID == b);
 
@@ -345,6 +442,7 @@ namespace MC.Core
                 }
 
             }
+
         }
 
         private void CurrentInventroyUsed(InventoryStorage currentStorage)

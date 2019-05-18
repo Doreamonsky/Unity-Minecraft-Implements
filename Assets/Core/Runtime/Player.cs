@@ -79,7 +79,7 @@ namespace MC.Core
                 ToggleCrafting();
             });
 
-     
+
         }
 
         private void Update()
@@ -115,10 +115,20 @@ namespace MC.Core
                     y = Input.GetAxis("Vertical")
                 });
 
-                //if (Input.GetKeyDown(KeyCode.Mouse0))
-                //{
-                //    RemoveBlock();
-                //}
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    ControlEvents.OnPressingScreen?.Invoke(new Vector2(Screen.width, Screen.height) * 0.5f);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    ControlEvents.OnBeginPressScreen?.Invoke();
+                }
+
+                if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    ControlEvents.OnEndPressScreen?.Invoke();
+                }
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
