@@ -42,6 +42,14 @@ namespace MC.Core
         {
             Instance = this;
 
+            Util.OnToggleCraftingMode += (state) =>
+            {
+                if (state)
+                {
+                    ToggleIconSelection(false);
+                }
+            };
+
             InventoryIconUI.OnPointerClicked += (InventoryIconUI target) =>
             {
                 //仅在创作中 需要交换物体等行为

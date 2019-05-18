@@ -391,14 +391,17 @@ namespace MC.Core
                     layout.itemInstance[i].itemCount.text = "0";
                 }
 
-                //if (currentSelectID == i)
-                //{
-                //    layout.itemInstance[i].selectedIcon.SetActive(true);
-                //}
-                //else
-                //{
-                //    layout.itemInstance[i].selectedIcon.SetActive(false);
-                //}
+                if (!Util.isCrafting)
+                {
+                    if (currentSelectID == i)
+                    {
+                        layout.itemInstance[i].selectedIcon.SetActive(true);
+                    }
+                    else
+                    {
+                        layout.itemInstance[i].selectedIcon.SetActive(false);
+                    }
+                }
             }
         }
 
