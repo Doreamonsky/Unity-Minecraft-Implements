@@ -2068,7 +2068,11 @@ MonoBehaviour:
   - count: 1
     slotID: 2
     inventory: {fileID: 11400000, guid: 1615e199fbc8da745b593397d8ef1d4a, type: 2}
+  - count: 15
+    slotID: 3
+    inventory: {fileID: 11400000, guid: ef4a6108b69bf814d952cc1ce730e8a3, type: 2}
   currentSelectID: 0
+  playerCamera: {fileID: 6895479985289386098}
 --- !u!114 &8411469797280185727
 MonoBehaviour:
   m_ObjectHideFlags: 0

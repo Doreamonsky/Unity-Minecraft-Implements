@@ -265,7 +265,7 @@ namespace MC.Core
             UpdateInvetoryUI();
         }
 
-        public void UseCurrentInventory(Vector2 screenPos)
+        private void UseCurrentInventory(Vector2 screenPos)
         {
             var currentStorage = inventoryStorageList.Find(val => val.slotID == currentSelectID);
 
@@ -295,9 +295,17 @@ namespace MC.Core
                     var placePoint = rayHit.point + rayHit.normal * 0.5f;
                     placePoint = new Vector3(Mathf.FloorToInt(placePoint.x), Mathf.FloorToInt(placePoint.y), Mathf.FloorToInt(placePoint.z)); //整数
                     inv.Place(placePoint);
+                    CurrentInventroyUsed(currentStorage);
                 }
 
             }
+        }
+
+        private void CurrentInventroyUsed(InventoryStorage currentStorage)
+        {
+            currentStorage.count -= 1;
+            UpdateInvetoryUI();
+            CleanUpInventory();
         }
     }
 
