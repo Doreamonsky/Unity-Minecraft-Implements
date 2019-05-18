@@ -373,7 +373,7 @@ namespace MC.Core
             }
         }
 
-        private void UpdateInvetoryUI()
+        public void UpdateInvetoryUI()
         {
             //更新底部插槽UI
             for (var i = 0; i < max_bottom_inventory_count; i++)
@@ -494,6 +494,12 @@ namespace MC.Core
                     layout.digProgressText.text = $"{((interactTime / destroyable.digTime) * 100).ToString("f1")} %";
                 }
             }
+        }
+
+        public void AddStorage(InventoryStorage inventoryStorage)
+        {
+            inventoryStorageList.Add(inventoryStorage);
+            UpdateInvetoryUI();
         }
     }
 

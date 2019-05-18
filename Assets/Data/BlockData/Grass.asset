@@ -20,3 +20,4 @@ MonoBehaviour:
   backTex: {fileID: 2100000, guid: 8801a287670caa94e9d7254446d58e84, type: 2}
   digTime: 1
   digSound: {fileID: 8300000, guid: 30d934cde79924144910cfcfb36ca525, type: 3}
+  dropInventory: {fileID: 11400000, guid: 9e2ebf24e5f312249a6bc302b802b70b, type: 2}
