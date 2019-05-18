@@ -9,6 +9,10 @@ namespace MC.Core
 
         private int currentTouchID = -1;
 
+        private float clickTime;
+
+        private const float clickTimeDeltaSlope = 0.2f;
+
         private void Start()
         {
             m_XScale = 6000 / (float)Screen.width;
@@ -42,12 +46,17 @@ namespace MC.Core
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
+            clickTime = Time.time;
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            var deltaTime = Time.time - clickTime;
 
+            if (deltaTime < clickTimeDeltaSlope)
+            {
+                ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
+            }
         }
     }
 

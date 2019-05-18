@@ -157,7 +157,7 @@ namespace MC.Core
 
             var ray = m_CameraController.m_Camera.ScreenPointToRay(rayScreen);
 
-            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
 
             if (isHit)
             {
