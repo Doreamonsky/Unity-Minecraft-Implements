@@ -18,3 +18,5 @@ MonoBehaviour:
   leftTex: {fileID: 2100000, guid: 684211ba60c9dbb42b21b75f9ca38648, type: 2}
   frontTex: {fileID: 2100000, guid: 684211ba60c9dbb42b21b75f9ca38648, type: 2}
   backTex: {fileID: 2100000, guid: 684211ba60c9dbb42b21b75f9ca38648, type: 2}
+  digTime: 1
+  digSound: {fileID: 8300000, guid: 30d934cde79924144910cfcfb36ca525, type: 3}

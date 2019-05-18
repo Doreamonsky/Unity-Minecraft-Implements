@@ -7,6 +7,8 @@ namespace MC.Core
     {
         public float digTime = 1;
 
+        public AudioClip digSound;
+
         public override void RemoveBlock(int height, int x, int y)
         {
             WorldManager.Instance.RemoveBlock(height, x, y);

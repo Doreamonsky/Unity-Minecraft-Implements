@@ -475,6 +475,8 @@ namespace MC.Core
                         {
                             interactTime += Time.deltaTime;
                         }
+
+                        SoundManager.Instance.PlayDigSound(destroyable.digSound);
                     }
                     else
                     {
