@@ -17,95 +17,154 @@ namespace MC.Core
     {
         Inv = 0, Craft = 1, Crafted = 2
     }
-    public class InventoryIconUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class InventoryIconUI : MonoBehaviour, IPointerClickHandler
     {
-        public static System.Action<int, int, SwapType> OnSwapItem;
-        public static System.Action<int, SwapType> OnGenerateItem;
+        public static System.Action<InventoryIconUI> OnPointerClicked;
 
         //Slot ID 由InventorySystem/CraftSystem 设置
-        private int m_slotID = 0;
+        public int m_slotID = 0;
 
-        private InventoryIconType m_iconType = InventoryIconType.Inv;
+        public InventoryIconType m_iconType;
 
-        private int m_childIndex = 0;
-        private Image m_icon;
-        private Vector3 m_origin_pos = Vector3.zero;
-        private Transform m_orign_parent;
+        public Image m_icon;
 
-        public void Init(int slotID, Image icon, InventoryIconType iconType)
+        public GameObject m_selectedEffect;
+
+        public void Init(int slotID, GameObject selectedEffect, Image icon, InventoryIconType iconType)
         {
             m_slotID = slotID;
+            m_selectedEffect = selectedEffect;
             m_icon = icon;
-
-            m_childIndex = m_icon.transform.GetSiblingIndex();
-            m_origin_pos = m_icon.rectTransform.localPosition;
-            m_orign_parent = m_icon.transform.parent;
             m_iconType = iconType;
+
+            SwapManager.Instance.AppendIconUI(this);
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        public void OnPointerClick(PointerEventData eventData)
         {
-            m_icon.raycastTarget = false;
-            m_icon.transform.parent = m_icon.transform.GetComponentInParent<Canvas>().transform;
-            m_icon.transform.SetAsLastSibling();
+            OnPointerClicked?.Invoke(this);
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public void ToggleSelectEffect(bool state)
         {
-            m_icon.rectTransform.position = eventData.position;
+            m_selectedEffect.SetActive(state);
         }
+        //private int m_childIndex = 0;
+        //private Vector3 m_origin_pos = Vector3.zero;
+        //private Transform m_orign_parent;
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            var rayHit = eventData.pointerCurrentRaycast;
+        //    public void Init(int slotID, Image icon, InventoryIconType iconType)
+        //    {
+        //        m_slotID = slotID;
+        //        m_icon = icon;
 
-            var targetIconUI = rayHit.gameObject?.transform?.parent?.GetComponent<InventoryIconUI>();
+        //        m_childIndex = m_icon.transform.GetSiblingIndex();
+        //        m_origin_pos = m_icon.rectTransform.localPosition;
+        //        m_orign_parent = m_icon.transform.parent;
+        //        m_iconType = iconType;
+        //    }
 
-            if (targetIconUI != null)
-            {
+        //    public void OnBeginDrag(PointerEventData eventData)
+        //    {
+        //        m_icon.raycastTarget = false;
+        //        m_icon.transform.parent = m_icon.transform.GetComponentInParent<Canvas>().transform;
+        //        m_icon.transform.SetAsLastSibling();
+        //    }
 
-                var swapType = SwapType.InvToInv;
+        //    public void OnDrag(PointerEventData eventData)
+        //    {
+        //        m_icon.rectTransform.position = eventData.position;
+        //    }
 
-                if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Inv)
-                {
-                    swapType = SwapType.InvToInv;
-                }
-                else if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Craft)
-                {
-                    swapType = SwapType.InvToCraft;
-                }
-                else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Inv)
-                {
-                    swapType = SwapType.CraftToInv;
-                }
-                else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Craft)
-                {
-                    swapType = SwapType.CraftToCraft;
-                }
-                else if (m_iconType == InventoryIconType.Crafted && targetIconUI.m_iconType == InventoryIconType.Inv)
-                {
-                    swapType = SwapType.CraftedToInv;
-                }
+        //    public void OnEndDrag(PointerEventData eventData)
+        //    {
+        //        var rayHit = eventData.pointerCurrentRaycast;
 
-                OnSwapItem?.Invoke(m_slotID, targetIconUI.GetSlotID(), swapType);
+        //        var targetIconUI = rayHit.gameObject?.transform?.parent?.GetComponent<InventoryIconUI>();
 
-                Debug.Log($"Perform Swap {m_slotID} {targetIconUI.GetSlotID()} {swapType}");
+        //        if (targetIconUI != null)
+        //        {
 
-            }
+        //            var swapType = SwapType.InvToInv;
 
-            m_icon.transform.parent = m_orign_parent;
+        //            if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.InvToInv;
+        //            }
+        //            else if (m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Craft)
+        //            {
+        //                swapType = SwapType.InvToCraft;
+        //            }
+        //            else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.CraftToInv;
+        //            }
+        //            else if (m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Craft)
+        //            {
+        //                swapType = SwapType.CraftToCraft;
+        //            }
+        //            else if (m_iconType == InventoryIconType.Crafted && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.CraftedToInv;
+        //            }
 
-            m_icon.transform.SetSiblingIndex(m_childIndex);
-            m_icon.rectTransform.localPosition = m_origin_pos;
-            m_icon.raycastTarget = true;
-        }
+        //            OnSwapItem?.Invoke(m_slotID, targetIconUI.GetSlotID(), swapType);
 
-        public int GetSlotID()
-        {
-            return m_slotID;
-        }
+        //            Debug.Log($"Perform Swap {m_slotID} {targetIconUI.GetSlotID()} {swapType}");
 
+        //        }
+
+        //        m_icon.transform.parent = m_orign_parent;
+
+        //        m_icon.transform.SetSiblingIndex(m_childIndex);
+        //        m_icon.rectTransform.localPosition = m_origin_pos;
+        //        m_icon.raycastTarget = true;
+        //    }
+
+        //    public int GetSlotID()
+        //    {
+        //        return m_slotID;
+        //    }
+
+        //    public void OnPointerClick(PointerEventData eventData)
+        //    {
+        //        if (previousClickIcon == null)
+        //        {
+        //            previousClickIcon = this;
+        //        }
+        //        else
+        //        {
+        //            var targetIconUI = this;
+
+        //            var swapType = SwapType.InvToInv;
+
+        //            if (previousClickIcon.m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.InvToInv;
+        //            }
+        //            else if (previousClickIcon.m_iconType == InventoryIconType.Inv && targetIconUI.m_iconType == InventoryIconType.Craft)
+        //            {
+        //                swapType = SwapType.InvToCraft;
+        //            }
+        //            else if (previousClickIcon.m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.CraftToInv;
+        //            }
+        //            else if (previousClickIcon.m_iconType == InventoryIconType.Craft && targetIconUI.m_iconType == InventoryIconType.Craft)
+        //            {
+        //                swapType = SwapType.CraftToCraft;
+        //            }
+        //            else if (previousClickIcon.m_iconType == InventoryIconType.Crafted && targetIconUI.m_iconType == InventoryIconType.Inv)
+        //            {
+        //                swapType = SwapType.CraftedToInv;
+        //            }
+
+        //            OnSwapItem?.Invoke(previousClickIcon.m_slotID, targetIconUI.m_slotID, swapType);
+
+        //            previousClickIcon = null;
+        //        }
+        //    }
+        //}
 
     }
-
 }

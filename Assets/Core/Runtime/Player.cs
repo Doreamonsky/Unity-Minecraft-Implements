@@ -38,7 +38,6 @@ namespace MC.Core
 
         private bool isControllable = true;
 
-        private bool isCrafting = false;
 
         private bool isMobile = false;
 
@@ -49,7 +48,7 @@ namespace MC.Core
             m_CharacterContoller = GetComponent<CharacterController>();
             m_CameraController = GetComponent<CameraController>();
 
-            craftingUI.SetActive(isCrafting);
+            craftingUI.SetActive(Util.isCrafting);
 
             MouseLockModule.Instance.OnLock();
 
@@ -158,9 +157,6 @@ namespace MC.Core
             }
         }
 
-
-
-
         private void ToggleControl(bool state)
         {
             isControllable = state;
@@ -169,11 +165,11 @@ namespace MC.Core
 
         private void ToggleCrafting()
         {
-            isCrafting = !isCrafting;
+            Util.isCrafting = !Util.isCrafting;
 
-            craftingUI.SetActive(isCrafting);
+            craftingUI.SetActive(Util.isCrafting);
 
-            if (isCrafting)
+            if (Util.isCrafting)
             {
                 MouseLockModule.Instance.OnUnlock();
 
@@ -185,6 +181,8 @@ namespace MC.Core
 
                 ToggleControl(true);
             }
+
+            Util.OnToggleCraftingMode?.Invoke(Util.isCrafting);
         }
 
         public void StartForward()

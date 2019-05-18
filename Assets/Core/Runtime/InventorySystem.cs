@@ -51,9 +51,9 @@ namespace MC.Core
                     itemInstance.Add(uiItem);
 
                     var iconUI = instance.AddComponent<InventoryIconUI>();
-                    iconUI.Init(i, uiItem.itemIcon, InventoryIconType.Inv);
+                    iconUI.Init(i, uiItem.selectedIcon, uiItem.itemIcon, InventoryIconType.Inv);
 
-                    uiItem.itemIcon.GetComponent<Button>().onClick.AddListener(() =>
+                    uiItem.instance.GetComponent<Button>().onClick.AddListener(() =>
                     {
                         ControlEvents.OnClickInventoryByID?.Invoke(currentIndex);
                     });
@@ -115,7 +115,7 @@ namespace MC.Core
                 layout.digProgressBar.SetActive(false);
             };
 
-            InventoryIconUI.OnSwapItem += (a, b, type) =>
+            SwapManager.OnSwapItem += (a, b, type) =>
             {
                 //Inventory 中交换物品
                 if (type == SwapType.InvToInv)
@@ -225,7 +225,7 @@ namespace MC.Core
 
                         inventoryStorageList.Add(craftedInventory);
                     }
-                    else if(targetInv.count + craftedInventory.count <=64)
+                    else if (targetInv.count + craftedInventory.count <= 64)
                     {
                         isCrafted = true;
                         craftedInventory.slotID = b;
@@ -294,14 +294,14 @@ namespace MC.Core
                     layout.itemInstance[i].itemCount.text = "0";
                 }
 
-                if (currentSelectID == i)
-                {
-                    layout.itemInstance[i].selectedIcon.SetActive(true);
-                }
-                else
-                {
-                    layout.itemInstance[i].selectedIcon.SetActive(false);
-                }
+                //if (currentSelectID == i)
+                //{
+                //    layout.itemInstance[i].selectedIcon.SetActive(true);
+                //}
+                //else
+                //{
+                //    layout.itemInstance[i].selectedIcon.SetActive(false);
+                //}
             }
         }
 

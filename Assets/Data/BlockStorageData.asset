@@ -27,3 +27,5 @@ MonoBehaviour:
     blockData: {fileID: 11400000, guid: 4bbafc3969ecdd74fac7bdf6dba43de9, type: 2}
   - layerID: 6
     blockData: {fileID: 11400000, guid: 753c4192b56b6d746bdc94274cd0c705, type: 2}
+  - layerID: 7
+    blockData: {fileID: 11400000, guid: 26411990a56879d46b15f86654dafaa8, type: 2}

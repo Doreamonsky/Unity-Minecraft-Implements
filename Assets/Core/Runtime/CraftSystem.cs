@@ -17,6 +17,8 @@ namespace MC.Core
                 public GameObject instance;
 
                 public Text itemCount;
+
+                public GameObject selectedIcon;
             }
 
             public GameObject craftedObject;
@@ -37,20 +39,22 @@ namespace MC.Core
                     {
                         instance = item,
                         itemCount = item.transform.Find("Num").GetComponent<Text>(),
-                        itemIcon = item.transform.Find("ItemIcon").GetComponent<Image>()
+                        itemIcon = item.transform.Find("ItemIcon").GetComponent<Image>(),
+                        selectedIcon = item.transform.Find("Selected").gameObject
                     };
 
                     itemInstance.Add(itemUI);
 
                     var iconUI = item.AddComponent<InventoryIconUI>();
-                    iconUI.Init(i, itemUI.itemIcon, InventoryIconType.Craft);
+                    iconUI.Init(i, itemUI.selectedIcon, itemUI.itemIcon, InventoryIconType.Craft);
                 }
 
                 craftedInstance.instance = craftedObject;
                 craftedInstance.itemIcon = craftedObject.transform.Find("ItemIcon").GetComponent<Image>();
+                craftedInstance.selectedIcon = craftedObject.transform.Find("Selected").gameObject;
 
                 var craftedIconUI = craftedObject.AddComponent<InventoryIconUI>();
-                craftedIconUI.Init(0, craftedInstance.itemIcon, InventoryIconType.Crafted);
+                craftedIconUI.Init(0, craftedInstance.selectedIcon, craftedInstance.itemIcon, InventoryIconType.Crafted);
             }
         }
 

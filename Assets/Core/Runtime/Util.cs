@@ -4,6 +4,10 @@ namespace MC.Core
 {
     public static class Util
     {
+        public static System.Action<bool> OnToggleCraftingMode;
+
+        public static bool isCrafting = false;
+
         public static bool IsMobile()
         {
             var isMobile = false;
