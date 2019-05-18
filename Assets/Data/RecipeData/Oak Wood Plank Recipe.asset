@@ -22,4 +22,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  CraftedInventory: {fileID: 0}
+  CraftedInventory: {fileID: 11400000, guid: 9149184d099ceb54cabd1c3699377068, type: 2}
+  CraftedCount: 4

@@ -149,7 +149,7 @@ namespace MC.Core
             }
         }
 
-        private void Jump()
+        public void Jump()
         {
             if (m_CharacterContoller.isGrounded)
             {
@@ -218,6 +218,28 @@ namespace MC.Core
         public void CancelLeft()
         {
             mobileX = 0;
+        }
+
+
+        public void StartForwardRight()
+        {
+            mobileX = 1;
+            mobileY = 1;
+        }
+        public void CancelForwardRight()
+        {
+            mobileX = 0;
+            mobileY = 0;
+        }
+        public void StartForwardLeft()
+        {
+            mobileX = -1;
+            mobileY = 1;
+        }
+        public void CancelForwardLeft()
+        {
+            mobileX = 0;
+            mobileY = 0;
         }
     }
 

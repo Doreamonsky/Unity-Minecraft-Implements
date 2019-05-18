@@ -210,24 +210,39 @@ namespace MC.Core
                 //Craft 生成物体
                 if (type == SwapType.CraftedToInv)
                 {
-                    var isTargetEmpty = inventoryStorageList.Find(val => val.slotID == b) == null;
+                    var targetInv = inventoryStorageList.Find(val => val.slotID == b);
+
+                    //深复制防止多引用
+                    var craftedInventory = CraftSystem.Instance.craftedInventory.Clone();
+
+                    var isCrafted = false;
 
                     //目标插槽空
-                    if (isTargetEmpty)
+                    if (targetInv == null)
+                    {
+                        isCrafted = true;
+                        craftedInventory.slotID = b;
+
+                        inventoryStorageList.Add(craftedInventory);
+                    }
+                    else if(targetInv.count + craftedInventory.count <=64)
+                    {
+                        isCrafted = true;
+                        craftedInventory.slotID = b;
+
+
+                        targetInv.count += craftedInventory.count;
+                    }
+
+                    //满足Craft 条件后，销毁原材料
+                    if (isCrafted)
                     {
                         foreach (var usedItem in CraftSystem.Instance.craftInventoryList)
                         {
                             usedItem.count -= 1;
                         }
 
-                        //深复制防止多引用
-                        var craftedInventory = CraftSystem.Instance.craftedInventory.Clone();
-                        craftedInventory.slotID = b;
-
-                        inventoryStorageList.Add(craftedInventory);
-
                         CleanUpInventory();
-
                         UpdateInvetoryUI();
                         CraftSystem.Instance.UpdateInvetoryUI();
                     }

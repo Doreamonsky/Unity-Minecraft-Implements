@@ -19,8 +19,8 @@ namespace MC.Core
 
         private void Start()
         {
-            m_XScale = 6000 / (float)Screen.width;
-            m_YScale = 6000 / (float)Screen.height;
+            m_XScale = 8000 / (float)Screen.width;
+            m_YScale = 8000 / (float)Screen.height;
         }
 
         private void Update()

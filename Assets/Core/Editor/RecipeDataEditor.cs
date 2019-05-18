@@ -24,12 +24,14 @@ namespace MC.CoreEditor
                 EditorGUILayout.BeginHorizontal();
                 for (int j = 0; j < 3; j++)
                 {
-                    recipeData.Recipe[i * 3 + j] = (Inventory)EditorGUILayout.ObjectField(recipeData.Recipe[i * 3 + j], typeof(Inventory));
+                    recipeData.Recipe[i * 3 + j] = (Inventory)EditorGUILayout.ObjectField(recipeData.Recipe[i * 3 + j], typeof(Inventory),allowSceneObjects:false);
                 }
                 EditorGUILayout.EndHorizontal();
             }
 
-            recipeData.CraftedInventory = (Inventory)EditorGUILayout.ObjectField("Crafted Inventory:", recipeData.CraftedInventory, typeof(Inventory));
+            recipeData.CraftedInventory = (Inventory)EditorGUILayout.ObjectField("Crafted Inventory:", recipeData.CraftedInventory, typeof(Inventory), allowSceneObjects: false);
+
+            recipeData.CraftedCount = EditorGUILayout.IntField("Count:", recipeData.CraftedCount);
 
             if (GUI.changed)
             {

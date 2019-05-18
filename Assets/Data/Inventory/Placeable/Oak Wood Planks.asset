@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1dbe320c7e20a4daca1b926e48f914, type: 3}
+  m_Name: Oak Wood Planks
+  m_EditorClassIdentifier: 
+  inventoryName: Oak Wood Planks
+  inventoryIcon: {fileID: 21300000, guid: 7edb402b629a6cd45856730034e2a6a3, type: 3}
+  placeType: 0
+  blockData: {fileID: 11400000, guid: 26411990a56879d46b15f86654dafaa8, type: 2}
