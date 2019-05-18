@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -43,11 +44,13 @@ namespace MC.Core
         public void OnPointerClick(PointerEventData eventData)
         {
             OnPointerClicked?.Invoke(this);
+
+            StopCoroutine(PointerEnterNotClick());
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            OnPointerEntered?.Invoke(this);
+            StartCoroutine(PointerEnterNotClick());
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -55,6 +58,12 @@ namespace MC.Core
             OnPointerExited?.Invoke(this);
         }
 
+        private IEnumerator PointerEnterNotClick()
+        {
+            yield return new WaitForSeconds(0.2f);
+
+            OnPointerEntered?.Invoke(this);
+        }
         public void ToggleSelectEffect(bool state)
         {
             m_selectedEffect.SetActive(state);

@@ -38,10 +38,14 @@ namespace MC.Core
             }
 
         }
-        private void Start()
+
+        private void Awake()
         {
             Instance = this;
+        }
 
+        private void Start()
+        {
             Util.OnToggleCraftingMode += (state) =>
             {
                 if (state)

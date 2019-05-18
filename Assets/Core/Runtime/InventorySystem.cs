@@ -322,7 +322,7 @@ namespace MC.Core
 
                         inventoryStorageList.Add(craftedInventory);
                     }
-                    else if (targetInv.count + craftedInventory.count <= 64)
+                    else if (targetInv.inventory.inventoryName == craftedInventory.inventory.inventoryName && targetInv.count + craftedInventory.count <= 64)
                     {
                         isCrafted = true;
                         craftedInventory.slotID = b;
