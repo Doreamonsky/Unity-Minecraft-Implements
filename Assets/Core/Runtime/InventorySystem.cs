@@ -27,6 +27,12 @@ namespace MC.Core
 
             public List<ItemUI> itemInstance = new List<ItemUI>();
 
+            public GameObject digProgressBar;
+
+            public Slider digProgressSlider;
+
+            public Text digProgressText;
+
             public void Init()
             {
                 for (var i = 0; i < max_bottom_inventory_count; i++)
@@ -68,6 +74,11 @@ namespace MC.Core
 
         public Camera playerCamera;
 
+        //与Block交互的数据
+        private float interactTime = 0;
+
+        private Vector3 interactPos = Vector3.zero;
+
         private void Start()
         {
             layout.Init();
@@ -82,6 +93,26 @@ namespace MC.Core
             ControlEvents.OnClickScreen += pos =>
             {
                 UseCurrentInventory(pos);
+            };
+
+            ControlEvents.OnBeginPressScreen += () =>
+            {
+                interactTime = 0;
+            };
+
+            //与方块交互
+            ControlEvents.OnPressingScreen += pos =>
+            {
+                InteractBlock(pos);
+
+                layout.digProgressBar.SetActive(true);
+            };
+
+            ControlEvents.OnEndPressScreen += () =>
+            {
+                interactTime = 0;
+
+                layout.digProgressBar.SetActive(false);
             };
 
             InventoryIconUI.OnSwapItem += (a, b, type) =>
@@ -306,6 +337,48 @@ namespace MC.Core
             currentStorage.count -= 1;
             UpdateInvetoryUI();
             CleanUpInventory();
+        }
+
+        private void InteractBlock(Vector2 screenPos)
+        {
+            var ray = playerCamera.ScreenPointToRay(screenPos);
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
+
+            if (isHit)
+            {
+                var chunckPoint = rayHit.point - rayHit.normal * 0.5f;
+                chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
+
+                var blockData = WorldManager.Instance.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+
+                if (blockData is DestroyableBlockData)
+                {
+                    var destroyable = blockData as DestroyableBlockData;
+
+                    //判断 当前挖的与上一帧挖的是否相同
+                    if (interactPos == chunckPoint)
+                    {
+                        if (interactTime < destroyable.digTime)
+                        {
+                            interactTime += Time.deltaTime;
+                        }
+                    }
+                    else
+                    {
+                        interactPos = chunckPoint;
+                        interactTime = 0;
+                    }
+
+                    if (interactTime >= destroyable.digTime && interactPos == chunckPoint)
+                    {
+                        WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                    }
+
+                    //Update UI
+                    layout.digProgressSlider.value = interactTime / destroyable.digTime;
+                    layout.digProgressText.text = $"{((interactTime / destroyable.digTime) * 100).ToString("f1")} %";
+                }
+            }
         }
     }
 

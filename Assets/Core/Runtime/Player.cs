@@ -116,10 +116,10 @@ namespace MC.Core
                     y = Input.GetAxis("Vertical")
                 });
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    RemoveBlock();
-                }
+                //if (Input.GetKeyDown(KeyCode.Mouse0))
+                //{
+                //    RemoveBlock();
+                //}
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
@@ -158,41 +158,8 @@ namespace MC.Core
             }
         }
 
-        private void CreateBlock(bool isScreenCenter, Vector2 screenPos)
-        {
-            var rayScreen = isScreenCenter ? new Vector2(Screen.width, Screen.height) * 0.5f : screenPos;
 
-            var cameraTrans = m_CameraController.m_Camera.transform;
 
-            var ray = m_CameraController.m_Camera.ScreenPointToRay(rayScreen);
-
-            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
-
-            if (isHit)
-            {
-                var chunckPoint = rayHit.point + rayHit.normal * 0.5f;
-
-                chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
-
-                WorldManager.Instance.CreateBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z, blockID);
-            }
-        }
-
-        private void RemoveBlock()
-        {
-            var cameraTrans = m_CameraController.m_Camera.transform;
-
-            var isHit = Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit rayHit, 5, 1 << LayerMask.NameToLayer("Block"));
-
-            if (isHit)
-            {
-                var chunckPoint = rayHit.point - rayHit.normal * 0.5f;
-
-                chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
-
-                WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
-            }
-        }
 
         private void ToggleControl(bool state)
         {

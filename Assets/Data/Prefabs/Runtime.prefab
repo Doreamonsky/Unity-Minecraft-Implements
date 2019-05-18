@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 5307571566953177101}
   - component: {fileID: 5797422394154764617}
   m_Layer: 5
-  m_Name: Drift
+  m_Name: Dig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,8 +947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -16.964996, y: 17.739998}
-  m_SizeDelta: {x: 21.989998, y: 23.54}
+  m_AnchoredPosition: {x: -24.62, y: 17.739998}
+  m_SizeDelta: {x: 29.9, y: 23.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6791538091401401752
 CanvasRenderer:
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.22974515, g: 1, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -985,7 +985,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2058,6 +2058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layout:
     ItemTemplate: {fileID: 6895479986152358849}
+    digProgressBar: {fileID: 3267973906677124778}
+    digProgressSlider: {fileID: 5199987694926529431}
+    digProgressText: {fileID: 996665854057710771}
   inventoryStorageList:
   - count: 2
     slotID: 0
@@ -2205,7 +2208,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 2500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -3596,7 +3599,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2630321033579445754}
   m_FillRect: {fileID: 7369520411490494760}
   m_HandleRect: {fileID: 8660220598049053909}

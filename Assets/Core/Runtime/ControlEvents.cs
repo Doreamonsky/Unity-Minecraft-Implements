@@ -7,5 +7,9 @@ namespace MC.Core
         public static System.Action<Vector2> OnClickScreen;
 
         public static System.Action<int> OnClickInventoryByID;
+
+        public static System.Action<Vector2> OnPressingScreen;
+
+        public static System.Action OnBeginPressScreen, OnEndPressScreen;
     }
 }

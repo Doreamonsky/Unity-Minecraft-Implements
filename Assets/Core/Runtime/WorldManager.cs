@@ -75,7 +75,9 @@ namespace MC.Core
         }
 
     }
-
+    /// <summary>
+    /// 运行时候 Block的数据
+    /// </summary>
     [System.Serializable]
     public class BlockMap
     {
@@ -154,6 +156,7 @@ namespace MC.Core
 
         public BlockStorageData blockStorageData;
 
+        //引索与BlockStorageData中一样
         private List<BlockMap> blockMaps = new List<BlockMap>();
 
         private Transform colliderParent;
@@ -192,10 +195,16 @@ namespace MC.Core
             RenderBlocks(0, mapData.max_height - 1, 0, mapData.max_width - 1, 0, mapData.max_length - 1);
         }
 
-        public void CreateBlock(int height, int x, int y, int type)
+        public void CreateBlock(int height, int x, int y, int layerID)
         {
-            runtimeWorldData[height, x, y] = type;
+            runtimeWorldData[height, x, y] = layerID;
             RenderBlocks(height, height, x, x, y, y);
+        }
+
+        public BlockData GetBlockData(int height, int x, int y)
+        {
+            var blockID = runtimeWorldData[height, x, y];
+            return blockMaps[blockID].blockData;
         }
 
         public void InteractBlock(int height, int x, int y)

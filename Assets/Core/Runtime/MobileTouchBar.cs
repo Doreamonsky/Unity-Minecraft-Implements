@@ -9,9 +9,13 @@ namespace MC.Core
 
         private int currentTouchID = -1;
 
+        private bool isDragging = false;
+
         private float clickTime;
 
         private const float clickTimeDeltaSlope = 0.2f;
+
+        private Vector2 currentPointerPos;
 
         private void Start()
         {
@@ -19,6 +23,13 @@ namespace MC.Core
             m_YScale = 6000 / (float)Screen.height;
         }
 
+        private void Update()
+        {
+            if (isDragging)
+            {
+                ControlEvents.OnPressingScreen?.Invoke(currentPointerPos);
+            }
+        }
         public void OnDrag(PointerEventData eventData)
         {
             if (eventData.pointerId == currentTouchID)
@@ -29,6 +40,8 @@ namespace MC.Core
                     y = eventData.delta.y * m_YScale
                 });
             }
+
+            currentPointerPos = eventData.position;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -47,6 +60,11 @@ namespace MC.Core
         public void OnPointerDown(PointerEventData eventData)
         {
             clickTime = Time.time;
+
+            isDragging = true;
+
+            currentPointerPos = eventData.position;
+            ControlEvents.OnBeginPressScreen?.Invoke();
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -57,7 +75,13 @@ namespace MC.Core
             {
                 ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
             }
+
+            isDragging = false;
+
+            currentPointerPos = eventData.position;
+            ControlEvents.OnEndPressScreen?.Invoke();
         }
+
     }
 
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Oak Wood
   m_EditorClassIdentifier: 
   inventoryName: Oak Wood
-  inventoryIcon: {fileID: 0}
+  inventoryIcon: {fileID: 21300000, guid: 010029a229851d04e81fafa01d7256dc, type: 3}
   placeType: 0
   blockData: {fileID: 11400000, guid: 862184d1b7f0741408f91dbb5f87227b, type: 2}
