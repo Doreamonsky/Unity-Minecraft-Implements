@@ -80,13 +80,7 @@ namespace MC.Core
                 ToggleCrafting();
             });
 
-            if (isMobile)
-            {
-                ControlEvents.OnClickScreen += pos =>
-                {
-                    CreateBlock(false, pos);
-                };
-            }
+     
         }
 
         private void Update()
@@ -129,8 +123,10 @@ namespace MC.Core
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
-                    CreateBlock(true, Vector2.zero);
+                    ControlEvents.OnClickScreen?.Invoke(new Vector2(Screen.width, Screen.height) * 0.5f);
                 }
+
+
             }
 
 

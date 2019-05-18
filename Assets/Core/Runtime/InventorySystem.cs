@@ -66,13 +66,22 @@ namespace MC.Core
         //当前选用的Inventory
         public int currentSelectID = 0;
 
+        public Camera playerCamera;
+
         private void Start()
         {
             layout.Init();
 
+            //选择 Inventory
             ControlEvents.OnClickInventoryByID += id =>
             {
                 SelectInventoryByID(id);
+            };
+
+            //使用 Inventory （PC 右键 移动端点击屏幕）
+            ControlEvents.OnClickScreen += pos =>
+            {
+                UseCurrentInventory(pos);
             };
 
             InventoryIconUI.OnSwapItem += (a, b, type) =>
@@ -254,6 +263,41 @@ namespace MC.Core
         {
             currentSelectID = id;
             UpdateInvetoryUI();
+        }
+
+        public void UseCurrentInventory(Vector2 screenPos)
+        {
+            var currentStorage = inventoryStorageList.Find(val => val.slotID == currentSelectID);
+
+            //当前物品为空
+            if (currentStorage == null)
+            {
+                return;
+            }
+
+            //物品数量不足
+            if (currentStorage.count <= 0)
+            {
+                return;
+            }
+
+            var ray = playerCamera.ScreenPointToRay(screenPos);
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
+
+            var currInv = currentStorage.inventory;
+
+            if (currInv is PlaceableInventory)
+            {
+                var inv = (PlaceableInventory)currInv;
+
+                if (isHit)
+                {
+                    var placePoint = rayHit.point + rayHit.normal * 0.5f;
+                    placePoint = new Vector3(Mathf.FloorToInt(placePoint.x), Mathf.FloorToInt(placePoint.y), Mathf.FloorToInt(placePoint.z)); //整数
+                    inv.Place(placePoint);
+                }
+
+            }
         }
     }
 

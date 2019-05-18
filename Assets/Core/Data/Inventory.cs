@@ -8,11 +8,6 @@ namespace MC.Core
         public string inventoryName;
 
         public Sprite inventoryIcon;
-
-        [Header("Block Data:")]
-        public bool isBlockItem;
-
-        public BlockData blockData;
     }
 
 }

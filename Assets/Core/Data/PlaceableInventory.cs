@@ -1,10 +1,9 @@
 ﻿using MC.Core.Interface;
-using System;
 using UnityEngine;
 
 namespace MC.Core
 {
-    [CreateAssetMenu(fileName ="PlaceableInventory")]
+    [CreateAssetMenu(fileName = "PlaceableInventory")]
     public class PlaceableInventory : Inventory, IPlaceable
     {
         public enum PlaceType
@@ -14,11 +13,14 @@ namespace MC.Core
 
         public PlaceType placeType = PlaceType.Block;
 
-        public int blockID = 0;
+        public BlockData blockData;
 
         public void Place(Vector3 pos)
         {
-            throw new NotImplementedException();
+            //从当前 WorldManager LayerID 
+            var layerID = WorldManager.Instance.blockStorageData.BlockMapping.Find(val => val.blockData.name == blockData.name).layerID;
+
+            WorldManager.Instance.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
         }
     }
 }
