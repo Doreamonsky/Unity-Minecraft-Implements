@@ -19,6 +19,8 @@ namespace MC.Core
                 public GameObject instance;
 
                 public Text itemCount;
+
+                public GameObject selectedIcon;
             }
 
             public GameObject ItemTemplate;
@@ -29,18 +31,26 @@ namespace MC.Core
             {
                 for (var i = 0; i < max_bottom_inventory_count; i++)
                 {
-                    var instance = Object.Instantiate(ItemTemplate, ItemTemplate.transform.parent, true);
+                    var currentIndex = i;
+
+                    var instance = Instantiate(ItemTemplate, ItemTemplate.transform.parent, true);
 
                     var uiItem = new ItemUI()
                     {
                         instance = instance,
                         itemIcon = instance.transform.Find("ItemIcon").GetComponent<Image>(),
-                        itemCount = instance.transform.Find("Num").GetComponent<Text>()
+                        itemCount = instance.transform.Find("Num").GetComponent<Text>(),
+                        selectedIcon = instance.transform.Find("Selected").gameObject
                     };
                     itemInstance.Add(uiItem);
 
                     var iconUI = instance.AddComponent<InventoryIconUI>();
                     iconUI.Init(i, uiItem.itemIcon, InventoryIconType.Inv);
+
+                    uiItem.itemIcon.GetComponent<Button>().onClick.AddListener(() =>
+                    {
+                        ControlEvents.OnClickInventoryByID?.Invoke(currentIndex);
+                    });
                 }
 
                 ItemTemplate.gameObject.SetActive(false);
@@ -53,9 +63,17 @@ namespace MC.Core
         //Slot ID 插槽  <= max_inventory_count 显示在底部
         public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
 
+        //当前选用的Inventory
+        public int currentSelectID = 0;
+
         private void Start()
         {
             layout.Init();
+
+            ControlEvents.OnClickInventoryByID += id =>
+            {
+                SelectInventoryByID(id);
+            };
 
             InventoryIconUI.OnSwapItem += (a, b, type) =>
             {
@@ -220,9 +238,23 @@ namespace MC.Core
                     layout.itemInstance[i].itemIcon.sprite = null;
                     layout.itemInstance[i].itemCount.text = "0";
                 }
+
+                if (currentSelectID == i)
+                {
+                    layout.itemInstance[i].selectedIcon.SetActive(true);
+                }
+                else
+                {
+                    layout.itemInstance[i].selectedIcon.SetActive(false);
+                }
             }
         }
 
+        public void SelectInventoryByID(int id)
+        {
+            currentSelectID = id;
+            UpdateInvetoryUI();
+        }
     }
 
 }

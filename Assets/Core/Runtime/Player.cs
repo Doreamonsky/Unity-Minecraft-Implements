@@ -24,6 +24,8 @@ namespace MC.Core
 
         public GameObject craftingUI;
 
+        public InventorySystem inventorySystem;
+
         public Button openCraftingBtn, closeCraftingBtn;
 
         private Vector3 moveDirection;
@@ -136,12 +138,23 @@ namespace MC.Core
             {
                 m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
             }
+
+            for (var i = 0; i < 10; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    ControlEvents.OnClickInventoryByID?.Invoke(i);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                ControlEvents.OnClickInventoryByID?.Invoke(9);
+            }
         }
 
         private void Jump()
         {
-            Debug.Log("Jump");
-
             if (m_CharacterContoller.isGrounded)
             {
                 m_CharacterContoller.Move(Vector3.up * jumpVelocity * Time.deltaTime);

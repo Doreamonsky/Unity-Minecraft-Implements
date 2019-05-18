@@ -202,7 +202,7 @@ namespace MC.Core
         {
             var blockID = runtimeWorldData[height, x, y];
 
-            blockMaps[blockID].blockData.Interact(height, x, y);
+            blockMaps[blockID].blockData.RemoveBlock(height, x, y);
         }
 
         public void RemoveBlock(int height, int x, int y)
