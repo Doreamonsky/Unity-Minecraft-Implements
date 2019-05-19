@@ -10,7 +10,6 @@ namespace MC.Core
 
     public class Player : MonoBehaviour
     {
-        public System.Action<InputData> OnControllerInput;
 
         public float velocity = 10;
 
@@ -38,7 +37,6 @@ namespace MC.Core
 
         private bool isControllable = true;
 
-
         private bool isMobile = false;
 
         private void Start()
@@ -52,7 +50,7 @@ namespace MC.Core
 
             MouseLockModule.Instance.OnLock();
 
-            OnControllerInput += data =>
+            ControlEvents.OnControllerInput += data =>
             {
                 if (!isControllable)
                 {
@@ -101,7 +99,7 @@ namespace MC.Core
 
             if (isMobile)
             {
-                OnControllerInput?.Invoke(new InputData()
+                ControlEvents.OnControllerInput?.Invoke(new InputData()
                 {
                     x = mobileX,
                     y = mobileY
@@ -109,7 +107,7 @@ namespace MC.Core
             }
             else
             {
-                OnControllerInput?.Invoke(new InputData()
+                ControlEvents.OnControllerInput?.Invoke(new InputData()
                 {
                     x = Input.GetAxis("Horizontal"),
                     y = Input.GetAxis("Vertical")
@@ -160,11 +158,7 @@ namespace MC.Core
 
         public void Jump()
         {
-            if (m_CharacterContoller.isGrounded)
-            {
-                m_CharacterContoller.Move(Vector3.up * jumpVelocity * Time.deltaTime);
-
-            }
+            ControlEvents.OnJumped?.Invoke();
         }
 
         private void ToggleControl(bool state)

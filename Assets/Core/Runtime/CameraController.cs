@@ -26,19 +26,19 @@ namespace MC.Core
 
         private void Update()
         {
-            if (!isMobile)
-            {
-                OnControllerInput?.Invoke(new InputData()
-                {
-                    x = Input.GetAxis("Mouse X") * 50,
-                    y = Input.GetAxis("Mouse Y") * 50
-                });
-            }
+            //if (!isMobile)
+            //{
+            //    OnControllerInput?.Invoke(new InputData()
+            //    {
+            //        x = Input.GetAxis("Mouse X") * 50,
+            //        y = Input.GetAxis("Mouse Y") * 50
+            //    });
+            //}
 
-            y = ClampAngle(y, -90, 90);
+            //y = ClampAngle(y, -90, 90);
 
-            var rot = Quaternion.Euler(-y, x, 0);
-            m_Camera.transform.rotation = rot;
+            //var rot = Quaternion.Euler(-y, x, 0);
+            //m_Camera.transform.rotation = rot;
         }
 
 
