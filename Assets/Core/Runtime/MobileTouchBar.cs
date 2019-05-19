@@ -19,8 +19,8 @@ namespace MC.Core
 
         private void Start()
         {
-            m_XScale = 8000 / (float)Screen.width;
-            m_YScale = 8000 / (float)Screen.height;
+            m_XScale = 160 / (float)Screen.width;
+            m_YScale = 160 / (float)Screen.height;
         }
 
         private void Update()
@@ -34,7 +34,7 @@ namespace MC.Core
         {
             if (eventData.pointerId == currentTouchID)
             {
-                CameraController.OnControllerInput?.Invoke(new InputData()
+                ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
                 {
                     x = eventData.delta.x * m_XScale,
                     y = eventData.delta.y * m_YScale
@@ -55,6 +55,12 @@ namespace MC.Core
         public void OnEndDrag(PointerEventData eventData)
         {
             currentTouchID = -1;
+
+            ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+            {
+                x = 0,
+                y = 0
+            });
         }
 
         public void OnPointerDown(PointerEventData eventData)

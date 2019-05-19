@@ -4,25 +4,25 @@ namespace MC.Core
 {
     public class CameraController : MonoBehaviour
     {
-        public static System.Action<InputData> OnControllerInput;
+        //public static System.Action<InputData> OnControllerInput;
 
-        public Camera m_Camera;
+        //public Camera m_Camera;
 
-        private float x, y;
+        //private float x, y;
 
-        private bool isMobile = false;
+        //private bool isMobile = false;
 
-        private void Start()
-        {
-            isMobile = Util.IsMobile();
+        //private void Start()
+        //{
+        //    isMobile = Util.IsMobile();
 
 
-            OnControllerInput += data =>
-            {
-                x += data.x * Time.deltaTime;
-                y += data.y * Time.deltaTime;
-            };
-        }
+        //    OnControllerInput += data =>
+        //    {
+        //        x += data.x * Time.deltaTime;
+        //        y += data.y * Time.deltaTime;
+        //    };
+        //}
 
         private void Update()
         {

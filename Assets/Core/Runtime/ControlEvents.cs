@@ -12,7 +12,7 @@ namespace MC.Core
 
         public static System.Action OnBeginPressScreen, OnEndPressScreen;
 
-        public static System.Action<InputData> OnControllerInput;
+        public static System.Action<InputData> OnControllerInput, OnCameraControllerInput;
 
         public static System.Action OnJumped;
 

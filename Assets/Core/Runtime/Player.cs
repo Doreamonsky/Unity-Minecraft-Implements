@@ -29,9 +29,9 @@ namespace MC.Core
 
         private Vector3 moveDirection;
 
-        private CharacterController m_CharacterContoller;
+        //private CharacterController m_CharacterContoller;
 
-        private CameraController m_CameraController;
+        //private CameraController m_CameraController;
 
         private float mobileX, mobileY;
 
@@ -43,29 +43,29 @@ namespace MC.Core
         {
             isMobile = Util.IsMobile();
 
-            m_CharacterContoller = GetComponent<CharacterController>();
-            m_CameraController = GetComponent<CameraController>();
+            //m_CharacterContoller = GetComponent<CharacterController>();
+            //m_CameraController = GetComponent<CameraController>();
 
             craftingUI.SetActive(Util.isCrafting);
 
             MouseLockModule.Instance.OnLock();
 
-            ControlEvents.OnControllerInput += data =>
-            {
-                if (!isControllable)
-                {
-                    return;
-                }
+            //ControlEvents.OnControllerInput += data =>
+            //{
+            //    if (!isControllable)
+            //    {
+            //        return;
+            //    }
 
-                var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
+            //    var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
 
-                if (!isCreatorMode)
-                {
-                    delta = Vector3.ProjectOnPlane(delta, Vector3.up);
-                }
+            //    if (!isCreatorMode)
+            //    {
+            //        delta = Vector3.ProjectOnPlane(delta, Vector3.up);
+            //    }
 
-                m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
-            };
+            //    m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
+            //};
 
             openCraftingBtn.onClick.AddListener(() =>
             {
@@ -113,6 +113,12 @@ namespace MC.Core
                     y = Input.GetAxis("Vertical")
                 });
 
+                ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+                {
+                    x = Input.GetAxis("Mouse X"),
+                    y = Input.GetAxis("Mouse Y")
+                });
+
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
                     ControlEvents.OnPressingScreen?.Invoke(new Vector2(Screen.width, Screen.height) * 0.5f);
@@ -137,10 +143,10 @@ namespace MC.Core
             }
 
 
-            if (!isCreatorMode)
-            {
-                m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
-            }
+            //if (!isCreatorMode)
+            //{
+            //    m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
+            //}
 
             for (var i = 0; i < 10; i++)
             {
@@ -164,7 +170,7 @@ namespace MC.Core
         private void ToggleControl(bool state)
         {
             isControllable = state;
-            m_CameraController.enabled = state;
+            //m_CameraController.enabled = state;
         }
 
         private void ToggleCrafting()
