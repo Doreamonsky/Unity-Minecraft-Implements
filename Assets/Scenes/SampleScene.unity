@@ -800,38 +800,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_WalkSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_RunSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_JumpSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_MouseLook.smooth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_HeadBob.HorizontalBobRange
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_HeadBob.VerticalBobRange
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_StepInterval
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 935924963, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
-      propertyPath: m_IsWalking
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 935924974, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a33b1da4a81a6347a60897f2781b403, type: 3}

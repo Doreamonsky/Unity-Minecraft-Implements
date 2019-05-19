@@ -49,6 +49,12 @@ namespace MC.Core
             if (currentTouchID == -1)
             {
                 currentTouchID = eventData.pointerId;
+
+                ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+                {
+                    x = 0,
+                    y = 0
+                });
             }
         }
 

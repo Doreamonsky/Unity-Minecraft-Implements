@@ -32,18 +32,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ControlEvents.OnCameraControllerInput += (val) =>
             {
                 playerInput = new Vector2(val.x, val.y);
+
+                float yRot = playerInput.x * XSensitivity;
+                float xRot = playerInput.y * YSensitivity;
+
+                m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
+                m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
             };
         }
 
 
         public void LookRotation(Transform character, Transform camera)
         {
-            float yRot = playerInput.x * XSensitivity;
-            float xRot = playerInput.y * YSensitivity;
-
-            m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
-            m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
-
             if (clampVerticalRotation)
             {
                 m_CameraTargetRot = ClampRotationAroundXAxis(m_CameraTargetRot);
