@@ -18,6 +18,5 @@ namespace MC.Core.Interface
 
         bool IsUseable();
 
-        float GetDigBoost();
     }
 }

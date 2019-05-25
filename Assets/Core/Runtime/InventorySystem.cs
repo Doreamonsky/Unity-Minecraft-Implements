@@ -90,6 +90,12 @@ namespace MC.Core
 
         private void Start()
         {
+#if UNITY_EDITOR
+            foreach (var storage in inventoryStorageList)
+            {
+                storage.inventory = Instantiate(storage.inventory);
+            }
+#endif
             layout.Init();
 
             //选择 Inventory
@@ -603,12 +609,16 @@ namespace MC.Core
 
             var digSpeedBoost = 1f;
 
+            if (currentInv is IDigBoost)
+            {
+                var digboost = currentInv as IDigBoost;
+                digSpeedBoost = digboost.GetDigBoost();
+            }
+
             if (currentInv is IAttackable)
             {
                 var attackable = currentInv as IAttackable;
                 attackable.Attack(player);
-
-                digSpeedBoost = attackable.GetDigBoost();
             }
 
             digSpeedBoost = 1f / digSpeedBoost;

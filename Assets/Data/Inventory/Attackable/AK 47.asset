@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de36e465c4661244fa8857cd343bb2aa, type: 3}
+  m_Name: AK 47
+  m_EditorClassIdentifier: 
+  inventoryName: AK 47
+  inventoryIcon: {fileID: 0}
+  weaponPrefab: {fileID: 7144173586222771, guid: 872ed92f14428e94db51a84d12ccb5a4,
+    type: 3}
+  slotPos: {x: 0, y: -0.111, z: 0.075}
+  slotEulerAngle: {x: 0, y: 0, z: 0}
+  fireRate: 0.1
+  defaultMags:
+  - ammoCount: 31
+    ammoMaxCount: 31
+  - ammoCount: 31
+    ammoMaxCount: 31
+  - ammoCount: 31
+    ammoMaxCount: 31
+  SoundClips:
+    shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
+    takeOutSound: {fileID: 8300000, guid: 2ae41e984ff1f3e4a840a1a46b6a8816, type: 3}
+    holsterSound: {fileID: 8300000, guid: 33a4a9bf1a1dbca4cb379a1118c6b20d, type: 3}
+    reloadSoundOutOfAmmo: {fileID: 8300000, guid: 5b907074256e36d41b92e89fb0790633,
+      type: 3}
+    reloadSoundAmmoLeft: {fileID: 8300000, guid: f7ce534a0633b9847910ba117e2245d1,
+      type: 3}
+    aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}

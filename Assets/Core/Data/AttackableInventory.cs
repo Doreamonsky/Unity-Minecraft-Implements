@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MC.Core
 {
     [CreateAssetMenu(fileName = "AttackableInventory", menuName = "AttackableInventory")]
-    public class AttackableInventory : Inventory, IAttackable
+    public class AttackableInventory : Inventory, IAttackable, IDigBoost
     {
         private static GameObject weaponModel;
 
@@ -18,7 +18,6 @@ namespace MC.Core
 
         public float digBoost = 1;
 
-        [System.NonSerialized]
         private float lastAttackTime = 0;
 
         public void Attack(Player attacker)
