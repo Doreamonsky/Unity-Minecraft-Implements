@@ -17,7 +17,6 @@ namespace MC.Core
                 isMobile = true;
             }
 
-            return true;
             return isMobile;
         }
     }

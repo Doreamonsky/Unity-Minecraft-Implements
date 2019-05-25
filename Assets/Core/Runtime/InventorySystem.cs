@@ -105,7 +105,7 @@ namespace MC.Core
             {
                 InteractBlock(pos);
 
-                layout.digProgressBar.SetActive(true);
+                //layout.digProgressBar.SetActive(true);
             };
 
             ControlEvents.OnEndPressScreen += () =>
@@ -428,20 +428,28 @@ namespace MC.Core
             }
 
             var ray = playerCamera.ScreenPointToRay(screenPos);
-            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 6, 1 << LayerMask.NameToLayer("Block"));
 
             var currInv = currentStorage.inventory;
 
+            //可放置的物体
             if (currInv is PlaceableInventory)
             {
                 var inv = (PlaceableInventory)currInv;
 
                 if (isHit)
                 {
+                    var playerPos = new Vector3(Mathf.FloorToInt(playerCamera.transform.position.x), Mathf.FloorToInt(playerCamera.transform.position.y - 0.5f), Mathf.FloorToInt(playerCamera.transform.position.z)); //整数 
+
                     var placePoint = rayHit.point + rayHit.normal * 0.5f;
                     placePoint = new Vector3(Mathf.FloorToInt(placePoint.x), Mathf.FloorToInt(placePoint.y), Mathf.FloorToInt(placePoint.z)); //整数
-                    inv.Place(placePoint);
-                    CurrentInventroyUsed(currentStorage);
+
+                    //防止玩家卡入方块
+                    if (playerPos != placePoint)
+                    {
+                        inv.Place(placePoint);
+                        CurrentInventroyUsed(currentStorage);
+                    }
                 }
 
             }
@@ -458,7 +466,7 @@ namespace MC.Core
         private void InteractBlock(Vector2 screenPos)
         {
             var ray = playerCamera.ScreenPointToRay(screenPos);
-            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 10, 1 << LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 6, 1 << LayerMask.NameToLayer("Block"));
 
             if (isHit)
             {
@@ -478,8 +486,6 @@ namespace MC.Core
                         {
                             interactTime += Time.deltaTime;
                         }
-
-                        SoundManager.Instance.PlayDigSound(destroyable.digSound);
                     }
                     else
                     {
@@ -493,8 +499,20 @@ namespace MC.Core
                     }
 
                     //Update UI
-                    layout.digProgressSlider.value = interactTime / destroyable.digTime;
-                    layout.digProgressText.text = $"{((interactTime / destroyable.digTime) * 100).ToString("f1")} %";
+                    if (interactTime > 0.15f)
+                    {
+                        layout.digProgressBar.SetActive(true);
+
+                        layout.digProgressSlider.value = interactTime / destroyable.digTime;
+                        layout.digProgressText.text = $"{((interactTime / destroyable.digTime) * 100).ToString("f1")} %";
+
+                        SoundManager.Instance.PlayDigSound(destroyable.digSound);
+                    }
+                    else
+                    {
+                        layout.digProgressBar.SetActive(false);
+                    }
+
                 }
             }
         }

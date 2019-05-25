@@ -17,6 +17,8 @@ namespace MC.Core
 
         private Vector2 currentPointerPos;
 
+        private Vector2 dragBeginPos;
+
         private void Start()
         {
             m_XScale = 160 / (float)Screen.width;
@@ -76,6 +78,8 @@ namespace MC.Core
             isDragging = true;
 
             currentPointerPos = eventData.position;
+            dragBeginPos = eventData.position;
+
             ControlEvents.OnBeginPressScreen?.Invoke();
         }
 
@@ -83,7 +87,7 @@ namespace MC.Core
         {
             var deltaTime = Time.time - clickTime;
 
-            if (deltaTime < clickTimeDeltaSlope)
+            if (deltaTime < clickTimeDeltaSlope && Vector3.Magnitude(eventData.position - dragBeginPos) < Mathf.Epsilon)
             {
                 ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
             }
