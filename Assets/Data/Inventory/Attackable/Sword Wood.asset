@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a321e618daf10845a62e0b211af14a5, type: 3}
+  m_Name: Sword Wood
+  m_EditorClassIdentifier: 
+  inventoryName: Sword Wood
+  inventoryIcon: {fileID: 21300000, guid: e84c3e85dd432084881c0c6c0649472e, type: 3}
+  Endurance: 450
+  HPDamage: 10
+  weaponPrefab: {fileID: 5374761991178010683, guid: 43aa1bdceb65be44aa8f19420e4070ea,
+    type: 3}
+  slotPos: {x: 0, y: 0.081, z: 0.097}
+  slotEulerAngle: {x: 0, y: 0, z: 0}
+  cropWoodSpeed: 1.5

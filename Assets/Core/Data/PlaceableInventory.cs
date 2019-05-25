@@ -23,5 +23,15 @@ namespace MC.Core
 
             WorldManager.Instance.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
         }
+
+        public override void OnSelected(InventorySystem inventorySystem)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public override void OnUnselected(InventorySystem inventorySystem)
+        {
+            //throw new System.NotImplementedException();
+        }
     }
 }

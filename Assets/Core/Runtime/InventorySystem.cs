@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MC.Core.Interface;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,10 +70,16 @@ namespace MC.Core
         //Slot ID 插槽  <= max_inventory_count 显示在底部
         public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
 
-        //当前选用的Inventory
+        //当前选用的Inventory 
+        /// <summary>
+        /// 注意是SlotID  inventoryStorageList.Find(val => val.slotID == currentSelectID); 方法获得Inventory
+        /// </summary>
         public int currentSelectID = 0;
 
         public Camera playerCamera;
+
+        //武器插槽
+        public Transform weaponSlot;
 
         //与Block交互的数据
         private float interactTime = 0;
@@ -89,10 +96,15 @@ namespace MC.Core
                 SelectInventoryByID(id);
             };
 
-            //使用 Inventory （PC 右键 移动端点击屏幕）
             ControlEvents.OnClickScreen += pos =>
             {
-                UseCurrentInventory(pos);
+                //使用 Inventory （PC 右键 移动端点击屏幕）
+                var isPlaceable = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory is IPlaceable;
+
+                if (isPlaceable)
+                {
+                    PlaceCurrentInventory(pos);
+                }
             };
 
             ControlEvents.OnBeginPressScreen += () =>
@@ -100,12 +112,10 @@ namespace MC.Core
                 interactTime = 0;
             };
 
-            //与方块交互
             ControlEvents.OnPressingScreen += pos =>
             {
+                //与方块交互
                 InteractBlock(pos);
-
-                //layout.digProgressBar.SetActive(true);
             };
 
             ControlEvents.OnEndPressScreen += () =>
@@ -407,17 +417,27 @@ namespace MC.Core
 
         public void SelectInventoryByID(int id)
         {
+            //取消之前的选择
+            var preInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
+            preInv?.OnUnselected(this);
+
+            //更新
             currentSelectID = id;
             UpdateInvetoryUI();
+
+            //选择新的物体
+            var currInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
+            currInv?.OnSelected(this);
         }
 
-        private void UseCurrentInventory(Vector2 screenPos)
+        private void PlaceCurrentInventory(Vector2 screenPos)
         {
             var currentStorage = inventoryStorageList.Find(val => val.slotID == currentSelectID);
 
             //当前物品为空
             if (currentStorage == null)
             {
+                UpdateInvetoryUI();
                 return;
             }
 
@@ -459,8 +479,8 @@ namespace MC.Core
         private void CurrentInventroyUsed(InventoryStorage currentStorage)
         {
             currentStorage.count -= 1;
-            UpdateInvetoryUI();
             CleanUpInventory();
+            UpdateInvetoryUI();
         }
 
         private void InteractBlock(Vector2 screenPos)

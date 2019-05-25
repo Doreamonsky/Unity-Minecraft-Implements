@@ -2,12 +2,15 @@
 
 namespace MC.Core
 {
-    [CreateAssetMenu(fileName = "Inventory", menuName = "Inventory")]
-    public class Inventory : ScriptableObject
+    public abstract class Inventory : ScriptableObject
     {
         public string inventoryName;
 
         public Sprite inventoryIcon;
+
+        public abstract void OnSelected(InventorySystem inventorySystem);
+
+        public abstract void OnUnselected(InventorySystem inventorySystem);
     }
 
 }
