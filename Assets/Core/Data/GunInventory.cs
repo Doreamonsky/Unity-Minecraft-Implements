@@ -1,6 +1,7 @@
 ﻿using MC.Core.Interface;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MC.Core
 {
@@ -61,6 +62,8 @@ namespace MC.Core
         private bool isZooming = false;
 
         private Player player;
+
+        private Text WeaponName, SlotCount;
 
         private bool HasBullet()
         {
@@ -131,6 +134,8 @@ namespace MC.Core
                     sparkParticles.Emit(Random.Range(1, 7));
 
                     PlaySound(soundClips.shootSound);
+
+                    SlotCount.text = $"Ammos:{defaultMags[currentSelectedMug].ammoCount}/{defaultMags[currentSelectedMug].ammoMaxCount}";
                 }
                 else
                 {
@@ -170,18 +175,23 @@ namespace MC.Core
 
                 mainAudioSource = weaponModel.AddComponent<AudioSource>();
 
-
-                PlaySound(soundClips.takeOutSound);
-
                 player = inventorySystem.player;
 
-                player.gunFireBtn.gameObject.SetActive(true);
-                player.gunFireBtn.onClick.AddListener(Fire);
+                WeaponName = player.weaponBar.transform.Find("WeaponName/Text").GetComponent<Text>();
+                SlotCount = player.weaponBar.transform.Find("SlotCount/Text").GetComponent<Text>();
             }
 
+            PlaySound(soundClips.takeOutSound);
+
             weaponModel.SetActive(true);
+            player.weaponBar.SetActive(true);
+
+            player.gunFireBtn.gameObject.SetActive(true);
+            player.gunFireBtn.onClick.AddListener(Fire);
 
             inventorySystem.player.OnUpdated += OnUpdated;
+
+            ControlEvents.OnGunFire += Fire;
         }
 
         public override void OnUnselected(InventorySystem inventorySystem)
@@ -193,8 +203,12 @@ namespace MC.Core
 
             inventorySystem.player.OnUpdated -= OnUpdated;
 
+            player.weaponBar.SetActive(false);
+
             player.gunFireBtn.gameObject.SetActive(false);
             player.gunFireBtn.onClick.RemoveListener(Fire);
+
+            ControlEvents.OnGunFire -= Fire;
         }
 
         public void UseEndurance(float usedEndurance)

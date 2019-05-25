@@ -61,6 +61,26 @@ namespace MC.CoreEditor
                 {0,0,0,0,0},
             },
         };
+        //琲
+        private readonly int[,] Bei = new int[,]
+{
+           {2,2,2,2,2,0,0,0,0,2,0,0,2,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,2,2,2,1,0,0,1,2,2,2, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,2,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,2,2,2,0,0,2,2,2,1,0,0,1,2,2,2, },
+           {2,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,0,1,0,0,0,2,2,2,1,0,0,1,2,2,2, },
+           {0,0,1,0,2,0,0,0,0,1,0,0,1,0,0,0, },
+           {0,2,1,2,0,0,0,0,0,1,0,0,1,0,0,0, },
+           {2,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0, },
+};
 
         private readonly int[,] Xiao = new int[,]
         {
@@ -222,8 +242,8 @@ namespace MC.CoreEditor
 
             if (GUILayout.Button("Add Happy Birthday"))
             {
-                AddXZArrayToMap(Xiao, 16, 16, 2, 58, 17);
-                AddXZArrayToMap(Yang, 16, 16, 16, 62, 17);
+                AddXZArrayToMap(Bei, 16, 16, 2, 58, 17);
+                AddXZArrayToMap(Bei, 16, 16, 16, 62, 17);
                 AddXZArrayToMap(Shen, 16, 16, 34, 58, 17);
                 AddXZArrayToMap(Kuai, 16, 16, 50, 62, 17);
             }
@@ -236,9 +256,9 @@ namespace MC.CoreEditor
                 AddXYZArrayToMap(tree, 7, 5, 5, 35, 10, 16);
             }
 
-            if(GUILayout.Button("Update Map Size"))
+            if (GUILayout.Button("Update Map Size"))
             {
-                if(EditorUtility.DisplayDialog("Warning","It will wipe all the map data","I Understand it!"))
+                if (EditorUtility.DisplayDialog("Warning", "It will wipe all the map data", "I Understand it!"))
                 {
                     mapData.UpdateMapSize();
                 }

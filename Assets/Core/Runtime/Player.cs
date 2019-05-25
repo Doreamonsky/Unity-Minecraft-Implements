@@ -29,6 +29,8 @@ namespace MC.Core
 
         public Button gunFireBtn;
 
+        public GameObject weaponBar;
+
         public System.Action OnUpdated;
 
         private Vector3 moveDirection;

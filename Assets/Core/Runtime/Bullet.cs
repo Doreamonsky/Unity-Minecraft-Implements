@@ -37,7 +37,6 @@ namespace MC.Core
                 if (monster)
                 {
                     monster.ApplyDamage(bulletData.Damage);
-                    monster.GetComponent<Rigidbody>().AddForceAtPosition(transform.forward * 1 , rayHit.point, ForceMode.Force);
                 }
 
                 PoolManager.CreateObject(bulletData.hitEffect, rayHit.point + rayHit.normal * 0.1f, Quaternion.LookRotation(rayHit.normal).eulerAngles);

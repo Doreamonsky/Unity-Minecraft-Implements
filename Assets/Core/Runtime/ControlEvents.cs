@@ -16,5 +16,6 @@ namespace MC.Core
 
         public static System.Action OnJumped;
 
+        public static System.Action OnGunFire;
     }
 }
