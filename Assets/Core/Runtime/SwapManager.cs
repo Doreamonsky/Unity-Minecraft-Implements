@@ -35,6 +35,12 @@ namespace MC.Core
                 {
                     AllocateItem();
                 }
+
+                if (Input.GetKeyUp(KeyCode.Mouse1))
+                {
+                    prevIconUI = null;
+                    ToggleIconSelection(false);
+                }
             }
 
         }

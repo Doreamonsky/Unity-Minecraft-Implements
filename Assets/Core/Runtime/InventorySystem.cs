@@ -81,6 +81,8 @@ namespace MC.Core
         //武器插槽
         public Transform weaponSlot;
 
+        public Player player;
+
         //与Block交互的数据
         private float interactTime = 0;
 
@@ -114,6 +116,7 @@ namespace MC.Core
 
             ControlEvents.OnPressingScreen += pos =>
             {
+
                 //与方块交互
                 InteractBlock(pos);
             };
@@ -125,6 +128,7 @@ namespace MC.Core
                 layout.digProgressBar.SetActive(false);
             };
 
+            //分配物体
             SwapManager.OnAllocateItem += (a, b, type) =>
             {
                 if (type == SwapType.CraftToCraft)
@@ -185,6 +189,7 @@ namespace MC.Core
                 CraftSystem.Instance.UpdateInvetoryUI();
             };
 
+            //交换物体
             SwapManager.OnSwapItem += (a, b, type) =>
             {
                 //Inventory 中交换物品
@@ -193,15 +198,51 @@ namespace MC.Core
                     var itemA = inventoryStorageList.Find(val => val.slotID == a);
                     var itemB = inventoryStorageList.Find(val => val.slotID == b);
 
-                    if (itemA != null)
+                    var isAppendCount = false;
+
+                    //数量叠加
+                    if (itemA != null && itemB != null)
                     {
-                        itemA.slotID = b;
+                        if (itemA.inventory.inventoryName == itemB.inventory.inventoryName)
+                        {
+                            isAppendCount = true;
+                        }
+                    }
+                    //纯粹交换物品
+                    else
+                    {
+                        isAppendCount = false;
                     }
 
-                    if (itemB != null)
+                    if (isAppendCount)
                     {
-                        itemB.slotID = a;
+                        var sum = itemA.count + itemB.count;
+
+                        if (sum > 64)
+                        {
+                            itemA.count = sum - 64;
+                            itemB.count = 64;
+                        }
+                        else
+                        {
+                            itemB.count = itemA.count + itemB.count;
+                            itemA.count = 0;
+                        }
+                        CleanUpInventory();
                     }
+                    else
+                    {
+                        if (itemA != null)
+                        {
+                            itemA.slotID = b;
+                        }
+
+                        if (itemB != null)
+                        {
+                            itemB.slotID = a;
+                        }
+                    }
+
 
                     UpdateInvetoryUI();
                 }
@@ -212,21 +253,57 @@ namespace MC.Core
                     var itemA = inventoryStorageList.Find(val => val.slotID == a);
                     var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
 
-                    if (itemA != null)
-                    {
-                        itemA.slotID = b;
+                    var isAppendCount = false;
 
-                        inventoryStorageList.Remove(itemA);
-                        CraftSystem.Instance.craftInventoryList.Add(itemA);
+                    //数量叠加
+                    if (itemA != null && itemB != null)
+                    {
+                        if (itemA.inventory.inventoryName == itemB.inventory.inventoryName)
+                        {
+                            isAppendCount = true;
+                        }
+                    }
+                    //纯粹交换物品
+                    else
+                    {
+                        isAppendCount = false;
                     }
 
-                    if (itemB != null)
+                    if (isAppendCount)
                     {
-                        itemB.slotID = a;
+                        var sum = itemA.count + itemB.count;
 
-                        inventoryStorageList.Add(itemB);
-                        CraftSystem.Instance.craftInventoryList.Remove(itemB);
+                        if (sum > 64)
+                        {
+                            itemA.count = sum - 64;
+                            itemB.count = 64;
+                        }
+                        else
+                        {
+                            itemB.count = itemA.count + itemB.count;
+                            itemA.count = 0;
+                        }
+                        CleanUpInventory();
+                    }
+                    else
+                    {
 
+                        if (itemA != null)
+                        {
+                            itemA.slotID = b;
+
+                            inventoryStorageList.Remove(itemA);
+                            CraftSystem.Instance.craftInventoryList.Add(itemA);
+                        }
+
+                        if (itemB != null)
+                        {
+                            itemB.slotID = a;
+
+                            inventoryStorageList.Add(itemB);
+                            CraftSystem.Instance.craftInventoryList.Remove(itemB);
+
+                        }
                     }
 
                     UpdateInvetoryUI();
@@ -302,14 +379,51 @@ namespace MC.Core
                     var itemA = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == a);
                     var itemB = CraftSystem.Instance.craftInventoryList.Find(val => val.slotID == b);
 
-                    if (itemA != null)
+                    var isAppendCount = false;
+
+                    //数量叠加
+                    if (itemA != null && itemB != null)
                     {
-                        itemA.slotID = b;
+                        if (itemA.inventory.inventoryName == itemB.inventory.inventoryName)
+                        {
+                            isAppendCount = true;
+                        }
+                    }
+                    //纯粹交换物品
+                    else
+                    {
+                        isAppendCount = false;
                     }
 
-                    if (itemB != null)
+                    if (isAppendCount)
                     {
-                        itemB.slotID = a;
+                        var sum = itemA.count + itemB.count;
+
+                        if (sum > 64)
+                        {
+                            itemA.count = sum - 64;
+                            itemB.count = 64;
+                        }
+                        else
+                        {
+                            itemB.count = itemA.count + itemB.count;
+                            itemA.count = 0;
+                        }
+
+                        CleanUpInventory();
+
+                    }
+                    else
+                    {
+                        if (itemA != null)
+                        {
+                            itemA.slotID = b;
+                        }
+
+                        if (itemB != null)
+                        {
+                            itemB.slotID = a;
+                        }
                     }
 
                     CraftSystem.Instance.UpdateInvetoryUI();
@@ -485,6 +599,20 @@ namespace MC.Core
 
         private void InteractBlock(Vector2 screenPos)
         {
+            var currentInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
+
+            var digSpeedBoost = 1f;
+
+            if (currentInv is IAttackable)
+            {
+                var attackable = currentInv as IAttackable;
+                attackable.Attack(player);
+
+                digSpeedBoost = attackable.GetDigBoost();
+            }
+
+            digSpeedBoost = 1f / digSpeedBoost;
+
             var ray = playerCamera.ScreenPointToRay(screenPos);
             var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 6, 1 << LayerMask.NameToLayer("Block"));
 
@@ -513,7 +641,7 @@ namespace MC.Core
                         interactTime = 0;
                     }
 
-                    if (interactTime >= destroyable.digTime && interactPos == chunckPoint)
+                    if (interactTime >= destroyable.digTime * digSpeedBoost && interactPos == chunckPoint)
                     {
                         WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
                     }
@@ -523,8 +651,8 @@ namespace MC.Core
                     {
                         layout.digProgressBar.SetActive(true);
 
-                        layout.digProgressSlider.value = interactTime / destroyable.digTime;
-                        layout.digProgressText.text = $"{((interactTime / destroyable.digTime) * 100).ToString("f1")} %";
+                        layout.digProgressSlider.value = interactTime / (destroyable.digTime * digSpeedBoost);
+                        layout.digProgressText.text = $"{((interactTime / (destroyable.digTime * digSpeedBoost)) * 100).ToString("f1")} %";
 
                         SoundManager.Instance.PlayDigSound(destroyable.digSound);
                     }

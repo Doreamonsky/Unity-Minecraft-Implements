@@ -8,7 +8,8 @@ namespace MC.Core
     {
         public enum PlaceType
         {
-            Block = 0
+            Block = 0,
+            Item = 1
         }
 
         public PlaceType placeType = PlaceType.Block;
@@ -18,10 +19,18 @@ namespace MC.Core
 
         public void Place(Vector3 pos)
         {
-            //从当前 WorldManager LayerID 
-            var layerID = WorldManager.Instance.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
+            switch (placeType)
+            {
+                case PlaceType.Block:
+                    //从当前 WorldManager LayerID 
+                    var layerID = WorldManager.Instance.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
+                    WorldManager.Instance.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
+                    break;
+                case PlaceType.Item:
 
-            WorldManager.Instance.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
+                    break;
+            }
+
         }
 
         public override void OnSelected(InventorySystem inventorySystem)

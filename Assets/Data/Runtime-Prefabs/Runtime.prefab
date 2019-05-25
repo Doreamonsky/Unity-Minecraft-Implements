@@ -2485,6 +2485,7 @@ MonoBehaviour:
   currentSelectID: 0
   playerCamera: {fileID: 6895479985289386098}
   weaponSlot: {fileID: 1366392035292157894}
+  player: {fileID: 6895479985251780626}
 --- !u!114 &8411469797280185727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,6 +2502,8 @@ MonoBehaviour:
   recipeList:
   - {fileID: 11400000, guid: 6d42e9eeeabbc1644a67aa9ec78b4e20, type: 2}
   - {fileID: 11400000, guid: 73d4399ccb211124288bb942479495ff, type: 2}
+  - {fileID: 11400000, guid: 16b3b8a7c8601ac4a9f80d17e2d30de3, type: 2}
+  - {fileID: 11400000, guid: 257582969df34b34aadcfeed4918aa11, type: 2}
   layout:
     craftedObject: {fileID: 6895479985930269094}
     craftObject:

@@ -18,6 +18,6 @@ namespace MC.Core.Interface
 
         bool IsUseable();
 
-        float GetCropWoodSpeed();
+        float GetDigBoost();
     }
 }

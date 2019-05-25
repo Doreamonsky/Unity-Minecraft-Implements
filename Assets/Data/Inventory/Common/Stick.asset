@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a1ce8ea2cea9a047b44bbc39f99b31c, type: 3}
-  m_Name: Higher Math
+  m_Script: {fileID: 11500000, guid: 0bdce8516763aa44c842a002b4cfa740, type: 3}
+  m_Name: Stick
   m_EditorClassIdentifier: 
-  inventoryName: "\u9AD8\u7B49\u6570\u5B66"
-  inventoryIcon: {fileID: 21300000, guid: fa3525ebf4995ea48a4ac0efb675e536, type: 3}
-  isBlockItem: 0
-  blockData: {fileID: 0}
+  inventoryName: Stick
+  inventoryIcon: {fileID: 21300000, guid: d4ca5417d333711459f0bd5bad39a540, type: 3}

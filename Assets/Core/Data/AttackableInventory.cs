@@ -6,23 +6,33 @@ namespace MC.Core
     [CreateAssetMenu(fileName = "AttackableInventory", menuName = "AttackableInventory")]
     public class AttackableInventory : Inventory, IAttackable
     {
-        public float Endurance, HPDamage;
+        private static GameObject weaponModel;
+
+        public float Endurance = 100, HPDamage = 20;
+
+        public float attackInterval = 0.2f;
 
         public GameObject weaponPrefab;
 
         public Vector3 slotPos, slotEulerAngle;
 
-        private GameObject weaponModel;
+        public float digBoost = 1;
 
-        public float cropWoodSpeed = 1;
+        [System.NonSerialized]
+        private float lastAttackTime = 0;
 
         public void Attack(Player attacker)
         {
-            var animator = weaponModel.GetComponent<Animator>();
-
-            if (animator)
+            if (Time.time - lastAttackTime > attackInterval)
             {
-                animator.SetTrigger("Attack");
+                lastAttackTime = Time.time;
+
+                var animator = weaponModel.GetComponent<Animator>();
+
+                if (animator)
+                {
+                    animator.SetTrigger("Attack");
+                }
             }
         }
 
@@ -56,7 +66,10 @@ namespace MC.Core
 
         public override void OnUnselected(InventorySystem inventorySystem)
         {
-            weaponModel.SetActive(false);
+            if (weaponModel != null)
+            {
+                weaponModel.SetActive(false);
+            }
         }
 
         public void UseEndurance(float usedEndurance)
@@ -64,9 +77,9 @@ namespace MC.Core
             Endurance -= usedEndurance;
         }
 
-        public float GetCropWoodSpeed()
+        public float GetDigBoost()
         {
-            return cropWoodSpeed;
+            return digBoost;
         }
     }
 }
