@@ -27,6 +27,10 @@ namespace MC.Core
 
         public Button openCraftingBtn, closeCraftingBtn;
 
+        public Button gunFireBtn;
+
+        public System.Action OnUpdated;
+
         private Vector3 moveDirection;
 
         //private CharacterController m_CharacterContoller;
@@ -160,6 +164,8 @@ namespace MC.Core
             {
                 ControlEvents.OnClickInventoryByID?.Invoke(9);
             }
+
+            OnUpdated?.Invoke();
         }
 
         public void Jump()

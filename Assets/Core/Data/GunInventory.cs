@@ -40,6 +40,8 @@ namespace MC.Core
 
         public SoundClips soundClips;
 
+        public BulletData bulletData;
+
         private float lastfireTime = 0;
 
         private int currentSelectedMug = 0;
@@ -52,7 +54,13 @@ namespace MC.Core
 
         private AudioSource mainAudioSource;
 
+        private Transform ffPoint;
+
         private bool isReloading = false;
+
+        private bool isZooming = false;
+
+        private Player player;
 
         private bool HasBullet()
         {
@@ -75,6 +83,8 @@ namespace MC.Core
             {
                 isReloading = true;
 
+                ToggleZooming(false);
+
                 currentSelectedMug++;
 
                 animator.Play("Reload Ammo Left", 0, 0f);
@@ -94,7 +104,7 @@ namespace MC.Core
             mainAudioSource.Play();
         }
 
-        public void Attack(Player attacker)
+        public void Fire()
         {
             if (Time.time - lastfireTime > fireRate && !isReloading)
             {
@@ -103,7 +113,19 @@ namespace MC.Core
                     UseBullet();
                     lastfireTime = Time.time;
 
-                    animator.Play("Fire", 0, 0f);
+                    if (isZooming)
+                    {
+                        animator.Play("Aim Fire", 0, 0f);
+                    }
+                    else
+                    {
+                        animator.Play("Fire", 0, 0f);
+                    }
+
+                    var bullet = new GameObject("Bullet", typeof(Bullet));
+                    bullet.transform.position = ffPoint.position;
+                    bullet.transform.rotation = ffPoint.rotation;
+                    bullet.GetComponent<Bullet>().bulletData = bulletData;
 
                     muzzleParticles.Emit(1);
                     sparkParticles.Emit(Random.Range(1, 7));
@@ -112,31 +134,25 @@ namespace MC.Core
                 }
                 else
                 {
-                    attacker.StartCoroutine(Reload());
+                    player.StartCoroutine(Reload());
                 }
 
             }
         }
 
-
-        public float GetDigBoost()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public float GetEndurance()
         {
-            throw new System.NotImplementedException();
+            return 100;
         }
 
         public float GetHPDamage()
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
 
         public bool IsUseable()
         {
-            throw new System.NotImplementedException();
+            return false;
         }
 
         public override void OnSelected(InventorySystem inventorySystem)
@@ -150,13 +166,22 @@ namespace MC.Core
                 animator = weaponModel.GetComponent<Animator>();
                 muzzleParticles = weaponModel.transform.Find("Armature/weapon/Components/Muzzleflash Particles").GetComponent<ParticleSystem>();
                 sparkParticles = weaponModel.transform.Find("Armature/weapon/Components/SparkParticles").GetComponent<ParticleSystem>();
+                ffPoint = weaponModel.transform.Find("Armature/weapon/Components/Bullet Spawn Point");
 
                 mainAudioSource = weaponModel.AddComponent<AudioSource>();
 
+
                 PlaySound(soundClips.takeOutSound);
+
+                player = inventorySystem.player;
+
+                player.gunFireBtn.gameObject.SetActive(true);
+                player.gunFireBtn.onClick.AddListener(Fire);
             }
 
             weaponModel.SetActive(true);
+
+            inventorySystem.player.OnUpdated += OnUpdated;
         }
 
         public override void OnUnselected(InventorySystem inventorySystem)
@@ -165,11 +190,55 @@ namespace MC.Core
             {
                 weaponModel.SetActive(false);
             }
+
+            inventorySystem.player.OnUpdated -= OnUpdated;
+
+            player.gunFireBtn.gameObject.SetActive(false);
+            player.gunFireBtn.onClick.RemoveListener(Fire);
         }
 
         public void UseEndurance(float usedEndurance)
         {
-            throw new System.NotImplementedException();
+
+        }
+
+        private void OnUpdated()
+        {
+            if (!Util.IsMobile())
+            {
+                if (!isReloading)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        ToggleZooming(true);
+                    }
+                    if (Input.GetKeyUp(KeyCode.Mouse1))
+                    {
+                        ToggleZooming(false);
+                    }
+
+                    if (Input.GetKey(KeyCode.Mouse0))
+                    {
+                        Fire();
+                    }
+                }
+
+            }
+        }
+
+        private void ToggleZooming(bool state)
+        {
+            isZooming = state;
+
+            animator.SetBool("Aim", isZooming);
+
+            PlaySound(soundClips.aimSound);
+        }
+
+        //步枪系统 采用其他的工具方式
+        public void Attack(Player attacker)
+        {
+            return;
         }
     }
 

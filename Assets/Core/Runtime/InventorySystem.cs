@@ -101,7 +101,10 @@ namespace MC.Core
             //选择 Inventory
             ControlEvents.OnClickInventoryByID += id =>
             {
-                SelectInventoryByID(id);
+                if (!Util.isCrafting)
+                {
+                    SelectInventoryByID(id);
+                }
             };
 
             ControlEvents.OnClickScreen += pos =>
