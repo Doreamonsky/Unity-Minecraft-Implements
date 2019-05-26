@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MC.Core
@@ -30,6 +31,8 @@ namespace MC.Core
     //方块渲染数据储存【实时】
     public class RuntimeRendererData
     {
+        public string matName;
+
         public List<Vector3> vertices = new List<Vector3>();
 
         public List<int> triangles = new List<int>(); //三角面要顺时针连线为法线方向
@@ -83,64 +86,64 @@ namespace MC.Core
     {
         public BlockData blockData;
 
-        public RuntimeRendererData frontData = new RuntimeRendererData(), backData = new RuntimeRendererData(), topData = new RuntimeRendererData(), bottomData = new RuntimeRendererData(), leftData = new RuntimeRendererData(), rightData = new RuntimeRendererData();
+        //public RuntimeRendererData frontData = new RuntimeRendererData(), backData = new RuntimeRendererData(), topData = new RuntimeRendererData(), bottomData = new RuntimeRendererData(), leftData = new RuntimeRendererData(), rightData = new RuntimeRendererData();
 
-        public List<RuntimeRendererData> runtimeRendererDataList = new List<RuntimeRendererData>();
+        //public List<RuntimeRendererData> runtimeRendererDataList = new List<RuntimeRendererData>();
 
         public List<ColliderCache> colliderCacheList = new List<ColliderCache>();
 
-        public void Initialize(GameObject parent)
-        {
-            if (blockData == null)
-            {
-                return;
-            }
+        //public void Initialize(GameObject parent)
+        //{
+        //    if (blockData == null)
+        //    {
+        //        return;
+        //    }
 
-            frontData.Initialize(parent, blockData.frontTex);
-            backData.Initialize(parent, blockData.backTex);
+        //    frontData.Initialize(parent, blockData.frontTex);
+        //    backData.Initialize(parent, blockData.backTex);
 
-            topData.Initialize(parent, blockData.topTex);
-            bottomData.Initialize(parent, blockData.bottomTex);
+        //    topData.Initialize(parent, blockData.topTex);
+        //    bottomData.Initialize(parent, blockData.bottomTex);
 
-            leftData.Initialize(parent, blockData.leftTex);
-            rightData.Initialize(parent, blockData.rightTex);
+        //    leftData.Initialize(parent, blockData.leftTex);
+        //    rightData.Initialize(parent, blockData.rightTex);
 
-            runtimeRendererDataList = new List<RuntimeRendererData>()
-            {
-                frontData,
-                backData,
-                topData,
-                bottomData,
-                leftData,
-                rightData
-            };
+        //    runtimeRendererDataList = new List<RuntimeRendererData>()
+        //    {
+        //        frontData,
+        //        backData,
+        //        topData,
+        //        bottomData,
+        //        leftData,
+        //        rightData
+        //    };
 
-        }
+        //}
 
-        public void Apply()
-        {
-            foreach (var runtimeData in runtimeRendererDataList)
-            {
-                runtimeData.ApplyChanges();
-            }
-        }
+        //public void Apply()
+        //{
+        //    foreach (var runtimeData in runtimeRendererDataList)
+        //    {
+        //        runtimeData.ApplyChanges();
+        //    }
+        //}
 
-        public RuntimeRendererData GetRunTimeRendererData(QuadStatus quadStatus)
+        public Material GetRunTimeRendererData(QuadStatus quadStatus)
         {
             switch (quadStatus)
             {
                 case QuadStatus.Front:
-                    return frontData;
+                    return blockData.frontTex;
                 case QuadStatus.Back:
-                    return backData;
+                    return blockData.backTex;
                 case QuadStatus.Top:
-                    return topData;
+                    return blockData.topTex;
                 case QuadStatus.Bottom:
-                    return bottomData;
+                    return blockData.bottomTex;
                 case QuadStatus.Right:
-                    return rightData;
+                    return blockData.rightTex;
                 case QuadStatus.Left:
-                    return leftData;
+                    return blockData.leftTex;
                 default:
                     Debug.LogError("Runtime-Error Excepiton Type");
                     return null;
@@ -164,6 +167,8 @@ namespace MC.Core
         //缓存在内存中，用于快速读取
         private int[,,] runtimeWorldData;
 
+        private List<RuntimeRendererData> runtimeSharedRendererData = new List<RuntimeRendererData>();
+
         private void Start()
         {
             colliderParent = new GameObject("Collision").transform;
@@ -180,9 +185,40 @@ namespace MC.Core
                 });
             }
 
+            //foreach (var blockMap in blockMaps)
+            //{
+            //    blockMap.Initialize(gameObject);
+            //}
+
+            var mats = new List<Material>();
+
             foreach (var blockMap in blockMaps)
             {
-                blockMap.Initialize(gameObject);
+                if (blockMap.blockData == null)
+                {
+                    continue;
+                }
+
+                mats.Add(blockMap.blockData.backTex);
+                mats.Add(blockMap.blockData.frontTex);
+                mats.Add(blockMap.blockData.leftTex);
+                mats.Add(blockMap.blockData.rightTex);
+                mats.Add(blockMap.blockData.topTex);
+                mats.Add(blockMap.blockData.backTex);
+            }
+
+            mats = mats.Distinct().ToList();
+
+            foreach (var mat in mats)
+            {
+                var sharedRenderer = new RuntimeRendererData()
+                {
+                    matName = mat.name
+                };
+
+                sharedRenderer.Initialize(gameObject, mat);
+
+                runtimeSharedRendererData.Add(sharedRenderer);
             }
 
             GenerateWorld();
@@ -344,9 +380,9 @@ namespace MC.Core
             }
 
             //面片渲染修改
-            foreach (var blockMap in blockMaps)
+            foreach (var runtime in runtimeSharedRendererData)
             {
-                blockMap.Apply();
+                runtime.ApplyChanges();
             }
         }
 
@@ -356,7 +392,7 @@ namespace MC.Core
         {
             foreach (var blockMap in blockMaps)
             {
-                foreach (var runtimeData in blockMap.runtimeRendererDataList)
+                foreach (var runtimeData in runtimeSharedRendererData)
                 {
                     var caches = runtimeData.rendererCaches.FindAll(val => val.pos == new Vector3(x, height, y));
 
@@ -386,7 +422,7 @@ namespace MC.Core
 
             var pivot = new Vector3(x, height, y);
 
-            var runtimeData = blockMap.GetRunTimeRendererData(quadStatus);
+            var runtimeData = runtimeSharedRendererData.Find(val => val.matName == blockMap.GetRunTimeRendererData(quadStatus).name);
 
             var verIndex = runtimeData.vertices.Count;
 
