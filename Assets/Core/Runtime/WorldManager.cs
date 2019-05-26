@@ -241,6 +241,7 @@ namespace MC.Core
                     for (var j = startLength; j <= endLength; j++)
                     {
                         var blockID = runtimeWorldData[heightIndex, i, j];
+                        var blockMap = blockMaps[blockID];
 
                         if (blockID != 0)
                         {
@@ -251,7 +252,7 @@ namespace MC.Core
                             {
                                 var topBlockID = runtimeWorldData[heightIndex + 1, i, j];
 
-                                if (topBlockID == 0)
+                                if (topBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Top);
@@ -263,7 +264,7 @@ namespace MC.Core
                             {
                                 var bottomBlockID = runtimeWorldData[heightIndex - 1, i, j];
 
-                                if (bottomBlockID == 0)
+                                if (bottomBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Bottom);
@@ -275,7 +276,7 @@ namespace MC.Core
                             {
                                 var rightBlockID = runtimeWorldData[heightIndex, i + 1, j];
 
-                                if (rightBlockID == 0)
+                                if (rightBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Right);
@@ -287,7 +288,7 @@ namespace MC.Core
                             {
                                 var leftBlockID = runtimeWorldData[heightIndex, i - 1, j];
 
-                                if (leftBlockID == 0)
+                                if (leftBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Left);
@@ -299,7 +300,7 @@ namespace MC.Core
                             {
                                 var frontBlockID = runtimeWorldData[heightIndex, i, j + 1];
 
-                                if (frontBlockID == 0)
+                                if (frontBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Front);
@@ -311,7 +312,7 @@ namespace MC.Core
                             {
                                 var backBlockID = runtimeWorldData[heightIndex, i, j - 1];
 
-                                if (backBlockID == 0)
+                                if (backBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
                                     isVisible = true;
                                     DrawQuad(heightIndex, i, j, QuadStatus.Back);
@@ -321,8 +322,6 @@ namespace MC.Core
                             //生成碰撞
                             if (isVisible)
                             {
-                                var blockMap = blockMaps[blockID];
-
                                 if (blockMap.colliderCacheList.Find(val => val.pos == new Vector3(i, heightIndex, j)) == null)
                                 {
                                     var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();

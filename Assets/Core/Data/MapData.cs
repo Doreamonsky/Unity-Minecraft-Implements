@@ -23,6 +23,8 @@ namespace MC.Core
 
         public int[,,] WorldData { get => arrayToMatrix(worldDataSeralized); set => worldDataSeralized = matrixToArray(value); }
 
+        public int seed;
+
         private int[] matrixToArray(int[,,] m)
         {
             int[] array = new int[max_width * max_length * max_height];

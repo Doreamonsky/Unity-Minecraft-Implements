@@ -1,4 +1,5 @@
 ﻿using MC.Core;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace MC.CoreEditor
     {
         private MapData mapData;
 
-        private readonly int[,,] tree = new int[,,]
+        private readonly int[,,] tree01 = new int[,,]
         {
             {
                 {0,0,0,0,0},
@@ -61,6 +62,60 @@ namespace MC.CoreEditor
                 {0,0,0,0,0},
             },
         };
+
+        private readonly int[,,] tree02 = new int[,,]
+{
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,6,0,6,0},
+                {0,6,4,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,6,6,6,0},
+                {0,6,4,0,0},
+                {0,6,0,6,0},
+                {0,0,0,0,0},
+            },
+            {
+                {6,6,6,6,6},
+                {6,6,6,6,6},
+                {6,6,4,6,6},
+                {6,6,6,6,6},
+                {6,6,6,6,6},
+            },
+            {
+                {0,0,0,0,0},
+                {0,6,6,6,0},
+                {0,6,4,6,0},
+                {0,6,6,6,0},
+                {0,0,0,0,0},
+            },
+            {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,6,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+            },
+};
+
         //琲
         private readonly int[,] Bei = new int[,]
 {
@@ -192,6 +247,11 @@ namespace MC.CoreEditor
                 {
                     for (var k = 0; k < arrayZ; k++)
                     {
+                        if (anyArray[i, j, k] == 0)
+                        {
+                            continue;
+                        }
+
                         worldData[height + i, x + j, y + k] = anyArray[i, j, k];
                     }
                 }
@@ -206,6 +266,8 @@ namespace MC.CoreEditor
             mapData.max_height = EditorGUILayout.IntField("Height", mapData.max_height);
             mapData.max_width = EditorGUILayout.IntField("Width", mapData.max_width);
             mapData.max_length = EditorGUILayout.IntField("Length", mapData.max_length);
+
+            mapData.seed = EditorGUILayout.IntField("Seed", mapData.seed);
 
             if (GUILayout.Button("Generate World By Rule One"))
             {
@@ -227,10 +289,10 @@ namespace MC.CoreEditor
                             {
                                 blockID = 1;
                             }
-                            else if (heightIndex < 16)
-                            {
-                                blockID = 2;
-                            }
+                            //else if (heightIndex < 16)
+                            //{
+                            //    blockID = 2;
+                            //}
 
                             data[heightIndex, i, j] = blockID;
                         }
@@ -240,20 +302,94 @@ namespace MC.CoreEditor
                 mapData.WorldData = data;
             }
 
+            if (GUILayout.Button("Add Hills"))
+            {
+                var data = mapData.WorldData;
+
+                for (var heightIndex = 15; heightIndex < mapData.max_height; heightIndex++)
+                {
+                    for (var i = 0; i < mapData.max_width; i++)
+                    {
+                        for (var j = 0; j < mapData.max_length; j++)
+                        {
+                            Random.InitState(mapData.seed);
+                            var seed = Random.value * 100;
+
+                            var scale = 5.5f;
+
+                            var maxHeight = Mathf.PerlinNoise(i * scale / mapData.max_width + seed, j * scale / mapData.max_length + seed) * 8 + 15;
+
+                            if (heightIndex < maxHeight)
+                            {
+                                data[heightIndex, i, j] = 1;
+                            }
+                        }
+                    }
+                }
+
+                mapData.WorldData = data;
+            }
+
+            if (GUILayout.Button("Add Grass & Trees"))
+            {
+                var data = mapData.WorldData;
+
+                var topBlocks = new List<Vector3>();
+
+                for (var i = 0; i < mapData.max_width; i++)
+                {
+                    for (var j = 0; j < mapData.max_length; j++)
+                    {
+                        for (var heightIndex = mapData.max_height - 1; heightIndex > 0; heightIndex--)
+                        {
+                            if (data[heightIndex, i, j] != 0)
+                            {
+                                data[heightIndex, i, j] = 2;
+
+                                if (i > 20 && i < mapData.max_width - 20 && j > 20 && j < mapData.max_length - 20)
+                                {
+                                    topBlocks.Add(new Vector3(heightIndex, i, j));
+                                }
+
+                                break;
+                            }
+                        }
+
+                    }
+                }
+
+                mapData.WorldData = data;
+
+                foreach (var topBlock in topBlocks)
+                {
+                    if (Random.value > 0.99f)
+                    {
+                        if (Random.value > 0.5f)
+                        {
+                            AddXYZArrayToMap(tree01, 7, 5, 5, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
+                        }
+                        else
+                        {
+                            AddXYZArrayToMap(tree02, 7, 5, 5, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
+                        }
+                    }
+                }
+            }
+
             if (GUILayout.Button("Add Happy Birthday"))
             {
-                AddXZArrayToMap(Bei, 16, 16, 2, 58, 17);
-                AddXZArrayToMap(Bei, 16, 16, 16, 62, 17);
-                AddXZArrayToMap(Shen, 16, 16, 34, 58, 17);
-                AddXZArrayToMap(Kuai, 16, 16, 50, 62, 17);
+                AddXZArrayToMap(Bei, 16, 16, 2, 58 + 32, 24);
+                AddXZArrayToMap(Bei, 16, 16, 16, 62 + 32, 24);
+                AddXZArrayToMap(Shen, 16, 16, 34, 58 + 32, 24);
+                AddXZArrayToMap(Kuai, 16, 16, 50, 62 + 32, 24);
             }
             if (GUILayout.Button("Add Trees"))
             {
-                AddXYZArrayToMap(tree, 7, 5, 5, 2, 2, 16);
-                AddXYZArrayToMap(tree, 7, 5, 5, 12, 32, 16);
-                AddXYZArrayToMap(tree, 7, 5, 5, 18, 32, 16);
-                AddXYZArrayToMap(tree, 7, 5, 5, 19, 52, 16);
-                AddXYZArrayToMap(tree, 7, 5, 5, 35, 10, 16);
+                AddXYZArrayToMap(tree01, 7, 5, 5, 2, 2, 16);
+                AddXYZArrayToMap(tree01, 7, 5, 5, 12, 32, 16);
+                AddXYZArrayToMap(tree01, 7, 5, 5, 18, 32, 16);
+                AddXYZArrayToMap(tree01, 7, 5, 5, 19, 52, 16);
+                AddXYZArrayToMap(tree01, 7, 5, 5, 35, 10, 16);
             }
 
             if (GUILayout.Button("Update Map Size"))
