@@ -10,12 +10,11 @@ namespace MC.Core
 
     public class Player : MonoBehaviour
     {
+        public static System.Action<Vector3> OnPlayerMove;
 
         public float velocity = 10;
 
         public float jumpVelocity = 8.0f;
-
-        public float gravity = -5f;
 
         public int blockID = 2;
 
@@ -168,6 +167,8 @@ namespace MC.Core
             }
 
             OnUpdated?.Invoke();
+
+            OnPlayerMove?.Invoke(transform.position);
         }
 
         public void Jump()

@@ -17,14 +17,14 @@ namespace MC.Core
         public BlockData blockData;
 
 
-        public void Place(Vector3 pos)
+        public void Place(WorldManager worldManager,Vector3 pos)
         {
             switch (placeType)
             {
                 case PlaceType.Block:
                     //从当前 WorldManager LayerID 
-                    var layerID = WorldManager.Instance.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
-                    WorldManager.Instance.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
+                    var layerID = worldManager.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
+                    worldManager.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
                     break;
                 case PlaceType.Item:
 

@@ -25,6 +25,8 @@ namespace MC.Core
 
         public int seed;
 
+        public Vector3 startPos = Vector3.zero;
+
         private int[] matrixToArray(int[,,] m)
         {
             int[] array = new int[max_width * max_length * max_height];

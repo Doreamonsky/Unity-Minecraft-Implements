@@ -587,10 +587,12 @@ namespace MC.Core
                     var placePoint = rayHit.point + rayHit.normal * 0.5f;
                     placePoint = new Vector3(Mathf.FloorToInt(placePoint.x), Mathf.FloorToInt(placePoint.y), Mathf.FloorToInt(placePoint.z)); //整数
 
+                    var worldManager = rayHit.collider.transform.parent.parent.GetComponent<WorldManager>();
+
                     //防止玩家卡入方块
                     if (playerPos != placePoint)
                     {
-                        inv.Place(placePoint);
+                        inv.Place(worldManager, placePoint);
                         CurrentInventroyUsed(currentStorage);
                     }
                 }
@@ -634,7 +636,9 @@ namespace MC.Core
                 var chunckPoint = rayHit.point - rayHit.normal * 0.5f;
                 chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
 
-                var blockData = WorldManager.Instance.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                var worldManager = rayHit.collider.transform.parent.parent.GetComponent<WorldManager>();
+
+                var blockData = worldManager.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
 
                 if (blockData is DestroyableBlockData)
                 {
@@ -656,7 +660,7 @@ namespace MC.Core
 
                     if (interactTime >= destroyable.digTime * digSpeedBoost && interactPos == chunckPoint)
                     {
-                        WorldManager.Instance.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                        worldManager.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
                     }
 
                     //Update UI

@@ -9,7 +9,7 @@ namespace MC.Core
 
         public Material topTex, bottomTex, rightTex, leftTex, frontTex, backTex;
 
-        public abstract void RemoveBlock(int height, int x, int y);
+        public abstract void RemoveBlock(WorldManager worldManager, int height, int x, int y);
     }
 
 }
