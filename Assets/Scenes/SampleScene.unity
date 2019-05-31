@@ -2450,6 +2450,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad4479505316d7468fdacbfe212cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasks:
+  - taskType: 0
+    uiGuidance: {fileID: 557300589}
+    completeToggle: {fileID: 305671206}
+    invName: Oak Wood
+    invCount: 2
+    player: {fileID: 0}
+  - taskType: 0
+    uiGuidance: {fileID: 617473141}
+    completeToggle: {fileID: 220523837}
+    invName: Oak Wood Planks
+    invCount: 4
+    player: {fileID: 0}
+  - taskType: 0
+    uiGuidance: {fileID: 627741225}
+    completeToggle: {fileID: 687901609}
+    invName: Stick
+    invCount: 4
+    player: {fileID: 0}
+  - taskType: 0
+    uiGuidance: {fileID: 2097768191}
+    completeToggle: {fileID: 181073341}
+    invName: 
+    invCount: 0
+    player: {fileID: 0}
+  - taskType: 0
+    uiGuidance: {fileID: 1233920352}
+    completeToggle: {fileID: 333325501}
+    invName: Sword Wood
+    invCount: 1
+    player: {fileID: 0}
   player: {fileID: 915522928}
   runtime: {fileID: 1754814453}
   timeline: {fileID: 1531059950}
@@ -4313,19 +4344,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.69384587
+      value: 0.7415849
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.4653324
+      value: -0.38471824
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4537756
+      value: -0.48563778
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.31005064
+      value: 0.257293
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_LocalPosition.x

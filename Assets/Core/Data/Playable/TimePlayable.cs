@@ -33,6 +33,8 @@ namespace MC.Core
 
             var weather = GameObject.FindObjectOfType<TOD_WeatherManager>();
             weather.Clouds = Clouds;
+
+            sky.UpdateAmbient();
         }
 
         // Called when the state of the playable is set to Paused
