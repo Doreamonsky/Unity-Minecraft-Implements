@@ -32,7 +32,7 @@ namespace MC.Core
 
             var desireMove = Vector3.ProjectOnPlane(moveVelocity * dir.normalized * Time.deltaTime, Vector3.up);
 
-            if (dir.magnitude > 5)
+            if (dir.magnitude > 15)
             {
                 m_animator.SetFloat("Speed", 0.2f);
                 m_characterController.Move(-Vector3.up * 9.8f * Time.deltaTime);

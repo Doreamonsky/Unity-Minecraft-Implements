@@ -133,7 +133,7 @@ namespace MC.Core
 
         private List<RuntimeRendererData> runtimeSharedRendererData = new List<RuntimeRendererData>();
 
-        private void Start()
+        public void Start()
         {
             colliderParent = new GameObject("Collision").transform;
             colliderParent.parent = transform;

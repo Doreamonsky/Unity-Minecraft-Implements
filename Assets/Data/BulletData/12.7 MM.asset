@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 12.7 MM
   m_EditorClassIdentifier: 
   Velocity: 320
-  Damage: 10
+  Damage: 20
   hitEffect: Hit Muzzle
+  weaponProjectile: 
