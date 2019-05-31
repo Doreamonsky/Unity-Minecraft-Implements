@@ -42,10 +42,13 @@ namespace MC.Core
 
                 if (storedItem != null)
                 {
-                    storedItem.count += inventoryStorage.count;
-                    isCollected = true;
+                    if (storedItem.count < 64)
+                    {
+                        storedItem.count += inventoryStorage.count;
+                        isCollected = true;
 
-                    inventorySystem.UpdateInvetoryUI();
+                        inventorySystem.UpdateInvetoryUI();
+                    }
                 }
                 else
                 {
@@ -67,7 +70,7 @@ namespace MC.Core
 
                 if (isCollected)
                 {
-                    Destroy(instance);
+                    dropBlockInventory.Collect();
                 }
             };
         }

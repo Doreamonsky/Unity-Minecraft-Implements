@@ -1,38 +1,36 @@
 ﻿using MC.Core;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace MC.CoreEditor
 {
-    [CustomEditor(typeof(RecipeData))]
-    public class RecipeDataEditor : Editor
+    [CustomEditor(typeof(CraftSystem))]
+    public class CraftSystemEditor : Editor
     {
-        private RecipeData recipeData;
+        private CraftSystem craftSystem;
 
         private void OnEnable()
         {
-            recipeData = target as RecipeData;
+            craftSystem = target as CraftSystem;
         }
         public override void OnInspectorGUI()
         {
-            //base.OnInspectorGUI();
+            base.OnInspectorGUI();
 
-            EditorGUILayout.LabelField("Recipe:");
 
-            for (int i = 0; i < 3; i++)
+            if(GUILayout.Button("Update Recipe"))
             {
-                EditorGUILayout.BeginHorizontal();
-                for (int j = 0; j < 3; j++)
+                craftSystem.recipeList = new List<RecipeData>();
+
+                foreach (var guid in AssetDatabase.FindAssets("t:RecipeData"))
                 {
-                    recipeData.Recipe[i * 3 + j] = (Inventory)EditorGUILayout.ObjectField(recipeData.Recipe[i * 3 + j], typeof(Inventory),allowSceneObjects:false);
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+
+                    craftSystem.recipeList.Add(AssetDatabase.LoadAssetAtPath<RecipeData>(path));
                 }
-                EditorGUILayout.EndHorizontal();
             }
-
-            recipeData.CraftedInventory = (Inventory)EditorGUILayout.ObjectField("Crafted Inventory:", recipeData.CraftedInventory, typeof(Inventory), allowSceneObjects: false);
-
-            recipeData.CraftedCount = EditorGUILayout.IntField("Count:", recipeData.CraftedCount);
-
+   
             if (GUI.changed)
             {
                 EditorUtility.SetDirty(target);

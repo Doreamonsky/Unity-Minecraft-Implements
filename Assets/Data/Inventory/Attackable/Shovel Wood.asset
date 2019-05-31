@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a321e618daf10845a62e0b211af14a5, type: 3}
+  m_Name: Shovel Wood
+  m_EditorClassIdentifier: 
+  inventoryName: Shovel Wood
+  inventoryIcon: {fileID: 21300000, guid: 75c48cd0c707bfd42ba38060a2c9ad00, type: 3}
+  Endurance: 450
+  HPDamage: 2
+  attackInterval: 0.25
+  weaponPrefab: {fileID: 2709366361078469028, guid: 35b570df3e93b71439b080097ded3b34,
+    type: 3}
+  slotPos: {x: 0.303, y: -0.351, z: 0.486}
+  slotEulerAngle: {x: 0, y: 0, z: 0}
+  digBoost: 5

@@ -2831,8 +2831,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6895479985251780638}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -299.33356, y: -2.3545723, z: 25.03125}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -260.91, y: -8.285, z: 30.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6895479985289386096}
@@ -2930,8 +2930,16 @@ MonoBehaviour:
   recipeList:
   - {fileID: 11400000, guid: 6d42e9eeeabbc1644a67aa9ec78b4e20, type: 2}
   - {fileID: 11400000, guid: 73d4399ccb211124288bb942479495ff, type: 2}
+  - {fileID: 11400000, guid: 2378828ff0bfff6409728a03a91e16e9, type: 2}
   - {fileID: 11400000, guid: 16b3b8a7c8601ac4a9f80d17e2d30de3, type: 2}
+  - {fileID: 11400000, guid: c11cad751459e8f4a83305f23a50f7a7, type: 2}
+  - {fileID: 11400000, guid: 44ad15a8278853e43a782bccd1d15e17, type: 2}
+  - {fileID: 11400000, guid: 3b5849b5bd2458a4998634e6eea1a929, type: 2}
+  - {fileID: 11400000, guid: 10bd8556efc1c3e40886acb1a88f85c5, type: 2}
+  - {fileID: 11400000, guid: 6717a2721780dc347bd59b40e3acced4, type: 2}
   - {fileID: 11400000, guid: 257582969df34b34aadcfeed4918aa11, type: 2}
+  - {fileID: 11400000, guid: 5d5edc08e7e85124eaea1922930c9c03, type: 2}
+  - {fileID: 11400000, guid: 5b5a1b6a293730b4e9c2f3429d07b7bd, type: 2}
   layout:
     craftedObject: {fileID: 6895479985930269094}
     craftObject:
@@ -4054,7 +4062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.5, y: -26.6}
+  m_AnchoredPosition: {x: 3.5, y: -26.599976}
   m_SizeDelta: {x: -32.4, y: 56.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6895479986139062599

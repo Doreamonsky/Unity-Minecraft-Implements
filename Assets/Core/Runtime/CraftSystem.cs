@@ -148,6 +148,7 @@ namespace MC.Core
             else
             {
                 layout.craftedInstance.itemIcon.sprite = null;
+                craftedInventory = null;
             }
         }
     }

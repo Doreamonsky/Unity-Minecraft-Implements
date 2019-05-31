@@ -440,8 +440,14 @@ namespace MC.Core
                 //Craft 生成物体
                 else if (type == SwapType.CraftedToInv)
                 {
-                    var targetInv = inventoryStorageList.Find(val => val.slotID == b);
+                    //当前没有合成的物体
+                    if (CraftSystem.Instance.craftedInventory == null)
+                    {
+                        return;
+                    }
 
+                    var targetInv = inventoryStorageList.Find(val => val.slotID == b);
+                
                     //深复制防止多引用
                     var craftedInventory = CraftSystem.Instance.craftedInventory.Clone();
 
