@@ -71,9 +71,7 @@ namespace MC.Core
 
         public List<Task> tasks = new List<Task>();
 
-        public GameObject player;
-
-        public GameObject runtime;
+        public Transform playerSpawnPoint;
 
         public GameObject timelinePrologue;
 
@@ -93,11 +91,36 @@ namespace MC.Core
 
         private Queue<Task> collectTasks = new Queue<Task>();
 
+        private GameObject runtime, player;
+
         private void Start()
         {
+            StartCoroutine(PlotUpdate());
+        }
+
+        private IEnumerator PlotUpdate()
+        {
             timelinePrologue.SetActive(true);
-            runtime.SetActive(false);
             gamePlayGuide.SetActive(false);
+
+            //仅编辑器可选择跳过Timeline
+#if UNITY_EDITOR
+            if (!skipTimeline)
+            {
+#endif
+                yield return new WaitForSeconds((float)directorPrologue.duration + (float)directorPrologue.initialTime);
+#if UNITY_EDITOR
+            }
+#endif
+
+            var initSystem = new GameObject("InitSystem", typeof(PlayerInitSystem)).GetComponent<PlayerInitSystem>();
+            initSystem.transform.position = playerSpawnPoint.position;
+            initSystem.transform.rotation = playerSpawnPoint.rotation;
+            initSystem.useSaving = true;
+            initSystem.Init();
+
+            runtime = initSystem.runtime;
+            player = initSystem.player.gameObject;
 
             foreach (var task in tasks)
             {
@@ -109,24 +132,7 @@ namespace MC.Core
                 }
             }
 
-            StartCoroutine(PlotUpdate());
-        }
-
-        private IEnumerator PlotUpdate()
-        {
-            //仅编辑器可选择跳过Timeline
-#if UNITY_EDITOR
-            if (!skipTimeline)
-            {
-#endif
-                yield return new WaitForSeconds((float)directorPrologue.duration + (float)directorPrologue.initialTime);
-#if UNITY_EDITOR
-            }
-#endif
-
             timelinePrologue.SetActive(false);
-
-            runtime.SetActive(true);
             gamePlayGuide.SetActive(true);
 
             //判断资源是否收集完毕
@@ -175,7 +181,7 @@ namespace MC.Core
             }
 
             yield return new WaitForSeconds(2f);
-            
+
             taskBar.SetActive(false);
             runtime.SetActive(false);
 
@@ -185,24 +191,30 @@ namespace MC.Core
 
             runtime.SetActive(true);
 
-            for (var i = 0; i < 10; i++)
+            var weaponIndex = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.inventory.inventoryName == gunWeapon.inventoryName);
+
+            if (weaponIndex == -1)
             {
-                var id = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
-
-                if (id == -1)
+                for (var i = 0; i < 10; i++)
                 {
-                    player.GetComponent<Player>().inventorySystem.inventoryStorageList.Add(new InventoryStorage()
+                    var id = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
+
+                    if (id == -1)
                     {
-                        inventory = Instantiate(gunWeapon),
-                        count = 1,
-                        slotID = i
-                    });
+                        player.GetComponent<Player>().inventorySystem.inventoryStorageList.Add(new InventoryStorage()
+                        {
+                            inventory = Instantiate(gunWeapon),
+                            count = 1,
+                            slotID = i
+                        });
 
-                    player.GetComponent<Player>().inventorySystem.UpdateInvetoryUI();
+                        player.GetComponent<Player>().inventorySystem.UpdateInvetoryUI();
 
-                    break;
+                        break;
+                    }
                 }
             }
+
         }
     }
 

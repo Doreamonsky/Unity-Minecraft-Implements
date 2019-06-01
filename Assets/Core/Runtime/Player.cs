@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace MC.Core
@@ -29,6 +30,8 @@ namespace MC.Core
         public Button openCraftingBtn, closeCraftingBtn;
 
         public Button gunFireBtn;
+
+        public Button exit;
 
         public GameObject weaponBar;
 
@@ -84,7 +87,10 @@ namespace MC.Core
                 ToggleCrafting();
             });
 
-
+            exit.onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene("Main");
+            });
         }
 
         private void Update()

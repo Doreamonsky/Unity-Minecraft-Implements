@@ -29,7 +29,7 @@ namespace MC.Core
         }
 
 
-        private static GameObject weaponModel;
+        private GameObject weaponModel;
 
         public GameObject weaponPrefab;
 
