@@ -12,6 +12,8 @@ namespace MC.Core
     {
         public static System.Action<Vector3> OnPlayerMove;
 
+        public float health = 120;
+
         public float velocity = 10;
 
         public float jumpVelocity = 8.0f;
@@ -257,6 +259,13 @@ namespace MC.Core
         {
             mobileX = 0;
             mobileY = 0;
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            health -= damage;
+
+            Debug.Log("Damaged");
         }
     }
 

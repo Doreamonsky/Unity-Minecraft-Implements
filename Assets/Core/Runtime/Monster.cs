@@ -8,19 +8,20 @@ namespace MC.Core
 
         public float health = 100;
 
-        private Player target;
+        [HideInInspector]
+        public Player target;
+        [HideInInspector]
+        public CharacterController m_characterController;
+        [HideInInspector]
+        public Animator m_animator;
 
-        private CharacterController m_characterController;
-
-        private Animator m_animator;
-
-        private void Start()
+        public virtual void Start()
         {
             m_animator = GetComponent<Animator>();
             m_characterController = GetComponent<CharacterController>();
         }
 
-        private void Update()
+        public virtual void Update()
         {
             if (target == null)
             {
@@ -28,9 +29,9 @@ namespace MC.Core
                 return;
             }
 
-            var dir = target.transform.position - transform.position;
+            var dir = Vector3.ProjectOnPlane(target.transform.position - transform.position, Vector3.up);
 
-            var desireMove = Vector3.ProjectOnPlane(moveVelocity * dir.normalized * Time.deltaTime, Vector3.up);
+            var desireMove = moveVelocity * dir.normalized * Time.deltaTime;
 
             if (dir.magnitude > 15)
             {
@@ -42,17 +43,18 @@ namespace MC.Core
                 m_animator.SetFloat("Speed", 0f);
             }
 
+
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(desireMove), Time.deltaTime * 2.5f);
         }
 
-        public void ApplyDamage(float damage)
+        public virtual void ApplyDamage(float damage)
         {
             health -= damage;
 
             CheckDead();
         }
 
-        private void CheckDead()
+        public virtual void CheckDead()
         {
             if (health <= 0)
             {
@@ -61,6 +63,8 @@ namespace MC.Core
                 PoolManager.CreateObject("Explosion", transform.position, Quaternion.LookRotation(Vector3.up).eulerAngles);
             }
         }
+
+
     }
 
 }

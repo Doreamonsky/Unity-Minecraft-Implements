@@ -21,4 +21,4 @@ MonoBehaviour:
     type: 3}
   slotPos: {x: 0.303, y: -0.351, z: 0.486}
   slotEulerAngle: {x: 0, y: 0, z: 0}
-  digBoost: 2.5
+  digBoost: 1.5

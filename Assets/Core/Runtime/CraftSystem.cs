@@ -35,8 +35,6 @@ namespace MC.Core
                 {
                     var item = craftObject[i];
 
-                    Debug.Log(i);
-
                     var itemUI = new ItemUI()
                     {
                         instance = item,

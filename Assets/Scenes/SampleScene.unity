@@ -399,6 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapData: {fileID: 11400000, guid: 671b5acfcaf38514fa1355363b875e3f, type: 2}
+  frontConnected: {fileID: 0}
+  backConnected: {fileID: 0}
+  leftConnected: {fileID: 0}
+  rightConnected: {fileID: 0}
   blockStorageData: {fileID: 11400000, guid: 9ee6b511913bafd4f87a30d4bcb6ed10, type: 2}
   InstancingRenderer: 1
 --- !u!4 &138302376
@@ -2486,6 +2490,7 @@ MonoBehaviour:
   timeline: {fileID: 1531059950}
   gamePlayGuide: {fileID: 1952255137}
   director: {fileID: 1340734264}
+  skipTimeline: 1
 --- !u!4 &883531170
 Transform:
   m_ObjectHideFlags: 0
@@ -4340,11 +4345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_Color.g
-      value: 0.9529412
+      value: 0.60745084
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_Color.b
-      value: 0.91764706
+      value: 0.009279251
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_Color.r
@@ -4353,6 +4358,10 @@ PrefabInstance:
     - target: {fileID: 10800000, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_Intensity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300010, guid: b2498b078e1b54bd68239c9a29c28a81, type: 3}
       propertyPath: m_Enabled

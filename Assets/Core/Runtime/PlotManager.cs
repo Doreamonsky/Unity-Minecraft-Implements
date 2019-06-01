@@ -81,6 +81,8 @@ namespace MC.Core
 
         public PlayableDirector director;
 
+        public bool skipTimeline = false;
+
         private Queue<Task> queueTasks = new Queue<Task>();
 
         private void Start()
@@ -100,7 +102,15 @@ namespace MC.Core
 
         private IEnumerator PlotUpdate()
         {
-            yield return new WaitForSeconds((float)director.duration + (float)director.initialTime);
+            //仅编辑器可选择跳过Timeline
+#if UNITY_EDITOR
+            if (!skipTimeline)
+            {
+#endif
+                yield return new WaitForSeconds((float)director.duration + (float)director.initialTime);
+#if UNITY_EDITOR
+            }
+#endif
 
             timeline.SetActive(false);
 
