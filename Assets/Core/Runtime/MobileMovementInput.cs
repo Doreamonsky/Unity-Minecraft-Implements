@@ -3,11 +3,22 @@ using UnityEngine.EventSystems;
 
 namespace MC.Core
 {
-    public class MobileMovementInput : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public class MobileMovementInput : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, IEndDragHandler
     {
         public float x, y;
 
         private bool isTouching = false;
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            isTouching = false;
+
+            ControlEvents.OnControllerInput?.Invoke(new InputData()
+            {
+                x = 0,
+                y = 0
+            });
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -38,13 +49,25 @@ namespace MC.Core
 
         private void Update()
         {
-            if (isTouching)
+            if (Util.IsMobile())
             {
-                ControlEvents.OnControllerInput?.Invoke(new InputData()
+                if (isTouching)
                 {
-                    x = x,
-                    y = y
-                });
+                    ControlEvents.OnControllerInput?.Invoke(new InputData()
+                    {
+                        x = x,
+                        y = y
+                    });
+                }
+
+                if (Input.touchCount == 0)
+                {
+                    ControlEvents.OnControllerInput?.Invoke(new InputData()
+                    {
+                        x = 0,
+                        y = 0
+                    });
+                }
             }
         }
     }
