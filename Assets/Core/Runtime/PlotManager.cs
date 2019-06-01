@@ -75,26 +75,36 @@ namespace MC.Core
 
         public GameObject runtime;
 
-        public GameObject timeline;
+        public GameObject timelinePrologue;
 
         public GameObject gamePlayGuide;
 
-        public PlayableDirector director;
+        public PlayableDirector directorPrologue, directorResourceCollected, directorSkeletonShown, directorEnding;
+
+        public GameObject skeletonFightCheckPoint;
+
+        public GameObject skeletonMaster;
+
+        public Inventory gunWeapon;
 
         public bool skipTimeline = false;
 
-        private Queue<Task> queueTasks = new Queue<Task>();
+        private Queue<Task> collectTasks = new Queue<Task>();
 
         private void Start()
         {
-            timeline.SetActive(true);
+            timelinePrologue.SetActive(true);
             runtime.SetActive(false);
             gamePlayGuide.SetActive(false);
 
             foreach (var task in tasks)
             {
                 task.player = player.GetComponent<Player>();
-                queueTasks.Enqueue(task);
+
+                if (task.taskType == Task.TaskType.InventoryCount)
+                {
+                    collectTasks.Enqueue(task);
+                }
             }
 
             StartCoroutine(PlotUpdate());
@@ -107,32 +117,84 @@ namespace MC.Core
             if (!skipTimeline)
             {
 #endif
-                yield return new WaitForSeconds((float)director.duration + (float)director.initialTime);
+                yield return new WaitForSeconds((float)directorPrologue.duration + (float)directorPrologue.initialTime);
 #if UNITY_EDITOR
             }
 #endif
 
-            timeline.SetActive(false);
+            timelinePrologue.SetActive(false);
 
             runtime.SetActive(true);
             gamePlayGuide.SetActive(true);
 
+            //判断资源是否收集完毕
             while (true)
             {
-                var task = queueTasks.Dequeue();
-
-                if (task == null)
+                if (collectTasks.Count <= 0)
                 {
-                    yield break;
+                    break;
+                }
+
+                var task = collectTasks.Dequeue();
+
+                while (!task.CheckComplete())
+                {
+                    yield return new WaitForSeconds(1);
+                }
+
+                task.CompleteTask();
+            }
+
+            skeletonFightCheckPoint.SetActive(true);
+            directorResourceCollected.Play();
+
+            while (true)
+            {
+                var dir = Vector3.ProjectOnPlane(player.transform.position - skeletonFightCheckPoint.transform.position, Vector3.up);
+
+                if (dir.magnitude > 10)
+                {
+                    yield return new WaitForEndOfFrame();
                 }
                 else
                 {
-                    while (!task.CheckComplete())
-                    {
-                        yield return new WaitForSeconds(1);
-                    }
+                    break;
+                }
+            }
 
-                    task.CompleteTask();
+            skeletonMaster.SetActive(true);
+
+            directorSkeletonShown.Play();
+
+            while (skeletonMaster != null)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            runtime.SetActive(false);
+
+            directorEnding.Play();
+
+            yield return new WaitForSeconds((float)directorEnding.duration);
+
+            runtime.SetActive(true);
+
+            for (var i = 0; i < 10; i++)
+            {
+                var id = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
+
+                if (id == -1)
+                {
+                    player.GetComponent<Player>().inventorySystem.inventoryStorageList.Add(new InventoryStorage()
+                    {
+                        inventory = Instantiate(gunWeapon),
+                        count = 1,
+                        slotID = i
+                    });
+
+                    player.GetComponent<Player>().inventorySystem.UpdateInvetoryUI();
+
+                    break;
                 }
             }
         }

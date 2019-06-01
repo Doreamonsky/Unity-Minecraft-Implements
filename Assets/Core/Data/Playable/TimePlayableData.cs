@@ -9,6 +9,8 @@ namespace MC.Core
     {
         public float hour = 9;
 
+        public float dayLengthInMinute = 20;
+
         public CloudType Clouds = default(CloudType);
 
 
@@ -18,7 +20,8 @@ namespace MC.Core
             TimePlayable myPlayable = new TimePlayable
             {
                 hour = hour,
-                Clouds = Clouds
+                Clouds = Clouds,
+                dayLengthInMinute = dayLengthInMinute
             };
 
             return ScriptPlayable<TimePlayable>.Create(graph, myPlayable);

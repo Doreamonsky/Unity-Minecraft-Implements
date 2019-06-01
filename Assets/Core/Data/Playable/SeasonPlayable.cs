@@ -24,7 +24,7 @@ namespace MC.Core
         public override void OnBehaviourPlay(Playable playable, FrameData info)
         {
             var cinematic = GameObject.FindObjectOfType<CinematicSeason>();
-            cinematic.OnSeasonChanged(season);
+            cinematic?.OnSeasonChanged(season);
         }
 
         // Called when the state of the playable is set to Paused

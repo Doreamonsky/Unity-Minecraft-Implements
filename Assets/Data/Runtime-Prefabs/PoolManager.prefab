@@ -55,3 +55,9 @@ MonoBehaviour:
     CreateCount: 2
     LifeTime: 5
     isBuffer: 0
+  - ObjectName: Hurt Sound
+    Object: {fileID: 1195543043824338473, guid: c20cc46eb61793441a7907af97d7b882,
+      type: 3}
+    CreateCount: 5
+    LifeTime: 2
+    isBuffer: 0

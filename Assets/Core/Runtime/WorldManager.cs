@@ -130,7 +130,7 @@ namespace MC.Core
         private Transform colliderParent;
 
         //缓存在内存中，用于快速读取
-        private int[,,] runtimeWorldData;
+        public int[,,] runtimeWorldData;
 
         private List<RuntimeRendererData> runtimeSharedRendererData = new List<RuntimeRendererData>();
 

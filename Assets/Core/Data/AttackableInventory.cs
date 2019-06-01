@@ -8,7 +8,9 @@ namespace MC.Core
     {
         private GameObject weaponModel;
 
-        public float Endurance = 100, HPDamage = 20;
+        public float endurance = 100, hpDamage = 20;
+
+        public float attackRange = 2;
 
         public float attackInterval = 0.2f;
 
@@ -33,27 +35,36 @@ namespace MC.Core
                 {
                     animator.SetTrigger("Attack");
                 }
+
+                var monsters = GameObject.FindObjectsOfType<Monster>();
+
+                foreach (var monster in monsters)
+                {
+                    var dir = Vector3.ProjectOnPlane(monster.transform.position - attacker.transform.position, Vector3.up);
+
+                    if (dir.magnitude < attackRange)
+                    {
+                        monster.ApplyDamage(hpDamage);
+                    }
+                }
             }
-            else
-            {
-                Debug.Log("Click To Often");
-            }
+
         }
 
 
         public float GetEndurance()
         {
-            return Endurance;
+            return endurance;
         }
 
         public float GetHPDamage()
         {
-            return HPDamage;
+            return hpDamage;
         }
 
         public bool IsUseable()
         {
-            return Endurance > 0;
+            return endurance > 0;
         }
 
         public override void OnSelected(InventorySystem inventorySystem)
@@ -78,7 +89,7 @@ namespace MC.Core
 
         public void UseEndurance(float usedEndurance)
         {
-            Endurance -= usedEndurance;
+            endurance -= usedEndurance;
         }
 
         public float GetDigBoost()

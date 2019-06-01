@@ -265,7 +265,7 @@ namespace MC.Core
         {
             health -= damage;
 
-            Debug.Log("Damaged");
+            PoolManager.CreateObject("Hurt Sound", transform.position, Vector3.zero);
         }
     }
 

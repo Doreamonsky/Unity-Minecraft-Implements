@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 using static TOD_WeatherManager;
 
@@ -10,6 +8,8 @@ namespace MC.Core
     public class TimePlayable : PlayableBehaviour
     {
         public float hour;
+
+        public float dayLengthInMinute ;
 
         public CloudType Clouds = default(CloudType);
 
@@ -29,12 +29,27 @@ namespace MC.Core
         public override void OnBehaviourPlay(Playable playable, FrameData info)
         {
             var sky = GameObject.FindObjectOfType<TOD_Sky>();
-            sky.Cycle.Hour = hour;
+
+            if (sky != null)
+            {
+                sky.Cycle.Hour = hour;
+            }
 
             var weather = GameObject.FindObjectOfType<TOD_WeatherManager>();
-            weather.Clouds = Clouds;
 
-            sky.UpdateAmbient();
+            if (weather != null)
+            {
+                weather.Clouds = Clouds;
+            }
+
+            var time = GameObject.FindObjectOfType<TOD_Time>();
+
+            if (time != null)
+            {
+                time.DayLengthInMinutes = dayLengthInMinute;
+            }
+
+            sky?.UpdateAmbient();
         }
 
         // Called when the state of the playable is set to Paused
