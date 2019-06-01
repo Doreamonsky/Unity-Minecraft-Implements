@@ -17,5 +17,18 @@ namespace MC.Core
         public static System.Action OnJumped;
 
         public static System.Action OnGunFire;
+
+        public static void CleanActions()
+        {
+            OnClickScreen = null;
+            OnClickInventoryByID = null;
+            OnPressingScreen = null;
+            OnBeginPressScreen = null;
+            OnEndPressScreen = null;
+            OnControllerInput = null;
+            OnCameraControllerInput = null;
+            OnJumped = null;
+            OnGunFire = null;
+        }
     }
 }

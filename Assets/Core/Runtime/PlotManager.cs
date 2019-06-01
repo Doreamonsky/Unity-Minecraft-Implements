@@ -218,6 +218,7 @@ namespace MC.Core
                 }
             }
 
+            PlayerPrefs.SetString("Plot", "Finish");
         }
     }
 

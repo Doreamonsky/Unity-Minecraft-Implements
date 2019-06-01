@@ -11,7 +11,8 @@ namespace MC.Core
         InvToCraft = 1,
         CraftToCraft = 2,
         CraftToInv = 3,
-        CraftedToInv = 4 //生成物体
+        CraftedToInv = 4, //生成物体
+        InvalidSwap =5
     }
 
     public enum InventoryIconType

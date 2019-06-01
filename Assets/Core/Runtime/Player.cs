@@ -273,6 +273,11 @@ namespace MC.Core
 
             PoolManager.CreateObject("Hurt Sound", transform.position, Vector3.zero);
         }
+
+        private void OnDestroy()
+        {
+            ControlEvents.CleanActions();
+        }
     }
 
 }

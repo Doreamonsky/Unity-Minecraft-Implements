@@ -8,16 +8,27 @@ namespace MC.Core
 
         public static bool isCrafting = false;
 
+        public static bool isTouchingScreen = true;
+
         public static bool IsMobile()
         {
-            var isMobile = false;
-
-            if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.IPhonePlayer)
+            if (isTouchingScreen)
             {
-                isMobile = true;
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
-            return isMobile;
+            //var isMobile = false;
+
+            //if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WSAPlayerARM || Application.platform == RuntimePlatform.IPhonePlayer)
+            //{
+            //    isMobile = true;
+            //}
+
+            //return isMobile;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace MC.Core
     {
         public Button PlotBtn, SurvivalBtn, ExitBtn;
 
+        public Toggle TouchToggle;
+
         public GameObject LoadingEffect;
 
         private void Start()
@@ -23,11 +25,37 @@ namespace MC.Core
                 LoadingEffect.SetActive(true);
                 SceneManager.LoadScene("InfiniteScene");
             });
+
             ExitBtn.onClick.AddListener(() =>
             {
                 Application.Quit();
             });
 
+            TouchToggle.onValueChanged.AddListener(val =>
+            {
+                Util.isTouchingScreen = val;
+                PlayerPrefs.SetString("Touching", val.ToString());
+
+                var text = TouchToggle.transform.Find("Label").GetComponent<Text>();
+
+                if (val)
+                {
+                    text.text = "触屏控制";
+                }
+                else
+                {
+                    text.text = "键鼠控制";
+                }
+            });
+
+            var isTouching = PlayerPrefs.GetString("Touching", true.ToString()) == true.ToString();
+
+            TouchToggle.isOn = isTouching;
+
+            if (PlayerPrefs.HasKey("Plot"))
+            {
+                SurvivalBtn.interactable = true;
+            }
         }
     }
 

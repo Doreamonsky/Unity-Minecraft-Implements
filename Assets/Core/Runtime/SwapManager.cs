@@ -150,7 +150,7 @@ namespace MC.Core
 
         private SwapType GetSwapType(InventoryIconUI a, InventoryIconUI b)
         {
-            var swapType = SwapType.InvToInv;
+            var swapType = SwapType.InvalidSwap;
 
             if (a.m_iconType == InventoryIconType.Inv && b.m_iconType == InventoryIconType.Inv)
             {
@@ -172,6 +172,7 @@ namespace MC.Core
             {
                 swapType = SwapType.CraftedToInv;
             }
+
 
             return swapType;
         }

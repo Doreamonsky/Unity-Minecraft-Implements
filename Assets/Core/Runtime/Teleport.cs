@@ -26,8 +26,6 @@ namespace MC.Core
                 lastingTime = 0;
             }
 
-            Destroy(player);
-
             if (lastingTime > 3)
             {
                 SceneManager.LoadScene("InfiniteScene");

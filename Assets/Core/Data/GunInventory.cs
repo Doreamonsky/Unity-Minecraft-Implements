@@ -199,16 +199,15 @@ namespace MC.Core
             if (weaponModel != null)
             {
                 weaponModel.SetActive(false);
+
+                player.weaponBar.SetActive(false);
+
+                player.gunFireBtn.gameObject.SetActive(false);
+                player.gunFireBtn.onClick.RemoveListener(Fire);
+
+                inventorySystem.player.OnUpdated -= OnUpdated;
+                ControlEvents.OnGunFire -= Fire;
             }
-
-            inventorySystem.player.OnUpdated -= OnUpdated;
-
-            player.weaponBar.SetActive(false);
-
-            player.gunFireBtn.gameObject.SetActive(false);
-            player.gunFireBtn.onClick.RemoveListener(Fire);
-
-            ControlEvents.OnGunFire -= Fire;
         }
 
         public void UseEndurance(float usedEndurance)

@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 1760712311}
   - component: {fileID: 1760712310}
   - component: {fileID: 1760712312}
+  - component: {fileID: 1760712313}
   m_Layer: 0
   m_Name: Infinite World
   m_TagString: Untagged
@@ -462,6 +463,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawnPoint: {fileID: 1248272115}
+--- !u!114 &1760712313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760712309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ea878b1f1ee5442ac35009068180dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 5404948231187698593, guid: cad7207c5e0c1794792a449e78797f83, type: 3}
+  - {fileID: 626471596157989506, guid: 7b67b837c5cf37349b3cfbff790e5ac4, type: 3}
 --- !u!1001 &7394139353382651863
 PrefabInstance:
   m_ObjectHideFlags: 0
