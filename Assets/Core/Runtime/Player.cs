@@ -43,7 +43,6 @@ namespace MC.Core
 
         //private CameraController m_CameraController;
 
-        private float mobileX, mobileY;
 
         private bool isControllable = true;
 
@@ -112,11 +111,7 @@ namespace MC.Core
 
             if (isMobile)
             {
-                ControlEvents.OnControllerInput?.Invoke(new InputData()
-                {
-                    x = mobileX,
-                    y = mobileY
-                });
+      
             }
             else
             {
@@ -212,60 +207,60 @@ namespace MC.Core
             Util.OnToggleCraftingMode?.Invoke(Util.isCrafting);
         }
 
-        public void StartForward()
-        {
-            mobileY = 1;
-        }
-        public void CancelForward()
-        {
-            mobileY = 0;
-        }
-        public void StartBack()
-        {
-            mobileY = -1;
-        }
-        public void CancelBack()
-        {
-            mobileY = 0;
-        }
-        public void StartRight()
-        {
-            mobileX = 1;
-        }
-        public void CancelRight()
-        {
-            mobileX = 0;
-        }
-        public void StartLeft()
-        {
-            mobileX = -1;
-        }
-        public void CancelLeft()
-        {
-            mobileX = 0;
-        }
+        //public void StartForward()
+        //{
+        //    mobileY = 1;
+        //}
+        //public void CancelForward()
+        //{
+        //    mobileY = 0;
+        //}
+        //public void StartBack()
+        //{
+        //    mobileY = -1;
+        //}
+        //public void CancelBack()
+        //{
+        //    mobileY = 0;
+        //}
+        //public void StartRight()
+        //{
+        //    mobileX = 1;
+        //}
+        //public void CancelRight()
+        //{
+        //    mobileX = 0;
+        //}
+        //public void StartLeft()
+        //{
+        //    mobileX = -1;
+        //}
+        //public void CancelLeft()
+        //{
+        //    mobileX = 0;
+        //}
 
 
-        public void StartForwardRight()
-        {
-            mobileX = 1;
-            mobileY = 1;
-        }
-        public void CancelForwardRight()
-        {
-            mobileX = 0;
-            mobileY = 0;
-        }
-        public void StartForwardLeft()
-        {
-            mobileX = -1;
-            mobileY = 1;
-        }
-        public void CancelForwardLeft()
-        {
-            mobileX = 0;
-            mobileY = 0;
-        }
+        //public void StartForwardRight()
+        //{
+        //    mobileX = 1;
+        //    mobileY = 1;
+        //}
+        //public void CancelForwardRight()
+        //{
+        //    mobileX = 0;
+        //    mobileY = 0;
+        //}
+        //public void StartForwardLeft()
+        //{
+        //    mobileX = -1;
+        //    mobileY = 1;
+        //}
+        //public void CancelForwardLeft()
+        //{
+        //    mobileX = 0;
+        //    mobileY = 0;
+        //}
 
         public void ApplyDamage(float damage)
         {
