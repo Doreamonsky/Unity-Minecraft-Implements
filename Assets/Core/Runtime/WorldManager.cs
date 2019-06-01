@@ -119,7 +119,6 @@ namespace MC.Core
     {
         public MapData mapData;
 
-        public WorldManager frontConnected, backConnected, leftConnected, rightConnected;
         public BlockStorageData blockStorageData;
 
         public bool InstancingRenderer = true;
@@ -130,7 +129,7 @@ namespace MC.Core
         private Transform colliderParent;
 
         //缓存在内存中，用于快速读取
-        public int[,,] runtimeWorldData;
+        private int[,,] runtimeWorldData;
 
         private List<RuntimeRendererData> runtimeSharedRendererData = new List<RuntimeRendererData>();
 
@@ -258,7 +257,7 @@ namespace MC.Core
                             continue;
                         }
 
-                        if (!IsInstancing && grouped >= 50)
+                        if (!IsInstancing && grouped >= 250)
                         {
                             grouped = 0;
 
@@ -271,6 +270,7 @@ namespace MC.Core
                             yield return new WaitForEndOfFrame();
                         }
 
+                        grouped++;
 
                         var blockID = runtimeWorldData[heightIndex, i, j];
                         var blockMap = blockMaps[blockID];
@@ -306,23 +306,7 @@ namespace MC.Core
                             //渲染右侧面片
                             if (i < mapData.max_width)
                             {
-                                var rightBlockID = 0;
-
-                                if (i == mapData.max_width - 1)
-                                {
-                                    if (rightConnected != null)
-                                    {
-                                        rightBlockID = rightConnected.runtimeWorldData[heightIndex, 0, j];
-                                    }
-                                    else
-                                    {
-                                        rightBlockID = -1;
-                                    }
-                                }
-                                else
-                                {
-                                    rightBlockID = runtimeWorldData[heightIndex, i + 1, j];
-                                }
+                                var rightBlockID = i == mapData.max_width - 1 ? 0 : runtimeWorldData[heightIndex, i + 1, j];
 
                                 if (rightBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
@@ -334,23 +318,7 @@ namespace MC.Core
                             //渲染左侧面片
                             if (i >= 0)
                             {
-                                var leftBlockID = 0;
-
-                                if (i == 0)
-                                {
-                                    if (leftConnected != null)
-                                    {
-                                        leftBlockID = leftConnected.runtimeWorldData[heightIndex, mapData.max_width - 1, j];
-                                    }
-                                    else
-                                    {
-                                        leftBlockID = -1;
-                                    }
-                                }
-                                else
-                                {
-                                    leftBlockID = runtimeWorldData[heightIndex, i - 1, j];
-                                }
+                                var leftBlockID = i == 0 ? 0 : runtimeWorldData[heightIndex, i - 1, j];
 
                                 if (leftBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
@@ -362,23 +330,7 @@ namespace MC.Core
                             //渲染前侧面片
                             if (j < mapData.max_length)
                             {
-                                var frontBlockID = 0;
-
-                                if (j == mapData.max_length - 1)
-                                {
-                                    if (frontConnected != null)
-                                    {
-                                        frontBlockID = frontConnected.runtimeWorldData[heightIndex, i, 0];
-                                    }
-                                    else
-                                    {
-                                        frontBlockID = -1;
-                                    }
-                                }
-                                else
-                                {
-                                    frontBlockID = runtimeWorldData[heightIndex, i, j + 1];
-                                }
+                                var frontBlockID = j == mapData.max_length - 1 ? 0 : runtimeWorldData[heightIndex, i, j + 1];
 
                                 if (frontBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
@@ -390,23 +342,7 @@ namespace MC.Core
                             //渲染后侧面片
                             if (j >= 0)
                             {
-                                var backBlockID = 0;
-
-                                if (j == 0)
-                                {
-                                    if (backConnected != null)
-                                    {
-                                        backBlockID = backConnected.runtimeWorldData[heightIndex, i, mapData.max_length - 1];
-                                    }
-                                    else
-                                    {
-                                        backBlockID = -1;
-                                    }
-                                }
-                                else
-                                {
-                                    backBlockID = runtimeWorldData[heightIndex, i, j - 1];
-                                }
+                                var backBlockID = j == 0 ? 0 : runtimeWorldData[heightIndex, i, j - 1];
 
                                 if (backBlockID == 0 || blockMap.blockData.forceRenderer)
                                 {
@@ -418,8 +354,6 @@ namespace MC.Core
                             //生成碰撞
                             if (isVisible)
                             {
-                                grouped++;
-
                                 if (blockMap.colliderCacheList.Find(val => val.pos == new Vector3(i, heightIndex, j)) == null)
                                 {
                                     var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();

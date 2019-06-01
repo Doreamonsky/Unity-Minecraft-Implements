@@ -51,6 +51,8 @@ namespace MC.Core
         {
             health -= damage;
 
+            PoolManager.CreateObject("Hurt Sound", transform.position, Vector3.zero);
+
             CheckDead();
         }
 

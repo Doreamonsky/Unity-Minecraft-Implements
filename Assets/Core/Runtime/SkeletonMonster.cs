@@ -7,7 +7,7 @@ namespace MC.Core
     {
         public float swordDamage = 15;
 
-        private float damageInterval = 1f;
+        private readonly float damageInterval = 1f;
 
         private float lastDamageTime = 0;
 
@@ -33,7 +33,7 @@ namespace MC.Core
             {
                 m_animator.SetFloat("Speed", 0f);
 
-                if(Time.time - lastDamageTime > damageInterval)
+                if (Time.time - lastDamageTime > damageInterval)
                 {
                     lastDamageTime = Time.time;
                     m_animator.SetTrigger("Attack");

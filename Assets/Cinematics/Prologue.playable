@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 114820880875042886}
   - {fileID: 114164753479397118}
   - {fileID: 114177753295554520}
+  - {fileID: 114006706780611784}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -922,6 +923,95 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events: []
+--- !u!114 &114006706780611784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2113462093, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+  m_Name: Audio Track
+  m_EditorClassIdentifier: 
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_AnimClip: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Start: 0
+    m_ClipIn: 14.183333333333334
+    m_Asset: {fileID: 114315305669606140}
+    m_Duration: 33.416666666665336
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114006706780611784}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: bgm
+    m_Version: 1
+  m_Version: 2
 --- !u!114 &114034353494956184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1324,6 +1414,7 @@ MonoBehaviour:
   m_Name: TimePlayableData
   m_EditorClassIdentifier: 
   hour: 12
+  dayLengthInMinute: 20
   Clouds: 2
 --- !u!114 &114283026545853206
 MonoBehaviour:
@@ -1428,6 +1519,21 @@ MonoBehaviour:
   m_Name: SeasonPlayableData
   m_EditorClassIdentifier: 
   season: 2
+--- !u!114 &114315305669606140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1977359656, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 1e34ba2d582c72a4e8f1da2ce7071c9a, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
 --- !u!114 &114388008834382132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1441,6 +1547,7 @@ MonoBehaviour:
   m_Name: TimePlayableData
   m_EditorClassIdentifier: 
   hour: 13
+  dayLengthInMinute: 20
   Clouds: 1
 --- !u!114 &114396065763650358
 MonoBehaviour:
@@ -1455,6 +1562,7 @@ MonoBehaviour:
   m_Name: TimePlayableData
   m_EditorClassIdentifier: 
   hour: 16
+  dayLengthInMinute: 20
   Clouds: 4
 --- !u!114 &114400849426056946
 MonoBehaviour:
@@ -1771,6 +1879,7 @@ MonoBehaviour:
   m_Name: TimePlayableData
   m_EditorClassIdentifier: 
   hour: 13
+  dayLengthInMinute: 20
   Clouds: 3
 --- !u!114 &114694917519876492
 MonoBehaviour:
@@ -2042,6 +2151,7 @@ MonoBehaviour:
   m_Name: TimePlayableData
   m_EditorClassIdentifier: 
   hour: 20
+  dayLengthInMinute: 20
   Clouds: 4
 --- !u!114 &114891660125656742
 MonoBehaviour:

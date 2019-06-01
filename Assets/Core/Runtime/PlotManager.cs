@@ -85,6 +85,8 @@ namespace MC.Core
 
         public GameObject skeletonMaster;
 
+        public GameObject taskBar;
+
         public Inventory gunWeapon;
 
         public bool skipTimeline = false;
@@ -163,6 +165,7 @@ namespace MC.Core
             }
 
             skeletonMaster.SetActive(true);
+            skeletonFightCheckPoint.SetActive(false);
 
             directorSkeletonShown.Play();
 
@@ -171,6 +174,9 @@ namespace MC.Core
                 yield return new WaitForEndOfFrame();
             }
 
+            yield return new WaitForSeconds(2f);
+            
+            taskBar.SetActive(false);
             runtime.SetActive(false);
 
             directorEnding.Play();
