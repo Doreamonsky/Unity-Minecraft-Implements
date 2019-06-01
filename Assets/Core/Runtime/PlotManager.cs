@@ -87,6 +87,8 @@ namespace MC.Core
 
         public Inventory gunWeapon;
 
+        public GameObject teleportDoor;
+
         public bool skipTimeline = false;
 
         private Queue<Task> collectTasks = new Queue<Task>();
@@ -190,6 +192,7 @@ namespace MC.Core
             yield return new WaitForSeconds((float)directorEnding.duration);
 
             runtime.SetActive(true);
+            teleportDoor.SetActive(true);
 
             var weaponIndex = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.inventory.inventoryName == gunWeapon.inventoryName);
 
