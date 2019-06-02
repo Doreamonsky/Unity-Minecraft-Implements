@@ -130,6 +130,9 @@ namespace MC.Core
         {
             var mapData = ScriptableObject.CreateInstance<MapData>();
 
+            mapData.mapName = $"Chunck_{startPos.x}_{startPos.y}_{startPos.z}";
+            mapData.isSaveable = true;
+
             mapData.max_length = chunckSize;
             mapData.max_width = chunckSize;
             mapData.max_height = 64;
@@ -275,6 +278,7 @@ namespace MC.Core
             };
         }
 
+
         private void CreateWorldManager(WorldGenerator worldGenerator, Vector3 pos)
         {
             var mapData = worldGenerator.GetBlockMap(pos);
@@ -304,7 +308,7 @@ namespace MC.Core
 
             while (true)
             {
-                var planePos = new Vector3((int)playerPos.x / chunckSize, 0, (int)playerPos.z / chunckSize) * chunckSize;
+                var planePos = new Vector3((int)(playerPos.x - chunckSize * 0.5f) / chunckSize, 0, (int)(playerPos.z - chunckSize * 0.5f) / chunckSize) * chunckSize;
 
                 var posList = new List<Vector3>()
                 {
