@@ -12,6 +12,12 @@ namespace MC.Core
 
         private float lastSpawnTime = 0;
 
+        private TOD_Sky sky;
+
+        private void Start()
+        {
+            sky = GameObject.FindObjectOfType<TOD_Sky>();
+        }
         private void Update()
         {
             if (player == null)
@@ -20,18 +26,22 @@ namespace MC.Core
                 return;
             }
 
-            if (Time.time - lastSpawnTime > spawnMonsterInterval)
+            if (sky.IsNight)
             {
-                var isHit = Physics.Raycast(Random.insideUnitSphere * 25 + Vector3.up * 50, Vector3.up * -1, out RaycastHit rayHit, 1000);
-
-                lastSpawnTime = Time.time;
-
-                if (isHit)
+                if (Time.time - lastSpawnTime > spawnMonsterInterval)
                 {
-                    var monster = monsters[Random.Range(0, monsters.Length)];
-                    Instantiate(monster, rayHit.point + Vector3.up * 2.5f, Quaternion.identity);
+                    var isHit = Physics.Raycast(Random.insideUnitSphere * 25 + Vector3.up * 50, Vector3.up * -1, out RaycastHit rayHit, 1000);
+
+                    lastSpawnTime = Time.time;
+
+                    if (isHit)
+                    {
+                        var monster = monsters[Random.Range(0, monsters.Length)];
+                        Instantiate(monster, rayHit.point + Vector3.up * 2.5f, Quaternion.identity);
+                    }
                 }
             }
+
         }
 
     }

@@ -6,7 +6,7 @@ namespace MC.Core
 {
     public class MainUI : MonoBehaviour
     {
-        public Button PlotBtn, SurvivalBtn, ExitBtn;
+        public Button PlotBtn, SurvivalBtn, ExitBtn, CleanData;
 
         public Toggle TouchToggle;
 
@@ -56,6 +56,11 @@ namespace MC.Core
             {
                 SurvivalBtn.interactable = true;
             }
+
+            CleanData.onClick.AddListener(() =>
+            {
+                PlayerPrefs.DeleteAll();
+            });
         }
     }
 

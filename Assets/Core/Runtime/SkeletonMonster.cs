@@ -46,9 +46,9 @@ namespace MC.Core
 
         public void OnAttackAnimation()
         {
-            var dir = Vector3.ProjectOnPlane(target.transform.position - transform.position, Vector3.up);
+            var dir = target.transform.position - transform.position;
 
-            if (dir.magnitude < 2)
+            if (dir.magnitude < 3)
             {
                 target.ApplyDamage(swordDamage);
             }

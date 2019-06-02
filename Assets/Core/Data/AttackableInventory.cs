@@ -40,7 +40,7 @@ namespace MC.Core
 
                 foreach (var monster in monsters)
                 {
-                    var dir = Vector3.ProjectOnPlane(monster.transform.position - attacker.transform.position, Vector3.up);
+                    var dir = monster.transform.position - attacker.transform.position;
 
                     if (dir.magnitude < attackRange)
                     {

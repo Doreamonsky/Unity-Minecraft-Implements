@@ -59,7 +59,7 @@ namespace MC.Core
                         y = y
                     });
                 }
-
+#if !UNITY_EDITOR
                 if (Input.touchCount == 0)
                 {
                     ControlEvents.OnControllerInput?.Invoke(new InputData()
@@ -68,6 +68,7 @@ namespace MC.Core
                         y = 0
                     });
                 }
+#endif
             }
         }
     }

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryName: Sword Wood
   inventoryIcon: {fileID: 21300000, guid: e84c3e85dd432084881c0c6c0649472e, type: 3}
-  Endurance: 450
-  HPDamage: 10
+  endurance: 100
+  hpDamage: 20
+  attackRange: 4
   attackInterval: 0.25
   weaponPrefab: {fileID: 5374761991178010683, guid: 43aa1bdceb65be44aa8f19420e4070ea,
     type: 3}
