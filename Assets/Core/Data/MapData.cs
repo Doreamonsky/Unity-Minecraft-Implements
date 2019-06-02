@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 namespace MC.Core
 {
@@ -17,6 +18,8 @@ namespace MC.Core
         public string mapName = "Default";
         //Height Width Length
         //Origin Point (0,0,0)
+        public bool isSaveable = false;
+
         public int max_width = 64, max_length = 64, max_height = 32;
 
         public int[] worldDataSeralized;
@@ -67,6 +70,67 @@ namespace MC.Core
             }
 
             return m;
+        }
+
+        private string Storage {
+            get {
+                if (Application.platform == RuntimePlatform.Android)
+                {
+                    return $"{Application.persistentDataPath}/saves/{mapName}_map.json";
+                }
+                else if (Application.platform == RuntimePlatform.IPhonePlayer)
+                {
+                    return $"{Application.persistentDataPath}/saves/{mapName}_map.json";
+                }
+
+                return $"{Application.dataPath}/../saves/{mapName}_map.json";
+            }
+        }
+
+        public void OnLoad()
+        {
+            if (isSaveable)
+            {
+                var saveFile = new FileInfo(Storage);
+
+                var dic = new DirectoryInfo(saveFile.DirectoryName);
+
+                if (!dic.Exists)
+                {
+                    dic.Create();
+                }
+
+                if (saveFile.Exists)
+                {
+                    var fileStream = new FileStream(Storage, FileMode.Open);
+                    var steamReader = new StreamReader(fileStream);
+
+                    var json = steamReader.ReadToEnd();
+                    JsonUtility.FromJsonOverwrite(json, this);
+
+                    steamReader.Close();
+                    fileStream.Close();
+                }
+            }
+        }
+
+        public void OnSave()
+        {
+            if (isSaveable)
+            {
+                var json = JsonUtility.ToJson(this);
+
+                var fileStream = new FileStream(Storage, FileMode.Create);
+                var streamWriter = new StreamWriter(fileStream);
+
+                streamWriter.Write(json);
+
+                streamWriter.Flush();
+                fileStream.Flush();
+
+                streamWriter.Close();
+                fileStream.Close();
+            }
         }
     }
 

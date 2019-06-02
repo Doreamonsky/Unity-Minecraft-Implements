@@ -262,7 +262,7 @@ namespace MC.CoreEditor
         public override void OnInspectorGUI()
         {
             //base.OnInspectorGUI();
-
+            mapData.mapName = EditorGUILayout.TextField("Name", mapData.mapName);
             mapData.max_height = EditorGUILayout.IntField("Height", mapData.max_height);
             mapData.max_width = EditorGUILayout.IntField("Width", mapData.max_width);
             mapData.max_length = EditorGUILayout.IntField("Length", mapData.max_length);
