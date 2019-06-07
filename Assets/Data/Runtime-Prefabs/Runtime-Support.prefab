@@ -78,6 +78,7 @@ MonoBehaviour:
   inventories:
   - {fileID: 11400000, guid: 270940aee7cd4b248b7d43a70bf2c6a4, type: 2}
   - {fileID: 11400000, guid: 5874f986e66e0c140985380df4aec443, type: 2}
+  - {fileID: 11400000, guid: 3337218e0f702ea409b61b44f6836ef1, type: 2}
   - {fileID: 11400000, guid: 9e9d461c99be7ef49b8a3af024bc8178, type: 2}
   - {fileID: 11400000, guid: 0f39ba1f317bb6941aff84c4e2ae7a0c, type: 2}
   - {fileID: 11400000, guid: 1615e199fbc8da745b593397d8ef1d4a, type: 2}
@@ -91,6 +92,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef4a6108b69bf814d952cc1ce730e8a3, type: 2}
   - {fileID: 11400000, guid: 9149184d099ceb54cabd1c3699377068, type: 2}
   - {fileID: 11400000, guid: 879252ec217174542a07dc230fd69e6c, type: 2}
+  - {fileID: 11400000, guid: bcc4155254832174e8332a614fc5721d, type: 2}
 --- !u!1001 &5019840741067077566
 PrefabInstance:
   m_ObjectHideFlags: 0
