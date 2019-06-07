@@ -11,8 +11,6 @@ namespace ShanghaiWindy.Core
         {
             public GameObject Template;
 
-            public Button ModHubBtn;
-
             public RectTransform ModList;
 
             public GameObject modDetail;
@@ -26,11 +24,8 @@ namespace ShanghaiWindy.Core
         {
             gui.Template.SetActive(false);
 
-            gui.ModHubBtn.onClick.AddListener(() =>
-            {
-                Application.OpenURL("https://github.com/Doreamonsky/Panzer-War-Lit-Mod");
-            });
-
+            AssetBundleManager.MonoActiveObject = this;
+            StartCoroutine(AssetBundleManager.AssetBundleLoop());
             AssetBundleManager.Init();
 
             var modDirs = new List<string>();

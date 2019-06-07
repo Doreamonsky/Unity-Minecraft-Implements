@@ -126,102 +126,112 @@ namespace MC.Core
         }
 
 
-        public MapData GetBlockMap(Vector3 startPos)
+        public IEnumerator GetBlockMap(Vector3 startPos, bool isInstancingRender, System.Action<MapData> OnMapped)
         {
             var mapData = ScriptableObject.CreateInstance<MapData>();
 
             mapData.mapName = $"Chunck_{startPos.x}_{startPos.y}_{startPos.z}";
             mapData.isSaveable = true;
 
-            mapData.max_length = chunckSize;
-            mapData.max_width = chunckSize;
-            mapData.max_height = 64;
-            mapData.startPos = startPos;
-            mapData.seed = currentSeed;
-
-            var data = new int[mapData.max_height, mapData.max_width, mapData.max_length];
-            //平地
-            for (var heightIndex = 0; heightIndex < mapData.max_height; heightIndex++)
+            //如果没有生成过，使用生成算法！
+            if (!mapData.HasSaving())
             {
-                for (var i = 0; i < mapData.max_width; i++)
+                mapData.max_length = chunckSize;
+                mapData.max_width = chunckSize;
+                mapData.max_height = 64;
+                mapData.startPos = startPos;
+                mapData.seed = currentSeed;
+
+                var data = new int[mapData.max_height, mapData.max_width, mapData.max_length];
+                //平地
+                for (var heightIndex = 0; heightIndex < mapData.max_height; heightIndex++)
                 {
-                    for (var j = 0; j < mapData.max_length; j++)
+                    for (var i = 0; i < mapData.max_width; i++)
                     {
-                        var blockID = 0;
-
-                        if (heightIndex == 0)
+                        for (var j = 0; j < mapData.max_length; j++)
                         {
-                            blockID = 3;
-                        }
-                        else if (heightIndex < 15)
-                        {
-                            blockID = 1;
-                        }
+                            var blockID = 0;
 
-                        data[heightIndex, i, j] = blockID;
-                    }
-                }
-            }
-            //山丘
-            for (var heightIndex = 15; heightIndex < mapData.max_height; heightIndex++)
-            {
-                for (var i = 0; i < mapData.max_width; i++)
-                {
-                    for (var j = 0; j < mapData.max_length; j++)
-                    {
-                        var maxHeight = GetNoise(i + startPos.x, j + startPos.z) * 8 + 15;
-
-                        if (heightIndex < maxHeight)
-                        {
-                            data[heightIndex, i, j] = 1;
-                        }
-                    }
-                }
-            }
-            //草地
-            var topBlocks = new List<Vector3>();
-
-            for (var i = 0; i < mapData.max_width; i++)
-            {
-                for (var j = 0; j < mapData.max_length; j++)
-                {
-                    for (var heightIndex = mapData.max_height - 1; heightIndex > 0; heightIndex--)
-                    {
-                        if (data[heightIndex, i, j] != 0)
-                        {
-                            data[heightIndex, i, j] = 2;
-
-                            if (i > 4 && i < mapData.max_width - 4 && j > 4 && j < mapData.max_length - 4)
+                            if (heightIndex == 0)
                             {
-                                topBlocks.Add(new Vector3(heightIndex, i, j));
+                                blockID = 3;
+                            }
+                            else if (heightIndex < 15)
+                            {
+                                blockID = 1;
                             }
 
-                            break;
+                            data[heightIndex, i, j] = blockID;
                         }
                     }
-
                 }
-            }
-
-            //数目
-            foreach (var topBlock in topBlocks)
-            {
-                if (Random.value > 0.94f)
+                //山丘
+                for (var heightIndex = 15; heightIndex < mapData.max_height; heightIndex++)
                 {
-                    if (Random.value > 0.5f)
+                    for (var i = 0; i < mapData.max_width; i++)
                     {
-                        AddXYZArrayToMap(tree01, 7, 5, 5, data, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
-                    }
-                    else
-                    {
-                        AddXYZArrayToMap(tree02, 7, 5, 5, data, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
+                        for (var j = 0; j < mapData.max_length; j++)
+                        {
+                            var maxHeight = GetNoise(i + startPos.x, j + startPos.z) * 8 + 15;
+
+                            if (heightIndex < maxHeight)
+                            {
+                                data[heightIndex, i, j] = 1;
+                            }
+                        }
                     }
                 }
+                //草地
+                var topBlocks = new List<Vector3>();
+
+                for (var i = 0; i < mapData.max_width; i++)
+                {
+                    for (var j = 0; j < mapData.max_length; j++)
+                    {
+                        for (var heightIndex = mapData.max_height - 1; heightIndex > 0; heightIndex--)
+                        {
+                            if (data[heightIndex, i, j] != 0)
+                            {
+                                data[heightIndex, i, j] = 2;
+
+                                if (i > 4 && i < mapData.max_width - 4 && j > 4 && j < mapData.max_length - 4)
+                                {
+                                    topBlocks.Add(new Vector3(heightIndex, i, j));
+                                }
+
+                                break;
+                            }
+                        }
+
+                    }
+                }
+
+                //数目
+                foreach (var topBlock in topBlocks)
+                {
+                    if (Random.value > 0.94f)
+                    {
+                        if (!isInstancingRender)
+                        {
+                            yield return new WaitForEndOfFrame();
+                        }
+
+                        if (Random.value > 0.5f)
+                        {
+                            AddXYZArrayToMap(tree01, 7, 5, 5, data, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
+                        }
+                        else
+                        {
+                            AddXYZArrayToMap(tree02, 7, 5, 5, data, (int)topBlock.y, (int)topBlock.z, (int)topBlock.x);
+                        }
+                    }
+                }
+
+                mapData.WorldData = data;
             }
 
-            mapData.WorldData = data;
 
-            return mapData;
+            OnMapped(mapData);
         }
 
         private void AddXYZArrayToMap(int[,,] anyArray, int arrayX, int arrayY, int arrayZ, int[,,] worldData, int x, int y, int height)
@@ -263,7 +273,7 @@ namespace MC.Core
 
         public List<Chunck> chuncks = new List<Chunck>();
 
-        private const int chunckSize = 18;
+        private const int chunckSize = 24;
 
         private Vector3 playerPos;
 
@@ -280,25 +290,37 @@ namespace MC.Core
 
         private void CreateWorldManager(WorldGenerator worldGenerator, Vector3 pos)
         {
-            var mapData = worldGenerator.GetBlockMap(pos);
-            var worldManager = new GameObject("WorldManager", typeof(WorldManager)).GetComponent<WorldManager>();
-
-            worldManager.mapData = mapData;
-            worldManager.blockStorageData = storageData;
+            var isInstancingRenderer = false;
 
             if (chuncks.Count <= 9)
             {
-                worldManager.InstancingRenderer = true;
+                isInstancingRenderer = true;
             }
             else
             {
-                worldManager.InstancingRenderer = false;
+                isInstancingRenderer = false;
             }
-            chuncks.Add(new Chunck()
+
+            var chunck = new Chunck()
             {
                 startPos = pos,
-                mapData = mapData
-            });
+                mapData = null
+            };
+
+            chuncks.Add(chunck);
+
+            StartCoroutine(worldGenerator.GetBlockMap(pos, isInstancingRenderer, mapData =>
+            {
+                var worldManager = new GameObject("WorldManager", typeof(WorldManager)).GetComponent<WorldManager>();
+
+                worldManager.mapData = mapData;
+                worldManager.blockStorageData = storageData;
+                worldManager.InstancingRenderer = isInstancingRenderer;
+
+                chunck.mapData = mapData;
+            }));
+
+
         }
 
         private IEnumerator UpdateWorld()

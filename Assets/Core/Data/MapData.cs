@@ -86,6 +86,18 @@ namespace MC.Core
                 GeneralStorageSystem.SaveFile(this, $"{mapName}_mapData");
             }
         }
+
+        public bool HasSaving()
+        {
+            if (isSaveable)
+            {
+                return GeneralStorageSystem.HasFile($"{mapName}_mapData");
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     [System.Serializable]

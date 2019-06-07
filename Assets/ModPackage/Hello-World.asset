@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bca84b3dad48449b43d2811c42c637, type: 3}
+  m_Name: Hello-World
+  m_EditorClassIdentifier: 
+  modName: "\u4E16\u754C\u4F60\u597D\uFF01"
+  description: "MC\u7684\u7B2C\u4E00\u4E2A\u6D4B\u8BD5\u6A21\u7EC4"
+  author: "\u738B\u5927\u4ED9"
+  supportURL: 
+  modVersion: 1.0
+  testedGameVersion: 1
+  buildTarget: StandaloneWindows64
+  relatedAssets:
+  - Build-Mods/Mod-HelloWorld/bin/Debug/netstandard2.0/UnityMod.dll
+  - Build-Mods/Mod-HelloWorld/bin/Debug/netstandard2.0/Mod-HelloWorld.dll
+  installedDirectory: Assigned-Runtime

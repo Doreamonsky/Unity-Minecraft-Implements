@@ -43,6 +43,8 @@ namespace MC.Core
 
         public BulletData bulletData;
 
+        public bool clickToFire = false;
+
         private float lastfireTime = 0;
 
         private int currentSelectedMug = 0;
@@ -189,6 +191,9 @@ namespace MC.Core
             player.gunFireBtn.gameObject.SetActive(true);
             player.gunFireBtn.onClick.AddListener(Fire);
 
+            WeaponName.text = inventoryName;
+            player.weaponBar.transform.Find("WeaponIcon").GetComponent<Image>().sprite = inventoryIcon;
+
             inventorySystem.player.OnUpdated += OnUpdated;
 
             ControlEvents.OnGunFire += Fire;
@@ -230,10 +235,21 @@ namespace MC.Core
                         ToggleZooming(false);
                     }
 
-                    if (Input.GetKey(KeyCode.Mouse0))
+                    if (clickToFire)
                     {
-                        Fire();
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            Fire();
+                        }
                     }
+                    else
+                    {
+                        if (Input.GetKey(KeyCode.Mouse0))
+                        {
+                            Fire();
+                        }
+                    }
+
                 }
 
             }

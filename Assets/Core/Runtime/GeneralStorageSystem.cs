@@ -10,14 +10,14 @@ namespace MC.Core
         {
             if (Application.platform == RuntimePlatform.Android)
             {
-                return $"{Application.persistentDataPath}/saves/{fileName}.txt";
+                return $"{Application.persistentDataPath}/saves/{fileName}.json";
             }
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                return $"{Application.persistentDataPath}/saves/{fileName}.txt";
+                return $"{Application.persistentDataPath}/saves/{fileName}.json";
             }
 
-            return $"{Application.dataPath}/../saves/{fileName}.txt";
+            return $"{Application.dataPath}/../saves/{fileName}.json";
         }
 
         private static string GetStorageFolder()
@@ -32,6 +32,12 @@ namespace MC.Core
             }
 
             return $"{Application.dataPath}";
+        }
+
+        public static bool HasFile(string savingName)
+        {
+            var saveFile = new FileInfo(GetStorageFile(savingName));
+            return saveFile.Exists;
         }
 
         public static bool SaveFile(ScriptableObject scriptableObject, string savingName)
