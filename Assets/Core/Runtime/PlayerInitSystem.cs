@@ -34,6 +34,14 @@ namespace MC.Core
             }
 
             player.gameObject.SetActive(true);
+
+            Util.OnRequireSave += () =>
+            {
+                if (useSaving)
+                {
+                    SaveStorage();
+                }
+            };
         }
 
         private IEnumerator LoadStorage()
@@ -76,13 +84,7 @@ namespace MC.Core
             GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }
 
-        public void OnDestroy()
-        {
-            if (useSaving)
-            {
-                SaveStorage();
-            }
-        }
+
     }
 
 }

@@ -156,6 +156,17 @@ namespace MC.Core
 #endif
             mapData.OnLoad();
 
+            if (mapData.isSaveable)
+            {
+                Util.OnRequireSave += () =>
+                {
+
+                    //保存地图
+                    mapData.WorldData = runtimeWorldData;
+                    mapData.OnSave();
+                };
+            }
+
             colliderParent = new GameObject("Collision").transform;
             colliderParent.parent = transform;
 
@@ -209,12 +220,7 @@ namespace MC.Core
 
             GenerateWorld();
         }
-        private void OnDestroy()
-        {
-            //保存地图
-            mapData.WorldData = runtimeWorldData;
-            mapData.OnSave();
-        }
+
 
         private void GenerateWorld()
         {

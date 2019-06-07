@@ -62,6 +62,14 @@ namespace MC.Core
                 PlayerPrefs.DeleteAll();
                 GeneralStorageSystem.DeleteFolder();
             });
+
+#if UNITY_EDITOR
+            SurvivalBtn.interactable = true;
+            SurvivalBtn.colors = new ColorBlock()
+            {
+                normalColor = Color.red
+            };
+#endif
         }
     }
 

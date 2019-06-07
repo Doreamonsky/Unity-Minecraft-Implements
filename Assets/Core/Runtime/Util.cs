@@ -4,6 +4,8 @@ namespace MC.Core
 {
     public static class Util
     {
+        public static System.Action OnRequireSave;
+
         public static System.Action<bool> OnToggleCraftingMode;
 
         public static bool isCrafting = false;
@@ -30,5 +32,6 @@ namespace MC.Core
 
             //return isMobile;
         }
+
     }
 }

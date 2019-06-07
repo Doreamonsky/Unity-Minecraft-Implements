@@ -68,6 +68,8 @@ namespace MC.Core
 
             exit.onClick.AddListener(() =>
             {
+                Util.OnRequireSave?.Invoke();
+
                 SceneManager.LoadScene("Main");
             });
 
@@ -209,6 +211,16 @@ namespace MC.Core
         private void OnDestroy()
         {
             ControlEvents.CleanActions();
+        }
+
+        private void OnApplicationPause(bool pause)
+        {
+            Util.OnRequireSave?.Invoke();
+        }
+
+        private void OnApplicationQuit()
+        {
+            Util.OnRequireSave?.Invoke();
         }
     }
 

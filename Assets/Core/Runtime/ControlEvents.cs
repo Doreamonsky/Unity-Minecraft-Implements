@@ -29,6 +29,18 @@ namespace MC.Core
             OnCameraControllerInput = null;
             OnJumped = null;
             OnGunFire = null;
+
+            InventoryIconUI.OnPointerClicked = null;
+            InventoryIconUI.OnPointerEntered = null;
+            InventoryIconUI.OnPointerExited = null;
+
+            Player.OnPlayerMove = null;
+
+            Util.OnToggleCraftingMode = null;
+            Util.OnRequireSave = null;
+
+            SwapManager.OnAllocateItem = null;
+            SwapManager.OnSwapItem = null;
         }
     }
 }
