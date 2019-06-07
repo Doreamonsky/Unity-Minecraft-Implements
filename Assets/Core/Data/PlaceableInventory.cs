@@ -16,6 +16,7 @@ namespace MC.Core
 
         public BlockData blockData;
 
+        public GameObject itemModel;
 
         public void Place(WorldManager worldManager,Vector3 pos)
         {

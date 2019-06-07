@@ -3,6 +3,16 @@ using UnityEngine;
 
 namespace MC.Core
 {
+
+    //物体放置信息
+    [System.Serializable]
+    public class InventoryPlaceData
+    {
+        public Vector3 pos, eulerAngle;
+
+        public string inventoryName;
+    }
+
     [CreateAssetMenu(fileName = "MapData", menuName = "MapData")]
     public class MapData : ScriptableObject
     {
@@ -26,9 +36,10 @@ namespace MC.Core
 
         public int[,,] WorldData { get => arrayToMatrix(worldDataSeralized); set => worldDataSeralized = matrixToArray(value); }
 
+        public List<InventoryPlaceData> inventoryPlaceDataList = new List<InventoryPlaceData>();
+
         public int seed;
 
-        public List<int> placeableInventories = new List<int>();
 
         public Vector3 startPos = Vector3.zero;
 

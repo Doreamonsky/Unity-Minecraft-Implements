@@ -199,6 +199,16 @@ namespace MC.Core
                                     topBlocks.Add(new Vector3(heightIndex, i, j));
                                 }
 
+                                if (Random.value > 0.9f)
+                                {
+                                    mapData.inventoryPlaceDataList.Add(new InventoryPlaceData()
+                                    {
+                                        pos = new Vector3(i, heightIndex + 1, j) + startPos + new Vector3(0.5f, 0, 0.5f),
+                                        eulerAngle = Vector3.zero,
+                                        inventoryName = "Plant Grass"
+                                    });
+                                }
+
                                 break;
                             }
                         }

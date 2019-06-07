@@ -5,6 +5,16 @@ using UnityEngine;
 
 namespace MC.Core
 {
+    //可摆放配件
+    public class RuntimePlaceableInventoryData
+    {
+        public Inventory inventory;
+
+        public GameObject itemInstance;
+
+        public InventoryPlaceData placeData;
+    }
+
     //三角面的位置
     public enum QuadStatus
     {
@@ -29,6 +39,8 @@ namespace MC.Core
 
         public BoxCollider collider;
     }
+
+
     //方块渲染数据储存【实时】
     public class RuntimeRendererData
     {
@@ -128,10 +140,12 @@ namespace MC.Core
 
         private Transform colliderParent;
 
-        //缓存在内存中，用于快速读取
+        //Block 信息 缓存在内存中，用于快速读取
         private int[,,] runtimeWorldData;
 
         private List<RuntimeRendererData> runtimeSharedRendererData = new List<RuntimeRendererData>();
+
+        private List<RuntimePlaceableInventoryData> runtimePlaceableInventoryDataList = new List<RuntimePlaceableInventoryData>();
 
         public void Start()
         {
@@ -392,6 +406,7 @@ namespace MC.Core
                 runtime.ApplyChanges();
             }
 
+            RenderPlaceableInventory();
         }
 
 
@@ -529,6 +544,48 @@ namespace MC.Core
             runtimeData.uvs.Add(new Vector2(1, 1));
             runtimeData.uvs.Add(new Vector2(0, 0));
             runtimeData.uvs.Add(new Vector2(1, 0));
+        }
+
+        //渲染可放置物体
+        private void RenderPlaceableInventory()
+        {
+            foreach (var placeData in mapData.inventoryPlaceDataList)
+            {
+                PlaceInventory(placeData);
+            }
+        }
+
+        private void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle)
+        {
+            var placeData = new InventoryPlaceData()
+            {
+                pos = pos,
+                eulerAngle = eulerAngle,
+                inventoryName = placeableInventory.inventoryName
+            };
+
+            mapData.inventoryPlaceDataList.Add(placeData);
+            PlaceInventory(placeData);
+        }
+        private void RemoveInventroy(RuntimePlaceableInventoryData runtimePlaceableInventoryData)
+        {
+            Destroy(runtimePlaceableInventoryData.itemInstance);
+
+            runtimePlaceableInventoryDataList.Remove(runtimePlaceableInventoryData);
+            mapData.inventoryPlaceDataList.Remove(runtimePlaceableInventoryData.placeData);
+        }
+
+        private void PlaceInventory(InventoryPlaceData placeData)
+        {
+            var inventory = InventoryManager.Instance.GetInventoryByName(placeData.inventoryName) as PlaceableInventory;
+
+            var itemInstance = Instantiate(inventory.itemModel, placeData.pos, Quaternion.Euler(placeData.eulerAngle));
+
+            runtimePlaceableInventoryDataList.Add(new RuntimePlaceableInventoryData()
+            {
+                inventory = inventory,
+                itemInstance = itemInstance
+            });
         }
     }
 
