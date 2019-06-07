@@ -1,11 +1,17 @@
-﻿namespace MC.Core
+﻿using MC.Core.Interface;
+
+namespace MC.Core
 {
     [System.Serializable]
-    public class InventoryStorage
+    public class InventoryStorage : IFileLoad, IFileSave
     {
+        [System.NonSerialized]
+        public Inventory inventory;
+
         public int count = -1;
         public int slotID = -1;
-        public Inventory inventory;
+
+        public string inventoryName;
 
         public InventoryStorage()
         {
@@ -23,7 +29,15 @@
         {
             return new InventoryStorage(this);
         }
+
+        public void OnLoad()
+        {
+            inventory = InventoryManager.Instance.GetInventoryByName(inventoryName);
+        }
+
+        public void OnSave()
+        {
+            inventoryName = inventory?.inventoryName;
+        }
     }
-
-
 }

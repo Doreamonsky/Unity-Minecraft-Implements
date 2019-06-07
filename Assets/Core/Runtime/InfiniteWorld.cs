@@ -114,15 +114,15 @@ namespace MC.Core
 
         private readonly int chunckSize;
 
-        private readonly float random;
-
         public float perlinScale = 0.05f;
+
+        private readonly int currentSeed;
 
         public WorldGenerator(int size, int seed)
         {
             Random.InitState(seed);
-            random = Random.value * 1000;
             chunckSize = size;
+            currentSeed = seed;
         }
 
 
@@ -137,6 +137,7 @@ namespace MC.Core
             mapData.max_width = chunckSize;
             mapData.max_height = 64;
             mapData.startPos = startPos;
+            mapData.seed = currentSeed;
 
             var data = new int[mapData.max_height, mapData.max_width, mapData.max_length];
             //平地
@@ -168,9 +169,6 @@ namespace MC.Core
                 {
                     for (var j = 0; j < mapData.max_length; j++)
                     {
-                        Random.InitState(mapData.seed);
-                        var seed = Random.value * 100;
-
                         var maxHeight = GetNoise(i + startPos.x, j + startPos.z) * 8 + 15;
 
                         if (heightIndex < maxHeight)
@@ -193,7 +191,7 @@ namespace MC.Core
                         {
                             data[heightIndex, i, j] = 2;
 
-                            if (i > 3 && i < mapData.max_width - 3 && j > 3 && j < mapData.max_length - 3)
+                            if (i > 4 && i < mapData.max_width - 4 && j > 4 && j < mapData.max_length - 4)
                             {
                                 topBlocks.Add(new Vector3(heightIndex, i, j));
                             }
@@ -204,6 +202,7 @@ namespace MC.Core
 
                 }
             }
+
             //数目
             foreach (var topBlock in topBlocks)
             {

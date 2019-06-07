@@ -198,7 +198,7 @@ namespace MC.Core
 
             if (weaponIndex == -1)
             {
-                for (var i = 0; i < 10; i++)
+                for (var i = 0; i < InventorySystem.max_slot_count; i++)
                 {
                     var id = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
 

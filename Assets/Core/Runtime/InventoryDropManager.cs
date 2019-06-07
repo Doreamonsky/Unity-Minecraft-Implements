@@ -36,24 +36,21 @@ namespace MC.Core
 
             dropBlockInventory.OnPlayerEnter += () =>
             {
-                var storedItem = inventorySystem.inventoryStorageList.Find(val => val.inventory.inventoryName == inventoryStorage.inventory.inventoryName);
+                var storedItem = inventorySystem.inventoryStorageList.Find(val => val.inventory.inventoryName == inventoryStorage.inventory.inventoryName && val.count < 64 && val.slotID < InventorySystem.max_bottom_slot_count);
 
                 var isCollected = false;
 
                 if (storedItem != null)
                 {
-                    if (storedItem.count < 64)
-                    {
-                        storedItem.count += inventoryStorage.count;
-                        isCollected = true;
+                    storedItem.count += inventoryStorage.count;
+                    isCollected = true;
 
-                        inventorySystem.UpdateInvetoryUI();
-                    }
+                    inventorySystem.UpdateInvetoryUI();
                 }
                 else
                 {
                     //找空闲的Slot
-                    for (var i = 0; i < InventorySystem.max_bottom_inventory_count; i++)
+                    for (var i = 0; i < InventorySystem.max_bottom_slot_count; i++)
                     {
                         var index = inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
 

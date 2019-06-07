@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 namespace MC.Core
@@ -38,33 +37,16 @@ namespace MC.Core
             yield return new WaitForEndOfFrame();
 
             achievementData = ScriptableObject.CreateInstance<AchievementData>();
-            JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("Achievements"), achievementData);
+            GeneralStorageSystem.LoadFile(achievementData, "Achievements");
 
-            Debug.Log(PlayerPrefs.GetString("Achievements"));
-
-            player.inventorySystem.inventoryStorageList = achievementData.inventoryStorageList.Select(val => new InventoryStorage()
-            {
-                count = val.count,
-                inventory = InventoryManager.Instance.GetInventoryByName(val.name),
-                slotID = val.slotID
-            }).ToList();
-
+            player.inventorySystem.inventoryStorageList = achievementData.inventoryStorageList;
             player.inventorySystem.UpdateInvetoryUI();
         }
 
         public void SaveStorage()
         {
-            achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList.Select(val => new AchievementData.InventorySaving()
-            {
-                count = val.count,
-                name = val.inventory.inventoryName,
-                slotID = val.slotID
-            }
-            ).ToList();
-
-            Debug.Log(JsonUtility.ToJson(achievementData));
-
-            PlayerPrefs.SetString("Achievements", JsonUtility.ToJson(achievementData));
+            achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
+            GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }
 
         public void OnDestroy()

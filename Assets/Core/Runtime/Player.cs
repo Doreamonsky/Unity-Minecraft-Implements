@@ -52,29 +52,9 @@ namespace MC.Core
         {
             isMobile = Util.IsMobile();
 
-            //m_CharacterContoller = GetComponent<CharacterController>();
-            //m_CameraController = GetComponent<CameraController>();
-
             craftingUI.SetActive(Util.isCrafting);
 
             MouseLockModule.Instance.OnLock();
-
-            //ControlEvents.OnControllerInput += data =>
-            //{
-            //    if (!isControllable)
-            //    {
-            //        return;
-            //    }
-
-            //    var delta = m_CameraController.m_Camera.transform.forward * data.y + m_CameraController.m_Camera.transform.right * data.x;
-
-            //    if (!isCreatorMode)
-            //    {
-            //        delta = Vector3.ProjectOnPlane(delta, Vector3.up);
-            //    }
-
-            //    m_CharacterContoller.Move(delta * Time.deltaTime * velocity);
-            //};
 
             openCraftingBtn.onClick.AddListener(() =>
             {
@@ -90,6 +70,18 @@ namespace MC.Core
             {
                 SceneManager.LoadScene("Main");
             });
+
+            Util.OnToggleCraftingMode += (state) =>
+            {
+                if (state)
+                {
+                    ControlEvents.OnControllerInput(new InputData()
+                    {
+                        x = 0,
+                        y = 0
+                    });
+                }
+            };
         }
 
         private void Update()
@@ -111,7 +103,7 @@ namespace MC.Core
 
             if (isMobile)
             {
-      
+
             }
             else
             {
@@ -156,7 +148,7 @@ namespace MC.Core
             //    m_CharacterContoller.Move(Vector3.up * gravity * Time.deltaTime);
             //}
 
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < InventorySystem.max_bottom_slot_count; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
@@ -206,61 +198,6 @@ namespace MC.Core
 
             Util.OnToggleCraftingMode?.Invoke(Util.isCrafting);
         }
-
-        //public void StartForward()
-        //{
-        //    mobileY = 1;
-        //}
-        //public void CancelForward()
-        //{
-        //    mobileY = 0;
-        //}
-        //public void StartBack()
-        //{
-        //    mobileY = -1;
-        //}
-        //public void CancelBack()
-        //{
-        //    mobileY = 0;
-        //}
-        //public void StartRight()
-        //{
-        //    mobileX = 1;
-        //}
-        //public void CancelRight()
-        //{
-        //    mobileX = 0;
-        //}
-        //public void StartLeft()
-        //{
-        //    mobileX = -1;
-        //}
-        //public void CancelLeft()
-        //{
-        //    mobileX = 0;
-        //}
-
-
-        //public void StartForwardRight()
-        //{
-        //    mobileX = 1;
-        //    mobileY = 1;
-        //}
-        //public void CancelForwardRight()
-        //{
-        //    mobileX = 0;
-        //    mobileY = 0;
-        //}
-        //public void StartForwardLeft()
-        //{
-        //    mobileX = -1;
-        //    mobileY = 1;
-        //}
-        //public void CancelForwardLeft()
-        //{
-        //    mobileX = 0;
-        //    mobileY = 0;
-        //}
 
         public void ApplyDamage(float damage)
         {

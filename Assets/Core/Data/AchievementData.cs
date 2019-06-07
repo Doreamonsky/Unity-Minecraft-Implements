@@ -1,17 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using MC.Core.Interface;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MC.Core
 {
-    public class AchievementData : ScriptableObject
+    public class AchievementData : ScriptableObject, IFileLoad, IFileSave
     {
-        [System.Serializable]
-        public struct InventorySaving
+        public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
+
+        public void OnLoad()
         {
-            public string name;
-            public int slotID, count;
+            foreach (var p in inventoryStorageList)
+            {
+                p.OnLoad();
+            }
         }
 
-        public List<InventorySaving> inventoryStorageList = new List<InventorySaving>();
+        public void OnSave()
+        {
+            foreach (var p in inventoryStorageList)
+            {
+                p.OnSave();
+            }
+        }
     }
 }

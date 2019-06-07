@@ -7,7 +7,9 @@ namespace MC.Core
 {
     public class InventorySystem : MonoBehaviour
     {
-        public static int max_bottom_inventory_count = 10;
+        public static int max_slot_count = 35;
+
+        public static int max_bottom_slot_count = 10;
 
         //Inventory UI
         [System.Serializable]
@@ -26,6 +28,8 @@ namespace MC.Core
 
             public GameObject ItemTemplate;
 
+            public GameObject StorageBar;
+
             public List<ItemUI> itemInstance = new List<ItemUI>();
 
             public GameObject digProgressBar;
@@ -36,11 +40,13 @@ namespace MC.Core
 
             public void Init()
             {
-                for (var i = 0; i < max_bottom_inventory_count; i++)
+                for (var i = 0; i < max_slot_count; i++)
                 {
                     var currentIndex = i;
 
-                    var instance = Instantiate(ItemTemplate, ItemTemplate.transform.parent, true);
+                    var parent = i < max_bottom_slot_count ? ItemTemplate.transform.parent : StorageBar.transform;
+
+                    var instance = Instantiate(ItemTemplate, parent, true);
 
                     var uiItem = new ItemUI()
                     {
@@ -447,7 +453,7 @@ namespace MC.Core
                     }
 
                     var targetInv = inventoryStorageList.Find(val => val.slotID == b);
-                
+
                     //深复制防止多引用
                     var craftedInventory = CraftSystem.Instance.craftedInventory.Clone();
 
@@ -515,7 +521,7 @@ namespace MC.Core
         public void UpdateInvetoryUI()
         {
             //更新底部插槽UI
-            for (var i = 0; i < max_bottom_inventory_count; i++)
+            for (var i = 0; i < max_slot_count; i++)
             {
                 var item = inventoryStorageList.Find(val => val?.slotID == i);
 
@@ -596,7 +602,7 @@ namespace MC.Core
                     var worldManager = rayHit.collider.transform.parent.parent.GetComponent<WorldManager>();
 
                     //防止玩家卡入方块
-                    if (playerPos != placePoint)
+                    if (playerPos != placePoint && playerPos != placePoint - Vector3.up && playerPos != placePoint + Vector3.up)
                     {
                         inv.Place(worldManager, placePoint);
                         CurrentInventroyUsed(currentStorage);
