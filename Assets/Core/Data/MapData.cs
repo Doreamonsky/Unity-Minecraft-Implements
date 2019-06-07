@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace MC.Core
 {
@@ -26,6 +27,8 @@ namespace MC.Core
         public int[,,] WorldData { get => arrayToMatrix(worldDataSeralized); set => worldDataSeralized = matrixToArray(value); }
 
         public int seed;
+
+        public List<int> placeableInventories = new List<int>();
 
         public Vector3 startPos = Vector3.zero;
 

@@ -205,7 +205,7 @@ namespace MC.Core
             StartCoroutine(RenderBlocks(0, mapData.max_height - 1, 0, mapData.max_width - 1, 0, mapData.max_length - 1, InstancingRenderer));
         }
 
-        //外部的坐标转换
+        //创建Block 需要外部的坐标转换
         public void CreateBlock(int height, int x, int y, int layerID)
         {
             x -= (int)mapData.startPos.x;
@@ -215,7 +215,7 @@ namespace MC.Core
             StartCoroutine(RenderBlocks(height, height, x, x, y, y, true));
         }
 
-        //外部的坐标转换
+        //获取Block信息 需要外部的坐标转换
         public BlockData GetBlockData(int height, int x, int y)
         {
             x -= (int)mapData.startPos.x;
@@ -225,7 +225,7 @@ namespace MC.Core
             return blockMaps[blockID].blockData;
         }
 
-        //外部的坐标转换
+        //与Block交互 需要外部的坐标转换
         public void InteractBlock(int height, int x, int y)
         {
             x -= (int)mapData.startPos.x;
