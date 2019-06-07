@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 3}
   slotPos: {x: 0, y: -0.111, z: 0.075}
   slotEulerAngle: {x: 0, y: 0, z: 0}
-  fireRate: 0.12
+  fireRate: 0.25
   defaultMags:
   - ammoCount: 12
     ammoMaxCount: 12

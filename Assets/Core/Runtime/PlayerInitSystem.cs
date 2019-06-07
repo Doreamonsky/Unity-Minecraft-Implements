@@ -70,8 +70,8 @@ namespace MC.Core
 
         public void SaveStorage()
         {
-            achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
             achievementData.playerPos = player.transform.position;
+            achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
             achievementData.timeCycle = skyDome.Cycle;
             GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }

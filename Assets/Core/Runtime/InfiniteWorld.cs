@@ -158,7 +158,21 @@ namespace MC.Core
                             }
                             else if (heightIndex < 15)
                             {
-                                blockID = 1;
+                                if (heightIndex > 12)
+                                {
+                                    blockID = 1;
+                                }
+                                else
+                                {
+                                    if (Random.value > 0.95)
+                                    {
+                                        blockID = 1;//Dirty
+                                    }
+                                    else
+                                    {
+                                        blockID = 9; //Stone
+                                    }
+                                }
                             }
 
                             data[heightIndex, i, j] = blockID;
@@ -199,15 +213,15 @@ namespace MC.Core
                                     topBlocks.Add(new Vector3(heightIndex, i, j));
                                 }
 
-                                if (Random.value > 0.9f)
-                                {
-                                    mapData.inventoryPlaceDataList.Add(new InventoryPlaceData()
-                                    {
-                                        pos = new Vector3(i, heightIndex + 1, j) + startPos + new Vector3(0.5f, 0, 0.5f),
-                                        eulerAngle = Vector3.zero,
-                                        inventoryName = "Plant Grass"
-                                    });
-                                }
+                                //if (Random.value > 0.9f)
+                                //{
+                                //    mapData.inventoryPlaceDataList.Add(new InventoryPlaceData()
+                                //    {
+                                //        pos = new Vector3(i, heightIndex + 1, j) + startPos + new Vector3(0.5f, 0, 0.5f),
+                                //        eulerAngle = Vector3.zero,
+                                //        inventoryName = "Plant Grass",
+                                //    });
+                                //}
 
                                 break;
                             }
@@ -219,7 +233,7 @@ namespace MC.Core
                 //数目
                 foreach (var topBlock in topBlocks)
                 {
-                    if (Random.value > 0.94f)
+                    if (Random.value > 0.98f)
                     {
                         if (!isInstancingRender)
                         {
@@ -277,6 +291,10 @@ namespace MC.Core
             public Vector3 startPos;
 
             public MapData mapData;
+
+            public float timeInvisible = 0;
+
+            public WorldManager worldManager;
         }
 
         public BlockStorageData storageData;
@@ -288,6 +306,8 @@ namespace MC.Core
         private const int chunckSize = 24;
 
         private Vector3 playerPos;
+
+        private int createdTime = 0;
 
         private void Start()
         {
@@ -307,14 +327,17 @@ namespace MC.Core
         {
             var isInstancingRenderer = false;
 
-            if (chuncks.Count <= 9)
+            if (createdTime < 9)
             {
+                createdTime += 1;
+
                 isInstancingRenderer = true;
             }
             else
             {
                 isInstancingRenderer = false;
             }
+
 
             var chunck = new Chunck()
             {
@@ -333,6 +356,7 @@ namespace MC.Core
                 worldManager.InstancingRenderer = isInstancingRenderer;
 
                 chunck.mapData = mapData;
+                chunck.worldManager = worldManager;
             }));
 
 
@@ -358,7 +382,15 @@ namespace MC.Core
                    new Vector3(chunckSize*1,0,chunckSize*-1)+ planePos,
                    new Vector3(chunckSize*-1,0,chunckSize*1)+ planePos
                 };
+                //var posList = new List<Vector3>();
 
+                //for (var i = -2; i < 2; i++)
+                //{
+                //    for (var j = -2; j < 2; j++)
+                //    {
+                //        posList.Add(new Vector3(chunckSize * i, 0, chunckSize * j) + planePos);
+                //    }
+                //}
                 foreach (var pos in posList)
                 {
                     var chunck = chuncks.Find(val => val.startPos == pos);
@@ -366,6 +398,26 @@ namespace MC.Core
                     if (chunck == null)
                     {
                         CreateWorldManager(worldGenerator, pos);
+                    }
+                }
+
+                for (int i = chuncks.Count - 1; i >= 0; i--)
+                {
+                    var chunck = chuncks[i];
+
+                    if (Vector3.Distance(chunck.startPos, planePos) > chunckSize * 3)
+                    {
+                        chunck.timeInvisible += 1;
+
+                        if (chunck.timeInvisible >= 15)
+                        {
+                            Destroy(chunck.worldManager.gameObject);
+                            chuncks.RemoveAt(i);
+                        }
+                    }
+                    else
+                    {
+                        chunck.timeInvisible = 0;
                     }
                 }
 

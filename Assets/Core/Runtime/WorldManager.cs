@@ -147,6 +147,8 @@ namespace MC.Core
 
         private List<RuntimePlaceableInventoryData> runtimePlaceableInventoryDataList = new List<RuntimePlaceableInventoryData>();
 
+        private static int BatchingRendereringCount = 0;
+
         public void Start()
         {
 #if UNITY_EDITOR
@@ -271,7 +273,7 @@ namespace MC.Core
         {
             var grouped = 0;
 
-            for (var heightIndex = startHeight; heightIndex <= endHeight; heightIndex++)
+            for (var heightIndex = endHeight; heightIndex >= startHeight; heightIndex--)
             {
                 for (var i = startWidth; i <= endWidth; i++)
                 {
@@ -282,9 +284,15 @@ namespace MC.Core
                             continue;
                         }
 
-                        if (!IsInstancing && grouped >= 250)
+                        if (!IsInstancing && grouped >= 50)
                         {
                             grouped = 0;
+
+                            while (BatchingRendereringCount > 4)
+                            {
+                                yield return new WaitForEndOfFrame();
+                            }
+                            BatchingRendereringCount++;
 
                             //面片渲染修改
                             foreach (var runtime in runtimeSharedRendererData)
@@ -293,9 +301,10 @@ namespace MC.Core
                             }
 
                             yield return new WaitForEndOfFrame();
+
+                            BatchingRendereringCount--;
                         }
 
-                        grouped++;
 
                         var blockID = runtimeWorldData[heightIndex, i, j];
                         var blockMap = blockMaps[blockID];
@@ -379,6 +388,8 @@ namespace MC.Core
                             //生成碰撞
                             if (isVisible)
                             {
+                                grouped++;
+
                                 if (blockMap.colliderCacheList.Find(val => val.pos == new Vector3(i, heightIndex, j)) == null)
                                 {
                                     var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
@@ -555,13 +566,13 @@ namespace MC.Core
             }
         }
 
-        private void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle)
+        private void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle, Vector3 scale)
         {
             var placeData = new InventoryPlaceData()
             {
                 pos = pos,
                 eulerAngle = eulerAngle,
-                inventoryName = placeableInventory.inventoryName
+                inventoryName = placeableInventory.inventoryName,
             };
 
             mapData.inventoryPlaceDataList.Add(placeData);
@@ -580,6 +591,7 @@ namespace MC.Core
             var inventory = InventoryManager.Instance.GetInventoryByName(placeData.inventoryName) as PlaceableInventory;
 
             var itemInstance = Instantiate(inventory.itemModel, placeData.pos, Quaternion.Euler(placeData.eulerAngle));
+            itemInstance.transform.parent = transform;
 
             runtimePlaceableInventoryDataList.Add(new RuntimePlaceableInventoryData()
             {

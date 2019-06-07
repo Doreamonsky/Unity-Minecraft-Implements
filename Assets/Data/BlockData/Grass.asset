@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8eeea02d8d6c014a845e5a2f811085d, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
+  forceRenderer: 0
   topTex: {fileID: 2100000, guid: 2ffc03784fc94e444b960969e6cfd04b, type: 2}
   bottomTex: {fileID: 2100000, guid: b489a828a2c7ef04682f38d0223c458c, type: 2}
   rightTex: {fileID: 2100000, guid: 8801a287670caa94e9d7254446d58e84, type: 2}
@@ -20,4 +21,4 @@ MonoBehaviour:
   backTex: {fileID: 2100000, guid: 8801a287670caa94e9d7254446d58e84, type: 2}
   digTime: 0.5
   digSound: {fileID: 8300000, guid: 30d934cde79924144910cfcfb36ca525, type: 3}
-  dropInventory: {fileID: 11400000, guid: dd896f8e2e07d5041aa52c2033a45cc0, type: 2}
+  dropInventory: {fileID: 11400000, guid: 9e2ebf24e5f312249a6bc302b802b70b, type: 2}
