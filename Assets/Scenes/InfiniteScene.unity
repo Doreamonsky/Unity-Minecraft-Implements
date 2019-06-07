@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storageData: {fileID: 11400000, guid: 9ee6b511913bafd4f87a30d4bcb6ed10, type: 2}
+  autoStart: 0
 --- !u!4 &1760712311
 Transform:
   m_ObjectHideFlags: 0

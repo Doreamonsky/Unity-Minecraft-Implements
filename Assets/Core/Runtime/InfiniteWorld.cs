@@ -273,18 +273,23 @@ namespace MC.Core
 
         public List<Chunck> chuncks = new List<Chunck>();
 
+        public bool autoStart = true;
+
         private const int chunckSize = 24;
 
         private Vector3 playerPos;
 
         private void Start()
         {
-            StartCoroutine(UpdateWorld());
-
             Player.OnPlayerMove += pos =>
             {
                 playerPos = pos;
             };
+
+            if (autoStart)
+            {
+                StartCoroutine(UpdateWorld());
+            }
         }
 
 
@@ -323,7 +328,7 @@ namespace MC.Core
 
         }
 
-        private IEnumerator UpdateWorld()
+        public IEnumerator UpdateWorld()
         {
             var worldGenerator = new WorldGenerator(chunckSize, 12);
 

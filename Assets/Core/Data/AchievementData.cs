@@ -8,6 +8,10 @@ namespace MC.Core
     {
         public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
 
+        public TOD_CycleParameters timeCycle;
+
+        public Vector3 playerPos;
+
         public void OnLoad()
         {
             foreach (var p in inventoryStorageList)
