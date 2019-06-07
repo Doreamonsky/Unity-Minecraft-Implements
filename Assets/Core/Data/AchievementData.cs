@@ -10,7 +10,7 @@ namespace MC.Core
 
         public TOD_CycleParameters timeCycle;
 
-        public Vector3 playerPos;
+        public Vector3 infinitePlayerPos;
 
         public void OnLoad()
         {

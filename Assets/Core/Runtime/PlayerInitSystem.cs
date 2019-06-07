@@ -51,12 +51,12 @@ namespace MC.Core
 
             if (isInfiniteScene())
             {
-                if (achievementData.playerPos != Vector3.zero)
+                if (achievementData.infinitePlayerPos != Vector3.zero)
                 {
                     player.gameObject.SetActive(false);
-                    player.transform.position = achievementData.playerPos;
+                    player.transform.position = achievementData.infinitePlayerPos;
                     player.gameObject.SetActive(true);
-                    Player.OnPlayerMove(achievementData.playerPos);
+                    Player.OnPlayerMove(achievementData.infinitePlayerPos);
                 }
 
                 skyDome.Cycle = achievementData.timeCycle;
@@ -78,9 +78,13 @@ namespace MC.Core
 
         public void SaveStorage()
         {
-            achievementData.playerPos = player.transform.position;
+            if (isInfiniteScene())
+            {
+                achievementData.infinitePlayerPos = player.transform.position;
+                achievementData.timeCycle = skyDome.Cycle;
+            }
+
             achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
-            achievementData.timeCycle = skyDome.Cycle;
             GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }
 

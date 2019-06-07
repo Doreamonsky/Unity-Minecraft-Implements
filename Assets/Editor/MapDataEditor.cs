@@ -263,6 +263,7 @@ namespace MC.CoreEditor
         {
             //base.OnInspectorGUI();
             mapData.mapName = EditorGUILayout.TextField("Name", mapData.mapName);
+            mapData.isSaveable = EditorGUILayout.Toggle("Save", mapData.isSaveable);
             mapData.max_height = EditorGUILayout.IntField("Height", mapData.max_height);
             mapData.max_width = EditorGUILayout.IntField("Width", mapData.max_width);
             mapData.max_length = EditorGUILayout.IntField("Length", mapData.max_length);
@@ -279,20 +280,70 @@ namespace MC.CoreEditor
                     {
                         for (var j = 0; j < mapData.max_length; j++)
                         {
+                            //已经被设置
+                            if (data[heightIndex, i, j] != 0)
+                            {
+                                continue;
+                            }
+
                             var blockID = 0;
 
+                            //基岩
                             if (heightIndex == 0)
                             {
                                 blockID = 3;
                             }
+                            //地表
                             else if (heightIndex < 15)
                             {
-                                blockID = 1;
+                                var isMine = Random.value > 0.9;
+
+                                if (isMine)
+                                {
+                                    var rv = Random.value;
+
+                                    if (rv < 0.1f)
+                                    {
+                                        blockID = 1; //泥土
+                                    }
+                                    else if (rv < 0.25f)
+                                    {
+                                        blockID = 10; //煤炭
+                                    }
+                                    else if (rv < 0.35f)
+                                    {
+                                        blockID = 11; //铁矿
+                                    }
+                                    else
+                                    {
+                                        blockID = 1;
+                                    }
+
+                                    if (heightIndex > 1)
+                                    {
+                                        data[heightIndex - 1, i, j] = blockID;
+                                    }
+
+                                    if (i > 0)
+                                    {
+                                        data[heightIndex, i - 1, j] = blockID;
+                                    }
+
+                                    var randomT = Random.Range(2, 4);
+
+                                    if (j > randomT)
+                                    {
+                                        for (var t = 1; t < randomT; t++)
+                                        {
+                                            data[heightIndex, i, j - randomT] = blockID;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    blockID = 9;
+                                }
                             }
-                            //else if (heightIndex < 16)
-                            //{
-                            //    blockID = 2;
-                            //}
 
                             data[heightIndex, i, j] = blockID;
                         }
