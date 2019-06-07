@@ -24,14 +24,14 @@ namespace MC.Core
         {
             if (Application.platform == RuntimePlatform.Android)
             {
-                return $"{Application.persistentDataPath}";
+                return $"{Application.persistentDataPath}/saves/";
             }
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                return $"{Application.persistentDataPath}";
+                return $"{Application.persistentDataPath}/saves/";
             }
 
-            return $"{Application.dataPath}";
+            return $"{Application.dataPath}/../saves/";
         }
 
         public static bool HasFile(string savingName)
@@ -130,7 +130,7 @@ namespace MC.Core
         public static void DeleteFolder()
         {
             var folder = new DirectoryInfo(GetStorageFolder());
-            folder.Delete();
+            folder.Delete(true);
         }
     }
 }

@@ -60,6 +60,7 @@ namespace MC.Core
             CleanData.onClick.AddListener(() =>
             {
                 PlayerPrefs.DeleteAll();
+                GeneralStorageSystem.DeleteFolder();
             });
         }
     }
