@@ -69,6 +69,8 @@ namespace MC.Core
             {
                 normalColor = Color.red
             };
+#else
+            CleanData.interactable = false;
 #endif
         }
     }
