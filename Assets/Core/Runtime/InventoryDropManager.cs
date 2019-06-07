@@ -33,6 +33,7 @@ namespace MC.Core
                     instance.GetComponentInChildren<MeshRenderer>().material = placeable.blockData.topTex;
                 }
             }
+        
 
             dropBlockInventory.OnPlayerEnter += () =>
             {

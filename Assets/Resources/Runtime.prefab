@@ -543,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.650024, y: -42.8}
+  m_AnchoredPosition: {x: -46.650146, y: -42.799988}
   m_SizeDelta: {x: 80.53003, y: 72.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3089500635609219713
@@ -3288,6 +3288,7 @@ GameObject:
   - component: {fileID: 6895479985289386099}
   - component: {fileID: 3196893261542219028}
   - component: {fileID: 6895479985289386110}
+  - component: {fileID: 6880895197781892316}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3303,7 +3304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6895479985289386109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.688, z: 0.249}
+  m_LocalPosition: {x: -0, y: 0.688, z: -0.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1366392035292157894}
@@ -3320,8 +3321,8 @@ Camera:
   m_GameObject: {fileID: 6895479985289386109}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -3333,7 +3334,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 2500
   field of view: 60
   orthographic: 0
@@ -3479,6 +3480,23 @@ MonoBehaviour:
   Intensity: 1
   MaxRadius: 0.5
   UseDepthTexture: 1
+--- !u!114 &6880895197781892316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895479985289386109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5a618c43a8d4e2aab80f67424cb7f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sky: {fileID: 0}
+  DomePosToCamera: 1
+  DomePosOffset: {x: 0, y: 0, z: 0}
+  DomeScaleToFarClip: 1
+  DomeScaleFactor: 0.95
 --- !u!1 &6895479985299557722
 GameObject:
   m_ObjectHideFlags: 0

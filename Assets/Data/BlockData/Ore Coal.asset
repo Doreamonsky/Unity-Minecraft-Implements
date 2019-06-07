@@ -21,4 +21,4 @@ MonoBehaviour:
   backTex: {fileID: 2100000, guid: 8da1a9849028d344499a0f79b0cc4a3e, type: 2}
   digTime: 5
   digSound: {fileID: 8300000, guid: 6aca345b16ab8884a92a54275c969d6a, type: 3}
-  dropInventory: {fileID: 11400000, guid: ef4a6108b69bf814d952cc1ce730e8a3, type: 2}
+  dropInventory: {fileID: 11400000, guid: 2140f04c3baecbd408ca476cdd2617d3, type: 2}

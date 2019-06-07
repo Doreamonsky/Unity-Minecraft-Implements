@@ -150,28 +150,68 @@ namespace MC.Core
                     {
                         for (var j = 0; j < mapData.max_length; j++)
                         {
+                            //已经被设置
+                            if (data[heightIndex, i, j] != 0)
+                            {
+                                continue;
+                            }
+
                             var blockID = 0;
 
+                            //基岩
                             if (heightIndex == 0)
                             {
                                 blockID = 3;
                             }
+                            //地表
                             else if (heightIndex < 15)
                             {
-                                if (heightIndex > 12)
+                                var isMine = Random.value > 0.9;
+
+                                if (isMine)
                                 {
-                                    blockID = 1;
-                                }
-                                else
-                                {
-                                    if (Random.value > 0.95)
+                                    var rv = Random.value;
+
+                                    if (rv < 0.1f)
                                     {
-                                        blockID = 1;//Dirty
+                                        blockID = 1; //泥土
+                                    }
+                                    else if (rv < 0.25f)
+                                    {
+                                        blockID = 10; //煤炭
+                                    }
+                                    else if (rv < 0.35f)
+                                    {
+                                        blockID = 11; //铁矿
                                     }
                                     else
                                     {
-                                        blockID = 9; //Stone
+                                        blockID = 1;
                                     }
+
+                                    if (heightIndex > 1)
+                                    {
+                                        data[heightIndex - 1, i, j] = blockID;
+                                    }
+
+                                    if (i > 0)
+                                    {
+                                        data[heightIndex, i - 1, j] = blockID;
+                                    }
+
+                                    var randomT = Random.Range(2, 4);
+
+                                    if (j > randomT)
+                                    {
+                                        for (var t = 1; t < randomT; t++)
+                                        {
+                                            data[heightIndex, i, j - randomT] = blockID;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    blockID = 9;
                                 }
                             }
 
@@ -179,6 +219,7 @@ namespace MC.Core
                         }
                     }
                 }
+
                 //山丘
                 for (var heightIndex = 15; heightIndex < mapData.max_height; heightIndex++)
                 {

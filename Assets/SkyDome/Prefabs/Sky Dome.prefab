@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3096e00ab1b90d4cbf773a7c8bfa5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorSpace: 1
+  ColorSpace: 2
   ColorRange: 0
   ColorOutput: 1
   SkyQuality: 0

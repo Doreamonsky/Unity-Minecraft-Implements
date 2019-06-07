@@ -527,7 +527,7 @@ namespace MC.Core
 
                 if (item != null)
                 {
-                    layout.itemInstance[i].itemIcon.sprite = item.inventory.inventoryIcon;
+                    layout.itemInstance[i].itemIcon.sprite = item.inventory?.inventoryIcon;
                     layout.itemInstance[i].itemCount.text = item.count.ToString();
                 }
                 else

@@ -17,7 +17,7 @@ MonoBehaviour:
   endurance: 100
   hpDamage: 15
   attackRange: 3
-  attackInterval: 0.4
+  attackInterval: 0.3
   weaponPrefab: {fileID: 1466108837597503252, guid: 5621bf368cf81c04086264f090bd6953,
     type: 3}
   slotPos: {x: 0.303, y: -0.351, z: 0.486}
