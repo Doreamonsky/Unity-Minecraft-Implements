@@ -572,7 +572,7 @@ namespace MC.Core
             }
         }
 
-        private void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle, Vector3 scale)
+        public void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle)
         {
             var placeData = new InventoryPlaceData()
             {
@@ -584,7 +584,7 @@ namespace MC.Core
             mapData.inventoryPlaceDataList.Add(placeData);
             PlaceInventory(placeData);
         }
-        private void RemoveInventroy(RuntimePlaceableInventoryData runtimePlaceableInventoryData)
+        public void RemoveInventroy(RuntimePlaceableInventoryData runtimePlaceableInventoryData)
         {
             Destroy(runtimePlaceableInventoryData.itemInstance);
 

@@ -15,6 +15,8 @@ namespace MC.Core
         [HideInInspector]
         public Animator m_animator;
 
+        public System.Action OnDeath;
+
         public virtual void Start()
         {
             m_animator = GetComponent<Animator>();
@@ -63,6 +65,8 @@ namespace MC.Core
                 Destroy(gameObject);
 
                 PoolManager.CreateObject("Explosion", transform.position, Quaternion.LookRotation(Vector3.up).eulerAngles);
+
+                OnDeath?.Invoke();
             }
         }
 

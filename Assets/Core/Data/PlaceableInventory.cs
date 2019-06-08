@@ -28,7 +28,7 @@ namespace MC.Core
                     worldManager.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
                     break;
                 case PlaceType.Item:
-
+                    worldManager.CreatePlaceableInventory(this, pos, Vector3.zero);
                     break;
             }
 

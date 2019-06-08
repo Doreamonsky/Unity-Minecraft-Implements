@@ -3000,6 +3000,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 257582969df34b34aadcfeed4918aa11, type: 2}
   - {fileID: 11400000, guid: 5d5edc08e7e85124eaea1922930c9c03, type: 2}
   - {fileID: 11400000, guid: 5b5a1b6a293730b4e9c2f3429d07b7bd, type: 2}
+  - {fileID: 11400000, guid: ed25d2a1bf983244f9fc64eb6088f8bf, type: 2}
   layout:
     craftedObject: {fileID: 6895479985930269094}
     craftObject:

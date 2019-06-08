@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   inventoryName: Coal
-  inventoryIcon: {fileID: 21300000, guid: a4bcd72e747a62b468104fb75903f041, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: bd0e5566f2c253b469806887638f6068, type: 3}
