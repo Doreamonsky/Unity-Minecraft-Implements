@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42e469b8ea42f7d4a803c5da72a20f84, type: 3}
-  m_Name: Higher Math Recipe
+  m_Name: Torch Recipe 2
   m_EditorClassIdentifier: 
   Recipe:
-  - {fileID: 11400000, guid: 5988bb7c539ae7e4c9fa72eac255ec74, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 1615e199fbc8da745b593397d8ef1d4a, type: 2}
+  - {fileID: 11400000, guid: 2140f04c3baecbd408ca476cdd2617d3, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 0077a369543ec0041b106a0a9f44826a, type: 2}
+  - {fileID: 11400000, guid: b2b7736890366ba47935b9c3ad9200ec, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  CraftedInventory: {fileID: 11400000, guid: 703f2b68cba77874782fcd2fc24c5663, type: 2}
-  CraftedCount: 2
+  - {fileID: 0}
+  CraftedInventory: {fileID: 11400000, guid: b49c9c1871d92574a8c14f0c283bb4d9, type: 2}
+  CraftedCount: 1
+  requireHeating: 0

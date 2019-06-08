@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bbe527f541c4fbd8f0abcedc1421aa, type: 3}
+  m_Name: Ferrofluid
+  m_EditorClassIdentifier: 
+  inventoryName: Ferrofluid
+  inventoryIcon: {fileID: 21300000, guid: 45f91dc86446847759e8bc89a43945a6, type: 3}
+  text: "\u78C1\u6D41\u4F53\uFF0C\u4E00\u4E2A\u6709\u8DA3\u7684\u78C1\u6027\u73A9\u5177\u3002\uFF08\u73A9\u6CD5\u89C1\u5305\u88C5\u8BF4\u660E\u4E66\uFF09"

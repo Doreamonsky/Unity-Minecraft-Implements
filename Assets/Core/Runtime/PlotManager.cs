@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 
-namespace MC.Core
-{
-    public class PlotManager : MonoBehaviour
-    {
+namespace MC.Core {
+    public class PlotManager : MonoBehaviour {
 
         [System.Serializable]
-        public class Task
-        {
-            public enum TaskType
-            {
+        public class Task {
+            public enum TaskType {
                 InventoryCount
             }
 
@@ -23,45 +19,35 @@ namespace MC.Core
 
             public Toggle completeToggle;
 
-            [Header("Inventory Count")]
+            [Header ("Inventory Count")]
             public string invName;
             public int invCount;
 
             [HideInInspector]
             public Player player;
 
-            public void CompleteTask()
-            {
+            public void CompleteTask () {
                 completeToggle.isOn = true;
-                uiGuidance.transform.SetAsLastSibling();
+                uiGuidance.transform.SetAsLastSibling ();
             }
 
-            public bool CheckComplete()
-            {
+            public bool CheckComplete () {
                 var isComplete = false;
 
-                switch (taskType)
-                {
+                switch (taskType) {
                     case TaskType.InventoryCount:
-                        var inv = player.inventorySystem.inventoryStorageList.Find(val => val.inventory.inventoryName == invName);
+                        var inv = player.inventorySystem.inventoryStorageList.Find (val => val.inventory.inventoryName == invName);
 
-                        if (inv == null)
-                        {
+                        if (inv == null) {
                             isComplete = false;
-                        }
-                        else
-                        {
-                            if (inv.count < invCount)
-                            {
+                        } else {
+                            if (inv.count < invCount) {
                                 isComplete = false;
-                            }
-                            else
-                            {
+                            } else {
                                 isComplete = true;
                             }
                         }
                         break;
-
 
                 }
 
@@ -69,7 +55,7 @@ namespace MC.Core
             }
         }
 
-        public List<Task> tasks = new List<Task>();
+        public List<Task> tasks = new List<Task> ();
 
         public Transform playerSpawnPoint;
 
@@ -85,140 +71,130 @@ namespace MC.Core
 
         public GameObject taskBar;
 
-        public Inventory gunWeapon;
-
         public GameObject teleportDoor;
 
         public bool skipTimeline = false;
 
-        private Queue<Task> collectTasks = new Queue<Task>();
+        private Queue<Task> collectTasks = new Queue<Task> ();
 
         private GameObject runtime, player;
 
-        private void Start()
-        {
-            StartCoroutine(PlotUpdate());
+        private void Start () {
+            StartCoroutine (PlotUpdate ());
         }
 
-        private IEnumerator PlotUpdate()
-        {
-            timelinePrologue.SetActive(true);
-            gamePlayGuide.SetActive(false);
+        private IEnumerator PlotUpdate () {
+            timelinePrologue.SetActive (true);
+            gamePlayGuide.SetActive (false);
 
             //仅编辑器可选择跳过Timeline
 #if UNITY_EDITOR
-            if (!skipTimeline)
-            {
+            if (!skipTimeline) {
 #endif
-                yield return new WaitForSeconds((float)directorPrologue.duration + (float)directorPrologue.initialTime);
+                yield return new WaitForSeconds ((float) directorPrologue.duration + (float) directorPrologue.initialTime);
 #if UNITY_EDITOR
             }
 #endif
 
-            var initSystem = new GameObject("InitSystem", typeof(PlayerInitSystem)).GetComponent<PlayerInitSystem>();
+            var initSystem = new GameObject ("InitSystem", typeof (PlayerInitSystem)).GetComponent<PlayerInitSystem> ();
             initSystem.transform.position = playerSpawnPoint.position;
             initSystem.transform.rotation = playerSpawnPoint.rotation;
             initSystem.useSaving = true;
-            initSystem.Init();
+            initSystem.Init ();
 
             runtime = initSystem.runtime;
             player = initSystem.player.gameObject;
 
-            foreach (var task in tasks)
-            {
-                task.player = player.GetComponent<Player>();
+            foreach (var task in tasks) {
+                task.player = player.GetComponent<Player> ();
 
-                if (task.taskType == Task.TaskType.InventoryCount)
-                {
-                    collectTasks.Enqueue(task);
+                if (task.taskType == Task.TaskType.InventoryCount) {
+                    collectTasks.Enqueue (task);
                 }
             }
 
-            timelinePrologue.SetActive(false);
-            gamePlayGuide.SetActive(true);
+            timelinePrologue.SetActive (false);
+            gamePlayGuide.SetActive (true);
 
             //判断资源是否收集完毕
-            while (true)
-            {
-                if (collectTasks.Count <= 0)
-                {
+            while (true) {
+                if (collectTasks.Count <= 0) {
                     break;
                 }
 
-                var task = collectTasks.Dequeue();
+                var task = collectTasks.Dequeue ();
 
-                while (!task.CheckComplete())
-                {
-                    yield return new WaitForSeconds(1);
+                while (!task.CheckComplete ()) {
+                    yield return new WaitForSeconds (1);
                 }
 
-                task.CompleteTask();
+                task.CompleteTask ();
             }
 
-            skeletonFightCheckPoint.SetActive(true);
-            directorResourceCollected.Play();
+            skeletonFightCheckPoint.SetActive (true);
+            directorResourceCollected.Play ();
 
-            while (true)
-            {
-                var dir = Vector3.ProjectOnPlane(player.transform.position - skeletonFightCheckPoint.transform.position, Vector3.up);
+            while (true) {
+                var dir = Vector3.ProjectOnPlane (player.transform.position - skeletonFightCheckPoint.transform.position, Vector3.up);
 
-                if (dir.magnitude > 10)
-                {
-                    yield return new WaitForEndOfFrame();
-                }
-                else
-                {
+                if (dir.magnitude > 10) {
+                    yield return new WaitForEndOfFrame ();
+                } else {
                     break;
                 }
             }
 
-            skeletonMaster.SetActive(true);
-            skeletonFightCheckPoint.SetActive(false);
+            skeletonMaster.SetActive (true);
+            skeletonFightCheckPoint.SetActive (false);
 
-            directorSkeletonShown.Play();
+            directorSkeletonShown.Play ();
 
-            while (skeletonMaster != null)
-            {
-                yield return new WaitForEndOfFrame();
+            while (skeletonMaster != null) {
+                yield return new WaitForEndOfFrame ();
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds (2f);
 
-            taskBar.SetActive(false);
-            runtime.SetActive(false);
+            taskBar.SetActive (false);
+            runtime.SetActive (false);
 
-            directorEnding.Play();
+            directorEnding.Play ();
 
-            yield return new WaitForSeconds((float)directorEnding.duration);
+            yield return new WaitForSeconds ((float) directorEnding.duration);
 
-            runtime.SetActive(true);
-            teleportDoor.SetActive(true);
+            runtime.SetActive (true);
+            teleportDoor.SetActive (true);
 
-            var weaponIndex = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.inventory.inventoryName == gunWeapon.inventoryName);
+            AddInv ("AK 47");
+            AddInv ("Ferrofluid");
+            AddInv ("Fruit");
+            AddInv ("Cake");
 
-            if (weaponIndex == -1)
-            {
-                for (var i = 0; i < InventorySystem.max_slot_count; i++)
-                {
-                    var id = player.GetComponent<Player>().inventorySystem.inventoryStorageList.FindIndex(val => val.slotID == i);
+            PlayerPrefs.SetString ("Plot", "Finish");
+        }
 
-                    if (id == -1)
-                    {
-                        player.GetComponent<Player>().inventorySystem.inventoryStorageList.Add(new InventoryStorage()
-                        {
-                            inventory = Instantiate(gunWeapon),
-                            count = 1,
-                            slotID = i
+        private void AddInv (string invName) {
+            var inv = InventoryManager.Instance.GetInventoryByName (invName);
+
+            var invIndex = player.GetComponent<Player> ().inventorySystem.inventoryStorageList.FindIndex (val => val.inventory.inventoryName == invName);
+
+            if (invIndex == -1) {
+                for (var i = 0; i < InventorySystem.max_slot_count; i++) {
+                    var id = player.GetComponent<Player> ().inventorySystem.inventoryStorageList.FindIndex (val => val.slotID == i);
+
+                    if (id == -1) {
+                        player.GetComponent<Player> ().inventorySystem.inventoryStorageList.Add (new InventoryStorage () {
+                            inventory = Instantiate (inv),
+                                count = 1,
+                                slotID = i
                         });
 
-                        player.GetComponent<Player>().inventorySystem.UpdateInvetoryUI();
+                        player.GetComponent<Player> ().inventorySystem.UpdateInvetoryUI ();
 
                         break;
                     }
                 }
             }
-
-            PlayerPrefs.SetString("Plot", "Finish");
         }
     }
 

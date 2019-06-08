@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42e469b8ea42f7d4a803c5da72a20f84, type: 3}
-  m_Name: Iron Ingot Recipe
+  m_Name: Torch Recipe 3
   m_EditorClassIdentifier: 
   Recipe:
-  - {fileID: 11400000, guid: 001842d21e54ef14da8a44f5c2aef08c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 2140f04c3baecbd408ca476cdd2617d3, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: b2b7736890366ba47935b9c3ad9200ec, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  CraftedInventory: {fileID: 11400000, guid: 449ea87093fb91142a29838e12e65600, type: 2}
+  CraftedInventory: {fileID: 11400000, guid: b49c9c1871d92574a8c14f0c283bb4d9, type: 2}
   CraftedCount: 1
-  requireHeating: 1
+  requireHeating: 0
