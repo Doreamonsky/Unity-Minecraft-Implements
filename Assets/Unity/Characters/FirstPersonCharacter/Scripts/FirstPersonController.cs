@@ -293,6 +293,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
+
+            if ((int)m_CollisionFlags == 5)
+            {
+                m_CharacterController.stepOffset = 1.2f;
+            }
+            else
+            {
+                m_CharacterController.stepOffset = 0.1f;
+            }
+
             if (m_CollisionFlags == CollisionFlags.Below)
             {
                 return;

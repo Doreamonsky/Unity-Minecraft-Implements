@@ -30,7 +30,7 @@ namespace MC.Core
             {
                 lastAttackTime = Time.time;
 
-                var animator = weaponModel.GetComponent<Animator>();
+                var animator = weaponModel?.GetComponent<Animator>();
 
                 if (animator)
                 {
