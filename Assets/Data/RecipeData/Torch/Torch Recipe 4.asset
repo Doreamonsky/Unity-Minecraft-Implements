@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2b7736890366ba47935b9c3ad9200ec, type: 2}
   - {fileID: 0}
   CraftedInventory: {fileID: 11400000, guid: b49c9c1871d92574a8c14f0c283bb4d9, type: 2}
-  CraftedCount: 1
+  CraftedCount: 4
   requireHeating: 0
