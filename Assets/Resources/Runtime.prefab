@@ -3411,9 +3411,12 @@ MonoBehaviour:
   craftInventoryList: []
   recipeList:
   - {fileID: 11400000, guid: 83cee736b7a2fe84fa98a5f41d3d46bc, type: 2}
+  - {fileID: 11400000, guid: 71daaec863e81a746ba8511e8564a74f, type: 2}
   - {fileID: 11400000, guid: 93fcf87ca98bfc6459130abb90a3f057, type: 2}
   - {fileID: 11400000, guid: 6d42e9eeeabbc1644a67aa9ec78b4e20, type: 2}
+  - {fileID: 11400000, guid: 9f68c6453c993054f86bd6bde02fe198, type: 2}
   - {fileID: 11400000, guid: cfb2028a24048a34eaae59288276bfa3, type: 2}
+  - {fileID: 11400000, guid: 85e0cc971b1aabc4da232b307d4865d4, type: 2}
   - {fileID: 11400000, guid: 73d4399ccb211124288bb942479495ff, type: 2}
   - {fileID: 11400000, guid: 232c5250293747c499df43bbac6ce861, type: 2}
   - {fileID: 11400000, guid: b53e6cb89e59aeb4181d89e1e7b005a1, type: 2}
@@ -3423,6 +3426,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6fffd46dae43c64f9cb8be8aad40d0c, type: 2}
   - {fileID: 11400000, guid: 89c1e05cdccde6140a8278ed034279e6, type: 2}
   - {fileID: 11400000, guid: 047c3f18590951145bfca6937273a65b, type: 2}
+  - {fileID: 11400000, guid: 528a487c13c57ed4ca8b5efdc0992bf6, type: 2}
   - {fileID: 11400000, guid: b5d3368c84e00dd44995f4f5b074aa51, type: 2}
   - {fileID: 11400000, guid: 39172fa0d0ee26940bb0516e9d4fcd21, type: 2}
   - {fileID: 11400000, guid: 7fbc340520af223488b7c73b99c95449, type: 2}

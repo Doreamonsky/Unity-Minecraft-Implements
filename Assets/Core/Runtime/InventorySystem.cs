@@ -101,6 +101,8 @@ namespace MC.Core
 
         private int toDropSlotID = 0;
 
+        private Inventory currentInv;
+
         private void Start()
         {
 #if UNITY_EDITOR
@@ -573,16 +575,15 @@ namespace MC.Core
         public void SelectInventoryByID(int id)
         {
             //取消之前的选择
-            var preInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
-            preInv?.OnUnselected(this);
+            currentInv?.OnUnselected(this);
 
             //更新
             currentSelectID = id;
             UpdateInvetoryUI();
 
             //选择新的物体
-            var currInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
-            currInv?.OnSelected(this);
+            currentInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
+            currentInv?.OnSelected(this);
 
             toDropSlotID = currentSelectID;
             UpdateCurrentSelectText(currentSelectID);
