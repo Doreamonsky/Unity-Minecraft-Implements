@@ -18,3 +18,7 @@ MonoBehaviour:
   blockData: {fileID: 0}
   itemModel: {fileID: 1486050782605929202, guid: 1171265b2a22194438ce5f27dd408afd,
     type: 3}
+  itemPos: {x: 0.5, y: 0, z: 0.5}
+  digTime: 2
+  digSound: {fileID: 8300000, guid: 6aca345b16ab8884a92a54275c969d6a, type: 3}
+  dropInventory: {fileID: 11400000}

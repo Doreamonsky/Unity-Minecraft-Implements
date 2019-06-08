@@ -40,3 +40,4 @@ MonoBehaviour:
       type: 3}
     aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}
   bulletData: {fileID: 11400000, guid: 038e8d995eb6ab846a46ac65f3b226ba, type: 2}
+  clickToFire: 0

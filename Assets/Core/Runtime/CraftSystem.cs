@@ -29,6 +29,8 @@ namespace MC.Core
 
             public List<ItemUI> itemInstance = new List<ItemUI>();
 
+            public Toggle HeatToggle;
+
             public void Init()
             {
                 for (int i = 0; i < craftObject.Count; i++)
@@ -68,11 +70,18 @@ namespace MC.Core
 
         public static CraftSystem Instance;
 
+        private bool isHeating = false;
+
         private void Start()
         {
             Instance = this;
 
             layout.Init();
+            layout.HeatToggle.onValueChanged.AddListener(state =>
+            {
+                isHeating = state;
+                GuessRecipe();
+            });
         }
 
         public void UpdateInvetoryUI()
@@ -112,6 +121,12 @@ namespace MC.Core
 
             foreach (var recipe in recipeList)
             {
+                //加热条件不满足
+                if (recipe.requireHeating != isHeating)
+                {
+                    continue;
+                }
+
                 var targetRecipe = new string[9] { "", "", "", "", "", "", "", "", "" };
 
                 for (int i = 0; i < recipe.Recipe.Length; i++)

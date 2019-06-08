@@ -9,6 +9,8 @@ namespace MC.Core
 
         public static System.Action<int, int, SwapType> OnAllocateItem;
 
+        public static System.Action<InventoryIconUI> OnHighlightedItem;
+
         private List<InventoryIconUI> inventoryIcons = new List<InventoryIconUI>();
 
         public static SwapManager Instance;
@@ -83,6 +85,8 @@ namespace MC.Core
                     {
                         t.ToggleSelectEffect(t == target);
                     }
+
+                    OnHighlightedItem?.Invoke(target);
                 }
                 else if (prevIconUI != target)
                 {

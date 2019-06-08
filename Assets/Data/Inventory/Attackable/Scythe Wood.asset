@@ -15,7 +15,7 @@ MonoBehaviour:
   inventoryName: Scythe Wood
   inventoryIcon: {fileID: 21300000, guid: 044ac30377fe830459d4b7ef4283a59a, type: 3}
   endurance: 100
-  hpDamage: 15
+  hpDamage: 10
   attackRange: 3
   attackInterval: 0.3
   weaponPrefab: {fileID: 1466108837597503252, guid: 5621bf368cf81c04086264f090bd6953,

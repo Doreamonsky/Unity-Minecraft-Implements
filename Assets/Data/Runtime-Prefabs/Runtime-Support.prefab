@@ -78,12 +78,16 @@ MonoBehaviour:
   inventories:
   - {fileID: 11400000, guid: 270940aee7cd4b248b7d43a70bf2c6a4, type: 2}
   - {fileID: 11400000, guid: 5874f986e66e0c140985380df4aec443, type: 2}
+  - {fileID: 11400000, guid: 01a263fd49dc75c4f84cbd7cef567ede, type: 2}
   - {fileID: 11400000, guid: 3337218e0f702ea409b61b44f6836ef1, type: 2}
+  - {fileID: 11400000, guid: 861c15678fc5fac4d9c460bb68fe57bf, type: 2}
   - {fileID: 11400000, guid: 9e9d461c99be7ef49b8a3af024bc8178, type: 2}
+  - {fileID: 11400000, guid: cbcf54c4901b4364d8de9bbb18fb610a, type: 2}
   - {fileID: 11400000, guid: 0f39ba1f317bb6941aff84c4e2ae7a0c, type: 2}
   - {fileID: 11400000, guid: 2140f04c3baecbd408ca476cdd2617d3, type: 2}
   - {fileID: 11400000, guid: 1615e199fbc8da745b593397d8ef1d4a, type: 2}
   - {fileID: 11400000, guid: 703f2b68cba77874782fcd2fc24c5663, type: 2}
+  - {fileID: 11400000, guid: 449ea87093fb91142a29838e12e65600, type: 2}
   - {fileID: 11400000, guid: 5988bb7c539ae7e4c9fa72eac255ec74, type: 2}
   - {fileID: 11400000, guid: 0077a369543ec0041b106a0a9f44826a, type: 2}
   - {fileID: 11400000, guid: b2b7736890366ba47935b9c3ad9200ec, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MC.Core
 {
     [CreateAssetMenu(fileName = "PlaceableInventory")]
-    public class PlaceableInventory : Inventory, IPlaceable
+    public class PlaceableInventory : Inventory, IPlaceable, IDigable
     {
         public enum PlaceType
         {
@@ -18,7 +18,16 @@ namespace MC.Core
 
         public GameObject itemModel;
 
-        public void Place(WorldManager worldManager,Vector3 pos)
+        public Vector3 itemPos = new Vector3(0.5f, 0, 0.5f);
+
+        [Header("IDigable")]
+        public float digTime = 1;
+
+        public AudioClip digSound;
+
+        public Inventory dropInventory;
+
+        public bool Place(WorldManager worldManager, Vector3 pos)
         {
             switch (placeType)
             {
@@ -26,12 +35,17 @@ namespace MC.Core
                     //从当前 WorldManager LayerID 
                     var layerID = worldManager.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
                     worldManager.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
-                    break;
+
+                    return true;
                 case PlaceType.Item:
-                    worldManager.CreatePlaceableInventory(this, pos, Vector3.zero);
+                    if (worldManager.GetItemData(pos + itemPos) == null)
+                    {
+                        worldManager.CreatePlaceableInventory(this, pos + itemPos, Vector3.zero);
+                        return true;
+                    }
                     break;
             }
-
+            return false;
         }
 
         public override void OnSelected(InventorySystem inventorySystem)
@@ -42,6 +56,30 @@ namespace MC.Core
         public override void OnUnselected(InventorySystem inventorySystem)
         {
             //throw new System.NotImplementedException();
+        }
+
+        public float DigTime()
+        {
+            return digTime;
+        }
+
+        public AudioClip DigSound()
+        {
+            return digSound;
+        }
+
+        public void DropInventory(Vector3 pos)
+        {
+            if (dropInventory != null)
+            {
+                InventoryDropManager.Instance.CreateDropBlockInventory(pos + new Vector3(0, 0.5f, 0), new InventoryStorage()
+                {
+                    count = 1,
+                    inventory = dropInventory,
+                    slotID = -1
+                }
+            );
+            }
         }
     }
 }

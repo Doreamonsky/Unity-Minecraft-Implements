@@ -24,6 +24,7 @@ namespace MC.Core
                 public Text itemCount;
 
                 public GameObject selectedIcon;
+
             }
 
             public GameObject ItemTemplate;
@@ -37,6 +38,10 @@ namespace MC.Core
             public Slider digProgressSlider;
 
             public Text digProgressText;
+
+            public Text currentItemText;
+
+            public Button dropInvBtn;
 
             public void Init()
             {
@@ -94,6 +99,8 @@ namespace MC.Core
 
         private Vector3 interactPos = Vector3.zero;
 
+        private int toDropSlotID = 0;
+
         private void Start()
         {
 #if UNITY_EDITOR
@@ -103,6 +110,17 @@ namespace MC.Core
             }
 #endif
             layout.Init();
+
+            layout.dropInvBtn.onClick.AddListener(DropCurrentInv);
+
+            SwapManager.OnHighlightedItem += (InventoryIconUI invUI) =>
+            {
+                if (invUI.m_iconType == InventoryIconType.Inv)
+                {
+                    toDropSlotID = invUI.m_slotID;
+                    UpdateCurrentSelectText(invUI.m_slotID);
+                }
+            };
 
             //选择 Inventory
             ControlEvents.OnClickInventoryByID += id =>
@@ -492,6 +510,8 @@ namespace MC.Core
             };
 
             UpdateInvetoryUI();
+
+            SelectInventoryByID(currentSelectID);
         }
 
         private void CleanUpInventory()
@@ -563,6 +583,16 @@ namespace MC.Core
             //选择新的物体
             var currInv = inventoryStorageList.Find(val => val.slotID == currentSelectID)?.inventory;
             currInv?.OnSelected(this);
+
+            toDropSlotID = currentSelectID;
+            UpdateCurrentSelectText(currentSelectID);
+        }
+
+        private void UpdateCurrentSelectText(int slotID)
+        {
+            var currInv = inventoryStorageList.Find(val => val.slotID == slotID)?.inventory;
+
+            layout.currentItemText.text = $"Current Selected Item: { currInv?.inventoryName}";
         }
 
         private void PlaceCurrentInventory(Vector2 screenPos)
@@ -604,8 +634,12 @@ namespace MC.Core
                     //防止玩家卡入方块
                     if (playerPos != placePoint && playerPos != placePoint - Vector3.up && playerPos != placePoint + Vector3.up)
                     {
-                        inv.Place(worldManager, placePoint);
-                        CurrentInventroyUsed(currentStorage);
+                        var isUsed = inv.Place(worldManager, placePoint);
+
+                        if (isUsed)
+                        {
+                            CurrentInventroyUsed(currentStorage);
+                        }
                     }
                 }
 
@@ -641,25 +675,44 @@ namespace MC.Core
             digSpeedBoost = 1f / digSpeedBoost;
 
             var ray = playerCamera.ScreenPointToRay(screenPos);
-            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 6, 1 << LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 6, 1 << LayerMask.NameToLayer("Block") | 1 << LayerMask.NameToLayer("Item"));
 
             if (isHit)
             {
                 var chunckPoint = rayHit.point - rayHit.normal * 0.5f;
                 chunckPoint = new Vector3(Mathf.FloorToInt(chunckPoint.x), Mathf.FloorToInt(chunckPoint.y), Mathf.FloorToInt(chunckPoint.z));
 
-                var worldManager = rayHit.collider.transform.parent.parent.GetComponent<WorldManager>();
+                var worldManager = rayHit.collider.transform.root.GetComponent<WorldManager>();
 
-                var blockData = worldManager.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                IDigable digableItem = null;
 
-                if (blockData is DestroyableBlockData)
+                RuntimePlaceableInventoryData itemData = null;
+
+                var isBlock = false;
+                var isItem = false;
+
+                if (rayHit.collider.gameObject.layer == LayerMask.NameToLayer("Block"))
                 {
-                    var destroyable = blockData as DestroyableBlockData;
+                    isBlock = true;
 
+                    var blockData = worldManager.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                    digableItem = blockData as IDigable;
+                }
+
+                if (rayHit.collider.gameObject.layer == LayerMask.NameToLayer("Item"))
+                {
+                    isItem = true;
+
+                    itemData = worldManager.GetItemData(rayHit.collider.transform.position);
+                    digableItem = itemData.inventory as IDigable;
+                }
+
+                if (digableItem != null)
+                {
                     //判断 当前挖的与上一帧挖的是否相同
                     if (interactPos == chunckPoint)
                     {
-                        if (interactTime < destroyable.digTime)
+                        if (interactTime < digableItem.DigTime())
                         {
                             interactTime += Time.deltaTime;
                         }
@@ -670,9 +723,18 @@ namespace MC.Core
                         interactTime = 0;
                     }
 
-                    if (interactTime >= destroyable.digTime * digSpeedBoost && interactPos == chunckPoint)
+                    if (interactTime >= digableItem.DigTime() * digSpeedBoost && interactPos == chunckPoint)
                     {
-                        worldManager.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                        if (isBlock)
+                        {
+                            worldManager.InteractBlock((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                        }
+                        else if (isItem)
+                        {
+                            worldManager.RemoveInventroy(itemData);
+                        }
+
+                        digableItem.DropInventory(chunckPoint);
                     }
 
                     //Update UI
@@ -680,10 +742,10 @@ namespace MC.Core
                     {
                         layout.digProgressBar.SetActive(true);
 
-                        layout.digProgressSlider.value = interactTime / (destroyable.digTime * digSpeedBoost);
-                        layout.digProgressText.text = $"{((interactTime / (destroyable.digTime * digSpeedBoost)) * 100).ToString("f1")} %";
+                        layout.digProgressSlider.value = interactTime / (digableItem.DigTime() * digSpeedBoost);
+                        layout.digProgressText.text = $"{((interactTime / (digableItem.DigTime() * digSpeedBoost)) * 100).ToString("f1")} %";
 
-                        SoundManager.Instance.PlayDigSound(destroyable.digSound);
+                        SoundManager.Instance.PlayDigSound(digableItem.DigSound());
                     }
                     else
                     {
@@ -691,12 +753,28 @@ namespace MC.Core
                     }
 
                 }
+                else
+                {
+                    layout.digProgressBar.SetActive(false);
+                }
             }
         }
 
         public void AddStorage(InventoryStorage inventoryStorage)
         {
             inventoryStorageList.Add(inventoryStorage);
+            UpdateInvetoryUI();
+        }
+
+        public void DropCurrentInv()
+        {
+            var currentInv = inventoryStorageList.Find(val => val.slotID == toDropSlotID);
+
+            if (currentInv != null)
+            {
+                inventoryStorageList.Remove(currentInv);
+            }
+
             UpdateInvetoryUI();
         }
     }

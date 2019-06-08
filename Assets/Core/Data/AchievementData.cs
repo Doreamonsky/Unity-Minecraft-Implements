@@ -8,6 +8,8 @@ namespace MC.Core
     {
         public List<InventoryStorage> inventoryStorageList = new List<InventoryStorage>();
 
+        public List<InventoryStorage> craftStorageList = new List<InventoryStorage>();
+
         public TOD_CycleParameters timeCycle;
 
         public Vector3 infinitePlayerPos;
@@ -18,11 +20,21 @@ namespace MC.Core
             {
                 p.OnLoad();
             }
+
+            foreach (var p in craftStorageList)
+            {
+                p.OnLoad();
+            }
         }
 
         public void OnSave()
         {
             foreach (var p in inventoryStorageList)
+            {
+                p.OnSave();
+            }
+
+            foreach (var p in craftStorageList)
             {
                 p.OnSave();
             }

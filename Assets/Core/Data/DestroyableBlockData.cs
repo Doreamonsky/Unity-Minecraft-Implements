@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using MC.Core.Interface;
+using UnityEngine;
 
 namespace MC.Core
 {
     [CreateAssetMenu(fileName = "DestroyableBlockData", menuName = "DestroyableBlockData")]
-    public class DestroyableBlockData : BlockData
+    public class DestroyableBlockData : BlockData, IDigable
     {
         public float digTime = 1;
 
@@ -11,13 +12,21 @@ namespace MC.Core
 
         public Inventory dropInventory;
 
-        public override void RemoveBlock(WorldManager worldManager, int height, int x, int y)
+        public AudioClip DigSound()
         {
-            worldManager.RemoveBlock(height, x, y);
+            return digSound;
+        }
 
+        public float DigTime()
+        {
+            return digTime;
+        }
+
+        public void DropInventory(Vector3 pos)
+        {
             if (dropInventory != null)
             {
-                InventoryDropManager.Instance.CreateDropBlockInventory(new Vector3(x + worldManager.mapData.startPos.x, height, y + worldManager.mapData.startPos.z) + new Vector3(1, 1, 1) * 0.5f, new InventoryStorage()
+                InventoryDropManager.Instance.CreateDropBlockInventory(pos + new Vector3(1, 1, 1) * 0.5f, new InventoryStorage()
                 {
                     count = 1,
                     inventory = dropInventory,
@@ -25,6 +34,11 @@ namespace MC.Core
                 }
             );
             }
+        }
+
+        public override void RemoveBlock(WorldManager worldManager, int height, int x, int y)
+        {
+            worldManager.RemoveBlock(height, x, y);
         }
     }
 }

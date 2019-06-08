@@ -69,6 +69,9 @@ namespace MC.Core
 
             player.inventorySystem.inventoryStorageList = achievementData.inventoryStorageList;
             player.inventorySystem.UpdateInvetoryUI();
+
+            CraftSystem.Instance.craftInventoryList = achievementData.craftStorageList;
+            CraftSystem.Instance.UpdateInvetoryUI();
         }
 
         private static bool isInfiniteScene()
@@ -85,6 +88,7 @@ namespace MC.Core
             }
 
             achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
+            achievementData.craftStorageList = CraftSystem.Instance.craftInventoryList;
             GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }
 

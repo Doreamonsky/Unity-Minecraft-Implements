@@ -10,5 +10,7 @@ namespace MC.Core
         public Inventory CraftedInventory;
 
         public int CraftedCount = 1;
+
+        public bool requireHeating = false;
     }
 }

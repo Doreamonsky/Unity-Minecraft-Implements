@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e469b8ea42f7d4a803c5da72a20f84, type: 3}
+  m_Name: Hand Gun Recipe
+  m_EditorClassIdentifier: 
+  Recipe:
+  - {fileID: 11400000, guid: 449ea87093fb91142a29838e12e65600, type: 2}
+  - {fileID: 11400000, guid: 449ea87093fb91142a29838e12e65600, type: 2}
+  - {fileID: 11400000, guid: 2140f04c3baecbd408ca476cdd2617d3, type: 2}
+  - {fileID: 11400000, guid: 449ea87093fb91142a29838e12e65600, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CraftedInventory: {fileID: 11400000, guid: 5874f986e66e0c140985380df4aec443, type: 2}
+  CraftedCount: 1
+  requireHeating: 0

@@ -52,7 +52,7 @@ MonoBehaviour:
     isBuffer: 0
   - ObjectName: Explosion
     Object: {fileID: 1126181125208960, guid: ca26d7307564ff848b29e32bbe6279ef, type: 3}
-    CreateCount: 2
+    CreateCount: 5
     LifeTime: 5
     isBuffer: 0
   - ObjectName: Hurt Sound

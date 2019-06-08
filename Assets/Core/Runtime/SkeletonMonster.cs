@@ -7,6 +7,10 @@ namespace MC.Core
     {
         public float swordDamage = 15;
 
+        public Transform rayTransform;
+
+        public Transform skeletonCenter;
+
         private readonly float damageInterval = 1f;
 
         private float lastDamageTime = 0;
@@ -46,11 +50,23 @@ namespace MC.Core
 
         public void OnAttackAnimation()
         {
-            var dir = target.transform.position - transform.position;
+            var dir = target.transform.position - skeletonCenter.position;
 
-            if (dir.magnitude < 3)
+            if (dir.magnitude < 4)
             {
                 target.ApplyDamage(swordDamage);
+            }
+        }
+
+        public override void CheckDead()
+        {
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+
+                PoolManager.CreateObject("Explosion", skeletonCenter.position, Quaternion.LookRotation(Vector3.up).eulerAngles);
+
+                OnDeath?.Invoke();
             }
         }
     }

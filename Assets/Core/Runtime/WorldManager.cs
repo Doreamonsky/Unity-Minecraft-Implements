@@ -59,6 +59,8 @@ namespace MC.Core
         private MeshFilter m_MeshFilter;
         //private MeshCollider m_meshCollider;
 
+        private readonly bool initialChange = false;
+
         public void Initialize(GameObject parent, Material material)
         {
             mesh = new Mesh();
@@ -82,15 +84,15 @@ namespace MC.Core
                 return;
             }
 
-            mesh.Clear();
+            //mesh.Clear();
 
-            mesh.vertices = vertices.ToArray();
-            mesh.triangles = triangles.ToArray();
+            mesh.SetVertices(vertices);
+            mesh.SetTriangles(triangles.ToArray(), 0);
+            mesh.SetUVs(0, uvs);
 
-            mesh.uv = uvs.ToArray();
-
+            //mesh.RecalculateBounds();
+            //mesh.RecalculateTangents();
             mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
         }
 
     }
@@ -225,6 +227,8 @@ namespace MC.Core
         private void GenerateWorld()
         {
             StartCoroutine(RenderBlocks(0, mapData.max_height - 1, 0, mapData.max_width - 1, 0, mapData.max_length - 1, InstancingRenderer));
+
+            RenderPlaceableInventory();
         }
 
         //创建Block 需要外部的坐标转换
@@ -423,7 +427,6 @@ namespace MC.Core
                 runtime.ApplyChanges();
             }
 
-            RenderPlaceableInventory();
         }
 
 
@@ -583,7 +586,14 @@ namespace MC.Core
 
             mapData.inventoryPlaceDataList.Add(placeData);
             PlaceInventory(placeData);
+
         }
+
+        public RuntimePlaceableInventoryData GetItemData(Vector3 pos)
+        {
+            return runtimePlaceableInventoryDataList.Find(val => val.placeData.pos == pos);
+        }
+
         public void RemoveInventroy(RuntimePlaceableInventoryData runtimePlaceableInventoryData)
         {
             Destroy(runtimePlaceableInventoryData.itemInstance);
@@ -602,7 +612,8 @@ namespace MC.Core
             runtimePlaceableInventoryDataList.Add(new RuntimePlaceableInventoryData()
             {
                 inventory = inventory,
-                itemInstance = itemInstance
+                itemInstance = itemInstance,
+                placeData = placeData
             });
         }
     }

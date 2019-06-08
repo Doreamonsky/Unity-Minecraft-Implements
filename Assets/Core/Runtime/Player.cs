@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -35,7 +36,13 @@ namespace MC.Core
 
         public GameObject weaponBar;
 
+        public Camera playerCamera;
+
         public System.Action OnUpdated;
+
+        public Button sleepBtn;
+
+        public Image sleepEffect;
 
         private Vector3 moveDirection;
 
@@ -84,6 +91,11 @@ namespace MC.Core
                     });
                 }
             };
+
+            sleepBtn.onClick.AddListener(() =>
+            {
+                StartCoroutine(ToSleep());
+            });
         }
 
         private void Update()
@@ -221,6 +233,36 @@ namespace MC.Core
         private void OnApplicationQuit()
         {
             Util.OnRequireSave?.Invoke();
+        }
+
+        private IEnumerator ToSleep()
+        {
+            float t = 0f;
+
+            sleepEffect.gameObject.SetActive(true);
+
+            while (true)
+            {
+                if (t < 5)
+                {
+                    var val = t / 5f;
+
+                    sleepEffect.color = new Color(0, 0, 0, val);
+                }
+
+                yield return new WaitForEndOfFrame();
+
+                if (t > 7)
+                {
+                    FindObjectOfType<TOD_Sky>().Cycle.Hour = 5f + Random.value;
+                    sleepEffect.gameObject.SetActive(false);
+                    yield break;
+                }
+                else
+                {
+                    t += Time.deltaTime;
+                }
+            }
         }
     }
 

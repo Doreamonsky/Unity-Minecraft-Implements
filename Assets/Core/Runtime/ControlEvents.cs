@@ -41,6 +41,7 @@ namespace MC.Core
 
             SwapManager.OnAllocateItem = null;
             SwapManager.OnSwapItem = null;
+            SwapManager.OnHighlightedItem = null;
         }
     }
 }

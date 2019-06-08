@@ -20,6 +20,7 @@ namespace MC.Core
 
         public float digBoost = 1;
 
+
         [System.NonSerialized]
         private float lastAttackTime = 0;
 
@@ -36,13 +37,14 @@ namespace MC.Core
                     animator.SetTrigger("Attack");
                 }
 
-                var monsters = GameObject.FindObjectsOfType<Monster>();
 
-                foreach (var monster in monsters)
+                var isHit = Physics.Raycast(weaponModel.transform.position, attacker.playerCamera.transform.forward, out RaycastHit rayHit, attackRange);
+
+                if (isHit)
                 {
-                    var dir = monster.transform.position - attacker.transform.position;
+                    var monster = rayHit.collider.GetComponentInParent<Monster>();
 
-                    if (dir.magnitude < attackRange)
+                    if (monster != null)
                     {
                         monster.ApplyDamage(hpDamage);
                     }

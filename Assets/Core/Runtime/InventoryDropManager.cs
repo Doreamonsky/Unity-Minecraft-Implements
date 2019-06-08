@@ -18,9 +18,7 @@ namespace MC.Core
 
         public void CreateDropBlockInventory(Vector3 pos, InventoryStorage inventoryStorage)
         {
-            var isHit = Physics.Raycast(pos, Vector3.up * -1, out RaycastHit rayHit, 20, 1 << LayerMask.NameToLayer("Block"));
-
-            var instance = Instantiate(dropPrefab, isHit ? rayHit.point + Vector3.up * 0.5f : pos, Quaternion.identity);
+            var instance = Instantiate(dropPrefab, pos, Quaternion.identity);
 
             var dropBlockInventory = instance.GetComponent<DropInventory>();
 
@@ -33,7 +31,7 @@ namespace MC.Core
                     instance.GetComponentInChildren<MeshRenderer>().material = placeable.blockData.topTex;
                 }
             }
-        
+
 
             dropBlockInventory.OnPlayerEnter += () =>
             {

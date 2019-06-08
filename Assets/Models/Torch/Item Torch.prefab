@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8333318083955278367}
-  m_Layer: 0
+  - component: {fileID: 7865979094571534876}
+  m_Layer: 13
   m_Name: Item Torch
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7865979094571534876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486050782605929202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13843817, y: 0.26985133, z: 0.10577132}
+  m_Center: {x: 0, y: 0.113711774, z: 0}
 --- !u!1 &2432187789687154215
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,9 +87,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.8679245, g: 0.5563321, b: 0.48718405, a: 1}
+  m_Color: {r: 0.7169812, g: 0.5529023, b: 0.3009968, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 15
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -111,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f3eae614a2cb8a34ca9868a7b3c4f39f, type: 3}
       propertyPath: m_Name
       value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f3eae614a2cb8a34ca9868a7b3c4f39f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f3eae614a2cb8a34ca9868a7b3c4f39f, type: 3}
       propertyPath: m_LocalPosition.x

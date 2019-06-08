@@ -15,11 +15,11 @@ MonoBehaviour:
   inventoryName: Shovel Wood
   inventoryIcon: {fileID: 21300000, guid: 75c48cd0c707bfd42ba38060a2c9ad00, type: 3}
   endurance: 100
-  hpDamage: 20
+  hpDamage: 10
   attackRange: 3
   attackInterval: 0.25
   weaponPrefab: {fileID: 2709366361078469028, guid: 35b570df3e93b71439b080097ded3b34,
     type: 3}
   slotPos: {x: 0.303, y: -0.351, z: 0.486}
   slotEulerAngle: {x: 0, y: 0, z: 0}
-  digBoost: 3
+  digBoost: 2
