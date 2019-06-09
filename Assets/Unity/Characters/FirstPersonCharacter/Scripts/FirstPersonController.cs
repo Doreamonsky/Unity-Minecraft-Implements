@@ -26,6 +26,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         public AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         public AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        public bool useCameraDir = false;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -134,7 +135,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
+            Vector3 desiredMove = useCameraDir ? Vector3.ProjectOnPlane((m_Camera.transform.forward * m_Input.y + m_Camera.transform.right * m_Input.x), Vector3.up) : transform.forward * m_Input.y + transform.right * m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
