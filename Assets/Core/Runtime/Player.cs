@@ -88,6 +88,10 @@ namespace MC.Core {
         }
 
         private void Update () {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                ScreenCapture.CaptureScreenshot(System.DateTime.Now.Millisecond.ToString() + ".png");
+            }
             if (Input.GetKeyDown (KeyCode.E)) {
                 ToggleCrafting ();
             }
