@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd84883810728f46957189be707d7b5, type: 3}
+  m_Name: BlueTeam_BlackMan
+  m_EditorClassIdentifier: 
+  characterName: BlueTeam_BlackMan
+  slotDataList:
+  - weapon: {fileID: 1424212953072850, guid: 37abb6a0df4dd914aaaa7d126a66044e, type: 3}
+    weaponPos: {x: 0.139, y: 0.58, z: 0.427}
+    weaponRot: {x: -0.094150454, y: -0.06362979, z: -0.0017829179, w: 0.9935209}
+    leftHandPos: {x: -0.09200005, y: 0.046000127, z: 0.15500014}
+    leftHandRot: {x: 0.43782568, y: -0.037282333, z: 0.83505845, w: 0.33105323}
+    rightHandPos: {x: 0.06599963, y: -0.096, z: -0.25099996}
+    rightHandRot: {x: 0.00744218, y: -0.014291983, z: -0.77372324, w: 0.6333189}
+  - weapon: {fileID: 1169180529559872, guid: 1246b49cf6999344f8b0de096f0bf3ec, type: 3}
+    weaponPos: {x: 0.133, y: 0.554, z: 0.546}
+    weaponRot: {x: -0.09901488, y: -0.051233787, z: 0.0051047974, w: 0.993753}
+    leftHandPos: {x: -0.147, y: 0.094, z: 0.078}
+    leftHandRot: {x: 0.42917338, y: -0.04845539, z: 0.83715713, w: 0.33560443}
+    rightHandPos: {x: 0.058, y: -0.032, z: -0.223}
+    rightHandRot: {x: 0.01913771, y: -0.018344764, z: -0.7788815, w: 0.62661064}
