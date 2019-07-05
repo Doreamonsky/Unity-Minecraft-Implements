@@ -1,0 +1,193 @@
+fileFormatVersion: 2
+guid: 0e4c65a7eeea0be468fcf57fc6226e04
+timeCreated: 1550488548
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm.L
+    100002: Arm.R
+    100004: Esqueleto
+    100006: Forearm.L
+    100008: Forearm.R
+    100010: Hands
+    100012: Index.L
+    100014: Index.R
+    100016: IndexRoot.L
+    100018: IndexRoot.R
+    100020: IndexTip.L
+    100022: IndexTip.L_end
+    100024: IndexTip.R
+    100026: IndexTip.R_end
+    100028: Lock
+    100030: Lock_end
+    100032: //RootNode
+    100034: Magazine
+    100036: Magazine_end
+    100038: Middle.L
+    100040: Middle.R
+    100042: MiddleRoot.L
+    100044: MiddleRoot.R
+    100046: MiddleTip.L
+    100048: MiddleTip.L_end
+    100050: MiddleTip.R
+    100052: MiddleTip.R_end
+    100054: Palm.L
+    100056: Palm.R
+    100058: Pinky.L
+    100060: Pinky.R
+    100062: PinkyRoot.L
+    100064: PinkyRoot.R
+    100066: PinkyTip.L
+    100068: PinkyTip.L_end
+    100070: PinkyTip.R
+    100072: PinkyTip.R_end
+    100074: Ring.L
+    100076: Ring.R
+    100078: RingRoot.L
+    100080: RingRoot.R
+    100082: RingTip.L
+    100084: RingTip.L_end
+    100086: RingTip.R
+    100088: RingTip.R_end
+    100090: Root
+    100092: Thumb.L
+    100094: Thumb.R
+    100096: ThumbRoot.L
+    100098: ThumbRoot.R
+    100100: ThumbTip.L
+    100102: ThumbTip.L_end
+    100104: ThumbTip.R
+    100106: ThumbTip.R_end
+    100108: Weapon
+    100110: Weapon 1
+    400000: Arm.L
+    400002: Arm.R
+    400004: Esqueleto
+    400006: Forearm.L
+    400008: Forearm.R
+    400010: Hands
+    400012: Index.L
+    400014: Index.R
+    400016: IndexRoot.L
+    400018: IndexRoot.R
+    400020: IndexTip.L
+    400022: IndexTip.L_end
+    400024: IndexTip.R
+    400026: IndexTip.R_end
+    400028: Lock
+    400030: Lock_end
+    400032: //RootNode
+    400034: Magazine
+    400036: Magazine_end
+    400038: Middle.L
+    400040: Middle.R
+    400042: MiddleRoot.L
+    400044: MiddleRoot.R
+    400046: MiddleTip.L
+    400048: MiddleTip.L_end
+    400050: MiddleTip.R
+    400052: MiddleTip.R_end
+    400054: Palm.L
+    400056: Palm.R
+    400058: Pinky.L
+    400060: Pinky.R
+    400062: PinkyRoot.L
+    400064: PinkyRoot.R
+    400066: PinkyTip.L
+    400068: PinkyTip.L_end
+    400070: PinkyTip.R
+    400072: PinkyTip.R_end
+    400074: Ring.L
+    400076: Ring.R
+    400078: RingRoot.L
+    400080: RingRoot.R
+    400082: RingTip.L
+    400084: RingTip.L_end
+    400086: RingTip.R
+    400088: RingTip.R_end
+    400090: Root
+    400092: Thumb.L
+    400094: Thumb.R
+    400096: ThumbRoot.L
+    400098: ThumbRoot.R
+    400100: ThumbTip.L
+    400102: ThumbTip.L_end
+    400104: ThumbTip.R
+    400106: ThumbTip.R_end
+    400108: Weapon
+    400110: Weapon 1
+    4300000: Hands
+    4300002: Weapon
+    7400000: Esqueleto|EsqueletoAction
+    9500000: //RootNode
+    13700000: Hands
+    13700002: Weapon
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

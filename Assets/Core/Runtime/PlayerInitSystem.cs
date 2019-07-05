@@ -6,6 +6,8 @@ namespace MC.Core
 {
     public class PlayerInitSystem : MonoBehaviour
     {
+        public System.Action<Player> onSpawned;
+
         public GameObject runtime;
 
         public Player player;
@@ -42,6 +44,8 @@ namespace MC.Core
                     SaveStorage();
                 }
             };
+
+            onSpawned?.Invoke(player);
         }
 
         private IEnumerator LoadStorage()

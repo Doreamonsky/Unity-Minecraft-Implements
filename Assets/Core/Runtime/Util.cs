@@ -10,7 +10,7 @@ namespace MC.Core
 
         public static bool isCrafting = false;
 
-        public static bool isTouchingScreen = true;
+        public static bool isTouchingScreen = false;
 
         public static bool IsMobile()
         {

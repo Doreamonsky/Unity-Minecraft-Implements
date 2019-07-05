@@ -1,0 +1,942 @@
+fileFormatVersion: 2
+guid: f8532aa32f20ead469b0b0329116048a
+timeCreated: 1550236455
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm.L
+    100002: Arm.R
+    100004: cuerpo
+    100006: Esqueleto
+    100008: Forearm.L
+    100010: Forearm.R
+    100012: Hands
+    100014: Index.L
+    100016: Index.R
+    100018: IndexRoot.L
+    100020: IndexRoot.R
+    100022: IndexTip.L
+    100024: IndexTip.L_end
+    100026: IndexTip.R
+    100028: IndexTip.R_end
+    100030: Lock
+    100032: Lock_end
+    100034: Magazine
+    100036: Magazine_end
+    100038: Middle.L
+    100040: Middle.R
+    100042: MiddleRoot.L
+    100044: MiddleRoot.R
+    100046: MiddleTip.L
+    100048: MiddleTip.L_end
+    100050: MiddleTip.R
+    100052: MiddleTip.R_end
+    100054: Palm.L
+    100056: Palm.R
+    100058: Pinky.L
+    100060: Pinky.R
+    100062: PinkyRoot.L
+    100064: PinkyRoot.R
+    100066: PinkyTip.L
+    100068: PinkyTip.L_end
+    100070: PinkyTip.R
+    100072: PinkyTip.R_end
+    100074: Rifle
+    100076: //RootNode
+    100078: Ring.L
+    100080: Ring.R
+    100082: RingRoot.L
+    100084: RingRoot.R
+    100086: RingTip.L
+    100088: RingTip.L_end
+    100090: RingTip.R
+    100092: RingTip.R_end
+    100094: Root
+    100096: Slide
+    100098: Slide_end
+    100100: Thumb.L
+    100102: Thumb.R
+    100104: ThumbRoot.L
+    100106: ThumbRoot.R
+    100108: ThumbTip.L
+    100110: ThumbTip.L_end
+    100112: ThumbTip.R
+    100114: ThumbTip.R_end
+    100116: Metarig
+    100118: Rifle 1
+    400000: Arm.L
+    400002: Arm.R
+    400004: cuerpo
+    400006: Esqueleto
+    400008: Forearm.L
+    400010: Forearm.R
+    400012: Hands
+    400014: Index.L
+    400016: Index.R
+    400018: IndexRoot.L
+    400020: IndexRoot.R
+    400022: IndexTip.L
+    400024: IndexTip.L_end
+    400026: IndexTip.R
+    400028: IndexTip.R_end
+    400030: Lock
+    400032: Lock_end
+    400034: Magazine
+    400036: Magazine_end
+    400038: Middle.L
+    400040: Middle.R
+    400042: MiddleRoot.L
+    400044: MiddleRoot.R
+    400046: MiddleTip.L
+    400048: MiddleTip.L_end
+    400050: MiddleTip.R
+    400052: MiddleTip.R_end
+    400054: Palm.L
+    400056: Palm.R
+    400058: Pinky.L
+    400060: Pinky.R
+    400062: PinkyRoot.L
+    400064: PinkyRoot.R
+    400066: PinkyTip.L
+    400068: PinkyTip.L_end
+    400070: PinkyTip.R
+    400072: PinkyTip.R_end
+    400074: Rifle
+    400076: //RootNode
+    400078: Ring.L
+    400080: Ring.R
+    400082: RingRoot.L
+    400084: RingRoot.R
+    400086: RingTip.L
+    400088: RingTip.L_end
+    400090: RingTip.R
+    400092: RingTip.R_end
+    400094: Root
+    400096: Slide
+    400098: Slide_end
+    400100: Thumb.L
+    400102: Thumb.R
+    400104: ThumbRoot.L
+    400106: ThumbRoot.R
+    400108: ThumbTip.L
+    400110: ThumbTip.L_end
+    400112: ThumbTip.R
+    400114: ThumbTip.R_end
+    400116: Metarig
+    400118: Rifle 1
+    4300000: cuerpo
+    4300002: Hands
+    4300004: Rifle
+    7400000: Esqueleto|boltAction
+    7400002: Esqueleto|cargadorAction
+    7400004: Esqueleto|cuerpoAction
+    7400006: "Esqueleto|C\xE1maraAction"
+    7400008: Esqueleto|EsqueletoAction
+    7400010: Esqueleto|gatilloAction
+    7400012: Esqueleto|HandsAction
+    7400014: Esqueleto|tiradorAction
+    7400016: Metarig|boltAction
+    7400018: Metarig|cargadorAction
+    7400020: Metarig|cuerpoAction
+    7400022: "Metarig|C\xE1maraAction"
+    7400024: Idle
+    7400026: Metarig|gatilloAction
+    7400028: Metarig|HandsAction
+    7400030: Metarig|tiradorAction
+    7400032: Shoot
+    7400034: Lock
+    7400036: Reload
+    7400038: Take Gun
+    9500000: //RootNode
+    13700000: cuerpo
+    13700002: Hands
+    13700004: Rifle
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Metarig|EsqueletoAction
+      firstFrame: 0
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hands
+        weight: 1
+      - path: Metarig
+        weight: 1
+      - path: Metarig/Root
+        weight: 1
+      - path: Metarig/Root/Arm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L/IndexTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L/MiddleTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L/PinkyTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock/Lock_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine/Magazine_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide/Slide_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L/RingTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L/ThumbTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R/IndexTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R/MiddleTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R/PinkyTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R/RingTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R/ThumbTip.R_end
+        weight: 1
+      - path: Rifle
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Shoot
+      takeName: Metarig|EsqueletoAction
+      firstFrame: 58
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hands
+        weight: 1
+      - path: Metarig
+        weight: 1
+      - path: Metarig/Root
+        weight: 1
+      - path: Metarig/Root/Arm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L/IndexTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L/MiddleTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L/PinkyTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock/Lock_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine/Magazine_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide/Slide_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L/RingTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L/ThumbTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R/IndexTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R/MiddleTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R/PinkyTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R/RingTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R/ThumbTip.R_end
+        weight: 1
+      - path: Rifle
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Lock
+      takeName: Metarig|EsqueletoAction
+      firstFrame: 75
+      lastFrame: 108
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hands
+        weight: 1
+      - path: Metarig
+        weight: 1
+      - path: Metarig/Root
+        weight: 1
+      - path: Metarig/Root/Arm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L/IndexTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L/MiddleTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L/PinkyTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock/Lock_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine/Magazine_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide/Slide_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L/RingTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L/ThumbTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R/IndexTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R/MiddleTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R/PinkyTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R/RingTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R/ThumbTip.R_end
+        weight: 1
+      - path: Rifle
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Reload
+      takeName: Metarig|EsqueletoAction
+      firstFrame: 108
+      lastFrame: 173
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hands
+        weight: 1
+      - path: Metarig
+        weight: 1
+      - path: Metarig/Root
+        weight: 1
+      - path: Metarig/Root/Arm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L/IndexTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L/MiddleTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L/PinkyTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock/Lock_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine/Magazine_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide/Slide_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L/RingTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L/ThumbTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R/IndexTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R/MiddleTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R/PinkyTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R/RingTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R/ThumbTip.R_end
+        weight: 1
+      - path: Rifle
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Take Gun
+      takeName: Metarig|EsqueletoAction
+      firstFrame: 174
+      lastFrame: 194
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hands
+        weight: 1
+      - path: Metarig
+        weight: 1
+      - path: Metarig/Root
+        weight: 1
+      - path: Metarig/Root/Arm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/IndexRoot.L/Index.L/IndexTip.L/IndexTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/MiddleRoot.L/Middle.L/MiddleTip.L/MiddleTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/PinkyRoot.L/Pinky.L/PinkyTip.L/PinkyTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Lock/Lock_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Magazine/Magazine_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/Rifle 1/Slide/Slide_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/RingRoot.L/Ring.L/RingTip.L/RingTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L
+        weight: 1
+      - path: Metarig/Root/Arm.L/Forearm.L/Palm.L/ThumbRoot.L/Thumb.L/ThumbTip.L/ThumbTip.L_end
+        weight: 1
+      - path: Metarig/Root/Arm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/IndexRoot.R/Index.R/IndexTip.R/IndexTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/MiddleRoot.R/Middle.R/MiddleTip.R/MiddleTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/PinkyRoot.R/Pinky.R/PinkyTip.R/PinkyTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/RingRoot.R/Ring.R/RingTip.R/RingTip.R_end
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R
+        weight: 1
+      - path: Metarig/Root/Arm.R/Forearm.R/Palm.R/ThumbRoot.R/Thumb.R/ThumbTip.R/ThumbTip.R_end
+        weight: 1
+      - path: Rifle
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
