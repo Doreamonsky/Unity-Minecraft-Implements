@@ -12,8 +12,6 @@ namespace MC.CoreEditor
         private void OnEnable()
         {
             var characterWeaponIKData = target as CharacterWeaponIKData;
-
-            characterWeaponIKData.characterName = target.name;
         }
 
         public override void OnInspectorGUI()

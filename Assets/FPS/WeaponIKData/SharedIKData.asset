@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbd84883810728f46957189be707d7b5, type: 3}
-  m_Name: BlueTeam_BlackMan
+  m_Name: SharedIKData
   m_EditorClassIdentifier: 
-  characterName: BlueTeam_BlackMan
   slotDataList:
   - weapon: {fileID: 1424212953072850, guid: 37abb6a0df4dd914aaaa7d126a66044e, type: 3}
     weaponPos: {x: 0.139, y: 0.58, z: 0.427}

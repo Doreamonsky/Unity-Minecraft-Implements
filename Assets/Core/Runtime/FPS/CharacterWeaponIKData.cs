@@ -24,8 +24,6 @@ namespace MC.Core
             public Quaternion rightHandRot;
         }
 
-        public string characterName;
-
         public List<SlotData> slotDataList = new List<SlotData>();
     }
 
