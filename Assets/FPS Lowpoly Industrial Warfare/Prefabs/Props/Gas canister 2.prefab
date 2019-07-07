@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33464150273980286}
   - component: {fileID: 23775045256498854}
   - component: {fileID: 3788052087582138026}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Gas canister 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

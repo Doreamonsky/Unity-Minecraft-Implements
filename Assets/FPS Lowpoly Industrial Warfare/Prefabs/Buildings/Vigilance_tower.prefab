@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4050242029579080}
   - component: {fileID: 33230673171959510}
   - component: {fileID: 23387265582380202}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Vigilance_tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

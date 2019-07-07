@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33325794888487766}
   - component: {fileID: 23770899715853160}
   - component: {fileID: 2120877773810646979}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Metal reel fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,34 +16,24 @@ namespace MC.Core
             public float ammoMaxCount = 31;
         }
 
-
-        [System.Serializable]
-        public class SoundClips
-        {
-            public AudioClip shootSound;
-            public AudioClip takeOutSound;
-            public AudioClip holsterSound;
-            public AudioClip reloadSoundOutOfAmmo;
-            public AudioClip reloadSoundAmmoLeft;
-            public AudioClip aimSound;
-        }
-
-
-        private GameObject weaponModel;
-
         public GameObject weaponPrefab;
 
+        [Header("First Person Slot")]
         public Vector3 slotPos, slotEulerAngle;
 
-        public float fireRate = 0.1f;
+        public WeaponData weaponData;
 
-        public Mag[] defaultMags = new Mag[3];
+        //public float fireRate = 0.1f;
 
-        public SoundClips soundClips;
+        //public Mag[] defaultMags = new Mag[3];
 
-        public BulletData bulletData;
+        //public SoundClips soundClips;
+
+        //public BulletData bulletData;
 
         public bool clickToFire = false;
+
+        private GameObject weaponModel;
 
         private float lastfireTime = 0;
 
@@ -69,12 +59,12 @@ namespace MC.Core
 
         private bool HasBullet()
         {
-            return defaultMags[currentSelectedMug].ammoCount > 0;
+            return weaponData.defaultMags[currentSelectedMug].ammoCount > 0;
         }
 
         private void UseBullet()
         {
-            defaultMags[currentSelectedMug].ammoCount -= 1;
+            weaponData.defaultMags[currentSelectedMug].ammoCount -= 1;
         }
 
         private IEnumerator Reload()
@@ -84,7 +74,7 @@ namespace MC.Core
                 yield break;
             }
 
-            if (currentSelectedMug < defaultMags.Length - 1)
+            if (currentSelectedMug < weaponData.defaultMags.Length - 1)
             {
                 isReloading = true;
 
@@ -94,7 +84,7 @@ namespace MC.Core
 
                 animator.Play("Reload Ammo Left", 0, 0f);
 
-                PlaySound(soundClips.reloadSoundAmmoLeft);
+                PlaySound(weaponData.soundClips.reloadSoundAmmoLeft);
 
                 yield return new WaitForSeconds(2.5f);
 
@@ -111,7 +101,7 @@ namespace MC.Core
 
         public void Fire()
         {
-            if (Time.time - lastfireTime > fireRate && !isReloading)
+            if (Time.time - lastfireTime > weaponData.fireRate && !isReloading)
             {
                 if (HasBullet())
                 {
@@ -130,14 +120,14 @@ namespace MC.Core
                     var bullet = new GameObject("Bullet", typeof(Bullet));
                     bullet.transform.position = ffPoint.position;
                     bullet.transform.rotation = ffPoint.rotation;
-                    bullet.GetComponent<Bullet>().bulletData = bulletData;
+                    bullet.GetComponent<Bullet>().bulletData = weaponData.bulletData;
 
                     muzzleParticles.Emit(1);
                     sparkParticles.Emit(Random.Range(1, 7));
 
-                    PlaySound(soundClips.shootSound);
+                    PlaySound(weaponData.soundClips.shootSound);
 
-                    SlotCount.text = $"Ammos:{defaultMags[currentSelectedMug].ammoCount}/{defaultMags[currentSelectedMug].ammoMaxCount}";
+                    SlotCount.text = $"Ammos:{weaponData.defaultMags[currentSelectedMug].ammoCount}/{weaponData.defaultMags[currentSelectedMug].ammoMaxCount}";
                 }
                 else
                 {
@@ -183,7 +173,7 @@ namespace MC.Core
                 SlotCount = player.weaponBar.transform.Find("SlotCount/Text").GetComponent<Text>();
             }
 
-            PlaySound(soundClips.takeOutSound);
+            PlaySound(weaponData.soundClips.takeOutSound);
 
             weaponModel.SetActive(true);
             player.weaponBar.SetActive(true);
@@ -261,10 +251,10 @@ namespace MC.Core
 
             animator.SetBool("Aim", isZooming);
 
-            PlaySound(soundClips.aimSound);
+            PlaySound(weaponData.soundClips.aimSound);
         }
 
-        //步枪系统 采用其他的工具方式
+        //步枪系统 采用其他的攻击方式
         public void Attack(Player attacker)
         {
             return;
