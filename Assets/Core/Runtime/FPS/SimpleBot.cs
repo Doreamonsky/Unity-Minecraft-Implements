@@ -20,6 +20,8 @@ namespace MC.Core
 
         private TPSAnimationController animationController;
 
+        private Transform aimTransform;
+
         // 武器模型
         private GameObject weapon;
 
@@ -77,6 +79,11 @@ namespace MC.Core
 
             // 武器设置
             mainWeaponAudioSource = weapon.AddComponent<AudioSource>();
+
+            // Aim Transform
+            aimTransform = new GameObject("AimTransform").transform;
+            aimTransform.SetParent(transform);
+            aimTransform.localPosition = Vector3.up * 1.5f;
         }
 
 
@@ -89,6 +96,8 @@ namespace MC.Core
         {
             //meshAgent.SetDestination(destination.position);
             animationController.velocity = meshAgent.velocity.magnitude / meshAgent.speed;
+
+            botLogic.OnUpdated();
             //base.Update();
         }
 
@@ -99,8 +108,9 @@ namespace MC.Core
 
         public Transform GetAimTransform()
         {
-            return transform;
+            return aimTransform;
         }
+
         // 武器控制
         public void WeaponFire()
         {
@@ -123,7 +133,7 @@ namespace MC.Core
                 }
                 else
                 {
-                    Reload();
+                    StartCoroutine(Reload());
                 }
 
             }

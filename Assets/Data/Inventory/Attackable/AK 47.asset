@@ -18,26 +18,5 @@ MonoBehaviour:
     type: 3}
   slotPos: {x: 0, y: -0.111, z: 0.075}
   slotEulerAngle: {x: 0, y: 0, z: 0}
-  fireRate: 0.135
-  defaultMags:
-  - ammoCount: 31
-    ammoMaxCount: 31
-  - ammoCount: 31
-    ammoMaxCount: 31
-  - ammoCount: 31
-    ammoMaxCount: 31
-  - ammoCount: 31
-    ammoMaxCount: 31
-  - ammoCount: 31
-    ammoMaxCount: 31
-  soundClips:
-    shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
-    takeOutSound: {fileID: 8300000, guid: 2ae41e984ff1f3e4a840a1a46b6a8816, type: 3}
-    holsterSound: {fileID: 8300000, guid: 33a4a9bf1a1dbca4cb379a1118c6b20d, type: 3}
-    reloadSoundOutOfAmmo: {fileID: 8300000, guid: 5b907074256e36d41b92e89fb0790633,
-      type: 3}
-    reloadSoundAmmoLeft: {fileID: 8300000, guid: f7ce534a0633b9847910ba117e2245d1,
-      type: 3}
-    aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}
-  bulletData: {fileID: 11400000, guid: 038e8d995eb6ab846a46ac65f3b226ba, type: 2}
+  weaponData: {fileID: 11400000, guid: 1cbfbc541f8b72e4d89273eed3d80a4c, type: 2}
   clickToFire: 0

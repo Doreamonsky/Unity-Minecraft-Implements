@@ -1506,6 +1506,7 @@ MonoBehaviour:
   - {fileID: 1471185762}
   - {fileID: 316828584}
   - {fileID: 1417582927}
+  defaultWeaponData: {fileID: 11400000, guid: 1cbfbc541f8b72e4d89273eed3d80a4c, type: 2}
 --- !u!4 &199451600
 Transform:
   m_ObjectHideFlags: 0
@@ -1710,6 +1711,7 @@ MonoBehaviour:
   m_animator: {fileID: 0}
   currentWeapon: AssaultRifle
   characterData: {fileID: 11400000, guid: 6961f42eaa93eb14dac29a2dbe9f2ae6, type: 2}
+  weaponData: {fileID: 0}
   botLogic: {fileID: 0}
 --- !u!4 &227472019 stripped
 Transform:

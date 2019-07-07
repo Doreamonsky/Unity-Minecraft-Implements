@@ -10,6 +10,8 @@ namespace MC.Core
 
         public Transform[] teamASpawnPoints, teamBSpawnPoints;
 
+        public WeaponData defaultWeaponData;
+
         private void Start()
         {
             var teamA = CreateTeam(teamACount, teamACharacters, teamASpawnPoints);
@@ -26,9 +28,9 @@ namespace MC.Core
             }
 
         }
-   
 
-        private DecisiveManager CreateTeam(int teammateCount, CharacterData[] characterDatas,Transform[] spawnPoints)
+
+        private DecisiveManager CreateTeam(int teammateCount, CharacterData[] characterDatas, Transform[] spawnPoints)
         {
             var decisiveManager = new GameObject("Decisive Manager", typeof(DecisiveManager)).GetComponent<DecisiveManager>();
 
@@ -57,6 +59,8 @@ namespace MC.Core
 
             simpleBot.characterData = characterData;
             simpleBot.currentWeapon = weapon;
+
+            simpleBot.weaponData = Instantiate(defaultWeaponData);
 
             return simpleBot;
         }

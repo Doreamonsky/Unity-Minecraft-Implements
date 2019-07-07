@@ -47,7 +47,7 @@ MonoBehaviour:
   - ObjectName: Hit Muzzle
     Object: {fileID: 8214088611471136556, guid: 48d35892afe979b46ba2415a1fe48703,
       type: 3}
-    CreateCount: 20
+    CreateCount: 120
     LifeTime: 5
     isBuffer: 0
   - ObjectName: Explosion

@@ -31,6 +31,12 @@ namespace MC.Core
         {
             if (isAimingTarget)
             {
+                if (target == null)
+                {
+                    isAimingTarget = false;
+                    return;
+                }
+
                 var dir = target.position - weaponSlot.position;
 
                 weaponSlot.rotation = Quaternion.LookRotation(dir);

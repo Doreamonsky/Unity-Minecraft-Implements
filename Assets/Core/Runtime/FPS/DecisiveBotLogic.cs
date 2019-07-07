@@ -32,6 +32,13 @@ namespace MC.Core
             base.OnInitialized(logicData);
         }
 
+        private void Idle()
+        {
+            decisiveState = DecisiveState.Idle;
+
+            m_logicData.animationController.isAimingTarget = false;
+        }
+
         public void MoveTo(Transform moveToTrans)
         {
             m_moveToTrans = moveToTrans;
@@ -73,6 +80,11 @@ namespace MC.Core
                 case DecisiveState.PatrolAB:
                     break;
                 case DecisiveState.AttackStill:
+                    if (m_attackTarget == null)
+                    {
+                        Idle();
+                    }
+                    m_logicData.simpleBot.WeaponFire();
                     break;
                 case DecisiveState.AttackMoveAB:
                     break;
@@ -82,6 +94,8 @@ namespace MC.Core
                     break;
             }
         }
+
+
 
         public void ObserveEnemies(List<IHittableCharacter> enemies)
         {

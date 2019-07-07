@@ -32,7 +32,7 @@ namespace MC.Core
 
             if (isHit)
             {
-                var monster = rayHit.collider.GetComponent<Monster>();
+                var monster = rayHit.collider.GetComponentInParent<Monster>();
 
                 if (monster)
                 {
