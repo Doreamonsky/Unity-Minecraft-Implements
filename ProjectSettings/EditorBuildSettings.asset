@@ -17,4 +17,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/InfiniteScene.unity
     guid: 701a0798525e1bc41b3a3da4d668fcfa
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 044bf3bd1f01e914f946f5afcb24628d,
+      type: 2}

@@ -294,7 +294,7 @@ namespace MC.CoreEditor
                                 blockID = 3;
                             }
                             //地表
-                            else if (heightIndex < 15)
+                            else if (heightIndex < mapData.mineHeight)
                             {
                                 var isMine = Random.value > 0.9;
 
@@ -357,7 +357,7 @@ namespace MC.CoreEditor
             {
                 var data = mapData.WorldData;
 
-                for (var heightIndex = 15; heightIndex < mapData.max_height; heightIndex++)
+                for (var heightIndex = mapData.mineHeight; heightIndex < mapData.max_height; heightIndex++)
                 {
                     for (var i = 0; i < mapData.max_width; i++)
                     {
@@ -368,7 +368,7 @@ namespace MC.CoreEditor
 
                             var scale = 5.5f;
 
-                            var maxHeight = Mathf.PerlinNoise(i * scale / mapData.max_width + seed, j * scale / mapData.max_length + seed) * 8 + 15;
+                            var maxHeight = Mathf.PerlinNoise(i * scale / mapData.max_width + seed, j * scale / mapData.max_length + seed) * mapData.grassHeightRange + mapData.grassHeight;
 
                             if (heightIndex < maxHeight)
                             {

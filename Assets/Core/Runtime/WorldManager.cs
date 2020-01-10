@@ -28,14 +28,16 @@ namespace MC.Core
     //用于移除渲染的面片
     public class RendererCache
     {
-        public Vector3 pos;
+        // 采用坐标
+        public Vector3 renderID;
 
         public int verticeIndex;
     }
 
     public class ColliderCache
     {
-        public Vector3 pos;
+        // 采用坐标
+        public Vector3 renderID;
 
         public BoxCollider collider;
     }
@@ -59,7 +61,6 @@ namespace MC.Core
         private MeshFilter m_MeshFilter;
         //private MeshCollider m_meshCollider;
 
-        private readonly bool initialChange = false;
 
         public void Initialize(GameObject parent, Material material)
         {
@@ -151,6 +152,10 @@ namespace MC.Core
 
         private static int BatchingRendereringCount = 0;
 
+        public static float scaleSize = 1f;
+
+        //private readonly float scaleSize = 0.25f;
+
         public void Start()
         {
 #if UNITY_EDITOR
@@ -231,31 +236,31 @@ namespace MC.Core
             RenderPlaceableInventory();
         }
 
-        //创建Block 需要外部的坐标转换
+        //创建Block 需要外部判断Block的数组位置
         public void CreateBlock(int height, int x, int y, int layerID)
         {
-            x -= (int)mapData.startPos.x;
-            y -= (int)mapData.startPos.z;
+            //x -= (int)mapData.startPos.x;
+            //y -= (int)mapData.startPos.z;
 
             runtimeWorldData[height, x, y] = layerID;
             StartCoroutine(RenderBlocks(height, height, x, x, y, y, true));
         }
 
-        //获取Block信息 需要外部的坐标转换
+        //获取Block信息 需要外部判断Block的数组位置
         public BlockData GetBlockData(int height, int x, int y)
         {
-            x -= (int)mapData.startPos.x;
-            y -= (int)mapData.startPos.z;
+            //x -= (int)mapData.startPos.x;
+            //y -= (int)mapData.startPos.z;
 
             var blockID = runtimeWorldData[height, x, y];
             return blockMaps[blockID].blockData;
         }
 
-        //与Block交互 需要外部的坐标转换
-        public void InteractBlock(int height, int x, int y)
+        //与Block交互 需要外部判断Block的数组位置
+        public void DeleteBlock(int height, int x, int y)
         {
-            x -= (int)mapData.startPos.x;
-            y -= (int)mapData.startPos.z;
+            //x -= (int)mapData.startPos.x;
+            //y -= (int)mapData.startPos.z;
 
             var blockID = runtimeWorldData[height, x, y];
             blockMaps[blockID].blockData.RemoveBlock(this, height, x, y);
@@ -265,7 +270,7 @@ namespace MC.Core
         {
             //删除碰撞
             var blockID = runtimeWorldData[height, x, y];
-            var colliderCache = blockMaps[blockID].colliderCacheList.Find(val => val.pos == new Vector3(x, height, y));
+            var colliderCache = blockMaps[blockID].colliderCacheList.Find(val => val.renderID == new Vector3(x, height, y));
 
             if (colliderCache != null)
             {
@@ -276,6 +281,7 @@ namespace MC.Core
             runtimeWorldData[height, x, y] = 0;
 
             RemoveRenderBlock(height, x, y);
+
         }
 
         //渲染规定区域内的Block
@@ -395,26 +401,29 @@ namespace MC.Core
                                 }
                             }
 
-                            //生成碰撞
                             if (isVisible)
                             {
                                 grouped++;
+                            }
 
-                                if (blockMap.colliderCacheList.Find(val => val.pos == new Vector3(i, heightIndex, j)) == null)
+                            //生成碰撞
+                            if (blockMap.colliderCacheList.Find(val => val.renderID == new Vector3(i, heightIndex, j)) == null)
+                            {
+                                var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
+
+                                collider.gameObject.layer = LayerMask.NameToLayer("Block");
+                                collider.center = new Vector3(0.5f, 0.5f, 0.5f);
+
+                                collider.transform.rotation = transform.rotation;
+                                collider.transform.localScale = new Vector3(1, 1, 1) * scaleSize;
+                                collider.transform.position = /*new Vector3(i*tra, heightIndex, j)*/(transform.forward * j + transform.up * heightIndex + transform.right * i) * scaleSize + transform.position;
+                                collider.transform.SetParent(colliderParent);
+
+                                blockMap.colliderCacheList.Add(new ColliderCache()
                                 {
-                                    var collider = new GameObject("Collider", typeof(BoxCollider)).GetComponent<BoxCollider>();
-
-                                    collider.gameObject.layer = LayerMask.NameToLayer("Block");
-                                    collider.center = new Vector3(0.5f, 0.5f, 0.5f);
-                                    collider.transform.position = new Vector3(i, heightIndex, j) + mapData.startPos;
-                                    collider.transform.SetParent(colliderParent);
-
-                                    blockMap.colliderCacheList.Add(new ColliderCache()
-                                    {
-                                        pos = new Vector3(i, heightIndex, j),
-                                        collider = collider
-                                    });
-                                }
+                                    renderID = new Vector3(i, heightIndex, j),
+                                    collider = collider
+                                });
                             }
                         }
                     }
@@ -437,7 +446,7 @@ namespace MC.Core
             {
                 foreach (var runtimeData in runtimeSharedRendererData)
                 {
-                    var caches = runtimeData.rendererCaches.FindAll(val => val.pos == new Vector3(x, height, y));
+                    var caches = runtimeData.rendererCaches.FindAll(val => val.renderID == new Vector3(x, height, y));
 
                     //不删除runtimeData的数据是防止Index变化
                     for (int i = caches.Count - 1; i >= 0; i--)
@@ -463,7 +472,7 @@ namespace MC.Core
             var blockID = runtimeWorldData[height, x, y];
             var blockMap = blockMaps[blockID];
 
-            var pivot = new Vector3(x, height, y);
+            var pivot = new Vector3(x, height, y) * scaleSize;
 
             var runtimeData = runtimeSharedRendererData.Find(val => val.matName == blockMap.GetRunTimeRendererData(quadStatus).name);
 
@@ -471,17 +480,17 @@ namespace MC.Core
 
             runtimeData.rendererCaches.Add(new RendererCache()
             {
-                pos = new Vector3(x, height, y),
+                renderID = new Vector3(x, height, y),
                 verticeIndex = verIndex
             });
 
             switch (quadStatus)
             {
                 case QuadStatus.Top:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 1);
@@ -492,10 +501,10 @@ namespace MC.Core
 
                     break;
                 case QuadStatus.Bottom:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 2);
@@ -506,10 +515,10 @@ namespace MC.Core
                     break;
 
                 case QuadStatus.Right:
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 1);
@@ -519,10 +528,10 @@ namespace MC.Core
                     runtimeData.triangles.Add(verIndex + 3);
                     break;
                 case QuadStatus.Left:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 2);
@@ -532,10 +541,10 @@ namespace MC.Core
                     runtimeData.triangles.Add(verIndex + 3);
                     break;
                 case QuadStatus.Front:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 1) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 1) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 2);
@@ -545,10 +554,10 @@ namespace MC.Core
                     runtimeData.triangles.Add(verIndex + 3);
                     break;
                 case QuadStatus.Back:
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) + mapData.startPos);
-                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) + mapData.startPos);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 1, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 1, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(0, 0, 0) * scaleSize + mapData.startPos * scaleSize);
+                    runtimeData.vertices.Add(pivot + new Vector3(1, 0, 0) * scaleSize + mapData.startPos * scaleSize);
 
                     runtimeData.triangles.Add(verIndex);
                     runtimeData.triangles.Add(verIndex + 1);

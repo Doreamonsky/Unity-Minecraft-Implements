@@ -1,14 +1,16 @@
 {
     "name": "Core",
     "references": [
-        "SkyDome"
+        "SkyDome",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": []
 }

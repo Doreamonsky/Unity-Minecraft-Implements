@@ -42,6 +42,11 @@ namespace MC.Core
 
         public int seed;
 
+        public int mineHeight = 15;
+
+        public int grassHeight = 18;
+
+        public int grassHeightRange = 5;
 
         public Vector3 startPos = Vector3.zero;
 

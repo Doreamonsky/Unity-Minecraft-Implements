@@ -9,7 +9,7 @@ namespace MC.Core
 
         public List<Inventory> inventories;
 
-        private void Start()
+        private void Awake()
         {
             Instance = this;
         }
