@@ -169,6 +169,7 @@ namespace MC.Core
                 weaponModel = Instantiate(weaponPrefab, inventorySystem.weaponSlot, true);
                 weaponModel.transform.localPosition = slotPos;
                 weaponModel.transform.localEulerAngles = slotEulerAngle;
+                weaponModel.transform.localScale = new Vector3(1, 1, 1);
 
                 animator = weaponModel.GetComponent<Animator>();
                 muzzleParticles = weaponModel.transform.Find("Armature/weapon/Components/Muzzleflash Particles").GetComponent<ParticleSystem>();

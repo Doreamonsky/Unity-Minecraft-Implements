@@ -7,6 +7,7 @@ namespace MC.Core
 {
     public class InventorySystem : MonoBehaviour
     {
+        private const int max_item_count_per_slot = 256;
         public static int max_slot_count = 35;
 
         public static int max_bottom_slot_count = 10;
@@ -106,7 +107,7 @@ namespace MC.Core
         private void Start()
         {
 #if UNITY_EDITOR
-    
+
             foreach (var storage in inventoryStorageList)
             {
                 storage.inventory = Instantiate(storage.inventory);
@@ -252,10 +253,10 @@ namespace MC.Core
                     {
                         var sum = itemA.count + itemB.count;
 
-                        if (sum > 64)
+                        if (sum > max_item_count_per_slot)
                         {
-                            itemA.count = sum - 64;
-                            itemB.count = 64;
+                            itemA.count = sum - max_item_count_per_slot;
+                            itemB.count = max_item_count_per_slot;
                         }
                         else
                         {
@@ -306,10 +307,10 @@ namespace MC.Core
                     {
                         var sum = itemA.count + itemB.count;
 
-                        if (sum > 64)
+                        if (sum > max_item_count_per_slot)
                         {
-                            itemA.count = sum - 64;
-                            itemB.count = 64;
+                            itemA.count = sum - max_item_count_per_slot;
+                            itemB.count = max_item_count_per_slot;
                         }
                         else
                         {
@@ -369,10 +370,10 @@ namespace MC.Core
                     {
                         var sum = itemA.count + itemB.count;
 
-                        if (sum > 64)
+                        if (sum > max_item_count_per_slot)
                         {
-                            itemA.count = sum - 64;
-                            itemB.count = 64;
+                            itemA.count = sum - max_item_count_per_slot;
+                            itemB.count = max_item_count_per_slot;
                         }
                         else
                         {
@@ -432,10 +433,10 @@ namespace MC.Core
                     {
                         var sum = itemA.count + itemB.count;
 
-                        if (sum > 64)
+                        if (sum > max_item_count_per_slot)
                         {
-                            itemA.count = sum - 64;
-                            itemB.count = 64;
+                            itemA.count = sum - max_item_count_per_slot;
+                            itemB.count = max_item_count_per_slot;
                         }
                         else
                         {
@@ -485,7 +486,7 @@ namespace MC.Core
 
                         inventoryStorageList.Add(craftedInventory);
                     }
-                    else if (targetInv.inventory.inventoryName == craftedInventory.inventory.inventoryName && targetInv.count + craftedInventory.count <= 64)
+                    else if (targetInv.inventory.inventoryName == craftedInventory.inventory.inventoryName && targetInv.count + craftedInventory.count <= max_item_count_per_slot)
                     {
                         isCrafted = true;
                         craftedInventory.slotID = b;
@@ -611,7 +612,7 @@ namespace MC.Core
             }
 
             var ray = playerCamera.ScreenPointToRay(screenPos);
-            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 240, 1 << LayerMask.NameToLayer("Block"));
+            var isHit = Physics.Raycast(ray, out RaycastHit rayHit, 240, 1 << LayerMask.NameToLayer("Block") | 1 << LayerMask.NameToLayer("Item"));
 
             var currInv = currentStorage.inventory;
 
@@ -630,7 +631,7 @@ namespace MC.Core
                     var x = Mathf.FloorToInt(localPlacePoint.x / WorldManager.scaleSize);
                     var y = Mathf.FloorToInt(localPlacePoint.z / WorldManager.scaleSize);
 
-                    var isUsed = inv.Place(worldManager, new Vector3(x, height, y));
+                    var isUsed = inv.Place(worldManager, new Vector3Int(x, height, y), ray.direction);
 
                     if (isUsed)
                     {
@@ -695,7 +696,7 @@ namespace MC.Core
                 {
                     isBlock = true;
 
-                    var blockData = worldManager.GetBlockData((int)chunckPoint.y, (int)chunckPoint.x, (int)chunckPoint.z);
+                    var blockData = worldManager.GetBlockData(height, x, y);
                     digableItem = blockData as IDigable;
                 }
 
@@ -703,7 +704,7 @@ namespace MC.Core
                 {
                     isItem = true;
 
-                    itemData = worldManager.GetItemData(rayHit.collider.transform.position);
+                    itemData = worldManager.GetItemData(new Vector3Int(x, height, y));
                     digableItem = itemData.inventory as IDigable;
                 }
 
@@ -757,6 +758,10 @@ namespace MC.Core
                 {
                     layout.digProgressBar.SetActive(false);
                 }
+            }
+            else
+            {
+                Debug.Log("Ops,noting is hit");
             }
         }
 

@@ -18,8 +18,6 @@ namespace MC.Core
 
         public GameObject itemModel;
 
-        public Vector3 itemPos = new Vector3(0.5f, 0, 0.5f);
-
         [Header("IDigable")]
         public float digTime = 1;
 
@@ -27,20 +25,61 @@ namespace MC.Core
 
         public Inventory dropInventory;
 
-        public bool Place(WorldManager worldManager, Vector3 pos)
+        /// <summary>
+        /// 放置物体
+        /// </summary>
+        /// <param name="worldManager"></param>
+        /// <param name="pos"></param>
+        /// <param name="dir">放置时候角度</param>
+        /// <returns></returns>
+        public bool Place(WorldManager worldManager, Vector3Int pos, Vector3 dir)
         {
             switch (placeType)
             {
                 case PlaceType.Block:
                     //从当前 WorldManager LayerID 
                     var layerID = worldManager.blockStorageData.BlockMapping.Find(val => val.blockData?.name == blockData.name).layerID;
-                    worldManager.CreateBlock((int)pos.y, (int)pos.x, (int)pos.z, layerID);
+                    worldManager.CreateBlock(pos.y, pos.x, pos.z, layerID);
 
                     return true;
                 case PlaceType.Item:
-                    if (worldManager.GetItemData(pos + itemPos) == null)
+                    if (worldManager.GetItemData(pos) == null)
                     {
-                        worldManager.CreatePlaceableInventory(this, pos + itemPos, Vector3.zero);
+                        // 判断朝向WorldManager的哪个轴
+                        var xProjectPos = Vector3.Dot(worldManager.transform.right, dir);
+                        var zProjectPos = Vector3.Dot(worldManager.transform.forward, dir);
+                        var xProjectNeg = Vector3.Dot(-worldManager.transform.right, dir);
+                        var zProjectNeg = Vector3.Dot(-worldManager.transform.forward, dir);
+
+                        var args = new float[] { xProjectPos, zProjectPos, xProjectNeg, zProjectNeg };
+
+                        var placeDir = Vector3.forward;
+
+                        if (Mathf.Abs(xProjectPos - Mathf.Max(args)) < Mathf.Epsilon)
+                        {
+                            placeDir = worldManager.transform.right;
+                        }
+                        else if (Mathf.Abs(zProjectPos - Mathf.Max(args)) < Mathf.Epsilon)
+                        {
+                            placeDir = worldManager.transform.forward;
+                        }
+                        else if (Mathf.Abs(xProjectNeg - Mathf.Max(args)) < Mathf.Epsilon)
+                        {
+                            placeDir = -worldManager.transform.right;
+                        }
+                        else if (Mathf.Abs(zProjectNeg - Mathf.Max(args)) < Mathf.Epsilon)
+                        {
+                            placeDir = -worldManager.transform.forward;
+                        }
+                        else
+                        {
+                            Debug.Log("Fail To Lock Dir");
+                            return false;
+                        }
+
+                        placeDir = worldManager.transform.InverseTransformDirection(placeDir);
+
+                        worldManager.CreatePlaceableInventory(this, pos, placeDir);
                         return true;
                     }
                     break;

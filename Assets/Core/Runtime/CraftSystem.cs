@@ -62,7 +62,6 @@ namespace MC.Core
 
         public List<InventoryStorage> craftInventoryList = new List<InventoryStorage>();
 
-        public List<RecipeData> recipeList = new List<RecipeData>();
 
         public UILayout layout = new UILayout();
 
@@ -119,7 +118,7 @@ namespace MC.Core
             }
 
 
-            foreach (var recipe in recipeList)
+            foreach (var recipe in InventoryManager.Instance.recipeList)
             {
                 //加热条件不满足
                 if (recipe.requireHeating != isHeating)

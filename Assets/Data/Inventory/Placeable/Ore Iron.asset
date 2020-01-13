@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Ore Iron
   m_EditorClassIdentifier: 
   inventoryName: Ore Iron
-  inventoryIcon: {fileID: 21300000, guid: 93373ceb05ef0254cb335987319338c0, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 8808dd1239ca0ae479f57518d48c84e4, type: 3}
   placeType: 0
   blockData: {fileID: 11400000, guid: e0b3413ce4e3b984b9302feb7b63904b, type: 2}
   itemModel: {fileID: 0}
+  itemPos: {x: 0.5, y: 0, z: 0.5}
+  digTime: 1
+  digSound: {fileID: 0}
+  dropInventory: {fileID: 0}

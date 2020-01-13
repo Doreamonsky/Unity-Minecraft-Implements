@@ -28,7 +28,7 @@ namespace MC.Core
 
             if (lastingTime > 3)
             {
-                Util.OnRequireSave?.Invoke();
+                Util.onRequireMapSave?.Invoke();
                 SceneManager.LoadScene("InfiniteScene");
             }
         }

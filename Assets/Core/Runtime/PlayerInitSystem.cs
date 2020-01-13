@@ -14,34 +14,36 @@ namespace MC.Core
 
         public bool useSaving = false;
 
-        private TOD_Sky skyDome;
+        private readonly TOD_Sky skyDome;
 
         public void Init()
         {
-            runtime = Instantiate(Resources.Load<GameObject>("Runtime"));
-            skyDome = FindObjectOfType<TOD_Sky>();
+            Debug.LogError("Code Commented");
 
-            player = runtime.transform.Find("Player").GetComponent<Player>();
+            //runtime = Instantiate(Resources.Load<GameObject>("Runtime"));
+            //skyDome = FindObjectOfType<TOD_Sky>();
 
-            player.gameObject.SetActive(false);
+            //player = runtime.transform.Find("Player").GetComponent<Player>();
 
-            player.transform.position = transform.position;
-            player.transform.rotation = transform.rotation;
+            //player.gameObject.SetActive(false);
 
-            if (useSaving)
-            {
-                StartCoroutine(LoadStorage());
-            }
+            //player.transform.position = transform.position;
+            //player.transform.rotation = transform.rotation;
 
-            player.gameObject.SetActive(true);
+            //if (useSaving)
+            //{
+            //    StartCoroutine(LoadStorage());
+            //}
 
-            Util.OnRequireSave += () =>
-            {
-                if (useSaving)
-                {
-                    SaveStorage();
-                }
-            };
+            //player.gameObject.SetActive(true);
+
+            //Util.OnRequireSave += () =>
+            //{
+            //    if (useSaving)
+            //    {
+            //        SaveStorage();
+            //    }
+            //};
         }
 
         private IEnumerator LoadStorage()
@@ -49,21 +51,21 @@ namespace MC.Core
             achievementData = ScriptableObject.CreateInstance<AchievementData>();
             GeneralStorageSystem.LoadFile(achievementData, "Achievements");
 
-            if (isInfiniteScene())
-            {
-                if (achievementData.infinitePlayerPos != Vector3.zero)
-                {
-                    player.gameObject.SetActive(false);
-                    player.transform.position = achievementData.infinitePlayerPos;
-                    player.gameObject.SetActive(true);
-                    Player.OnPlayerMove(achievementData.infinitePlayerPos);
-                }
+            //if (isInfiniteScene())
+            //{
+            //    if (achievementData.infinitePlayerPos != Vector3.zero)
+            //    {
+            //        player.gameObject.SetActive(false);
+            //        player.transform.position = achievementData.infinitePlayerPos;
+            //        player.gameObject.SetActive(true);
+            //        Player.OnPlayerMove(achievementData.infinitePlayerPos);
+            //    }
 
-                skyDome.Cycle = achievementData.timeCycle;
+            //    skyDome.Cycle = achievementData.timeCycle;
 
-                var infiniteWorld = FindObjectOfType<InfiniteWorld>();
-                infiniteWorld.StartCoroutine(infiniteWorld.UpdateWorld());
-            }
+            //    var infiniteWorld = FindObjectOfType<InfiniteWorld>();
+            //    infiniteWorld.StartCoroutine(infiniteWorld.UpdateWorld());
+            //}
 
             yield return new WaitForEndOfFrame();
 
@@ -81,15 +83,15 @@ namespace MC.Core
 
         public void SaveStorage()
         {
-            if (isInfiniteScene())
-            {
-                achievementData.infinitePlayerPos = player.transform.position;
-                achievementData.timeCycle = skyDome.Cycle;
-            }
+            //if (isInfiniteScene())
+            //{
+            //    achievementData.infinitePlayerPos = player.transform.position;
+            //    achievementData.timeCycle = skyDome.Cycle;
+            //}
 
-            achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
-            achievementData.craftStorageList = CraftSystem.Instance.craftInventoryList;
-            GeneralStorageSystem.SaveFile(achievementData, "Achievements");
+            //achievementData.inventoryStorageList = player.inventorySystem.inventoryStorageList;
+            //achievementData.craftStorageList = CraftSystem.Instance.craftInventoryList;
+            //GeneralStorageSystem.SaveFile(achievementData, "Achievements");
         }
 
 

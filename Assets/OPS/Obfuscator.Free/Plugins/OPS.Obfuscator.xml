@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OPS.Obfuscator</name>
+    </assembly>
+    <members>
+        <member name="T:OPS.Obfuscator.Attribute.NotObfuscatedCauseAttribute">
+            <summary>
+            Do not use! Gets attached to not obfuscated members in developments builds.
+            </summary>
+        </member>
+        <member name="T:OPS.Obfuscator.Attribute.DoNotObfuscateClassAttribute">
+            <summary>
+            Add this to an Class, and the whole class with content will not get obfuscated! But still its Method Body.
+            To not obfuscate Method Body too, add an additional Attribute: DoNotObfuscateMethodBodyAttribute.
+            </summary>
+        </member>
+        <member name="T:OPS.Obfuscator.Attribute.DoNotRenameAttribute">
+            <summary>
+            Add this to an Class, Field, Method, whatever and it will not get renamed!
+            </summary>
+        </member>
+    </members>
+</doc>

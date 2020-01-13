@@ -20,6 +20,6 @@ MonoBehaviour:
   attackInterval: 0.3
   weaponPrefab: {fileID: 590722632087211228, guid: 08a8f4bccec28fa4981b83e6dafc3a41,
     type: 3}
-  slotPos: {x: 0.303, y: -0.351, z: 0.486}
+  slotPos: {x: 0.1, y: -0.351, z: 0.486}
   slotEulerAngle: {x: 0, y: 0, z: 0}
-  digBoost: 4.5
+  digBoost: 1

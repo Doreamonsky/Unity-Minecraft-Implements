@@ -38,17 +38,17 @@ namespace MC.Core
                 }
 
 
-                var isHit = Physics.Raycast(weaponModel.transform.position, attacker.playerCamera.transform.forward, out RaycastHit rayHit, attackRange);
+                //var isHit = Physics.Raycast(weaponModel.transform.position, attacker.playerCamera.transform.forward, out RaycastHit rayHit, attackRange);
 
-                if (isHit)
-                {
-                    var monster = rayHit.collider.GetComponentInParent<Monster>();
+                //if (isHit)
+                //{
+                //    var monster = rayHit.collider.GetComponentInParent<Monster>();
 
-                    if (monster != null)
-                    {
-                        monster.ApplyDamage(hpDamage);
-                    }
-                }
+                //    if (monster != null)
+                //    {
+                //        monster.ApplyDamage(hpDamage);
+                //    }
+                //}
             }
 
         }
@@ -76,6 +76,7 @@ namespace MC.Core
                 weaponModel = Instantiate(weaponPrefab, inventorySystem.weaponSlot, true);
                 weaponModel.transform.localPosition = slotPos;
                 weaponModel.transform.localEulerAngles = slotEulerAngle;
+                weaponModel.transform.localScale = new Vector3(1, 1, 1);
             }
 
             weaponModel.SetActive(true);

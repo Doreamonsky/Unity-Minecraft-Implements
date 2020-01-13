@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8eeea02d8d6c014a845e5a2f811085d, type: 3}
+  m_Name: Sand
+  m_EditorClassIdentifier: 
+  forceRenderer: 0
+  topTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  bottomTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  rightTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  leftTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  frontTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  backTex: {fileID: 2100000, guid: 51c24e14bf6b39b4fbe5e28987b90ed6, type: 2}
+  digTime: 2
+  digSound: {fileID: 8300000, guid: 3ae7164d42f158b48826e91c007d1233, type: 3}
+  dropInventory: {fileID: 11400000, guid: 8c6bf467f8563a04c9df429df60c0649, type: 2}

@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AntiCheat</name>
+    </assembly>
+    <members>
+        <member name="T:OPS.AntiCheat.Detector.ADetector">
+            <summary>
+            Simple Detector functions.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Detector.ADetector.FalsePositiveAmount">
+            <summary>
+            Amount of False Positives until a cheat got really detected!
+            </summary>
+        </member>
+        <member name="F:OPS.AntiCheat.Detector.ADetector.cheatDetectedAmount">
+            <summary>
+            Current detected cheat amount.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Detector.ADetector.CheatDetected">
+            <summary>
+            True: A cheat / hack got detected!
+            </summary>
+        </member>
+        <member name="M:OPS.AntiCheat.Detector.ADetector.OnCheatDetected">
+            <summary>
+            When a cheat got more than the FalsePositiveAmount detected this method getting called.
+            </summary>
+        </member>
+        <member name="E:OPS.AntiCheat.Detector.FieldCheatDetector.OnFieldCheatDetected">
+            <summary>
+            Static event. Attach an OnFieldCheatDetected to get informed when a cheater got detected!
+            </summary>
+        </member>
+        <member name="M:OPS.AntiCheat.CoroutineUtils.StartThrowingCoroutine(UnityEngine.MonoBehaviour,System.Collections.IEnumerator,System.Action{System.Exception})">
+            <summary>
+            Start a coroutine that might throw an exception. Call the callback with the exception if it
+            does or null if it finishes without throwing an exception.
+            </summary>
+            <param name="monoBehaviour">MonoBehaviour to start the coroutine on</param>
+            <param name="enumerator">Iterator function to run as the coroutine</param>
+            <param name="done">Callback to call when the coroutine has thrown an exception or finished.
+            The thrown exception or null is passed as the parameter.</param>
+            <returns>The started coroutine</returns>
+        </member>
+        <member name="M:OPS.AntiCheat.CoroutineUtils.RunThrowingIterator(System.Collections.IEnumerator,System.Action{System.Exception})">
+            <summary>
+            Run an iterator function that might throw an exception. Call the callback with the exception
+            if it does or null if it finishes without throwing an exception.
+            </summary>
+            <param name="enumerator">Iterator function to run</param>
+            <param name="done">Callback to call when the iterator has thrown an exception or finished.
+            The thrown exception or null is passed as the parameter.</param>
+            <returns>An enumerator that runs the given enumerator</returns>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.SetInt(System.String,System.Int32)">
+            <summary>
+              <para>Sets the _Value of the preference identified by _Key.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_Value"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetInt(System.String,System.Int32)">
+            <summary>
+              <para>Returns the value corresponding to _Key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_DefaultValue"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetInt(System.String)">
+            <summary>
+              <para>Returns the value corresponding to _Key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.SetFloat(System.String,System.Single)">
+            <summary>
+              <para>Sets the _Value of the preference identified by _Key.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_Value"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetFloat(System.String,System.Single)">
+            <summary>
+              <para>Returns the value corresponding to _Key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_DefaultValue"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetFloat(System.String)">
+            <summary>
+              <para>Returns the value corresponding to _Key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.SetString(System.String,System.String)">
+            <summary>
+              <para>Sets the value of the preference identified by key.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_Value"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetString(System.String,System.String)">
+            <summary>
+              <para>Returns the value corresponding to key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+            <param name="_DefaultValue"></param>
+        </member>
+        <member name="M:OPS.AntiCheat.Prefs.ProtectedPlayerPrefs.GetString(System.String)">
+            <summary>
+              <para>Returns the value corresponding to _Key in the preference file if it exists.</para>
+            </summary>
+            <param name="_Key"></param>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedFloat.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedInt16.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedInt32.InternValue">
+            <summary>
+            InternValue = securedValue
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedInt32.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedInt64.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedString.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedUInt16.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedUInt32.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+        <member name="P:OPS.AntiCheat.Field.ProtectedUInt64.Value">
+            <summary>
+            Set and access the real unencrypted field value.
+            </summary>
+        </member>
+    </members>
+</doc>

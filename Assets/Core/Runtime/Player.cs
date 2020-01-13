@@ -32,8 +32,6 @@ namespace MC.Core
 
         public Button gunFireBtn;
 
-        public Button exit;
-
         public GameObject weaponBar;
 
         public Camera playerCamera;
@@ -73,12 +71,6 @@ namespace MC.Core
                 ToggleCrafting();
             });
 
-            exit.onClick.AddListener(() =>
-            {
-                Util.OnRequireSave?.Invoke();
-
-                SceneManager.LoadScene("Main");
-            });
 
             Util.OnToggleCraftingMode += (state) =>
             {
@@ -229,12 +221,12 @@ namespace MC.Core
 
         private void OnApplicationPause(bool pause)
         {
-            Util.OnRequireSave?.Invoke();
+            Util.onRequireMapSave?.Invoke();
         }
 
         private void OnApplicationQuit()
         {
-            Util.OnRequireSave?.Invoke();
+            Util.onRequireMapSave?.Invoke();
         }
 
         private IEnumerator ToSleep()

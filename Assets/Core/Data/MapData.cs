@@ -8,9 +8,9 @@ namespace MC.Core
     [System.Serializable]
     public class InventoryPlaceData
     {
-        public Vector3 pos;
+        public Vector3Int pos;
 
-        public Vector3 eulerAngle;
+        public Vector3 placeDir;
 
         public string inventoryName;
     }

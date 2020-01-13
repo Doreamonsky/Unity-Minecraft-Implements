@@ -154,6 +154,8 @@ namespace MC.Core
 
         public static float scaleSize = 1f;
 
+        public System.Action OnLoaded;
+
         //private readonly float scaleSize = 0.25f;
 
         public void Start()
@@ -163,16 +165,6 @@ namespace MC.Core
 #endif
             mapData.OnLoad();
 
-            if (mapData.isSaveable)
-            {
-                Util.OnRequireSave += () =>
-                {
-
-                    //保存地图
-                    mapData.WorldData = runtimeWorldData;
-                    mapData.OnSave();
-                };
-            }
 
             colliderParent = new GameObject("Collision").transform;
             colliderParent.parent = transform;
@@ -226,8 +218,18 @@ namespace MC.Core
             }
 
             GenerateWorld();
+
+            OnLoaded?.Invoke();
         }
 
+        public void SaveMapData()
+        {
+            if (mapData.isSaveable)
+            {
+                mapData.WorldData = runtimeWorldData;
+                mapData.OnSave();
+            }
+        }
 
         private void GenerateWorld()
         {
@@ -584,12 +586,12 @@ namespace MC.Core
             }
         }
 
-        public void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3 pos, Vector3 eulerAngle)
+        public void CreatePlaceableInventory(PlaceableInventory placeableInventory, Vector3Int pos, Vector3 dir)
         {
             var placeData = new InventoryPlaceData()
             {
                 pos = pos,
-                eulerAngle = eulerAngle,
+                placeDir = dir,
                 inventoryName = placeableInventory.inventoryName,
             };
 
@@ -598,7 +600,7 @@ namespace MC.Core
 
         }
 
-        public RuntimePlaceableInventoryData GetItemData(Vector3 pos)
+        public RuntimePlaceableInventoryData GetItemData(Vector3Int pos)
         {
             return runtimePlaceableInventoryDataList.Find(val => val.placeData.pos == pos);
         }
@@ -614,8 +616,8 @@ namespace MC.Core
         private void PlaceInventory(InventoryPlaceData placeData)
         {
             var inventory = InventoryManager.Instance.GetInventoryByName(placeData.inventoryName) as PlaceableInventory;
-
-            var itemInstance = Instantiate(inventory.itemModel, placeData.pos, Quaternion.Euler(placeData.eulerAngle));
+            var itemBlockPos = transform.position + (transform.right * 0.5f + transform.forward * 0.5f + transform.up * 0.5f) + (placeData.pos.x * transform.right + placeData.pos.y * transform.up + placeData.pos.z * transform.forward) * scaleSize;
+            var itemInstance = Instantiate(inventory.itemModel, itemBlockPos, Quaternion.LookRotation(transform.TransformDirection(placeData.placeDir)));
             itemInstance.transform.parent = transform;
 
             runtimePlaceableInventoryDataList.Add(new RuntimePlaceableInventoryData()

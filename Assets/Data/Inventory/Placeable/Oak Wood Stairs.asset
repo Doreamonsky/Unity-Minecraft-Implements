@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1dbe320c7e20a4daca1b926e48f914, type: 3}
+  m_Name: Oak Wood Stairs
+  m_EditorClassIdentifier: 
+  inventoryName: Oak Wood Stairs
+  inventoryIcon: {fileID: 21300000, guid: 98e0d8cd26a0ddf4bb5109849f5c0926, type: 3}
+  placeType: 1
+  blockData: {fileID: 0}
+  itemModel: {fileID: 1194354159419482610, guid: 2cbd3150cb1e5f24fbdd2db3827cb43f,
+    type: 3}
+  digTime: 2
+  digSound: {fileID: 8300000, guid: 6aca345b16ab8884a92a54275c969d6a, type: 3}
+  dropInventory: {fileID: 11400000}

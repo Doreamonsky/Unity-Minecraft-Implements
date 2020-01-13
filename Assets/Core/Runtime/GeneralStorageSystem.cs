@@ -1,4 +1,5 @@
 ﻿using MC.Core.Interface;
+using ShanghaiWindy.Core;
 using System.IO;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ namespace MC.Core
 {
     public class GeneralStorageSystem
     {
+        private static DES encrypter = new DES(new byte[] { 0x01, 0x01, 0x02, 0x07, 0x00, 0x06, 0x01, 0x04 });
+
+        private static readonly string encypterKey = "ar_game_lock";
+
         private static string GetStorageFile(string fileName)
         {
             if (Application.platform == RuntimePlatform.Android)
@@ -46,6 +51,7 @@ namespace MC.Core
             {
                 var fileSave = scriptableObject as IFileSave;
 
+
                 if (fileSave != null)
                 {
                     fileSave.OnSave();
@@ -56,7 +62,7 @@ namespace MC.Core
                 var fileStream = new FileStream(GetStorageFile(savingName), FileMode.Create);
                 var streamWriter = new StreamWriter(fileStream);
 
-                streamWriter.Write(json);
+                streamWriter.Write(encrypter.DesEncrypt(json,encypterKey));
 
                 streamWriter.Flush();
                 fileStream.Flush();
@@ -92,7 +98,7 @@ namespace MC.Core
                     var steamReader = new StreamReader(fileStream);
 
                     var json = steamReader.ReadToEnd();
-                    JsonUtility.FromJsonOverwrite(json, scriptableObject);
+                    JsonUtility.FromJsonOverwrite(encrypter.DesDecrypt(json, encypterKey), scriptableObject);
 
                     steamReader.Close();
                     fileStream.Close();

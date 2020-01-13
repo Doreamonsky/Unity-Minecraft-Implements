@@ -1,0 +1,10 @@
+2.1.1
+- Fix: Using the ProtectedPlayerPrefs Getter may trigger the FieldCheatDetector.
+
+2.1
+- Pro: Fix: WallHackDetector in Editor.
+- Improvement: Intercompatibility between protected types.
+- Change: ProtectedDouble is now part of AntiCheat Pro.
+
+2.0
+- First release of Anti Cheat Free

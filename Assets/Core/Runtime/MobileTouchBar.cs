@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace MC.Core
 {
-    public class MobileTouchBar : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+    public class MobileTouchBar : MonoBehaviour, /*IDragHandler, IBeginDragHandler, IEndDragHandler,*/ IPointerDownHandler, IPointerUpHandler,IPointerClickHandler
     {
         private float m_XScale = 1, m_YScale = 1;
 
@@ -32,44 +32,44 @@ namespace MC.Core
                 ControlEvents.OnPressingScreen?.Invoke(currentPointerPos);
             }
         }
-        public void OnDrag(PointerEventData eventData)
-        {
-            if (eventData.pointerId == currentTouchID)
-            {
-                ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
-                {
-                    x = eventData.delta.x * m_XScale,
-                    y = eventData.delta.y * m_YScale
-                });
-            }
+        //public void OnDrag(PointerEventData eventData)
+        //{
+        //    if (eventData.pointerId == currentTouchID)
+        //    {
+        //        ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+        //        {
+        //            x = eventData.delta.x * m_XScale,
+        //            y = eventData.delta.y * m_YScale
+        //        });
+        //    }
 
-            currentPointerPos = eventData.position;
-        }
+        //    currentPointerPos = eventData.position;
+        //}
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            if (currentTouchID == -1)
-            {
-                currentTouchID = eventData.pointerId;
+        //public void OnBeginDrag(PointerEventData eventData)
+        //{
+        //    if (currentTouchID == -1)
+        //    {
+        //        currentTouchID = eventData.pointerId;
 
-                ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
-                {
-                    x = 0,
-                    y = 0
-                });
-            }
-        }
+        //        ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+        //        {
+        //            x = 0,
+        //            y = 0
+        //        });
+        //    }
+        //}
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            currentTouchID = -1;
+        //public void OnEndDrag(PointerEventData eventData)
+        //{
+        //    currentTouchID = -1;
 
-            ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
-            {
-                x = 0,
-                y = 0
-            });
-        }
+        //    ControlEvents.OnCameraControllerInput?.Invoke(new InputData()
+        //    {
+        //        x = 0,
+        //        y = 0
+        //    });
+        //}
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -85,12 +85,12 @@ namespace MC.Core
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            var deltaTime = Time.time - clickTime;
+            //var deltaTime = Time.time - clickTime;
 
-            if (deltaTime < clickTimeDeltaSlope && Vector3.Magnitude(eventData.position - dragBeginPos) < Mathf.Epsilon)
-            {
-                ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
-            }
+            //if (deltaTime < clickTimeDeltaSlope && Vector3.Magnitude(eventData.position - dragBeginPos) < Mathf.Epsilon )
+            //{
+            //    ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
+            //}
 
             isDragging = false;
 
@@ -98,6 +98,15 @@ namespace MC.Core
             ControlEvents.OnEndPressScreen?.Invoke();
         }
 
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            var deltaTime = Time.time - clickTime;
+
+            if (deltaTime < clickTimeDeltaSlope)
+            {
+                ControlEvents.OnClickScreen?.Invoke(eventData.pressPosition);
+            }
+        }
     }
 
 }

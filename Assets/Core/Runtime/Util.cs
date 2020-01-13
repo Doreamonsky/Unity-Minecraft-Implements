@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace MC.Core
 {
     public static class Util
     {
-        public static System.Action OnRequireSave;
+        public static System.Action onRequireMapSave;
 
         public static System.Action<bool> OnToggleCraftingMode;
 
@@ -33,5 +33,15 @@ namespace MC.Core
             //return isMobile;
         }
 
+        public static string GetTimeStamp()
+        {
+            return Convert.ToInt64(DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
+        }
+
+        public static DateTime GetDateTimeFromTimeSpan(string timeSpan)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0).AddMilliseconds(long.Parse(timeSpan));
+
+        }
     }
 }

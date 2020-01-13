@@ -37,7 +37,7 @@ namespace MC.Core
             Player.OnPlayerMove = null;
 
             Util.OnToggleCraftingMode = null;
-            Util.OnRequireSave = null;
+            Util.onRequireMapSave = null;
 
             SwapManager.OnAllocateItem = null;
             SwapManager.OnSwapItem = null;

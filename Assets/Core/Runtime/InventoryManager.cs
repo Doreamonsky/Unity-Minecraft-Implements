@@ -9,6 +9,8 @@ namespace MC.Core
 
         public List<Inventory> inventories;
 
+        public List<RecipeData> recipeList = new List<RecipeData>();
+
         private void Awake()
         {
             Instance = this;

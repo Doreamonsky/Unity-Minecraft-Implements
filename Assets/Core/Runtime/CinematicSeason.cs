@@ -46,6 +46,7 @@ namespace MC.Core
         {
             if (isAutoStart)
             {
+                currentSeason = (Season)Random.Range(0, 4);
                 StartCoroutine(AutoPlay());
             }
         }
