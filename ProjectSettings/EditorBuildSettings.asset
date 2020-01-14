@@ -18,5 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/InfiniteScene.unity
     guid: 701a0798525e1bc41b3a3da4d668fcfa
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 6d15abda005eda240a48bad2d479e4ae,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 9d9771c19f6feb344a86e7b1bf02a8d8,
+      type: 2}
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 044bf3bd1f01e914f946f5afcb24628d,
+      type: 2}
+    com.unity.xr.arkit.PlayerSettings: {fileID: 11400000, guid: 33da2ce9f3c81544e80cf8475549ec8d,
+      type: 2}
+    com.unity.xr.management.arcore_loader: {fileID: 11400000, guid: 795eb0cb14433284d97ee8dcbdcfa2e3,
+      type: 2}
+    com.unity.xr.management.arkit_loader: {fileID: 11400000, guid: a3f8a81c4de6deb4099f1963be5e964b,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6184938e7d526d3499eacba6bf0a91e8,
       type: 2}

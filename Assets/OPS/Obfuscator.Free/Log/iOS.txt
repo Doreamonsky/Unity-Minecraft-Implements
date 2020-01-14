@@ -1,6 +1,6 @@
 [Info][Process] Loading Editor Platform...
 [Info][Process] Found Editor Platform: WindowsEditorPlatform
-[Info][Process] Loading for BuildTarget Android Build Platform...
+[Info][Process] Loading for BuildTarget iOS Build Platform...
 [Info][Process] Found Build Platform: DefaultPlatform
 [Info][Process] Loading Dependencies...
 [Info][Process] Found Dependencies: 
@@ -81,55 +81,54 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSup
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSupport
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSupport
 C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\AntiCheat\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Editor\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\Plugins
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.ads@3.4.1\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.purchasing@2.0.6\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\nuget.castle-core@1.0.1
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\nuget.moq@1.0.0
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Assets\OPS\AntiCheat\Plugins
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Editor\Plugins
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Plugins
+E:\Projects\MineCraft-Special\Assets\Plugins
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.ads@3.4.1\Editor
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.purchasing@2.0.6\Editor
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.castle-core@1.0.1
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.mono-cecil@0.1.5-preview
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.mono-cecil@0.1.5-preview
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.mono-cecil@0.1.5-preview
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.mono-cecil@0.1.5-preview
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.moq@1.0.0
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
@@ -141,15 +140,14 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\m
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Managed
 [Info][Process] Loading Helper Assembly Location...
 [Info][Process] For Assemblies: 
 OPS.Obfuscator.dll
 [Info][Process] Found Helper Assemblies Location: 
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Plugins\OPS.Obfuscator.dll
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Plugins\OPS.Obfuscator.dll
 [Info][Process] Loading Assembly Location...
 [Info][Process] For Assemblies: 
 Assembly-CSharp.dll
@@ -158,9 +156,9 @@ Core.dll
 SkyDome.dll
 [Warning][Process] Could not find Assembly: Assembly-CSharp-firstpass.dll
 [Info][Process] Found Assemblies Location: 
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\Assembly-CSharp.dll
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\Core.dll
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\Assembly-CSharp.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\Core.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Process] Start Assembly obfuscation
 [Info][Process] Lock Assemblies
 [Info][Process] Loading Processings Steps...
@@ -182,13 +180,13 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Analyse] [Assembly-CSharp] Analyse Strings...
 [Info][Analyse Files] Found Strings: 50
 [Info][Analyse] [Core] Analyse Strings...
-[Info][Analyse Files] Found Strings: 211
+[Info][Analyse Files] Found Strings: 220
 [Info][Analyse] [SkyDome] Analyse Strings...
-[Info][Analyse Files] Found Strings: 290
+[Info][Analyse Files] Found Strings: 299
 [Info][Process] Finished Step: Analyse Strings
 [Info][Process] Processing Step: Analyse Files
 [Info][Analyse Files] Searching Gui Methods...
-[Info][Analyse Files] Found Gui Methods: 5
+[Info][Analyse Files] Found Gui Methods: 4
 [Info][Process] Finished Step: Analyse Files
 [Info][Process] Processing Step: Analyse Files
 [Info][Analyse Files] Searching Animation Methods...
@@ -1170,28 +1168,37 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack/<>c] Cause of Type Namespace settings.
 [Info][Skip Namespace] [[Core]MC.Core.UnityADCallBack] Because Obfuscator Free is used.
 [Info][Skip Namespace] [[Core]MC.Core.UnityADCallBack] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because of settings, 'do not obfuscate namespaces'.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
@@ -1221,27 +1228,18 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because Obfuscator Free is used.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because of some Addon: Obfuscator [Is Serializeable, some base is Serializeable or some field is Serializeable.]
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<Start>d__26] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<Start>d__26] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<Start>d__26] Because of settings, 'do not obfuscate namespaces'.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because Obfuscator Free is used.
+[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because of settings, 'do not obfuscate namespaces'.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because Obfuscator Free is used.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because of settings, 'do not obfuscate namespaces'.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because Obfuscator Free is used.
-[Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because of settings, 'do not obfuscate namespaces'.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI] Cause of Type Namespace settings.
@@ -1268,20 +1266,27 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.MainUI] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Cause of Type Namespace settings.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
@@ -1308,21 +1313,14 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<Start>d__26] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26] Cause of Type Namespace settings.
+[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Cause of Type Namespace settings.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Cause of Type Namespace settings.
-[Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because of settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Cause of Type Namespace settings.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI] Because Obfuscator Free is used.
 [Info][Skip Full Namespace] [[Core]MC.Core.MobileMovementInput] Because of settings.
 [Info][Skip Method] [[Core]MC.Core.MobileMovementInput] Cause of Type Namespace settings.
@@ -2838,26 +2836,26 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Full Type] [[Core]MC.Core.UnityADCallBack/<>c] Because of settings.
 [Info][Skip Full Type] [[Core]MC.Core.UnityADCallBack] Because of settings.
 [Info][Skip Full Type] [[Core]MC.Core.UnityADCallBack/<>c] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because of settings.
 [Info][Skip Type] [[Core]MC.Core.MainUI/<>c] Because of some addon: Obfuscator [Is Serializeable, some base is Serializeable or some field is Serializeable.]
 [Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<Start>d__26] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because of settings.
 [Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because of settings.
 [Info][Skip Type] [[Core]MC.Core.MainUI] Because Unity Classes are not allowed to be obfuscated in Free.
 [Info][Skip Type] [[Core]MC.Core.MainUI] Because of global settings.
 [Info][Skip Full Type] [[Core]MC.Core.MainUI] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<ShowBanner>d__23] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3] Because of settings.
 [Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<Start>d__26] Because of settings.
+[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0] Because of settings.
 [Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0] Because of settings.
-[Info][Skip Full Type] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0] Because of settings.
 [Info][Skip Type] [[Core]MC.Core.MobileMovementInput] Because Unity Classes are not allowed to be obfuscated in Free.
 [Info][Skip Type] [[Core]MC.Core.MobileMovementInput] Because of global settings.
 [Info][Skip Full Type] [[Core]MC.Core.MobileMovementInput] Because of settings.
@@ -3605,29 +3603,29 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.UnityADCallBack/<>c::<>9__1_0] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.UnityADCallBack/<>c::<>9__1_1] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]MC.Core.MainUI/<>c MC.Core.MainUI/<>c::<>9] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_7] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_9] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_12] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_13] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<UnityEngine.GameObject> MC.Core.MainUI/<>c::<>9__26_11] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_15] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_17] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_19] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_21] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_22] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_24] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_26] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_27] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_29] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_31] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_32] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_39] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_40] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_41] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_42] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_43] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_5] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__31_0] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_5] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_7] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_10] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_11] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<UnityEngine.GameObject> MC.Core.MainUI/<>c::<>9__24_9] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_13] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_15] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_17] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_19] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_20] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_22] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_24] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_25] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_27] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_29] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_30] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_37] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_38] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_39] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_40] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_41] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__24_42] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__29_0] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]MC.Core.UserMapStorage MC.Core.MainUI::activeMapStorage] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]System.Collections.Generic.List`1<MC.Core.MapItem> MC.Core.MainUI::defaultMapItems] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]UnityEngine.GameObject MC.Core.MainUI::popBar] Because of the public unity fields setting.
@@ -3647,7 +3645,6 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Field] [[Core]UnityEngine.GameObject MC.Core.MainUI::runtimeSupport] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]UnityEngine.GameObject MC.Core.MainUI::loadingBar] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]UnityEngine.UI.Text MC.Core.MainUI::versionText] Because of the public unity fields setting.
-[Info][Skip Field] [[Core]UnityEngine.Localization.CommandLineLocaleSelector MC.Core.MainUI::localeSelector] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]MC.Core.MainUI MC.Core.MainUI::instance] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]System.Single MC.Core.MobileMovementInput::x] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]System.Single MC.Core.MobileMovementInput::y] Because of the public unity fields setting.
@@ -4350,16 +4347,16 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack/<>c::.cctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack/<>c::.ctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_0::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_1::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_2::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3::.ctor()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::.ctor([mscorlib]System.Int32)] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::MoveNext()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_0::.ctor()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_1::.ctor()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_2::.ctor()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass24_3::.ctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c::.cctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::.ctor([mscorlib]System.Int32)] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::MoveNext()] Because of some Addon: .Net Framework [Is Special.]
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass25_0::.ctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass27_0::.ctor()] Because of some Addon: .Net Framework [Is Special.]
-[Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass29_0::.ctor()] Because of some Addon: .Net Framework [Is Special.]
 [Info][Skip Method] [[Core]MC.Core.MainUI::Awake()] Because of some Addon: Unity [Is Editor Method.]
 [Info][Skip Method] [[Core]MC.Core.MainUI::Start()] Because of some Addon: Unity [Is Unity Method.]
 [Info][Skip Method] [[Core]MC.Core.MainUI::Update()] Because of some Addon: Unity [Is Editor Method.]
@@ -4860,14 +4857,14 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack::OnUnityAdsDidStart([mscorlib]System.String)] Some other method in method group getting skipped.
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack::OnUnityAdsReady([mscorlib]System.String)] Method group is defined extern (in some assembly that gets not obfuscated).
 [Info][Skip Method] [[Core]MC.Core.UnityADCallBack::OnUnityAdsReady([mscorlib]System.String)] Some other method in method group getting skipped.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.IDisposable.Dispose()] Method group is defined extern (in some assembly that gets not obfuscated).
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.IDisposable.Dispose()] Some other method in method group getting skipped.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::MoveNext()] Method group is defined extern (in some assembly that gets not obfuscated).
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::MoveNext()] Some other method in method group getting skipped.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.Collections.IEnumerator.Reset()] Method group is defined extern (in some assembly that gets not obfuscated).
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.Collections.IEnumerator.Reset()] Some other method in method group getting skipped.
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.Collections.IEnumerator.get_Current()] Method group is defined extern (in some assembly that gets not obfuscated).
-[Info][Skip Method] [[Core]MC.Core.MainUI/<Start>d__26::System.Collections.IEnumerator.get_Current()] Some other method in method group getting skipped.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.IDisposable.Dispose()] Method group is defined extern (in some assembly that gets not obfuscated).
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.IDisposable.Dispose()] Some other method in method group getting skipped.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::MoveNext()] Method group is defined extern (in some assembly that gets not obfuscated).
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::MoveNext()] Some other method in method group getting skipped.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.Collections.IEnumerator.Reset()] Method group is defined extern (in some assembly that gets not obfuscated).
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.Collections.IEnumerator.Reset()] Some other method in method group getting skipped.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.Collections.IEnumerator.get_Current()] Method group is defined extern (in some assembly that gets not obfuscated).
+[Info][Skip Method] [[Core]MC.Core.MainUI/<ShowBanner>d__23::System.Collections.IEnumerator.get_Current()] Some other method in method group getting skipped.
 [Info][Skip Method] [[Core]MC.Core.MobileMovementInput::OnEndDrag([UnityEngine.UI]UnityEngine.EventSystems.PointerEventData)] Method group is defined extern (in some assembly that gets not obfuscated).
 [Info][Skip Method] [[Core]MC.Core.MobileMovementInput::OnEndDrag([UnityEngine.UI]UnityEngine.EventSystems.PointerEventData)] Some other method in method group getting skipped.
 [Info][Skip Method] [[Core]MC.Core.MobileMovementInput::OnPointerEnter([UnityEngine.UI]UnityEngine.EventSystems.PointerEventData)] Method group is defined extern (in some assembly that gets not obfuscated).
@@ -5760,7 +5757,7 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Update Reference Type] [MC.Core.WorldGenerator/<GetBlockMap>d__6]
 [Info][Update Reference Type] [MC.Core.InfiniteWorld/<UpdateWorld>d__9]
 [Info][Update Reference Type] [MC.Core.InventoryIconUI/<PointerEnterNotClick>d__11]
-[Info][Update Reference Type] [MC.Core.MainUI/<Start>d__26]
+[Info][Update Reference Type] [MC.Core.MainUI/<ShowBanner>d__23]
 [Info][Update Reference Type] [MC.Core.InputData]
 [Info][Update Reference Type] [MC.Core.Player/<ToSleep>d__29]
 [Info][Update Reference Type] [MC.Core.PlayerInitSystem/<LoadStorage>d__6]

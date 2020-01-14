@@ -4,7 +4,9 @@
         "SkyDome",
         "Unity.XR.ARFoundation",
         "Unity.XR.ARSubsystems",
-        "UnityEngine.Advertisements"
+        "UnityEngine.Advertisements",
+        "Unity.Localization",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

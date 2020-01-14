@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Keys
+  m_EditorClassIdentifier: 
+  m_NextAvailableId: 21
+  m_Entries:
+  - m_Id: 1
+    m_Key: PlaceWorldBtn
+  - m_Id: 2
+    m_Key: PlaneNotFoundTip
+  - m_Id: 3
+    m_Key: CopyRight
+  - m_Id: 4
+    m_Key: ScanTip
+  - m_Id: 5
+    m_Key: isHeating
+  - m_Id: 6
+    m_Key: Acknowledge
+  - m_Id: 7
+    m_Key: PlayAD
+  - m_Id: 8
+    m_Key: Quit
+  - m_Id: 9
+    m_Key: CloseAD
+  - m_Id: 10
+    m_Key: BackMenu
+  - m_Id: 11
+    m_Key: ReplaceWorld
+  - m_Id: 12
+    m_Key: ExitScaleMode
+  - m_Id: 13
+    m_Key: CloseSetting
+  - m_Id: 14
+    m_Key: ADOnce
+  - m_Id: 15
+    m_Key: DropItem
+  - m_Id: 16
+    m_Key: Close
+  - m_Id: 17
+    m_Key: Crafted
+  - m_Id: 18
+    m_Key: ADReward
+  - m_Id: 19
+    m_Key: ARDetection
+  - m_Id: 20
+    m_Key: GameSetting

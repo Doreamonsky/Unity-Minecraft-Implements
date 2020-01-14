@@ -1,0 +1,401 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: en-MainTable-String Table
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_TableName: MainTable
+  m_KeyDatabase: {fileID: 11400000, guid: 37ac18cb7c18ca7478180e4533f84499, type: 2}
+  m_StringTableEntries:
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 1
+    m_Translated:
+    - Start Game (AR)
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 2
+    m_Translated:
+    - Tutorial
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 3
+    m_Translated:
+    - Achievement
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 4
+    m_Translated:
+    - Exit
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 5
+    m_Translated:
+    - Shop
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 6
+    m_Translated:
+    - New Small Flat Map
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 7
+    m_Translated:
+    - New Middle Flat Map
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 8
+    m_Translated:
+    - New Large Mountainous Map
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 9
+    m_Translated:
+    - New Super Large Map
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 10
+    m_Translated:
+    - Size:8*8*32
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 11
+    m_Translated:
+    - Size:16*16*32
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 12
+    m_Translated:
+    - Size:32*32*32
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 13
+    m_Translated:
+    - Size:64*64*32
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 14
+    m_Translated: []
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 15
+    m_Translated:
+    - Crafting:AR
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 16
+    m_Translated:
+    - For buying resources
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 17
+    m_Translated:
+    - For creating landscape
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 18
+    m_Translated:
+    - Watch AD
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 19
+    m_Translated:
+    - BiliBili Follower
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 20
+    m_Translated:
+    - Cost {0} Coin
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 21
+    m_Translated:
+    - Coin is insufficient.You can get coin by watching AD.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 22
+    m_Translated:
+    - '{0} Wood'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 23
+    m_Translated:
+    - '{0} Stone'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 24
+    m_Translated:
+    - The space of bag is insufficient,please delete something.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 25
+    m_Translated:
+    - '{0} HandGun'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 26
+    m_Translated:
+    - Map:{0} {1} wll be deleted,and return {2} lands.But,the saving will be lost.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 27
+    m_Translated:
+    - Get {0} Coin
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 28
+    m_Translated:
+    - AD is not ready,please try it later.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 29
+    m_Translated:
+    - Get {0} Land
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 30
+    m_Translated:
+    - You have earned this bouns.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 31
+    m_Translated:
+    - "Cost {0} gold to buy {1}\uFF1F"
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 32
+    m_Translated:
+    - Placement/Raw Material
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 33
+    m_Translated:
+    - Coin
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 34
+    m_Translated:
+    - Land
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 35
+    m_Translated:
+    - Maybe for CS?
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 36
+    m_Translated:
+    - Failed to create {0}. Watch AD to get coin in the shop.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 37
+    m_Translated:
+    - Cofirm create map {0} cost land {1}
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 38
+    m_Translated:
+    - Quit game?
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 39
+    m_Translated:
+    - Please install the AR Core
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 40
+    m_Translated:
+    - AR Core is installing
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 41
+    m_Translated:
+    - Oops.Device not supports AR Core. Fail to lanuch the game.
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 42
+    m_Translated:
+    - Version
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 43
+    m_Translated:
+    - Jump to the site of tutorial?
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 44
+    m_Translated:
+    - 'Cost land:'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 45
+    m_Translated:
+    - Create
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 46
+    m_Translated:
+    - Delete
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 47
+    m_Translated:
+    - Continue
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 48
+    m_Translated:
+    - 'Create
+
+      &
+
+      Continue'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 49
+    m_Translated:
+    - Cancel
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 50
+    m_Translated:
+    - Confirm
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 51
+    m_Translated:
+    - Loading map...
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 52
+    m_Translated:
+    - 'Language:'
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 53
+    m_Translated:
+    - "AR Warning:\nDuring the game, pay attention to the surrounding environment.\r\nIf
+      you are a child, you must use this game under the guardian's supervision."
+  - m_Comments:
+      translatorComments: []
+      extractedComments: []
+      referenceComments: []
+    m_Id: 54
+    m_Translated:
+    - Confirm?
