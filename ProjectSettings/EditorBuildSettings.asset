@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/AR-Card.unity
+    guid: 05f5f92755e7a7c4c9b6f6e00bd209dd
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 04791923ed11e8c4c820277ec464450e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AR.unity
     guid: 63776495494f0e343aaf83a0d180bed3
   - enabled: 0

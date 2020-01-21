@@ -68,9 +68,6 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed\UnityEngine
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\UnityExtensions\Unity\UnityVR\Editor
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
@@ -115,6 +112,8 @@ E:\Projects\MineCraft-Special\Library\ScriptAssemblies
 E:\Projects\MineCraft-Special\Library\ScriptAssemblies
 E:\Projects\MineCraft-Special\Library\ScriptAssemblies
 E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
 E:\Projects\MineCraft-Special\Assets\OPS\AntiCheat\Plugins
 E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
 E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
@@ -123,6 +122,8 @@ E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
 E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Editor\Plugins
 E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Plugins
 E:\Projects\MineCraft-Special\Assets\Plugins
+E:\Projects\MineCraft-Special\Library\PackageCache\com.ptc.vuforia.engine@8.5.9\Vuforia\Plugins\Managed\Editor
+E:\Projects\MineCraft-Special\Library\PackageCache\com.ptc.vuforia.engine@8.5.9\Vuforia\Plugins\Managed\Runtime
 E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.ads@3.4.1\Editor
 E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
 E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
@@ -130,6 +131,7 @@ E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
 E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.purchasing@2.0.6\Editor
 E:\Projects\MineCraft-Special\Library\PackageCache\nuget.castle-core@1.0.1
 E:\Projects\MineCraft-Special\Library\PackageCache\nuget.moq@1.0.0
+C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
@@ -142,9 +144,9 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\m
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Managed
 [Info][Process] Loading Helper Assembly Location...
 [Info][Process] For Assemblies: 
@@ -5191,139 +5193,139 @@ E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Process] Finished Step: Find obfuscated name for Members
 [Info][Process] Processing Step: Find obfuscated name for Methods
 [Info][FindName] [Assembly-CSharp] Find Method Names...
-[Info][Found new Method Name] [[Assembly-CSharp]DetectorsDemo::FieldCheatDetector_OnFieldCheatDetected()] : a
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::ChangeCamera([UnityEngine.CoreModule]UnityEngine.Camera)] : b
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::ChangeParent([UnityEngine.CoreModule]UnityEngine.Transform)] : c
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::GetFocusPoint()] : d
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::SetFocusPoint()] : e
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CurveControlledBob::Setup([UnityEngine.CoreModule]UnityEngine.Camera [mscorlib]System.Single)] : f
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CurveControlledBob::DoHeadBob([mscorlib]System.Single)] : g
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : h
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody::FindCamera()] : i
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickUp>d__9::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : j
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickDown>d__10::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : k
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::Setup([UnityEngine.CoreModule]UnityEngine.Camera)] : l
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::CheckStatus([UnityEngine.CoreModule]UnityEngine.Camera)] : m
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::ChangeCamera([UnityEngine.CoreModule]UnityEngine.Camera)] : n
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::FOVKickUp()] : o
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::FOVKickDown()] : p
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob/<DoBobCycle>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : q
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob::Offset()] : r
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob::DoBobCycle()] : s
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter/<ResetCoroutine>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : t
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter::DelayedReset([mscorlib]System.Single)] : u
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter::ResetCoroutine([mscorlib]System.Single)] : v
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ParticleSystemDestroyer/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : w
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ParticleSystemDestroyer::Stop()] : x
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.PlatformSpecificContent::CheckEnableContent()] : y
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.PlatformSpecificContent::EnableContent([mscorlib]System.Boolean)] : z
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.SimpleActivatorMenu::NextCamera()] : ba
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<Activate>d__5::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : bb
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<Deactivate>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : bc
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<ReloadLevel>d__7::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : bd
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::Activate([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : be
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::Deactivate([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : bf
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::ReloadLevel([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : bg
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::get_Length()] : bh
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::set_Length([mscorlib]System.Single)] : bi
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::get_Waypoints()] : bj
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::GetRoutePoint([mscorlib]System.Single)] : bk
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::GetRoutePosition([mscorlib]System.Single)] : bl
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::CatmullRom([UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [mscorlib]System.Single)] : bm
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::CachePositionsAndDistances()] : bn
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::DrawGizmos([mscorlib]System.Boolean)] : bo
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_targetPoint()] : bp
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_targetPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : bq
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_speedPoint()] : br
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_speedPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : bs
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_progressPoint()] : bt
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_progressPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : bu
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionFireAndDebris/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : bv
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionFireAndDebris::AddFire([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3)] : bw
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionPhysicsForce/<Start>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : bx
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.Explosive/<OnCollisionEnter>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : by
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.AxisTouchButton::FindPairedButton()] : bz
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetDownState()] : ca
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetUpState()] : cb
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisPositiveState()] : cc
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNeutralState()] : cd
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNegativeState()] : ce
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_matchWithInputManager()] : cf
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::set_matchWithInputManager([mscorlib]System.Boolean)] : cg
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::Remove()] : ch
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValue()] : ci
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValueRaw()] : cj
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_matchWithInputManager()] : ck
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::set_matchWithInputManager([mscorlib]System.Boolean)] : cl
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Pressed()] : cm
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Released()] : cn
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Remove()] : co
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButton()] : cp
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonDown()] : cq
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonUp()] : cr
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SwitchActiveInputMethod([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/ActiveInputMethod)] : cs
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::AxisExists([mscorlib]System.String)] : ct
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::ButtonExists([mscorlib]System.String)] : cu
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualAxis([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis)] : cv
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualButton([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton)] : cw
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualAxis([mscorlib]System.String)] : cx
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualButton([mscorlib]System.String)] : cy
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::VirtualAxisReference([mscorlib]System.String)] : cz
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis([mscorlib]System.String)] : da
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxisRaw([mscorlib]System.String)] : db
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis([mscorlib]System.String [mscorlib]System.Boolean)] : dc
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButton([mscorlib]System.String)] : dd
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonDown([mscorlib]System.String)] : de
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonUp([mscorlib]System.String)] : df
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonDown([mscorlib]System.String)] : dg
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonUp([mscorlib]System.String)] : dh
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisPositive([mscorlib]System.String)] : di
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisNegative([mscorlib]System.String)] : dj
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisZero([mscorlib]System.String)] : dk
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxis([mscorlib]System.String [mscorlib]System.Single)] : dl
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::get_mousePosition()] : dm
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionX([mscorlib]System.Single)] : dn
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionY([mscorlib]System.Single)] : do
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionZ([mscorlib]System.Single)] : dp
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar::HandleInput([mscorlib]System.Single)] : dq
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.Joystick::UpdateVirtualAxes([UnityEngine.CoreModule]UnityEngine.Vector3)] : dr
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.Joystick::CreateVirtualAxes()] : ds
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.MobileControlRig::CheckEnableControlRig()] : dt
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.MobileControlRig::EnableControlRig([mscorlib]System.Boolean)] : du
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad::CreateVirtualAxes()] : dv
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad::UpdateVirtualAxes([UnityEngine.CoreModule]UnityEngine.Vector3)] : dw
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddButton([mscorlib]System.String)] : dx
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddAxes([mscorlib]System.String)] : dy
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayLandingSound()] : dz
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayJumpSound()] : ea
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::ProgressStepCycle([mscorlib]System.Single)] : eb
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayFootStepAudio()] : ec
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::UpdateCameraPosition([mscorlib]System.Single)] : ed
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::RotateView()] : ee
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_0([Core]MC.Core.InputData)] : ef
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_1()] : eg
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::Init([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Transform)] : eh
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::LookRotation([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Transform)] : ei
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::ClampRotationAroundXAxis([UnityEngine.CoreModule]UnityEngine.Quaternion)] : ej
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::<Init>b__11_0([Core]MC.Core.InputData)] : ek
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::UpdateDesiredTargetSpeed([UnityEngine.CoreModule]UnityEngine.Vector2)] : el
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::get_Running()] : em
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Velocity()] : en
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Grounded()] : eo
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Jumping()] : ep
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Running()] : eq
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::SlopeMultiplier()] : er
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::StickToGroundHelper()] : es
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::RotateView()] : et
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::GroundCheck()] : eu
-[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::<Start>b__23_0()] : ev
+[Info][Found new Method Name] [[Assembly-CSharp]DetectorsDemo::FieldCheatDetector_OnFieldCheatDetected()] : js
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::ChangeCamera([UnityEngine.CoreModule]UnityEngine.Camera)] : jt
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::ChangeParent([UnityEngine.CoreModule]UnityEngine.Transform)] : ju
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::GetFocusPoint()] : jv
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus::SetFocusPoint()] : jw
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CurveControlledBob::Setup([UnityEngine.CoreModule]UnityEngine.Camera [mscorlib]System.Single)] : jx
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CurveControlledBob::DoHeadBob([mscorlib]System.Single)] : jy
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : jz
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody::FindCamera()] : ka
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickUp>d__9::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : kb
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickDown>d__10::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : kc
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::Setup([UnityEngine.CoreModule]UnityEngine.Camera)] : kd
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::CheckStatus([UnityEngine.CoreModule]UnityEngine.Camera)] : ke
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::ChangeCamera([UnityEngine.CoreModule]UnityEngine.Camera)] : kf
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::FOVKickUp()] : kg
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick::FOVKickDown()] : kh
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob/<DoBobCycle>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : ki
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob::Offset()] : kj
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.LerpControlledBob::DoBobCycle()] : kk
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter/<ResetCoroutine>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : kl
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter::DelayedReset([mscorlib]System.Single)] : km
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ObjectResetter::ResetCoroutine([mscorlib]System.Single)] : kn
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ParticleSystemDestroyer/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : ko
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ParticleSystemDestroyer::Stop()] : kp
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.PlatformSpecificContent::CheckEnableContent()] : kq
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.PlatformSpecificContent::EnableContent([mscorlib]System.Boolean)] : kr
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.SimpleActivatorMenu::NextCamera()] : ks
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<Activate>d__5::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : kt
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<Deactivate>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : ku
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/<ReloadLevel>d__7::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : kv
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::Activate([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : kw
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::Deactivate([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : kx
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator::ReloadLevel([Assembly-CSharp]UnityStandardAssets.Utility.TimedObjectActivator/Entry)] : ky
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::get_Length()] : kz
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::set_Length([mscorlib]System.Single)] : la
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::get_Waypoints()] : lb
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::GetRoutePoint([mscorlib]System.Single)] : lc
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::GetRoutePosition([mscorlib]System.Single)] : ld
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::CatmullRom([UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3 [mscorlib]System.Single)] : le
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::CachePositionsAndDistances()] : lf
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit::DrawGizmos([mscorlib]System.Boolean)] : lg
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_targetPoint()] : lh
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_targetPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : li
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_speedPoint()] : lj
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_speedPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : lk
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::get_progressPoint()] : ll
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Utility.WaypointProgressTracker::set_progressPoint([Assembly-CSharp]UnityStandardAssets.Utility.WaypointCircuit/RoutePoint)] : lm
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionFireAndDebris/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : ln
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionFireAndDebris::AddFire([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Vector3 [UnityEngine.CoreModule]UnityEngine.Vector3)] : lo
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.ExplosionPhysicsForce/<Start>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : lp
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Effects.Explosive/<OnCollisionEnter>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : lq
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.AxisTouchButton::FindPairedButton()] : lr
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetDownState()] : ls
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetUpState()] : lt
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisPositiveState()] : lu
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNeutralState()] : lv
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNegativeState()] : lw
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_matchWithInputManager()] : lx
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::set_matchWithInputManager([mscorlib]System.Boolean)] : ly
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::Remove()] : lz
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValue()] : ma
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValueRaw()] : mb
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_matchWithInputManager()] : mc
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::set_matchWithInputManager([mscorlib]System.Boolean)] : md
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Pressed()] : me
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Released()] : mf
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Remove()] : mg
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButton()] : mh
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonDown()] : mi
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonUp()] : mj
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SwitchActiveInputMethod([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/ActiveInputMethod)] : mk
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::AxisExists([mscorlib]System.String)] : ml
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::ButtonExists([mscorlib]System.String)] : mm
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualAxis([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis)] : mn
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualButton([Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton)] : mo
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualAxis([mscorlib]System.String)] : mp
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualButton([mscorlib]System.String)] : mq
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::VirtualAxisReference([mscorlib]System.String)] : mr
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis([mscorlib]System.String)] : ms
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxisRaw([mscorlib]System.String)] : mt
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis([mscorlib]System.String [mscorlib]System.Boolean)] : mu
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButton([mscorlib]System.String)] : mv
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonDown([mscorlib]System.String)] : mw
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonUp([mscorlib]System.String)] : mx
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonDown([mscorlib]System.String)] : my
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonUp([mscorlib]System.String)] : mz
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisPositive([mscorlib]System.String)] : na
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisNegative([mscorlib]System.String)] : nb
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisZero([mscorlib]System.String)] : nc
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxis([mscorlib]System.String [mscorlib]System.Single)] : nd
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::get_mousePosition()] : ne
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionX([mscorlib]System.Single)] : nf
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionY([mscorlib]System.Single)] : ng
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionZ([mscorlib]System.Single)] : nh
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar::HandleInput([mscorlib]System.Single)] : ni
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.Joystick::UpdateVirtualAxes([UnityEngine.CoreModule]UnityEngine.Vector3)] : nj
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.Joystick::CreateVirtualAxes()] : nk
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.MobileControlRig::CheckEnableControlRig()] : nl
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.MobileControlRig::EnableControlRig([mscorlib]System.Boolean)] : nm
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad::CreateVirtualAxes()] : nn
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad::UpdateVirtualAxes([UnityEngine.CoreModule]UnityEngine.Vector3)] : no
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddButton([mscorlib]System.String)] : np
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddAxes([mscorlib]System.String)] : nq
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayLandingSound()] : nr
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayJumpSound()] : ns
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::ProgressStepCycle([mscorlib]System.Single)] : nt
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayFootStepAudio()] : nu
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::UpdateCameraPosition([mscorlib]System.Single)] : nv
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::RotateView()] : nw
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_0([Core]MC.Core.InputData)] : nx
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_1()] : ny
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::Init([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Transform)] : nz
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::LookRotation([UnityEngine.CoreModule]UnityEngine.Transform [UnityEngine.CoreModule]UnityEngine.Transform)] : oa
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::ClampRotationAroundXAxis([UnityEngine.CoreModule]UnityEngine.Quaternion)] : ob
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.MouseLook::<Init>b__11_0([Core]MC.Core.InputData)] : oc
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::UpdateDesiredTargetSpeed([UnityEngine.CoreModule]UnityEngine.Vector2)] : od
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::get_Running()] : oe
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Velocity()] : of
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Grounded()] : og
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Jumping()] : oh
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Running()] : oi
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::SlopeMultiplier()] : oj
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::StickToGroundHelper()] : ok
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::RotateView()] : ol
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::GroundCheck()] : om
+[Info][Found new Method Name] [[Assembly-CSharp]UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::<Start>b__23_0()] : on
 [Info][FindName] [Core] Find Method Names...
 [Info][FindName] [SkyDome] Find Method Names...
 [Info][Process] Finished Step: Find obfuscated name for Methods
 [Info][Process] Processing Step: Find obfuscated name for Types
 [Info][FindName] [Assembly-CSharp] Find Type Names...
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.ActivateTrigger/Mode] : a
-[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus] : a
+[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.CameraRefocus] : i
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickUp>d__9] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.Utility.FOVKick/<FOVKickDown>d__10] : b
@@ -5343,14 +5345,14 @@ E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/ActiveInputMethod] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis] : b
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton] : c
-[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager] : b
+[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager] : j
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.Joystick/AxisOption] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TiltInput/AxisOptions] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TiltInput/AxisMapping/MappingType] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad/AxisOption] : a
 [Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.TouchPad/ControlStyle] : b
-[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput] : c
-[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput] : d
+[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput] : k
+[Info][Found new Type Name] [[Assembly-CSharp]UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput] : l
 [Info][FindName] [Core] Find Type Names...
 [Info][FindName] [SkyDome] Find Type Names...
 [Info][Process] Finished Step: Find obfuscated name for Types
@@ -5568,139 +5570,139 @@ E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Process] Finished Step: Rename Properties and Events
 [Info][Process] Processing Step: Rename Methods
 [Info][Rename] [Assembly-CSharp] Rename Methods...
-[Info][Rename Method] [DetectorsDemo::FieldCheatDetector_OnFieldCheatDetected] to a
-[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::ChangeCamera] to b
-[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::ChangeParent] to c
-[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::GetFocusPoint] to d
-[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::SetFocusPoint] to e
-[Info][Rename Method] [UnityStandardAssets.Utility.CurveControlledBob::Setup] to f
-[Info][Rename Method] [UnityStandardAssets.Utility.CurveControlledBob::DoHeadBob] to g
-[Info][Rename Method] [UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to h
-[Info][Rename Method] [UnityStandardAssets.Utility.DragRigidbody::FindCamera] to i
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick/<FOVKickUp>d__9::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to j
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick/<FOVKickDown>d__10::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to k
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::Setup] to l
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::CheckStatus] to m
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::ChangeCamera] to n
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::FOVKickUp] to o
-[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::FOVKickDown] to p
-[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob/<DoBobCycle>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to q
-[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob::Offset] to r
-[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob::DoBobCycle] to s
-[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter/<ResetCoroutine>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to t
-[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter::DelayedReset] to u
-[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter::ResetCoroutine] to v
-[Info][Rename Method] [UnityStandardAssets.Utility.ParticleSystemDestroyer/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to w
-[Info][Rename Method] [UnityStandardAssets.Utility.ParticleSystemDestroyer::Stop] to x
-[Info][Rename Method] [UnityStandardAssets.Utility.PlatformSpecificContent::CheckEnableContent] to y
-[Info][Rename Method] [UnityStandardAssets.Utility.PlatformSpecificContent::EnableContent] to z
-[Info][Rename Method] [UnityStandardAssets.Utility.SimpleActivatorMenu::NextCamera] to ba
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<Activate>d__5::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to bb
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<Deactivate>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to bc
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<ReloadLevel>d__7::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to bd
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::Activate] to be
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::Deactivate] to bf
-[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::ReloadLevel] to bg
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::get_Length] to bh
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::set_Length] to bi
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::get_Waypoints] to bj
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::GetRoutePoint] to bk
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::GetRoutePosition] to bl
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::CatmullRom] to bm
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::CachePositionsAndDistances] to bn
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::DrawGizmos] to bo
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_targetPoint] to bp
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_targetPoint] to bq
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_speedPoint] to br
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_speedPoint] to bs
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_progressPoint] to bt
-[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_progressPoint] to bu
-[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionFireAndDebris/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to bv
-[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionFireAndDebris::AddFire] to bw
-[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionPhysicsForce/<Start>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to bx
-[Info][Rename Method] [UnityStandardAssets.Effects.Explosive/<OnCollisionEnter>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to by
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.AxisTouchButton::FindPairedButton] to bz
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetDownState] to ca
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetUpState] to cb
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisPositiveState] to cc
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNeutralState] to cd
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNegativeState] to ce
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_matchWithInputManager] to cf
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::set_matchWithInputManager] to cg
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::Remove] to ch
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValue] to ci
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValueRaw] to cj
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_matchWithInputManager] to ck
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::set_matchWithInputManager] to cl
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Pressed] to cm
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Released] to cn
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Remove] to co
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButton] to cp
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonDown] to cq
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonUp] to cr
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SwitchActiveInputMethod] to cs
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::AxisExists] to ct
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::ButtonExists] to cu
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualAxis] to cv
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualButton] to cw
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualAxis] to cx
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualButton] to cy
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::VirtualAxisReference] to cz
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis] to da
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxisRaw] to db
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis] to dc
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButton] to dd
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonDown] to de
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonUp] to df
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonDown] to dg
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonUp] to dh
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisPositive] to di
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisNegative] to dj
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisZero] to dk
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxis] to dl
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::get_mousePosition] to dm
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionX] to dn
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionY] to do
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionZ] to dp
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar::HandleInput] to dq
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.Joystick::UpdateVirtualAxes] to dr
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.Joystick::CreateVirtualAxes] to ds
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.MobileControlRig::CheckEnableControlRig] to dt
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.MobileControlRig::EnableControlRig] to du
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.TouchPad::CreateVirtualAxes] to dv
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.TouchPad::UpdateVirtualAxes] to dw
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddButton] to dx
-[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddAxes] to dy
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayLandingSound] to dz
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayJumpSound] to ea
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::ProgressStepCycle] to eb
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayFootStepAudio] to ec
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::UpdateCameraPosition] to ed
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::RotateView] to ee
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_0] to ef
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_1] to eg
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::Init] to eh
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::LookRotation] to ei
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::ClampRotationAroundXAxis] to ej
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::<Init>b__11_0] to ek
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::UpdateDesiredTargetSpeed] to el
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::get_Running] to em
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Velocity] to en
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Grounded] to eo
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Jumping] to ep
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Running] to eq
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::SlopeMultiplier] to er
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::StickToGroundHelper] to es
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::RotateView] to et
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::GroundCheck] to eu
-[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::<Start>b__23_0] to ev
+[Info][Rename Method] [DetectorsDemo::FieldCheatDetector_OnFieldCheatDetected] to js
+[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::ChangeCamera] to jt
+[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::ChangeParent] to ju
+[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::GetFocusPoint] to jv
+[Info][Rename Method] [UnityStandardAssets.Utility.CameraRefocus::SetFocusPoint] to jw
+[Info][Rename Method] [UnityStandardAssets.Utility.CurveControlledBob::Setup] to jx
+[Info][Rename Method] [UnityStandardAssets.Utility.CurveControlledBob::DoHeadBob] to jy
+[Info][Rename Method] [UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to jz
+[Info][Rename Method] [UnityStandardAssets.Utility.DragRigidbody::FindCamera] to ka
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick/<FOVKickUp>d__9::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to kb
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick/<FOVKickDown>d__10::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to kc
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::Setup] to kd
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::CheckStatus] to ke
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::ChangeCamera] to kf
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::FOVKickUp] to kg
+[Info][Rename Method] [UnityStandardAssets.Utility.FOVKick::FOVKickDown] to kh
+[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob/<DoBobCycle>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to ki
+[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob::Offset] to kj
+[Info][Rename Method] [UnityStandardAssets.Utility.LerpControlledBob::DoBobCycle] to kk
+[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter/<ResetCoroutine>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to kl
+[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter::DelayedReset] to km
+[Info][Rename Method] [UnityStandardAssets.Utility.ObjectResetter::ResetCoroutine] to kn
+[Info][Rename Method] [UnityStandardAssets.Utility.ParticleSystemDestroyer/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to ko
+[Info][Rename Method] [UnityStandardAssets.Utility.ParticleSystemDestroyer::Stop] to kp
+[Info][Rename Method] [UnityStandardAssets.Utility.PlatformSpecificContent::CheckEnableContent] to kq
+[Info][Rename Method] [UnityStandardAssets.Utility.PlatformSpecificContent::EnableContent] to kr
+[Info][Rename Method] [UnityStandardAssets.Utility.SimpleActivatorMenu::NextCamera] to ks
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<Activate>d__5::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to kt
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<Deactivate>d__6::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to ku
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator/<ReloadLevel>d__7::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to kv
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::Activate] to kw
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::Deactivate] to kx
+[Info][Rename Method] [UnityStandardAssets.Utility.TimedObjectActivator::ReloadLevel] to ky
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::get_Length] to kz
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::set_Length] to la
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::get_Waypoints] to lb
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::GetRoutePoint] to lc
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::GetRoutePosition] to ld
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::CatmullRom] to le
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::CachePositionsAndDistances] to lf
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointCircuit::DrawGizmos] to lg
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_targetPoint] to lh
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_targetPoint] to li
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_speedPoint] to lj
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_speedPoint] to lk
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::get_progressPoint] to ll
+[Info][Rename Method] [UnityStandardAssets.Utility.WaypointProgressTracker::set_progressPoint] to lm
+[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionFireAndDebris/<Start>d__4::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to ln
+[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionFireAndDebris::AddFire] to lo
+[Info][Rename Method] [UnityStandardAssets.Effects.ExplosionPhysicsForce/<Start>d__1::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to lp
+[Info][Rename Method] [UnityStandardAssets.Effects.Explosive/<OnCollisionEnter>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current] to lq
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.AxisTouchButton::FindPairedButton] to lr
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetDownState] to ls
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetUpState] to lt
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisPositiveState] to lu
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNeutralState] to lv
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.ButtonHandler::SetAxisNegativeState] to lw
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_matchWithInputManager] to lx
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::set_matchWithInputManager] to ly
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::Remove] to lz
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValue] to ma
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis::get_GetValueRaw] to mb
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_matchWithInputManager] to mc
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::set_matchWithInputManager] to md
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Pressed] to me
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Released] to mf
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::Remove] to mg
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButton] to mh
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonDown] to mi
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton::get_GetButtonUp] to mj
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SwitchActiveInputMethod] to mk
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::AxisExists] to ml
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::ButtonExists] to mm
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualAxis] to mn
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::RegisterVirtualButton] to mo
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualAxis] to mp
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::UnRegisterVirtualButton] to mq
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::VirtualAxisReference] to mr
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis] to ms
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxisRaw] to mt
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis] to mu
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButton] to mv
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonDown] to mw
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetButtonUp] to mx
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonDown] to my
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetButtonUp] to mz
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisPositive] to na
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisNegative] to nb
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxisZero] to nc
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetAxis] to nd
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::get_mousePosition] to ne
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionX] to nf
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionY] to ng
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::SetVirtualMousePositionZ] to nh
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar::HandleInput] to ni
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.Joystick::UpdateVirtualAxes] to nj
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.Joystick::CreateVirtualAxes] to nk
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.MobileControlRig::CheckEnableControlRig] to nl
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.MobileControlRig::EnableControlRig] to nm
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.TouchPad::CreateVirtualAxes] to nn
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.TouchPad::UpdateVirtualAxes] to no
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddButton] to np
+[Info][Rename Method] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput::AddAxes] to nq
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayLandingSound] to nr
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayJumpSound] to ns
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::ProgressStepCycle] to nt
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::PlayFootStepAudio] to nu
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::UpdateCameraPosition] to nv
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::RotateView] to nw
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_0] to nx
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.FirstPersonController::<Start>b__32_1] to ny
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::Init] to nz
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::LookRotation] to oa
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::ClampRotationAroundXAxis] to ob
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.MouseLook::<Init>b__11_0] to oc
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::UpdateDesiredTargetSpeed] to od
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController/MovementSettings::get_Running] to oe
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Velocity] to of
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Grounded] to og
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Jumping] to oh
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::get_Running] to oi
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::SlopeMultiplier] to oj
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::StickToGroundHelper] to ok
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::RotateView] to ol
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::GroundCheck] to om
+[Info][Rename Method] [UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController::<Start>b__23_0] to on
 [Info][Rename] [Core] Rename Methods...
 [Info][Rename] [SkyDome] Rename Methods...
 [Info][Process] Finished Step: Rename Methods
 [Info][Process] Processing Step: Rename Types and Namespaces
 [Info][Rename] [Assembly-CSharp] Rename Type Names and Namespaces...
 [Info][Rename Type] [UnityStandardAssets.Utility.ActivateTrigger/Mode] to a
-[Info][Rename Type] [UnityStandardAssets.Utility.CameraRefocus] to a
+[Info][Rename Type] [UnityStandardAssets.Utility.CameraRefocus] to i
 [Info][Update Reference Type] [UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8]
 [Info][Rename Reference] [[Assembly-CSharp]UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8] Name: <DragObject>d__8
 [Info][Rename Type] [UnityStandardAssets.Utility.DragRigidbody/<DragObject>d__8] to a
@@ -5744,14 +5746,14 @@ E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/ActiveInputMethod] to a
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualAxis] to b
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager/VirtualButton] to c
-[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager] to b
+[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager] to j
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.Joystick/AxisOption] to a
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.TiltInput/AxisOptions] to a
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.TiltInput/AxisMapping/MappingType] to a
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.TouchPad/AxisOption] to a
 [Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.TouchPad/ControlStyle] to b
-[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput] to c
-[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput] to d
+[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput] to k
+[Info][Rename Type] [UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput] to l
 [Info][Rename] [Core] Rename Type Names and Namespaces...
 [Info][Update Reference Type] [TransparencyCaptureToFile/<capture>d__0]
 [Info][Update Reference Type] [ShanghaiWindy.Core.AssetBundleManager/<AssetBundleLoop>d__9]
