@@ -141,6 +141,12 @@ namespace MC.Core
 
             yield return LocalizationSettings.InitializationOperation;
 
+            yield return new WaitForSeconds(0.25f);
+
+            if (Application.systemLanguage == SystemLanguage.Chinese || Application.systemLanguage == SystemLanguage.ChineseSimplified || Application.systemLanguage == SystemLanguage.ChineseTraditional)
+            {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(x => x.Identifier == "zh-CN");
+            }
 
             stringReference = new LocalizedStringReference()
             {

@@ -81,61 +81,62 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSup
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSupport
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\PlaybackEngines\iOSSupport
 C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Library\ScriptAssemblies
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\AntiCheat\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Editor\Plugins\Mono.Cecil
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Editor\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Plugins
-E:\Projects\MineCraft-Special-Mobile\Assets\Plugins
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.ads@3.4.1\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.analytics@3.3.2
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\com.unity.purchasing@2.0.6\Editor
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\nuget.castle-core@1.0.1
-E:\Projects\MineCraft-Special-Mobile\Library\PackageCache\nuget.moq@1.0.0
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Library\ScriptAssemblies
+E:\Projects\MineCraft-Special\Assets\OPS\AntiCheat\Plugins
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Editor\Plugins\Mono.Cecil
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Editor\Plugins
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Plugins
+E:\Projects\MineCraft-Special\Assets\Plugins
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.ads@3.4.1\Editor
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.analytics@3.3.2
+E:\Projects\MineCraft-Special\Library\PackageCache\com.unity.purchasing@2.0.6\Editor
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.castle-core@1.0.1
+E:\Projects\MineCraft-Special\Library\PackageCache\nuget.moq@1.0.0
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\Managed
+C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
 C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
@@ -149,7 +150,7 @@ C:\Program Files\Unity\Hub\Editor\2019.2.13f1\Editor\Managed
 [Info][Process] For Assemblies: 
 OPS.Obfuscator.dll
 [Info][Process] Found Helper Assemblies Location: 
-E:\Projects\MineCraft-Special-Mobile\Assets\OPS\Obfuscator.Free\Plugins\OPS.Obfuscator.dll
+E:\Projects\MineCraft-Special\Assets\OPS\Obfuscator.Free\Plugins\OPS.Obfuscator.dll
 [Info][Process] Loading Assembly Location...
 [Info][Process] For Assemblies: 
 Assembly-CSharp.dll
@@ -158,9 +159,9 @@ Core.dll
 SkyDome.dll
 [Warning][Process] Could not find Assembly: Assembly-CSharp-firstpass.dll
 [Info][Process] Found Assemblies Location: 
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\Assembly-CSharp.dll
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\Core.dll
-E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\Assembly-CSharp.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\Core.dll
+E:\Projects\MineCraft-Special\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Process] Start Assembly obfuscation
 [Info][Process] Lock Assemblies
 [Info][Process] Loading Processings Steps...
@@ -182,9 +183,9 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Analyse] [Assembly-CSharp] Analyse Strings...
 [Info][Analyse Files] Found Strings: 50
 [Info][Analyse] [Core] Analyse Strings...
-[Info][Analyse Files] Found Strings: 211
+[Info][Analyse Files] Found Strings: 212
 [Info][Analyse] [SkyDome] Analyse Strings...
-[Info][Analyse Files] Found Strings: 290
+[Info][Analyse Files] Found Strings: 291
 [Info][Process] Finished Step: Analyse Strings
 [Info][Process] Processing Step: Analyse Files
 [Info][Analyse Files] Searching Gui Methods...
@@ -1218,6 +1219,7 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because Obfuscator Free is used.
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because of some Addon: Obfuscator [Is Serializeable, some base is Serializeable or some field is Serializeable.]
 [Info][Skip Namespace] [[Core]MC.Core.MainUI/<>c] Because of settings, 'do not obfuscate namespaces'.
@@ -1283,6 +1285,7 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c__DisplayClass26_3] Cause of Type Namespace settings.
 [Info][Skip Full Namespace] [[Core]MC.Core.MainUI/<>c] Because of settings.
+[Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
 [Info][Skip Method] [[Core]MC.Core.MainUI/<>c] Cause of Type Namespace settings.
@@ -3605,28 +3608,29 @@ E:\Projects\MineCraft-Special-Mobile\Library\PlayerScriptAssemblies\SkyDome.dll
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.UnityADCallBack/<>c::<>9__1_0] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.UnityADCallBack/<>c::<>9__1_1] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]MC.Core.MainUI/<>c MC.Core.MainUI/<>c::<>9] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_7] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_9] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_12] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Predicate`1<UnityEngine.Localization.Locale> MC.Core.MainUI/<>c::<>9__26_0] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_8] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_10] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_13] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<UnityEngine.GameObject> MC.Core.MainUI/<>c::<>9__26_11] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_15] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_17] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_19] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_21] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_14] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<UnityEngine.GameObject> MC.Core.MainUI/<>c::<>9__26_12] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_16] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_18] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_20] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_22] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_24] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_26] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_23] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_25] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_27] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_29] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_31] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_28] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_30] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_32] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_39] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_33] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_40] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_41] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_42] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_43] Because of some addon: Obfuscator [Class is Serializeable.]
-[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_5] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_44] Because of some addon: Obfuscator [Class is Serializeable.]
+[Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__26_6] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]System.Action`1<System.Boolean> MC.Core.MainUI/<>c::<>9__31_0] Because of some addon: Obfuscator [Class is Serializeable.]
 [Info][Skip Field] [[Core]MC.Core.UserMapStorage MC.Core.MainUI::activeMapStorage] Because of the public unity fields setting.
 [Info][Skip Field] [[Core]System.Collections.Generic.List`1<MC.Core.MapItem> MC.Core.MainUI::defaultMapItems] Because of the public unity fields setting.

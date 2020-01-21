@@ -5,8 +5,8 @@
         "Unity.XR.ARFoundation",
         "Unity.XR.ARSubsystems",
         "UnityEngine.Advertisements",
-        "Unity.Localization",
-        "Unity.ResourceManager"
+        "Unity.ResourceManager",
+        "Unity.Localization"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: Locale Selector Collection
   m_EditorClassIdentifier: 
   m_StartupSelectors:
-  - {fileID: -3141725848627823190}
+  - {fileID: 5581081495907091503}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
