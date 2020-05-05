@@ -53,6 +53,8 @@ namespace MC.Core.AR
 
         public BlockStorageData blockStorageData;
 
+        public GameObject hole;
+
         private readonly TrackableType trackableType = TrackableType.PlaneWithinPolygon;
 
         private bool isEditingWorld = false;
@@ -81,11 +83,11 @@ namespace MC.Core.AR
 
             worldManager.OnLoaded += () =>
             {
-                //#if UNITY_EDITOR
-
-                //#else
                 worldManager.gameObject.SetActive(false);
-                //#endif
+
+                //hole = Instantiate(hole);
+                //hole.SetActive(false);
+                //hole.transform.localScale = new Vector3(worldManager.mapData.max_width * 0.5f, 1, worldManager.mapData.max_length * 0.5f);
             };
 
             placeWorldBtn.onClick.AddListener(() =>
@@ -96,10 +98,18 @@ namespace MC.Core.AR
 
                 if (hits.Count > 0)
                 {
+
                     worldManager.gameObject.SetActive(true);
 
-                    worldManager.transform.rotation = hits[0].pose.rotation;
-                    worldManager.transform.position = hits[0].pose.position - Vector3.up * WorldManager.scaleSize * worldManager.mapData.grassHeight - 0.5f * worldManager.transform.right * worldManager.mapData.max_width * WorldManager.scaleSize - 0.5f * worldManager.transform.forward * worldManager.mapData.max_length * WorldManager.scaleSize;
+                    var rot = hits[0].pose.rotation;
+                    worldManager.transform.rotation = rot;
+
+                    var pos = hits[0].pose.position - Vector3.up * WorldManager.scaleSize * worldManager.mapData.grassHeight - 0.5f * worldManager.transform.right * worldManager.mapData.max_width * WorldManager.scaleSize - 0.5f * worldManager.transform.forward * worldManager.mapData.max_length * WorldManager.scaleSize;
+                    worldManager.transform.position = pos;
+
+                    //hole.SetActive(true);
+                    //hole.transform.rotation = rot;
+                    //hole.transform.position = hits[0].pose.position;
 
                     placeWorldBtn.gameObject.SetActive(false);
                     isEditingWorld = true;
@@ -177,6 +187,7 @@ namespace MC.Core.AR
 
                 inGamePopAd = true;
             });
+
         }
 
         private IEnumerator LoadInventory()
@@ -197,6 +208,8 @@ namespace MC.Core.AR
             currentEditingTrackableID = TrackableId.invalidId;
 
             worldManager.gameObject.SetActive(false);
+            //hole.SetActive(false);
+
             ToggleVisualization(true);
         }
 

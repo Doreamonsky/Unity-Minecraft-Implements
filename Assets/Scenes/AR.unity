@@ -2567,6 +2567,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 709975878737568136, guid: 14a4863ce296afe48a000c73126ba374,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d93acc92ad996654695e8f3595bb807e,
+        type: 3}
     - target: {fileID: 1805369697333834607, guid: 14a4863ce296afe48a000c73126ba374,
         type: 3}
       propertyPath: m_Color.r
@@ -2587,12 +2593,6 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 8.58
       objectReference: {fileID: 0}
-    - target: {fileID: 709975878737568136, guid: 14a4863ce296afe48a000c73126ba374,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: d93acc92ad996654695e8f3595bb807e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a4863ce296afe48a000c73126ba374, type: 3}
 --- !u!224 &560172257 stripped
@@ -9958,9 +9958,8 @@ GameObject:
   - component: {fileID: 1063051741}
   - component: {fileID: 1063051743}
   - component: {fileID: 1063051742}
-  - component: {fileID: 1063051746}
   - component: {fileID: 1063051744}
-  - component: {fileID: 1063051747}
+  - component: {fileID: 1063051746}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -10025,6 +10024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UseCustomMaterial: 0
   m_CustomMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_UseCustomRendererAsset: 0
+  m_CustomRendererAsset: {fileID: 0}
 --- !u!114 &1063051743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10038,7 +10039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FocusMode: 1
-  m_LightEstimationMode: 1
+  m_LightEstimationMode: 0
 --- !u!81 &1063051744
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10072,29 +10073,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1063051740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3c44306fb1e439a9f18b2212b8ab70, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1063051747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063051740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_RendererOverrideOption: 1
-  m_RendererData: {fileID: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
+  m_Device: 0
+  m_PoseSource: 6
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 1
 --- !u!1 &1070579117
 GameObject:
   m_ObjectHideFlags: 0
@@ -12661,7 +12648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AttemptUpdate: 1
-  m_MatchFrameRate: 1
 --- !u!4 &1509870905
 Transform:
   m_ObjectHideFlags: 0
@@ -12870,17 +12856,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6180979128114809800, guid: 14a4863ce296afe48a000c73126ba374,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 709975878737568136, guid: 14a4863ce296afe48a000c73126ba374,
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: d93acc92ad996654695e8f3595bb807e,
         type: 3}
+    - target: {fileID: 6180979128114809800, guid: 14a4863ce296afe48a000c73126ba374,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a4863ce296afe48a000c73126ba374, type: 3}
 --- !u!224 &1534188636 stripped
@@ -14322,6 +14308,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e2ebf24e5f312249a6bc302b802b70b, type: 2}
   - {fileID: 11400000, guid: 270940aee7cd4b248b7d43a70bf2c6a4, type: 2}
   blockStorageData: {fileID: 11400000, guid: 9ee6b511913bafd4f87a30d4bcb6ed10, type: 2}
+  hole: {fileID: 9078612878888228276, guid: bc9ae6ce638ae1f48ae72eb6d5946f6a, type: 3}
 --- !u!4 &1760917638
 Transform:
   m_ObjectHideFlags: 0
